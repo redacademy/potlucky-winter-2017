@@ -4,5 +4,5 @@ Potlucky App Community Project - Winter 2017
 #### Invision Prototype:
 https://invis.io/WAAGE02HB
 
-#### To run: df
+#### Start the app:
 `react-native run-ios`
