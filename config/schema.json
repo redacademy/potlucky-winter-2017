@@ -24,21 +24,29 @@
     }
   },
 
-  // guests for potLuck - linked on potLuckId, FK on usersId
+  // guests for potLuck - linked on potLuckId, FK on usersIds
   "potLuckGuests": {
     "potLuckId": {
-      "userId": {
+      "userId1": {
         "inviteIssued": true,
         "inviteIssueDate": "2017-03-10",
         "inviteAccepted": false,
         "inviteAcceptedDate": null,
         "inviteCancelled": null,
         "inviteCancelledDate": null
+      },
+      "userId2": {
+        "inviteIssued": true,
+        "inviteIssueDate": "2017-03-10",
+        "inviteAccepted": true,
+        "inviteAcceptedDate": "2017-03-15",
+        "inviteCancelled": null,
+        "inviteCancelledDate": null
       }
     }
   },
 
-  // food for potLucks - linked on potLuckId, FK on courseId, FK on usersId
+  // food for potLucks - linked on potLuckId, FK on courseId, FK on usersIds
   "potLuckFood": {
     "potLuckId": {
       "courseId": {
@@ -51,6 +59,7 @@
           "meal": "mealName2"
         },
         "mealId3": {
+          // may need empty keys in here for scaffolding
         }
       }
     }
