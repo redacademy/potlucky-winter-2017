@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Text, View, Button } from 'react-native';
 import { styles } from './styles';
-import GenericForm from './../../components/GenericForm'
 import SignUpForm from './../../components/SignupForm'
 import LoginForm from './../../components/LoginForm'
 
@@ -16,7 +15,6 @@ const SignInSignUpScreen = ({ navigation }) => {
       }}>
         <LoginForm/>
         <SignUpForm/>
-        <GenericForm />
       </View>
     </View>
   );

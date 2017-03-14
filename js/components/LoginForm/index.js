@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Gandalf from 'gandalf-validator';
 import { TextInput, View, Text, TouchableHighlight } from 'react-native';
-import { styles } from './styles';
+import { styles } from './../../styles/formStyles';
 
 class Form extends Gandalf {
   constructor() {
