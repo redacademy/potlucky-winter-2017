@@ -1,0 +1,65 @@
+// schema for pot lucky
+
+{
+  // users
+  "users": {
+    "userID": {
+      "firstName": "Bilbo",
+      "lastName": "Baggins",
+      "email": "bilbo@bilbo.com",
+      "password": "somepassword"
+    }
+  },
+
+  // potLucks - source of potLuckId
+  "potLucks": {
+    "potLuckId": {
+      "userId": true,
+      "name": "Pot Luck 1",
+      "theme": "The theme for our pot luck is Star Wars",
+      "date": "2017-03-31",
+      "arriveTime": "15:00",
+      "serveTime": "15:30",
+      "location": "At my house, some address"
+    }
+  },
+
+  // guests for potLuck - linked on potLuckId, FK on usersId
+  "potLuckGuests": {
+    "potLuckId": {
+      "userId": {
+        "inviteIssued": true,
+        "inviteIssueDate": "2017-03-10",
+        "inviteAccepted": false,
+        "inviteAcceptedDate": null,
+        "inviteCancelled": null,
+        "inviteCancelledDate": null
+      }
+    }
+  },
+
+  // food for potLucks - linked on potLuckId, FK on courseId, FK on usersId
+  "potLuckFood": {
+    "potLuckId": {
+      "courseId": {
+        "mealId1": {
+          "userId1": true,
+          "meal": "mealName1"
+        },
+        "mealId2": {
+          "userId5": true,
+          "meal": "mealName2"
+        },
+        "mealId3": {
+        }
+      }
+    }
+  },
+
+  // meal names
+  "courses": {
+    "courseID": {
+      "courseName": "courseName"
+    }
+  }
+}
