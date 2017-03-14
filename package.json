@@ -31,7 +31,7 @@
   },
   "rnpm": {
     "assets": [
-      "js/assets/fonts"
+      "assets/fonts"
     ]
   }
 }
