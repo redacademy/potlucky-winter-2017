@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, Image, View, Button } from 'react-native';
+import { Overlay, OrangeText, WhiteText } from '../../components/Overlay'
 import { styles } from './styles';
 import SignUpForm from './../../components/SignupForm'
 import LoginForm from './../../components/LoginForm'
@@ -7,15 +8,19 @@ import LoginForm from './../../components/LoginForm'
 const SignInSignUpScreen = ({ navigation }) => {
   return (
     <View style={styles.hello}>
-
-      <View style={{
-        flex: 1,
-        height: 500,
-        width: 200,
-      }}>
-        <LoginForm/>
-        <SignUpForm/>
-      </View>
+      <Button
+        onPress={() => navigation.navigate('HomeScreenNavigator')}
+        title="Login"
+      />
+      <Overlay>
+        <Image style={{ marginBottom: 20 }} source={require('../../../assets/images/Drag-Down-icon.png')} />
+        <OrangeText>Great, to see you there!</OrangeText>
+        <WhiteText>
+          Please fill out the food form{'\n'}
+          and let the host know{'\n'}
+           what you'll be bringing.
+        </WhiteText>
+      </Overlay>
     </View>
   );
 }
