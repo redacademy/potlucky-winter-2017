@@ -53,13 +53,13 @@ Overlay.propTypes = {
   overlayId: PropTypes.string,
 }
 
-export const OrangeText = ({ children, style }) => (
-  <Text style={[styles.orangeText, style]}>
+export const HighlightedOverlayText = ({ children, style }) => (
+  <Text style={[styles.baseTextStyling, styles.highlightedText, style]}>
     {children}
   </Text>
 )
 
-OrangeText.propTypes = {
+HighlightedOverlayText.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.array.isRequired,
@@ -67,13 +67,13 @@ OrangeText.propTypes = {
   style: PropTypes.object,
 }
 
-export const WhiteText = ({ children, style }) => (
-  <Text style={[styles.whiteText, style]}>
+export const OverlayText = ({ children, style }) => (
+  <Text style={[styles.baseTextStyling, style]}>
     {children}
   </Text>
 )
 
-WhiteText.propTypes = {
+OverlayText.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.array.isRequired,
