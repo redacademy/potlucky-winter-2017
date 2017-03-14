@@ -18,9 +18,9 @@ export const colors = {
 }
 
 export const typography = {
-  smallestFontSize: '10px',
-  baseFontSize: '14px',
-  headerFontSize: '24px',
+  smallestFontSize: 10,
+  baseFontSize: 14,
+  headerFontSize: 24,
   fontMain: 'Ubuntu-R.ttf',
   fontMainLight: 'Ubuntu-L.ttf',
   fontMainMedium: 'Ubuntu-M.ttf',
@@ -44,10 +44,10 @@ export default StyleSheet.create({
     color: colors.mainBrandColor,
   },
   tutorialMain: {
-    fontSize: '20px',
+    fontSize: 20,
     fontFamily: typography.fontMain,
     color: typography.mainBrandColor,
-    lineHeight: '24px',
+    lineHeight: 24,
   },
   progressNumber: {
     fontSize: typography.baseSize,
@@ -55,7 +55,7 @@ export default StyleSheet.create({
     color: 'white',
   },
   guestNumber: {
-    fontSize: '50px',
+    fontSize: 50,
     fontFamily: typography.fontMainMedium,
     color: 'black',
   },
@@ -66,7 +66,7 @@ export default StyleSheet.create({
   },
   mainCourseTitle: {
     fontSize: typography.baseFontSize,
-    fontfamily: typography.fontMainBold,
+    fontFamily: typography.fontMainBold,
     color: colors.mainBrand,
   }
 });
