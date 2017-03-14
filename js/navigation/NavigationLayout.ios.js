@@ -3,39 +3,38 @@
  * @flow
  */
 
-import React, { Component, } from 'react';
-import { StyleSheet, Text } from 'react-native';
 import {
-  StackNavigation,
-  TabNavigation,
-  TabNavigationItem,
-} from '@exponent/ex-navigation';
+  StackNavigator,
+  TabNavigator
+} from 'react-navigation'
 
-import Router from './router';
+import SignInSignUpScreen from '../scenes/SignInSignUpScreen'
+import AccountScreen from '../scenes/AccountScreen'
+import MyPotLucksScreen from '../scenes/MyPotlucksScreen'
+import CreatePotluckScreen from '../scenes/CreatePotluckScreen'
 
-export default class NavigationLayout extends Component {
-  render() {
-    return (
-		<TabNavigation
-			initialTab="hello"
-		>
-			<TabNavigationItem
-			id="hello"
-			title="NavigationLayout.ios.js Title"
-			renderTitle={this.renderTitle}
-			>
-			<StackNavigation
-			navigatorUID="hello"
-			initialRoute={Router.getRoute('hello')}
-			/>
-        </TabNavigationItem>
-      </TabNavigation>
-    );
+const HomeScreenNavigator = TabNavigator(
+  {
+    Account: { screen: AccountScreen },
+    MyPotlucks: { screen: MyPotLucksScreen },
+    CreatePotluck: { screen: CreatePotluckScreen },
+  },
+  {
+    initialRouteName: 'Account',
   }
+)
 
-  renderTitle(isSelected, title) {
-    return (
-      <Text>{title}</Text>
-    );
+HomeScreenNavigator.navigationOptions = {
+
+};
+
+export default StackNavigator(
+  {
+    Login: { screen: SignInSignUpScreen },
+    HomeScreenNavigator: { screen: HomeScreenNavigator },
+  },
+  {
+    initialRouteName: 'Login',
+    headerMode: 'screen'
   }
-}
+)
