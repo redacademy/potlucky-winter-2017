@@ -10,6 +10,11 @@ export default combineReducers({
   myInvitedPotlucks: myInvitedPotlucksReducer,
   myHostPotlucks: myHostPotlucksReducer,
   isLoading: isLoadingReducer,
+<<<<<<< HEAD
   userSignIn: userSignInReducer,
   newPotluck: newPotluckReducer,
 });
+=======
+});
+
+>>>>>>> fixed merge conflict
