@@ -12,7 +12,7 @@ export const hostTabScreens = {
 export const hostTabStyles = {
   initialRouteName: 'Info',
   tabBarPosition: 'top',
-  tabBarOptions: {
+  tabBarOptions: { 
     activeTintColor: 'white',
     inactiveTintColor: colors.mainBrandColor,
     activeBackgroundColor: colors.mainBrandColor,
