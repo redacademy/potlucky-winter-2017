@@ -1,9 +1,12 @@
 import { StyleSheet } from 'react-native';
+import { windowHeight, windowWidth } from '../../styles/baseStyles'
 
 export const styles = StyleSheet.create({
 	hello: {
-		height: '100%',
+		height: windowHeight,
+		width: windowWidth,
 		alignItems: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
+		backgroundColor: '#FFF'
 	}
 });

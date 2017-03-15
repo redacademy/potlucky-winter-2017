@@ -5,6 +5,13 @@ import { styles } from './styles';
 import SignUpForm from './../../components/SignupForm'
 import LoginForm from './../../components/LoginForm'
 
+
+import RoundedButton from '../../components/RoundedButton'
+
+const onLoginPress = () => {
+  console.log('hi')
+}
+
 const SignInSignUpScreen = ({ navigation }) => {
   return (
     <View style={styles.hello}>
@@ -12,6 +19,10 @@ const SignInSignUpScreen = ({ navigation }) => {
         onPress={() => navigation.navigate('HomeScreenNavigator')}
         title="Login"
       />
+
+      <RoundedButton text='SIGN IN' style={{marginBottom: 20}} onPress={() => onLoginPress()} />
+      <RoundedButton text='SIGN UP' color='#ABD750' onPress={() => onLoginPress()} />
+
       <Overlay>
         <Image style={{ marginBottom: 20 }} source={require('../../../assets/images/Drag-Down-icon.png')} />
         <HighlightedOverlayText style={{fontSize: 25}}>Great, to see you there!</HighlightedOverlayText>
@@ -21,6 +32,7 @@ const SignInSignUpScreen = ({ navigation }) => {
            what you'll be bringing.
         </OverlayText>
       </Overlay>
+
     </View>
   );
 }
