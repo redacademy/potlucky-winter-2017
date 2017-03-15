@@ -21,10 +21,10 @@ export const typography = {
   smallestFontSize: 10,
   baseFontSize: 14,
   headerFontSize: 24,
-  fontMain: 'Ubuntu-R.ttf',
-  fontMainLight: 'Ubuntu-L.ttf',
-  fontMainMedium: 'Ubuntu-M.ttf',
-  fontMainBold: 'Ubuntu-B.ttf',
+  fontMain: 'Ubuntu',
+  fontMainLight: 'Ubuntu-Light',
+  fontMainMedium: 'Ubuntu-Medium',
+  fontMainBold: 'Ubuntu-Bold',
 }
 
 export default StyleSheet.create({
