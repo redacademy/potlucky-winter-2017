@@ -1,6 +1,9 @@
 import React, { PropTypes } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, Image, View, Button } from 'react-native';
+import { Overlay, OverlayText, HighlightedOverlayText } from '../../components/Overlay'
 import { styles } from './styles';
+import SignUpForm from './../../components/SignupForm'
+import LoginForm from './../../components/LoginForm'
 
 
 import RoundedButton from '../../components/RoundedButton'
@@ -18,7 +21,18 @@ const SignInSignUpScreen = ({ navigation }) => {
       />
 
       <RoundedButton text='SIGN IN' style={{marginBottom: 20}} onPress={() => onLoginPress()} />
-       <RoundedButton text='SIGN UP' color='#ABD750' onPress={() => onLoginPress()} />
+      <RoundedButton text='SIGN UP' color='#ABD750' onPress={() => onLoginPress()} />
+
+      <Overlay>
+        <Image style={{ marginBottom: 20 }} source={require('../../../assets/images/Drag-Down-icon.png')} />
+        <HighlightedOverlayText style={{fontSize: 25}}>Great, to see you there!</HighlightedOverlayText>
+        <OverlayText>
+          Please fill out the food form{'\n'}
+          and let the host know{'\n'}
+           what you'll be bringing.
+        </OverlayText>
+      </Overlay>
+
     </View>
   );
 }
