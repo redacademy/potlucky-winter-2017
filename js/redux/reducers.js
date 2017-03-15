@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { NavigationReducer } from '@exponent/ex-navigation';
-import helloReducer from './modules/hello';
+import myInvitedPotlucksReducer from './modules/myInvitedPotlucksReducer';
+import myHostPotlucksReducer from './modules/myHostedPotlucksReducer';
+import isLoadingReducer from './modules/isLoadingReducer'
 
 export default combineReducers({
-  navigation: NavigationReducer,
-  hello: helloReducer
+  myInvitedPotlucks: myInvitedPotlucksReducer,
+  myHostPotlucks: myHostPotlucksReducer,
+  isLoading: isLoadingReducer,
 });
