@@ -1,4 +1,4 @@
-import { firebaseApp } from '../../config/firebase';
+import { firebaseApp } from '../../../config/firebase';
 
 const FIRBASE_VALUE_TYPE = 'value';
 
@@ -14,10 +14,10 @@ const get = (path) => {
     });
 };
 
-const set = (path, data) => {
+const push = (path, data) => {
   return firebaseApp.database()
   .ref(path)
-  .set(data);
+  .push(data);
    // return new Id?
 };
 
@@ -37,7 +37,7 @@ const remove = (path) => {
 
 export default {
   get,
-  set,
+  push,
   change,
   remove,
 };

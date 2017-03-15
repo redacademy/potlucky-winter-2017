@@ -1,20 +1,15 @@
-// import userDetails from 'services/api/user-details
-// userDetails.get()
-// userDetails.create()
-// userDetails.update()
-
-import { get, set, change, remove } from './base';
+import api from './base';
 
 const getUserDetails = (userId) => {
-  return get(`/userDetails/${userId}`);
+  return api.get(`/userDetails/${userId}`);
 }
 
 const create = (data) => {
-  return set('/userDetails', data);
+  return api.push('/userDetails', data);
 }
 
 const update = (userId, data) => {
-  return change(`/userDetails/${userId}`, data)
+  return api.change(`/userDetails/${userId}`, data)
 };
 
 export default {
