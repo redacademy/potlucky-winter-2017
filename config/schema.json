@@ -1,17 +1,15 @@
 // schema for pot lucky
 
 {
-  // users
-  "users": {
+  // user meta data
+  "userDetails": {
     "userID": {
       "firstName": "Bilbo",
-      "lastName": "Baggins",
-      "email": "bilbo@bilbo.com",
-      "password": "somepassword"
+      "lastName": "Baggins"
     }
   },
 
-  // potLucks - source of potLuckId
+  // potLucks - source of potLuckId and pot luck info
   "potLucks": {
     "potLuckId": {
       "userId": true,
@@ -21,28 +19,6 @@
       "arriveTime": "15:00",
       "serveTime": "15:30",
       "location": "At my house, some address"
-    }
-  },
-
-  // guests for potLuck - linked on potLuckId, FK on usersIds
-  "potLuckGuests": {
-    "potLuckId": {
-      "userId1": {
-        "inviteIssued": true,
-        "inviteIssueDate": "2017-03-10",
-        "inviteAccepted": false,
-        "inviteAcceptedDate": null,
-        "inviteCancelled": null,
-        "inviteCancelledDate": null
-      },
-      "userId2": {
-        "inviteIssued": true,
-        "inviteIssueDate": "2017-03-10",
-        "inviteAccepted": true,
-        "inviteAcceptedDate": "2017-03-15",
-        "inviteCancelled": null,
-        "inviteCancelledDate": null
-      }
     }
   },
 
@@ -65,7 +41,50 @@
     }
   },
 
-  // meal names
+  // email object of invited guest emails - linked on potLuckId
+  "potLuckInvites": {
+    "potLuckId":{
+      "guest1": "emailAddress1",
+      "guest2": "emailAddress2",
+      "guest3": "emailAddress3"
+    }
+  },
+
+  // confirmed guests for potLuck - linked on potLuckId, FK on usersIds
+  "potLuckGuests": {
+    "potLuckId": {
+      "userId1": {
+        "inviteIssued": true,
+        "inviteIssueDate": "2017-03-10",
+        "inviteAccepted": false,
+        "inviteAcceptedDate": null,
+        "inviteCancelled": null,
+        "inviteCancelledDate": null
+      },
+      "userId2": {
+        "inviteIssued": true,
+        "inviteIssueDate": "2017-03-10",
+        "inviteAccepted": true,
+        "inviteAcceptedDate": "2017-03-15",
+        "inviteCancelled": null,
+        "inviteCancelledDate": null
+      }
+    }
+  },
+
+  // list of pot lucks for each user 
+  "userPotLucks":{
+    "userId1": {
+      "potLuckId1": true,
+      "potLuckid2": true,
+      "potLuckId3": true
+      },
+    "userId2": {
+      "potLuckId1": true
+    }
+  },
+
+  // course names
   "courses": {
     "courseID": {
       "courseName": "courseName"

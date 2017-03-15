@@ -1,63 +1,64 @@
 import { firebaseApp } from '../../config/firebase';
 
-// get userID
-const userId = firebaseApp.auth().currentUser.uid;
+// get user authentication code
+// const userId = firebaseApp.auth().currentUser.uid;
 
+// service
 // for select
 const get = (path) => {
   return firebaseApp.database()
-    .ref(path+userId)
+    .ref(path)
     .once('value')
     .then((snapshot) => {
-      return snapshot.val(); // return?
-    // ...
+      // const data = snapshot.val();
+      return snapshot.val();
     });
 }
 
 // for insert
 const set = (path, data) => {
   return firebaseApp.database()
-  .ref(path+userId)
+  .ref(path)
   .set(data);
+   // return new Id?
 }
 
 // for update - TODO multiple path updates
-const change = (path, data) => {
+const changeOne = (path, data) => {
   return firebaseApp.database()
-  .ref(path+userId)
+  .ref(path)
   .update(data);
 }
 
-// for delete
-// const remove = 
+// for delete - TODO multiple delete with .update(null)
+const removeOne = (path) => {
+  return firebaseApp.database()
+  .ref(path)
+  .remove();
+}
 
 // end points
-export const = 
+// docs ref: https://firebase.google.com/docs/database/web/read-and-write
 
-export const createPotluck = data => {
+// get
+export const getUserDetails = (userId) => {
+  return get(`/userDetails/${userId}`);
+}
+
+// set
+export const createUserDetails = (data) => {
+  return set('/userDetails', data);
+}
+
+export const createPotLuck = data => {
    return set('/potluck', data);
+   // TODO add other inserts for child objects
 };
 
-/*
-var userId = firebase.auth().currentUser.uid;
+// change
+export const updateUserDetails = (userId, data) => {
+  return changeOne(`/userDetails/${userId}`, data)
+};
 
-return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-  var username = snapshot.val().username;
-  // ...
-});
-
-function writeUserData(userId, name, email, imageUrl) {
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    email: email,
-    profile_picture : imageUrl
-  });
-}
-*/
-
-/*
-// to use
-import api from '...'
-
-api.createPotluck(data);
-*/
+// delete
+// TODO
