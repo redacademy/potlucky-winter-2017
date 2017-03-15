@@ -1,9 +1,10 @@
 import React from 'react';
 import InvitesScreenContainer from './InvitesScreenContainer';
+import { Text } from 'react-native'
 
 const InvitesScreen = () => {
   return (
-    <InvitesScreenContainer />
+    <Text> This is an invite screen</Text>
   );
 };
 

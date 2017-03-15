@@ -1,10 +1,13 @@
 import { StyleSheet } from 'react-native';
-import Main, { typography, colors } from './baseStyles'
+import Main, { typography, colors, windowHeight, windowWidth } from './baseStyles'
 
 export const styles = StyleSheet.create({
   container: {
     flex: .75,
     alignItems: 'center'
+  },
+  expanded:{
+    flex: 4,
   },
   button: {
     height: 100,
@@ -29,6 +32,7 @@ export const styles = StyleSheet.create({
   },
   mainContainer: {
     height: 220,
+    flex: 1,
   },
   errorMessage: {
     flex: 1,

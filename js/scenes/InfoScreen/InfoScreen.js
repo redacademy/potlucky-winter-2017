@@ -1,9 +1,14 @@
 import React from 'react';
 import InfoScreenContainer from './InfoScreenContainer';
+import { Text,ScrollView } from 'react-native'
+import InfoForm from './../../components/InfoForm'
+
 
 const InfoScreen = () => {
   return (
-    <InfoScreenContainer />
+    <ScrollView>
+    <InfoForm/> 
+    </ScrollView>
   );
 };
 
