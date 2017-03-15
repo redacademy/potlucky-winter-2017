@@ -12,7 +12,7 @@
   // potLucks - source of potLuckId and pot luck info
   "potLucks": {
     "potLuckId1": {
-      "userId": true,
+      "userId1": true,
       "name": "Pot Luck 1",
       "theme": "The theme for our pot luck is Star Wars",
       "date": "2017-03-31",
