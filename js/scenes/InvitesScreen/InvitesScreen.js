@@ -1,5 +1,5 @@
 import React from 'react';
-import InvitesScreenContainer from './InvitesScreenContainer'
+import InvitesScreenContainer from './InvitesScreenContainer';
 
 const InvitesScreen = () => {
   return (

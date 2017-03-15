@@ -1,9 +1,16 @@
 import React from 'react';
-import MyPotlucksScreen from './MyPotlucksScreen'
+import { Image } from 'react-native';
+import MyPotlucksScreen from './MyPotlucksScreen';
 
 class MyPotlucksScreenContainer extends React.Component {
   static navigationOptions = {
-    title: 'MyPotlucks',
+    title: 'My Potlucks',
+
+    tabBar: () => ({
+      icon: (
+        <Image style={{ height: 30, width: 30 }} source={require('../../../assets/images/potbottom.png')} />
+      ),
+    })
   };
 
   constructor() {
@@ -19,4 +26,4 @@ class MyPotlucksScreenContainer extends React.Component {
   }
 }
 
-export default MyPotlucksScreenContainer
+export default MyPotlucksScreenContainer;

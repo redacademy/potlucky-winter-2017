@@ -8,6 +8,9 @@
   },
   "dependencies": {
     "@exponent/ex-navigation": "^2.9.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
     "firebase": "^3.7.1",
     "gandalf-validator": "^0.6.2",
     "react": "15.4.2",
@@ -24,7 +27,7 @@
     "babel-preset-react-native": "1.9.1",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "eslint": "^3.17.1",
-    "eslint-config-redacademy": "^0.3.0",
+    "eslint-config-redacademy": "^0.3.2",
     "eslint-plugin-react": "^6.9.0",
     "eslint-plugin-react-native": "^2.2.1",
     "jest": "19.0.2",

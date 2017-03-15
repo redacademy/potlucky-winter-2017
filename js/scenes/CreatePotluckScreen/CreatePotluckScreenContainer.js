@@ -1,9 +1,16 @@
 import React from 'react';
-import CreatePotluckScreen from './CreatePotluckScreen'
+import { Image } from 'react-native';
+import CreatePotluckScreen from './CreatePotluckScreen';
 
 class CreatePotluckScreenContainer extends React.Component {
   static navigationOptions = {
     title: 'Create Potlucks',
+
+    tabBar: () => ({
+      icon: (
+        <Image style={{ height: 30, width: 30 }} source={require('../../../assets/images/potbottomplus.png')} />
+      ),
+    })
   };
 
   constructor() {
@@ -19,4 +26,4 @@ class CreatePotluckScreenContainer extends React.Component {
   }
 }
 
-export default CreatePotluckScreenContainer
+export default CreatePotluckScreenContainer;

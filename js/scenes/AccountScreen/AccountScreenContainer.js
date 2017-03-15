@@ -1,9 +1,16 @@
 import React from 'react';
-import AccountScreen from './AccountScreen'
+import { Image } from 'react-native';
+import AccountScreen from './AccountScreen';
 
 class AccountScreenContainer extends React.Component {
   static navigationOptions = {
-    title: 'Account Screen',
+    title: 'Account',
+    
+    tabBar: () => ({
+      icon: (
+        <Image style={{ height: 30, width: 25 }} source={require('../../../assets/images/accounticon.png')} />
+      ),
+    })
   };
 
   constructor() {
@@ -19,4 +26,4 @@ class AccountScreenContainer extends React.Component {
   }
 }
 
-export default AccountScreenContainer
+export default AccountScreenContainer;
