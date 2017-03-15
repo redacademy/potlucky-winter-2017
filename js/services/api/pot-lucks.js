@@ -1,6 +1,6 @@
 import api from './base';
 
-const getUserPotLucks = (userId) => {
+export const getUserPotLucks = (userId) => {
   return api.get(`userPotLucks/${userId}`)
     .then((result) => {
       return result;
@@ -10,7 +10,7 @@ const getUserPotLucks = (userId) => {
     });
 };
 
-const getPotLuck = (potLuckId) => {
+export const getPotLuck = (potLuckId) => {
   return api.get(`/potLucks/${potLuckId}`)
     .then((result) => {
       return result;
@@ -50,6 +50,16 @@ const create = (data) => {
     .catch((error) => {
       console.log(error);
     });
+};
+
+export const getPotluck = potluckId => {
+   return api.get(`/potLucks/${potluckId}`);
+   // TODO add other inserts for child objects
+};
+
+export const getPotlucks = potluckId => {
+   return api.get(`/potLucks/`);
+   // TODO add other inserts for child objects
 };
 
 export default {

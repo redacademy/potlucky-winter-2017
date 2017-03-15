@@ -9,7 +9,7 @@ import RoundedButton from '../../components/RoundedButton';
 
 import styles from './styles';
 
-const CreatePotluckScreen = ({ navigate, navigation }) => (
+const CreatePotluckScreen = ({ navigation }) => (
   <View style={styles.container}>
     <Image
       style={styles.image}
