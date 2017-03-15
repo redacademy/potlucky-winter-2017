@@ -5,7 +5,6 @@ import MyPotlucksScreen from './MyPotlucksScreen';
 class MyPotlucksScreenContainer extends React.Component {
   static navigationOptions = {
     title: 'My Potlucks',
-
     tabBar: () => ({
       icon: (
         <Image style={{ height: 30, width: 30 }} source={require('../../../assets/images/potbottom.png')} />
