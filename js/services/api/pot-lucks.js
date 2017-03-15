@@ -1,7 +1,7 @@
-import { get, set, change, remove } from './base';
+import api from './base';
 
 export const create = data => {
-   return set('/potluck', data);
+   return api.set('/potluck', data);
    // TODO add other inserts for child objects
 };
 
