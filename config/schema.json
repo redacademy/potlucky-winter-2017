@@ -3,7 +3,7 @@
 {
   // user meta data
   "userDetails": {
-    "userID": {
+    "userId1": {
       "firstName": "Bilbo",
       "lastName": "Baggins"
     }
@@ -11,7 +11,7 @@
 
   // potLucks - source of potLuckId and pot luck info
   "potLucks": {
-    "potLuckId": {
+    "potLuckId1": {
       "userId": true,
       "name": "Pot Luck 1",
       "theme": "The theme for our pot luck is Star Wars",
@@ -24,8 +24,8 @@
 
   // food for potLucks - linked on potLuckId, FK on courseId, FK on usersIds
   "potLuckFood": {
-    "potLuckId": {
-      "courseId": {
+    "potLuckId1": {
+      "courseId1": {
         "mealId1": {
           "userId1": true,
           "meal": "mealName1"
@@ -43,10 +43,10 @@
 
   // email object of invited guest emails - linked on potLuckId
   "potLuckInvites": {
-    "potLuckId":{
-      "guest1": "emailAddress1",
-      "guest2": "emailAddress2",
-      "guest3": "emailAddress3"
+    "potLuckId1":{
+      "guestId1": "emailAddress1",
+      "guestId2": "emailAddress2",
+      "guestId3": "emailAddress3"
     }
   },
 
@@ -86,7 +86,7 @@
 
   // course names
   "courses": {
-    "courseID": {
+    "courseId1": {
       "courseName": "courseName"
     }
   }
