@@ -12,15 +12,11 @@ class CreatePotluckScreenContainer extends React.Component {
     })
   };
 
-  constructor() {
-    super()
-  }
-
   render() {
     const { navigate } = this.props.navigation;
     // The screen's current route is passed in to `props.navigation.state`:
     return (
-      <CreatePotluckScreen navigate={navigate} />
+      <CreatePotluckScreen navigate={navigate} navigation={this.props.navigation} />
     );
   }
 }

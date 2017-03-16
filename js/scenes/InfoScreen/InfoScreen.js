@@ -1,10 +1,14 @@
 import React from 'react';
-import InfoScreenContainer from './InfoScreenContainer';
+import {
+  Text,
+  View,
+} from 'react-native';
+import styles from './styles';
 
-const InfoScreen = () => {
-  return (
-    <InfoScreenContainer />
+const InfoScreen = () => (
+    <View>
+      <Text>Welcome to the Account</Text>
+    </View>
   );
-};
 
 export default InfoScreen;

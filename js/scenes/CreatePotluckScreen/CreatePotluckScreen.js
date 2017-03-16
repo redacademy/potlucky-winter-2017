@@ -2,16 +2,24 @@ import React from 'react';
 import {
   Text,
   View,
-} from 'react-native'
+  Image,
+  TouchableHighlight,
+} from 'react-native';
+import styles from './styles';
 
-import styles from './styles'
-
-const CreatePotluckScreen = () => {
-  return (
-    <View>
-      <Text>Welcome to the Create a Potluck Screen</Text>
+const CreatePotluckScreen = ({ navigate, navigation }) => (
+    <View style={styles.container}>
+      <Image
+        style={styles.image}
+        source={require('./../../../assets/images/wimpel.png')}
+      />
+      <Text style={styles.header}>Create a Potluck</Text>
+      <TouchableHighlight
+        style={styles.button}
+        onPress={() => navigation.navigate('NumberOfGuestScreen')}>
+        <Text style={styles.buttonText}>Regular Potluck</Text>
+      </TouchableHighlight>
     </View>
   );
-};
 
 export default CreatePotluckScreen;
