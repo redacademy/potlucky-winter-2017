@@ -71,7 +71,7 @@ class Form extends Gandalf {
         <TouchableHighlight style={styles.button} onPress={() => this.handleSubmit()}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableHighlight>
-      </View >
+      </View>
     );
   }
 }

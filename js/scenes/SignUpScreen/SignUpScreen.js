@@ -1,12 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import Gandalf from 'gandalf-validator';
 import { TextInput, View, Text, TouchableHighlight } from 'react-native';
 import { styles } from './styles';
 
 class SignupForm extends Gandalf {
   constructor() {
-    const fields = {
-      fName: {
+    const fields = [
+      {
+        name: 'fName',
         component: TextInput,
         validators: ['required'],
         errorPropName: 'error',
@@ -14,12 +15,12 @@ class SignupForm extends Gandalf {
         props: {
           placeholder: 'First Name',
           style: styles.login
-
         },
-        getValueInOnChange: (text) => text,
+        getValueInOnChange: text => text,
         debounce: 500,
       },
-      lName: {
+      {
+        name: 'lName',
         component: TextInput,
         validators: ['required'],
         errorPropName: 'error',
@@ -29,10 +30,11 @@ class SignupForm extends Gandalf {
           style: styles.login
 
         },
-        getValueInOnChange: (text) => text,
+        getValueInOnChange: text => text,
         debounce: 500,
       },
-      email: {
+      {
+        name: 'email',
         component: TextInput,
         validators: ['email'],
         errorPropName: 'error',
@@ -41,10 +43,11 @@ class SignupForm extends Gandalf {
           placeholder: 'Email',
           style: styles.login
         },
-        getValueInOnChange: (text) => text,
+        getValueInOnChange: text => text,
         debounce: 500,
       },
-      password: {
+      {
+        name: 'password',
         component: TextInput,
         validators: ['required'],
         errorPropName: 'error',
@@ -53,20 +56,32 @@ class SignupForm extends Gandalf {
           placeholder: 'Password',
           style: styles.login
         },
-        getValueInOnChange: (text) => text,
+        getValueInOnChange: text => text,
         debounce: 500,
       },
-    };
+    ];
 
     super(fields);
   }
 
-  handleSubmit() {
+  handleSubmit = () => {
     const data = this.getCleanFormData();
 
     if (!data) return;
-    // Submit to REDUX
-    console.log('goin\' to REDUX', data);
+
+    const signUpAuth = {
+      email: data.email.toLowerCase().trim(),
+      password: data.password.trim(),
+      firstName: data.fName.trim(),
+      lastName: data.lName.trim(),
+    };
+
+    this.props.onSignUpClick(signUpAuth);
+
+    // TODO set correct navigation on successful sign-up
+    // if (this.props.userSignedIn) {
+    this.props.navigation.navigate('HomeScreenNavigator');
+    // }
   }
 
   render() {
@@ -119,7 +134,7 @@ class SignupForm extends Gandalf {
           <Text style={styles.buttonText}>Register</Text>
         </TouchableHighlight>
       </View>
-    )
+    );
   }
 }
 

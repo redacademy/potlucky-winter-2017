@@ -5,12 +5,12 @@
 import {
   StackNavigator,
   TabNavigator
-} from 'react-navigation'
-import SignInSignUpScreen from '../scenes/SignInSignUpScreen'
-import AccountScreen from '../scenes/AccountScreen'
-import MyPotLucksScreen from '../scenes/MyPotlucksScreen'
-import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from './TabNavConfig'
-
+} from 'react-navigation';
+import SignInSignUpScreen from '../scenes/SignInSignUpScreen';
+import SignUp from '../scenes/SignUpScreen';
+import AccountScreen from '../scenes/AccountScreen';
+import MyPotLucksScreen from '../scenes/MyPotlucksScreen';
+import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from './TabNavConfig';
 
 const HostTabNavigator = TabNavigator(hostTabScreens, hostTabStyles);
 
@@ -25,7 +25,7 @@ const HomeScreenNavigator = TabNavigator(
   {
     initialRouteName: 'Account',
   }
-)
+);
 
 HomeScreenNavigator.navigationOptions = {
 
@@ -34,10 +34,11 @@ HomeScreenNavigator.navigationOptions = {
 export default StackNavigator(
   {
     Login: { screen: SignInSignUpScreen },
+    SignUp: { screen: SignUp },
     HomeScreenNavigator: { screen: HomeScreenNavigator },
   },
   {
     initialRouteName: 'Login',
     headerMode: 'screen'
   }
-)
+);

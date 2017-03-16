@@ -25,17 +25,15 @@
   // food for potLucks - linked on potLuckId, FK on courseId, FK on usersIds
   "potLuckFood": {
     "potLuckId1": {
-      "courseId1": {
-        "mealId1": {
-          "userId1": true,
-          "meal": "mealName1"
-        },
-        "mealId2": {
-          "userId5": true,
-          "meal": "mealName2"
-        },
-        "mealId3": {
-          // may need empty keys in here for scaffolding
+      "APPETIZER": {
+        "desiredDishCount": 5,
+        "assignments": {
+          "userId1": {
+            "meal": "mealName1"
+          },
+          "userId5": {
+            "meal": "mealName2"
+          }
         }
       }
     }
@@ -81,13 +79,6 @@
       },
     "userId2": {
       "potLuckId1": true
-    }
-  },
-
-  // course names
-  "courses": {
-    "courseId1": {
-      "courseName": "courseName"
     }
   }
 }

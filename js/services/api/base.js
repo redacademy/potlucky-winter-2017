@@ -1,12 +1,9 @@
-import { firebaseApp } from '../../../config/firebase';
+import firebase from 'firebase';
 
 const FIRBASE_VALUE_TYPE = 'value';
 
-// get user authentication code
-// const userId = firebaseApp.auth().currentUser.uid;
-
 const get = (path) => {
-  return firebaseApp.database()
+  return firebase.database()
     .ref(path)
     .once(FIRBASE_VALUE_TYPE)
     .then((snapshot) => {
@@ -14,23 +11,31 @@ const get = (path) => {
     });
 };
 
+// to add data with the id created by firebase
 const push = (path, data) => {
-  return firebaseApp.database()
+  return firebase.database()
   .ref(path)
   .push(data);
    // return new Id?
 };
 
+// to add data with the id provided by client
+const set = (path, data) => {
+  return firebase.database()
+  .ref(path)
+  .set(data);
+};
+
 // for update - TODO multiple path updates
 const change = (path, data) => {
-  return firebaseApp.database()
+  return firebase.database()
   .ref(path)
   .update(data);
 };
 
 // for delete - TODO multiple delete with .update(null)
 const remove = (path) => {
-  return firebaseApp.database()
+  return firebase.database()
   .ref(path)
   .remove();
 };
@@ -38,6 +43,7 @@ const remove = (path) => {
 export default {
   get,
   push,
+  set,
   change,
   remove,
 };
