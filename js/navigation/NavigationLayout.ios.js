@@ -6,7 +6,7 @@ import {
   StackNavigator,
   TabNavigator
 } from 'react-navigation'
-import InfoScreen from '../scenes/InfoScreen'
+import PotLuckInfoScreen from '../scenes/PotLuckInfoScreen'
 import SignInSignUpScreen from '../scenes/SignInSignUpScreen'
 import AccountScreen from '../scenes/AccountScreen'
 import MyPotLucksScreen from '../scenes/MyPotlucksScreen'
@@ -41,10 +41,9 @@ BottomNavigator.navigationOptions = {
 
 export default StackNavigator(
   {
-    InvitesScreen: {screen: InvitesScreen},
-    InfoScreen: { screen: InfoScreen },
+    InvitesScreen: { screen: InvitesScreen },
+    PotLuckInfoScreen: { screen: PotLuckInfoScreen },
     Login: { screen: SignInSignUpScreen },
-
     HomeScreenNavigator: { screen: HomeScreenNavigator },
     NumberOfGuestScreen: { screen: NumberOfGuestScreen },
     FoodScreen: { screen: FoodScreen },

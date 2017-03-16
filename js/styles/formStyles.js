@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
-import Main, { typography, colors, windowHeight, windowWidth } from './baseStyles'
+import Main, { typography, colors } from './baseStyles';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: .75,
+    flex: 0.75,
     alignItems: 'center'
   },
-  expanded:{
+  expanded: {
     flex: 4,
   },
   button: {
@@ -41,9 +41,9 @@ export const styles = StyleSheet.create({
     fontSize: typography.smallestFontSize,
     backgroundColor: 'transparent'
   },
-  errorContainer: {    
+  errorContainer: {
     height: 50,
-    flex: .30,
+    flex: 0.30,
     flexDirection: 'row',
   }
 });

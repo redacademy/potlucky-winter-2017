@@ -1,5 +1,5 @@
-import FoodScreenContainer from './FoodScreenContainer'
-import FoodScreen from './FoodScreen'
+import FoodScreenContainer from './FoodScreenContainer';
+import FoodScreen from './FoodScreen';
 
-export default FoodScreenContainer
-export { FoodScreen }
+export default FoodScreenContainer;
+export { FoodScreen };

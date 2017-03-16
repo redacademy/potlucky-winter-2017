@@ -4,15 +4,10 @@ import {
   View,
   Image,
   TouchableHighlight,
-} from 'react-native'
-import SignUpForm from './../../components/SignupForm'
+} from 'react-native';
+import styles from './styles';
 
-
-
-import styles from './styles'
-
-const CreatePotluckScreen = ({ navigate, navigation}) => {
-  return (
+const CreatePotluckScreen = ({ navigate, navigation }) => (
     <View style={styles.container}>
       <Image
         style={styles.image}
@@ -26,6 +21,5 @@ const CreatePotluckScreen = ({ navigate, navigation}) => {
       </TouchableHighlight>
     </View>
   );
-};
 
 export default CreatePotluckScreen;

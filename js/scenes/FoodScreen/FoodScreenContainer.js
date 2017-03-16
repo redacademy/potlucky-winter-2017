@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, View, Button } from 'react-native';
-import FoodScreen from './FoodScreen'
+import { Button } from 'react-native';
+import FoodScreen from './FoodScreen';
 
 
 class FoodScreenContainer extends Component {
-  constructor() {
-    super()
-  }
   static navigationOptions = {
     title: 'Food Planning',
-    header: ({ state, setParams, navigate }) => ({
+    header: ({ navigate }) => ({
       // Render a button on the right side of the header
       // When pressed switches the screen to edit mode.
       right: (
@@ -28,10 +25,8 @@ class FoodScreenContainer extends Component {
     );
   }
 }
-const mapStateToProps = (state, ownProps) => {
-  return {
-    guests: state.newPotluck.guestNumber,
-    potLuckFood: state.newPotluck.potLuckFood
-  }
-}
-export default connect(mapStateToProps)(FoodScreenContainer)
+const mapStateToProps = (state) => ({
+  guests: state.newPotluck.guestNumber,
+  potLuckFood: state.newPotluck.potLuckFood
+});
+export default connect(mapStateToProps)(FoodScreenContainer);

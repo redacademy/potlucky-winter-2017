@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Text, Button } from 'react-native'
-import InfoScreen from './InfoScreen'
+import { Button } from 'react-native';
+import InfoScreen from './InfoScreen';
+
 class InfoScreenContainer extends Component {
   static navigationOptions = {
     title: 'Info',
-    header: ({ state, setParams, navigate }) => ({
+    header: ({ navigate }) => ({
       // Render a button on the right side of the header
       // When pressed switches the screen to edit mode.
       right: (
