@@ -6,10 +6,6 @@ import Banner from './../../components/Banner';
 import LoginForm from './../../components/LoginForm';
 import RoundedButton from '../../components/RoundedButton';
 
-// const onSignInClick = () => {
-//   console.log('hi');
-// };
-
 const onSignUpClick = () => {
   console.log('hi');
 };
