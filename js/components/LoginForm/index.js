@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import Gandalf from 'gandalf-validator';
 import { TextInput, View, Text, TouchableHighlight } from 'react-native';
 import { styles } from './../../styles/formStyles';
+import RoundedButton from './../RoundedButton';
 
 class Form extends Gandalf {
   constructor() {
@@ -35,6 +36,7 @@ class Form extends Gandalf {
 
     super(fields);
   }
+
   handleSubmit() {
     const data = this.getCleanFormData();
 
@@ -42,6 +44,7 @@ class Form extends Gandalf {
     // Submit to REDUX
     console.log('goin\' to REDUX', data);
   }
+
   render() {
     const fields = this.state.fields;
     return (
@@ -66,11 +69,7 @@ class Form extends Gandalf {
             </Text>
           </View>
         </View>
-
-
-        <TouchableHighlight style={styles.button} onPress={() => this.handleSubmit()}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableHighlight>
+        <RoundedButton text='SIGN IN' style={{marginBottom: 20}} onPress={this.props.onPress} />
       </View >
     );
   }

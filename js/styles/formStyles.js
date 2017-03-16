@@ -3,8 +3,8 @@ import Main, { typography, colors } from './baseStyles';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 0.75,
-    alignItems: 'center'
+    flex: .75,
+    alignItems: 'center',
   },
   expanded: {
     flex: 4,
@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   login: {
-    height: 55,
+    height: 50,
     width: 320,
     padding: 5,
     flex: 1,
@@ -27,12 +27,15 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     color: Main.loginInput.color,
     fontFamily: Main.loginInput.fontFamily,
-    fontSize: Main.loginInput.fontSize,
-    borderRadius: 5,
+    fontSize: typography.baseFontSize,
+    borderRadius: 25,
+    paddingLeft: 22,
+    paddingRight: 22,
   },
   mainContainer: {
     height: 220,
-    flex: 1,
+    width: '100%',
+    alignItems: 'center'
   },
   errorMessage: {
     flex: 1,

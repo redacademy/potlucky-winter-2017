@@ -1,41 +1,28 @@
 import React, { PropTypes } from 'react';
-import { Text, Image, View, Button } from 'react-native';
-import { Overlay, OverlayText, HighlightedOverlayText } from '../../components/Overlay'
+import { Text, Image, View } from 'react-native';
+import { Overlay, OverlayText, HighlightedOverlayText } from '../../components/Overlay';
 import { styles } from './styles';
-import SignUpForm from './../../components/SignupForm'
-import LoginForm from './../../components/LoginForm'
+import Banner from './../../components/Banner';
+import LoginForm from './../../components/LoginForm';
+import RoundedButton from '../../components/RoundedButton';
 
+// const onSignInClick = () => {
+//   console.log('hi');
+// };
 
-import RoundedButton from '../../components/RoundedButton'
+const onSignUpClick = () => {
+  console.log('hi');
+};
 
-const onLoginPress = () => {
-  console.log('hi')
-}
-
-const SignInSignUpScreen = ({ navigation }) => {
-  return (
-    <View style={styles.hello}>
-      <Button
-        onPress={() => navigation.navigate('HomeScreenNavigator')}
-        title="Login"
-      />
-
-      <RoundedButton text='SIGN IN' style={{marginBottom: 20}} onPress={() => onLoginPress()} />
-      <RoundedButton text='SIGN UP' color='#ABD750' onPress={() => onLoginPress()} />
-
-      <Overlay>
-        <Image style={{ marginBottom: 20 }} source={require('../../../assets/images/Drag-Down-icon.png')} />
-        <HighlightedOverlayText style={{fontSize: 25}}>Great, to see you there!</HighlightedOverlayText>
-        <OverlayText>
-          Please fill out the food form{'\n'}
-          and let the host know{'\n'}
-           what you'll be bringing.
-        </OverlayText>
-      </Overlay>
-
+const SignInSignUpScreen = ({ navigation }) => (
+    <View>
+      <Banner />
+      <View style={styles.hello}>
+        <LoginForm onPress={() => navigation.navigate('HomeScreenNavigator')} />
+        <RoundedButton text='SIGN UP' color='#ABD750' onPress={() => onSignUpClick()} />
+      </View>
     </View>
   );
-}
 
 SignInSignUpScreen.propTypes = {
   navigation: PropTypes.object,
