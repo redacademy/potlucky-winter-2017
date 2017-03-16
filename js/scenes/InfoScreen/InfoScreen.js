@@ -5,10 +5,10 @@ import {
 } from 'react-native';
 import styles from './styles';
 
-const FoodScreen = () => (
+const InfoScreen = () => (
     <View>
       <Text>Welcome to the Account</Text>
     </View>
   );
 
-export default FoodScreen;
+export default InfoScreen;

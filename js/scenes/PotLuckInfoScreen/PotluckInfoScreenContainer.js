@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'react-native';
-import InfoScreen from './InfoScreen';
+import PotluckInfoScreen from './PotluckInfoScreen';
 
-class InfoScreenContainer extends Component {
+class PotluckInfoScreenContainer extends Component {
   static navigationOptions = {
     title: 'Info',
     header: ({ navigate }) => ({
@@ -19,9 +19,9 @@ class InfoScreenContainer extends Component {
   }
   render() {
     return (
-      <InfoScreen />
+      <PotluckInfoScreen />
     );
   }
 }
 
-export default InfoScreenContainer;
+export default PotluckInfoScreenContainer;

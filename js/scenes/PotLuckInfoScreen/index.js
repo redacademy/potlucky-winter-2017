@@ -1,5 +1,5 @@
-import InfoScreenContainer from './InfoScreenContainer';
-import InfoScreen from './InfoScreen';
+import PotluckInfoScreenContainer from './PotluckInfoScreenContainer';
+import PotluckInfoScreen from './PotluckInfoScreen';
 
-export default InfoScreenContainer;
-export { InfoScreen };
+export default PotluckInfoScreenContainer;
+export { PotluckInfoScreen };

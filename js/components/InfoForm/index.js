@@ -15,19 +15,19 @@ class Form extends Gandalf {
           placeholder: 'Potluck Name',
           style: styles.login
         },
-        getValueInOnChange: (text) => text,
+        getValueInOnChange: text => text,
         debounce: 500,
       },
-      Theme: {
+      theme: {
         component: TextInput,
         validators: ['required'],
         errorPropName: 'error',
         onChangeHandler: 'onChangeText',
         props: {
-          placeholder: 'Theme',
+          placeholder: 'theme',
           style: styles.login
         },
-        getValueInOnChange: (text) => text,
+        getValueInOnChange: text => text,
         debounce: 500,
       },
       guestNumber: {
@@ -39,62 +39,70 @@ class Form extends Gandalf {
           placeholder: 'Number of Guests',
           style: styles.login
         },
-        getValueInOnChange: (text) => text,
+        getValueInOnChange: text => text,
         debounce: 500,
       },
-    }
+    };
     super(fields);
-    this.state.date = new Date()
-    this.state.timeZoneOffsetInHours = (-1) * (new Date()).getTimezoneOffset() / 60
+
+    this.state.date = new Date();
+    this.state.timeZoneOffsetInHours = (-1) * (new Date()).getTimezoneOffset() / 60;
     this.state.showDate = false;
-    this.state.showArriveTime = false
-    this.state.showServingTime = false
-    this.state.arriveTime = new Date()
-    this.state.servingTime = new Date()
+    this.state.showArriveTime = false;
+    this.state.showServingTime = false;
+    this.state.arriveTime = new Date();
+    this.state.servingTime = new Date();
   }
+
   onDateChange = (date) => {
-    this.setState({ date: date });
+    this.setState({ date });
   };
+
   onArriveTimeChange = (time) => {
     this.setState({
       arriveTime: time
-    })
+    });
   }
-    onServingTimeChange = (time) => {
+
+  onServingTimeChange = (time) => {
     this.setState({
       servingTime: time
-    })
+    });
   }
+
   handleSubmit() {
     let data = this.getCleanFormData();
     if (!data) return;
-    data = { ...data, 
-      date: this.state.date, 
-      arriveTime: this.state.arriveTime, 
-      servingTime: this.state.servingTime }
+    data = {
+      ...data,
+      date: this.state.date,
+      arriveTime: this.state.arriveTime,
+      servingTime: this.state.servingTime
+    };
     // Submit to REDUX
     console.log('goin\' to REDUX', data);
   }
+
   render() {
     const fields = this.state.fields;
     return (
-      <View style={styles.mainContainer} >
+      <View style={styles.mainContainer}>
 
-        <View style={styles.container} >
-          <View style={styles.container} >
+        <View style={styles.container}>
+          <View style={styles.container}>
             {fields.potluckName.element}
           </View>
-          <View style={styles.errorContainer} >
+          <View style={styles.errorContainer}>
             <Text style={styles.errorMessage}>
               {fields.potluckName.errorMessage && fields.potluckName.errorMessage}
             </Text>
           </View>
         </View>
-        <View style={this.state.showDate ? styles.expanded : styles.container} >
+        <View style={this.state.showDate ? styles.expanded : styles.container}>
           <Button
             style={styles.container}
             title={'Date'}
-            onPress={() => { this.setState({ showDate: !this.state.showDate }) }}
+            onPress={() => { this.setState({ showDate: !this.state.showDate }); }}
           />
           {this.state.showDate &&
             <DatePickerIOS
@@ -110,7 +118,7 @@ class Form extends Gandalf {
           <Button
             style={styles.container}
             title={'Arriving Time'}
-            onPress={() => { this.setState({ showArriveTime: !this.state.showArriveTime }) }}
+            onPress={() => { this.setState({ showArriveTime: !this.state.showArriveTime }); }}
           />
           {this.state.showArriveTime &&
             <DatePickerIOS
@@ -126,7 +134,7 @@ class Form extends Gandalf {
           <Button
             style={styles.container}
             title={'Serving Time'}
-            onPress={() => { this.setState({ showServingTime: !this.state.showServingTime }) }}
+            onPress={() => { this.setState({ showServingTime: !this.state.showServingTime }); }}
           />
           {this.state.showServingTime &&
             <DatePickerIOS
@@ -140,11 +148,11 @@ class Form extends Gandalf {
         </View>
         <View style={styles.container} >
           <View style={styles.container} >
-            {fields.Theme.element}
+            {fields.theme.element}
           </View>
           <View style={styles.errorContainer} >
             <Text style={styles.errorMessage}>
-              {fields.Theme.errorMessage && fields.Theme.errorMessage}
+              {fields.theme.errorMessage && fields.theme.errorMessage}
             </Text>
           </View>
         </View>

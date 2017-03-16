@@ -23,7 +23,7 @@ class NumberOfGuestScreenContainer extends React.Component {
       right: (
         <Button
           title={'Done'}
-          onPress={() => navigate('FoodScreen')}
+          onPress={() => navigate('FoodPlanningScreen')}
         />
       ),
       backTitle: null,

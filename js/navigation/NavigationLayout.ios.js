@@ -12,7 +12,7 @@ import AccountScreen from '../scenes/AccountScreen'
 import MyPotLucksScreen from '../scenes/MyPotlucksScreen'
 import CreateNewPotLuck from './../scenes/CreatePotluckScreen'
 import NumberOfGuestScreen from './../scenes/NumberOfGuestScreen'
-import FoodScreen from './../scenes/FoodScreen'
+import FoodPlanningScreen from './../scenes/FoodPlanningScreen'
 import InvitesScreen from '../scenes/InvitesScreen'
 import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from './TabNavConfig'
 import { bottomNavigatorScreens, bottomNavigatorStyles } from './BottomNavConfig'
@@ -46,7 +46,7 @@ export default StackNavigator(
     Login: { screen: SignInSignUpScreen },
     HomeScreenNavigator: { screen: HomeScreenNavigator },
     NumberOfGuestScreen: { screen: NumberOfGuestScreen },
-    FoodScreen: { screen: FoodScreen },
+    FoodPlanningScreen: { screen: FoodPlanningScreen },
   },
   {
     initialRouteName: 'Login',
