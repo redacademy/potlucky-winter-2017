@@ -8,8 +8,4 @@ export default combineReducers({
   myInvitedPotlucks: myInvitedPotlucksReducer,
   myHostPotlucks: myHostPotlucksReducer,
   isLoading: isLoadingReducer,
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 69285a76fd8f31f1a5370af152ae5e660f19bcb5
