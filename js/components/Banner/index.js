@@ -3,9 +3,13 @@ import { Image } from 'react-native';
 import styles from './styles';
 
 const Banner = () => {
+
+  const bgPath = require('./../../../assets/images/bg.jpg');
+  const logoPath = require('./../../../assets/images/logo_shadow.png');
+
   return (
-    <Image source={require('./../../../assets/images/bg.jpg')} style={styles.background}>
-      <Image source={require('./../../../assets/images/logo_shadow.png')} style={styles.logo} />
+    <Image source={bgPath} style={styles.background}>
+      <Image source={logoPath} style={styles.logo} />
     </Image>
   )
 }
