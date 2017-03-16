@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-native';
 import FoodPlanningScreen from './FoodPlanningScreen';
+import { addPotluckItem } from './../../redux/modules/newPotluckActions';
 
 import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar';
 
@@ -29,13 +30,28 @@ class FoodPlanningScreenContainer extends Component {
   };
 
   render() {
+
+    console.log('courses is...', this.props.courses)
+
     return (
-      <FoodPlanningScreen guests={this.props.guests} dispatch={this.props.dispatch} />
+      <FoodPlanningScreen
+        guests={this.props.guests} 
+        courses={this.props.courses} 
+        addPotluckItem={this.props.addPotluckItem}
+      />
     );
   }
 }
 const mapStateToProps = (state) => ({
   guests: state.newPotluck.guestNumber,
-  potLuckFood: state.newPotluck.potLuckFood
+  courses: state.newPotluck.potluckFood,
 });
-export default connect(mapStateToProps)(FoodPlanningScreenContainer);
+
+const mapDispatchToProps = dispatch => ({
+  addPotluckItem: (name) => {
+    dispatch(addPotluckItem(name));
+  },
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(FoodPlanningScreenContainer);

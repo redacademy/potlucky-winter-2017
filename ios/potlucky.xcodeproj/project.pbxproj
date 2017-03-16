@@ -39,7 +39,6 @@
 		719A05B5111A422A8A2A47E0 /* Ubuntu-L.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 829AB76D07044D1AA6804DE9 /* Ubuntu-L.ttf */; };
 		BACF5E29F1074221AE7B2A91 /* Ubuntu-M.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89C817DF688A4C6EAEB0C19B /* Ubuntu-M.ttf */; };
 		441524503213427891D2662A /* Ubuntu-R.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6D9935D92538413E826CE9F0 /* Ubuntu-R.ttf */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
