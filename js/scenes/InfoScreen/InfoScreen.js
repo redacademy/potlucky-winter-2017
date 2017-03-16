@@ -1,5 +1,5 @@
 import React from 'react';
-import InfoScreenContainer from './InfoScreenContainer'
+import InfoScreenContainer from './InfoScreenContainer';
 
 const InfoScreen = () => {
   return (
