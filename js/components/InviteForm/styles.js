@@ -9,6 +9,9 @@ export const styles = StyleSheet.create({
   expanded: {
     flex: 4,
   },
+  buttoncontainer:{
+    flex: 0.25,
+  },
   button: {
     height: 100,
     flex: 1,
