@@ -4,35 +4,32 @@ import {
   View,
   TouchableHighlight,
   TextInput
-} from 'react-native'
+} from 'react-native';
 
 
-import styles from './styles'
+import styles from './styles';
 
-const NumberOfGuestScreen = ({ text, onTextChange, onIncrease, onDecrease }) => {
-  return (
-    <View>
+const NumberOfGuestScreen = ({ text, onTextChange, increase, decrease }) => (
+  <View>
       <View style={styles.container}>
         <TextInput
           keyboardType={'numeric'}
           style={styles.textInput}
           value={text.toString()}
           onChangeText={(text) => {
-            (onTextChange(text))
-          }} />
-          <View>
-          
-          </View>
+            (onTextChange(text));
+          }}
+        />
         <View style={styles.buttonContainer}>
           <TouchableHighlight
             style={[styles.button, styles.inactive]}
-            onPress={() => (onIncrease())}
+            onPress={() => (increase())}
           >
             <Text> Add One </Text>
           </TouchableHighlight>
           <TouchableHighlight
             style={[styles.button, styles.active]}
-            onPress={() => (onDecrease())}
+            onPress={() => (decrease())}
           >
             <Text> Remove One </Text>
           </TouchableHighlight>
@@ -40,6 +37,5 @@ const NumberOfGuestScreen = ({ text, onTextChange, onIncrease, onDecrease }) => 
       </View>
     </View >
   );
-};
 
 export default NumberOfGuestScreen;

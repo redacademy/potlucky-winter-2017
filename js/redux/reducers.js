@@ -11,6 +11,3 @@ export default combineReducers({
   isLoading: isLoadingReducer,
   newPotluck: newPotluckReducer,
 });
-
-
-

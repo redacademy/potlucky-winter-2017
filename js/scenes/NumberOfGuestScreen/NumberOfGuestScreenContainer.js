@@ -5,19 +5,19 @@ import {
   Text,
   View,
   Button
-} from 'react-native'
-import { changeNumberofGuests } from '../../redux/modules/newPotluckActions'
+} from 'react-native';
+import { changeNumberofGuests } from '../../redux/modules/newPotluckActions';
 
 class NumberOfGuestScreenContainer extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      text: 0
-    }
+      count: 0
+    };
   }
   static navigationOptions = {
     title: 'Guest number',
-    header: ({ state, setParams, navigate }) => ({
+    header: ({ navigate }) => ({
       // Render a button on the right side of the header
       // When pressed switches the screen to edit mode.
       right: (
@@ -30,17 +30,16 @@ class NumberOfGuestScreenContainer extends React.Component {
     }),
   };
   onTextChange = (text) => {
-    console.log(text)
-    this.setState({ text })
+    this.setState({ count: text });
   }
-  onIncrease = (text) => {
-    this.setState({ text: this.state.text + 1 })
+  increase = () => {
+    this.setState({ count: this.state.count + 1 });
   }
-  onDecrease = (text) => {
-    this.setState({ text: this.state.text - 1 })
+  decrease = () => {
+    this.setState({ count: this.state.count - 1 });
   }
   componentDidUpdate() {
-    this.props.dispatch(changeNumberofGuests(this.state.text))
+    this.props.dispatch(changeNumberofGuests(this.state.text));
   }
   render() {
     const { navigate } = this.props.navigation;
@@ -50,16 +49,15 @@ class NumberOfGuestScreenContainer extends React.Component {
         navigate={navigate}
         text={this.state.text}
         onTextChange={this.onTextChange}
-        onIncrease={this.onIncrease}
-        onDecrease={this.onDecrease} />
+        increase={this.increase}
+        decrease={this.decrease}
+      />
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
+const mapStateToProps = (state, ownProps) => ({
     guests: state.newPotluck.guestNumber
-  }
-}
+  });
 
-export default connect(mapStateToProps)(NumberOfGuestScreenContainer)
+export default connect(mapStateToProps)(NumberOfGuestScreenContainer);
