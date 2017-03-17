@@ -5,8 +5,9 @@ import { styles } from './../../styles/formStyles';
 
 class Form extends Gandalf {
   constructor() {
-    const fields = {
-      potluckName: {
+    const fields = [
+      {
+        name: 'potluckName',
         component: TextInput,
         validators: ['required'],
         errorPropName: 'error',
@@ -17,8 +18,8 @@ class Form extends Gandalf {
         },
         getValueInOnChange: text => text,
         debounce: 500,
-      },
-      theme: {
+      }, {
+        name: 'theme',
         component: TextInput,
         validators: ['required'],
         errorPropName: 'error',
@@ -29,8 +30,8 @@ class Form extends Gandalf {
         },
         getValueInOnChange: text => text,
         debounce: 500,
-      },
-      guestNumber: {
+      }, {
+        name: 'guestNumber',
         component: TextInput,
         validators: ['numeric'],
         errorPropName: 'error',
@@ -42,7 +43,7 @@ class Form extends Gandalf {
         getValueInOnChange: text => text,
         debounce: 500,
       },
-    };
+    ];
     super(fields);
 
     this.state.date = new Date();

@@ -9,13 +9,13 @@ import {
 
 import styles from './styles';
 
-const NumberOfGuestScreen = ({ text, onTextChange, increase, decrease }) => (
+const NumberOfGuestScreen = ({ count, onTextChange, increase, decrease }) => (
   <View>
       <View style={styles.container}>
         <TextInput
           keyboardType={'numeric'}
           style={styles.textInput}
-          value={text.toString()}
+          value={count.toString()}
           onChangeText={(text) => {
             (onTextChange(text));
           }}
