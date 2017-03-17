@@ -2,7 +2,10 @@ import { StyleSheet } from 'react-native';
 
 import { colors, windowWidth as width, windowHeight as height } from '../../styles/baseStyles';
 
-const progressBarImageHeightWidthRatio = 59 / 702;
+const progressBarImageHeight = 59;
+const progressBarImageWidth = 702;
+const progressBarImageHeightWidthRatio = progressBarImageHeight / progressBarImageWidth;
+
 export default StyleSheet.create({
   container: {
     height: 64,
