@@ -39,7 +39,7 @@ class NumberOfGuestScreenContainer extends React.Component {
     this.setState({ count: this.state.count - 1 });
   }
   componentDidUpdate() {
-    this.props.dispatch(changeNumberofGuests(this.state.text));
+    this.props.dispatch(changeNumberofGuests(this.state.count));
   }
   render() {
     const { navigate } = this.props.navigation;
@@ -47,7 +47,7 @@ class NumberOfGuestScreenContainer extends React.Component {
     return (
       <NumberOfGuestScreen
         navigate={navigate}
-        text={this.state.text}
+        count={this.state.count}
         onTextChange={this.onTextChange}
         increase={this.increase}
         decrease={this.decrease}

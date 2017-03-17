@@ -5,59 +5,57 @@ import { styles } from './styles';
 
 class Form extends Gandalf {
   constructor() {
-    const fields = {
-      fName: {
-        component: TextInput,
-        validators: ['required'],
-        errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
-        props: {
-          placeholder: 'First Name',
-          style: styles.login
+    const fields = [{
+      name: 'fName',
+      component: TextInput,
+      validators: ['required'],
+      errorPropName: 'error',
+      onChangeHandler: 'onChangeText',
+      props: {
+        placeholder: 'First Name',
+        style: styles.login
+      },
+      getValueInOnChange: (text) => text,
+      debounce: 500,
+    }, {
+      name: 'lName',
+      component: TextInput,
+      validators: ['required'],
+      errorPropName: 'error',
+      onChangeHandler: 'onChangeText',
+      props: {
+        placeholder: 'Last Name',
+        style: styles.login
+      },
+      getValueInOnChange: (text) => text,
+      debounce: 500,
+    }, {
+      name: 'email',
+      component: TextInput,
+      validators: ['email'],
+      errorPropName: 'error',
+      onChangeHandler: 'onChangeText',
+      props: {
+        placeholder: 'Email',
+        style: styles.login
+      },
+      getValueInOnChange: (text) => text,
+      debounce: 500,
+    }, {
+      name: 'password',
+      component: TextInput,
+      validators: ['required'],
+      errorPropName: 'error',
+      onChangeHandler: 'onChangeText',
+      props: {
+        placeholder: 'Password',
+        style: styles.login
+      },
+      getValueInOnChange: (text) => text,
+      debounce: 500,
+    },
 
-        },
-        getValueInOnChange: (text) => text,
-        debounce: 500,
-      },
-      lName: {
-        component: TextInput,
-        validators: ['required'],
-        errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
-        props: {
-          placeholder: 'Last Name',
-          style: styles.login
-
-        },
-        getValueInOnChange: (text) => text,
-        debounce: 500,
-      },
-      email: {
-        component: TextInput,
-        validators: ['email'],
-        errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
-        props: {
-          placeholder: 'Email',
-          style: styles.login
-        },
-        getValueInOnChange: (text) => text,
-        debounce: 500,
-      },
-      password: {
-        component: TextInput,
-        validators: ['required'],
-        errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
-        props: {
-          placeholder: 'Password',
-          style: styles.login
-        },
-        getValueInOnChange: (text) => text,
-        debounce: 500,
-      },
-
-    };
+    ];
 
     super(fields);
   }

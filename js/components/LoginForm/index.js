@@ -6,8 +6,9 @@ import RoundedButton from './../RoundedButton';
 
 class Form extends Gandalf {
   constructor() {
-    const fields = {
-      email: {
+    const fields = [
+      {
+        name: 'email',
         component: TextInput,
         validators: ['email'],
         errorPropName: 'error',
@@ -18,8 +19,8 @@ class Form extends Gandalf {
         },
         getValueInOnChange: (text) => text,
         debounce: 500,
-      },
-      password: {
+      }, {
+        name: 'password',
         component: TextInput,
         validators: ['required'],
         errorPropName: 'error',
@@ -32,7 +33,7 @@ class Form extends Gandalf {
         debounce: 500,
       },
 
-    };
+    ];
 
     super(fields);
   }
