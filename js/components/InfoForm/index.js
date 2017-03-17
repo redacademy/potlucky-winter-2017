@@ -87,7 +87,6 @@ class Form extends Gandalf {
 
   render() {
     const fields = this.state.fields;
-    console.log(fields);
     return (
       <View style={styles.mainContainer}>
         <View style={styles.container}>

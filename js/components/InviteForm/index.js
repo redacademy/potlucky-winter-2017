@@ -25,7 +25,7 @@ class InviteForm extends Gandalf {
     this.state.ticker = 1;
   }
 
-  addingFields() {
+  addEmailField() {
     this.addField({
       name: `email${this.state.ticker}`,
       component: TextInput,
@@ -41,7 +41,21 @@ class InviteForm extends Gandalf {
 
     this.setState({ ticker: this.state.ticker + 1 });
   }
-
+  buildTextInput() {
+    const fields = this.state.fields;
+    return Object.keys(fields).map(key => (
+      <View key={key} style={styles.container} >
+        <View style={styles.inputcontainer} >
+          {fields[key].element}
+        </View>
+        <View style={styles.errorContainer} >
+          <Text style={styles.errorMessage}>
+            {fields[key].errorMessage && fields[key].errorMessage}
+          </Text>
+        </View>
+      </View>
+    ));
+  }
   handleSubmit() {
     const data = this.getFormData();
     if (!data) return;
@@ -50,25 +64,13 @@ class InviteForm extends Gandalf {
     // TODO Add redux support for this data
   }
   render() {
-    const fields = this.state.fields;
     return (
       <View style={styles.mainContainer}>
         <ScrollView style={styles.mainContainer} >
-          {Object.keys(fields).map(key => (
-            <View key={key} style={styles.container} >
-              <View style={styles.inputcontainer} >
-                {fields[key].element}
-              </View>
-              <View style={styles.errorContainer} >
-                <Text style={styles.errorMessage}>
-                  {fields[key].errorMessage && fields[key].errorMessage}
-                </Text>
-              </View>
-            </View>
-          ))}
+          {this.buildTextInput()}
         </ScrollView >
         <View style={styles.buttoncontainer} >
-          <TouchableHighlight style={styles.button} onPress={() => this.addingFields()}>
+          <TouchableHighlight style={styles.button} onPress={() => this.addEmailField()}>
             <Text style={styles.buttonText}>Add More Fields</Text>
           </TouchableHighlight>
           <TouchableHighlight style={styles.button} onPress={() => this.handleSubmit()}>
