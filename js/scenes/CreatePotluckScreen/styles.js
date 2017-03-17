@@ -4,6 +4,7 @@ import {colors, typography, windowWidth} from './../../styles/baseStyles'
 export default StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
   },
   image:{
     flex: 0,
