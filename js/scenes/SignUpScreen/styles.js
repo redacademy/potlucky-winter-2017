@@ -1,9 +1,13 @@
 import { StyleSheet } from 'react-native';
-import Main, { typography, colors } from './../../styles/baseStyles'
+import Main, { typography, colors } from '../../styles/baseStyles';
 
 export const styles = StyleSheet.create({
+  mainContainer: {
+    justifyContent: 'center',
+    height: 220,
+  },
   container: {
-    flex: .75,
+    flex: 0.75,
     alignItems: 'center'
   },
   button: {
@@ -27,9 +31,6 @@ export const styles = StyleSheet.create({
     fontSize: Main.loginInput.fontSize,
     borderRadius: 5,
   },
-  mainContainer: {
-    height: 220,
-  },
   errorMessage: {
     flex: 1,
     color: Main.loginInput.color,
@@ -37,9 +38,9 @@ export const styles = StyleSheet.create({
     fontSize: typography.smallestFontSize,
     backgroundColor: 'transparent'
   },
-  errorContainer: {    
+  errorContainer: {
     height: 50,
-    flex: .30,
+    flex: 0.30,
     flexDirection: 'row',
   }
 });

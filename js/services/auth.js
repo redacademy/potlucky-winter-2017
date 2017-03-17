@@ -1,23 +1,33 @@
-import { firebaseApp } from '../../config/firebase';
+import firebase from 'firebase';
+import userDetails from './api/user-details';
 
-/*
-firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-});
+const signUpUser = (signUpDetails) => {
+  return firebase.auth()
+    .createUserWithEmailAndPassword(signUpDetails.email, signUpDetails.password)
+      .then(() => {
+        const uId = firebase.auth().currentUser.uid;
+        const userName = { firstName: signUpDetails.firstName, lastName: signUpDetails.lastName };
 
-firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-});
+        // add insert to firebase userDetails
+        userDetails.create(uId, userName);
 
-firebase.auth().signOut().then(function() {
-  // Sign-out successful.
-}).catch(function(error) {
-  // An error happened.
-});
-*/
+        const signUpResult = {
+          uId,
+          message: (`Sign-up successful, welcome to Pot Lucky ${signUpDetails.firstName}`),
+        };
+
+        return signUpResult;
+      })
+      .catch((error) => {
+        const signUpResult = {
+          uId: null,
+          message: (`Sorry, sign-up was unsuccessful. The following error has occured: ${error.code}, ${error.message}`),
+        };
+
+        return signUpResult;
+      });
+};
+
+export default {
+  signUpUser,
+};

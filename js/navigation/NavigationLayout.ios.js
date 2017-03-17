@@ -7,15 +7,16 @@ import {
   TabNavigator
 } from 'react-navigation'
 import PotLuckInfoScreen from '../scenes/PotLuckInfoScreen'
-import SignInSignUpScreen from '../scenes/SignInSignUpScreen'
-import AccountScreen from '../scenes/AccountScreen'
-import MyPotLucksScreen from '../scenes/MyPotlucksScreen'
 import CreateNewPotLuck from './../scenes/CreatePotluckScreen'
 import NumberOfGuestScreen from './../scenes/NumberOfGuestScreen'
 import FoodPlanningScreen from './../scenes/FoodPlanningScreen'
 import InvitesScreen from '../scenes/InvitesScreen'
-import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from './TabNavConfig'
+import SignInSignUpScreen from '../scenes/SignInSignUpScreen';
+import SignUp from '../scenes/SignUpScreen';
+import AccountScreen from '../scenes/AccountScreen';
+import MyPotLucksScreen from '../scenes/MyPotlucksScreen';
 import { bottomNavigatorScreens, bottomNavigatorStyles } from './BottomNavConfig'
+import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from './TabNavConfig';
 
 const HostTabNavigator = TabNavigator(hostTabScreens, hostTabStyles);
 
@@ -32,7 +33,7 @@ const HomeScreenNavigator = TabNavigator(
   {
     initialRouteName: 'Account',
   }
-)
+);
 
 
 BottomNavigator.navigationOptions = {
@@ -44,6 +45,7 @@ export default StackNavigator(
     InvitesScreen: { screen: InvitesScreen },
     PotLuckInfoScreen: { screen: PotLuckInfoScreen },
     Login: { screen: SignInSignUpScreen },
+    SignUp: { screen: SignUp },
     HomeScreenNavigator: { screen: HomeScreenNavigator },
     NumberOfGuestScreen: { screen: NumberOfGuestScreen },
     FoodPlanningScreen: { screen: FoodPlanningScreen },
@@ -52,4 +54,4 @@ export default StackNavigator(
     initialRouteName: 'Login',
     headerMode: 'screen'
   }
-)
+);

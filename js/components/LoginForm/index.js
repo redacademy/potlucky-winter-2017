@@ -1,6 +1,6 @@
 import React from 'react';
 import Gandalf from 'gandalf-validator';
-import { TextInput, View, Text, TouchableHighlight } from 'react-native';
+import { TextInput, View, Text } from 'react-native';
 import { styles } from './../../styles/formStyles';
 import RoundedButton from './../RoundedButton';
 
@@ -32,7 +32,6 @@ class Form extends Gandalf {
         getValueInOnChange: (text) => text,
         debounce: 500,
       },
-
     ];
 
     super(fields);
@@ -70,8 +69,8 @@ class Form extends Gandalf {
             </Text>
           </View>
         </View>
-        <RoundedButton text='SIGN IN' style={{marginBottom: 20}} onPress={this.props.onPress} />
-      </View >
+        <RoundedButton text="SIGN IN" style={{ marginBottom: 20 }} onPress={this.props.onPress} />
+      </View>
     );
   }
 }
