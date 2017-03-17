@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, StatusBar, View } from 'react';
 import { Provider, } from 'react-redux';
 import firebase from 'firebase';
 import Navigation from './navigation/NavigationLayout.ios';
