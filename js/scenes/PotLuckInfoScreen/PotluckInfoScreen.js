@@ -1,12 +1,15 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View, } from 'react-native';
 import InfoForm from './../../components/InfoForm';
 
+import styles from './styles'
 
 const InfoScreen = () => (
-  <ScrollView>
-    <InfoForm />
-  </ScrollView>
+  <View style={styles.container}>
+    <ScrollView>
+      <InfoForm />
+    </ScrollView>
+  </View>
 );
 
 export default InfoScreen;
