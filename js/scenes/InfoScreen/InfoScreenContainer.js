@@ -1,13 +1,10 @@
-import React, {Component} from 'react';
-import { Text } from 'react-native'
+import React, { Component } from 'react';
+import InfoScreen from './InfoScreen';
 
 class InfoScreenContainer extends Component {
-  static navigationOptions = {
-    title: 'Info',
-  };
   render() {
     return (
-      <Text>Info Screen</Text>
+      <InfoScreen />
     );
   }
 }

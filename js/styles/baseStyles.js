@@ -15,7 +15,7 @@ export const colors = {
   mainCourseColor: '#37B1B0',
   saladsColor: '#D8D8D8',
   foodIndicatorBG: '#E1E1E1',
-}
+};
 
 export const typography = {
   smallestFontSize: 10,
@@ -25,7 +25,7 @@ export const typography = {
   fontMainLight: 'Ubuntu-Light',
   fontMainMedium: 'Ubuntu-Medium',
   fontMainBold: 'Ubuntu-Bold',
-}
+};
 
 export default StyleSheet.create({
   headerPrimary: {

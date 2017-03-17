@@ -1,13 +1,16 @@
 import { StyleSheet } from 'react-native';
-import Main, { typography, colors } from './baseStyles';
+import Main, { typography, colors } from './../../styles/baseStyles';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: .75,
-    alignItems: 'center',
+    flex: 0.75,
+    alignItems: 'center'
   },
   expanded: {
     flex: 4,
+  },
+  buttoncontainer:{
+    flex: 0.25,
   },
   button: {
     height: 100,
@@ -18,31 +21,39 @@ export const styles = StyleSheet.create({
   buttonText: {
     textAlign: 'center',
   },
-  login: {
-    height: 50,
+  input: {
+    height: 55,
     width: 320,
-    padding: 5,
-    flex: 1,
-    borderColor: colors.mainBrandColor,
-    borderWidth: 1,
+    padding: 10,
+    flex: 2,
+    borderWidth: 0.125,
     color: Main.loginInput.color,
     fontFamily: Main.loginInput.fontFamily,
-    fontSize: typography.baseFontSize,
-    borderRadius: 25,
-    paddingLeft: 22,
-    paddingRight: 22,
+    fontSize: Main.loginInput.fontSize,
+    borderRadius: 3,
+  },
+  inputcontainer: {
+    flex: 2,
+    shadowOffset: {
+      width: 2,
+      height: 3,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3,
   },
   mainContainer: {
+    paddingTop: 10,
+    backgroundColor: 'white',
     height: 220,
-    width: '100%',
-    alignItems: 'center'
+    flex: 1,
   },
   errorMessage: {
     flex: 1,
     color: Main.loginInput.color,
     fontFamily: Main.loginInput.fontFamily,
     fontSize: typography.smallestFontSize,
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    textAlign: 'center'
   },
   errorContainer: {
     height: 50,

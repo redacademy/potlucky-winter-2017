@@ -1,10 +1,14 @@
 import React from 'react';
-import FoodScreenContainer from './FoodScreenContainer';
+import {
+  Text,
+  View,
+} from 'react-native';
+import styles from './styles';
 
-const FoodScreen = () => {
-  return (
-    <FoodScreenContainer />
+const FoodScreen = () => (
+    <View>
+      <Text>Welcome to the Account</Text>
+    </View>
   );
-};
 
 export default FoodScreen;

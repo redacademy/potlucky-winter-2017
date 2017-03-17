@@ -1,12 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { windowHeight, windowWidth } from '../../styles/baseStyles'
+import { windowHeight } from '../../styles/baseStyles';
 
 export const styles = StyleSheet.create({
-	hello: {
-		height: windowHeight,
-		width: windowWidth,
-		alignItems: 'center',
-		justifyContent: 'center',
-		backgroundColor: '#FFF'
-	}
+  hello: {
+    height: windowHeight - 265,
+    padding: 20,
+    alignItems: 'center',
+    backgroundColor: '#FFF'
+  }
 });

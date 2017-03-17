@@ -1,12 +1,14 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import Gandalf from 'gandalf-validator';
-import { TextInput, View, Text, TouchableHighlight } from 'react-native';
+import { TextInput, View, Text } from 'react-native';
 import { styles } from './../../styles/formStyles';
+import RoundedButton from './../RoundedButton';
 
 class Form extends Gandalf {
   constructor() {
-    const fields = {
-      email: {
+    const fields = [
+      {
+        name: 'email',
         component: TextInput,
         validators: ['email'],
         errorPropName: 'error',
@@ -17,8 +19,8 @@ class Form extends Gandalf {
         },
         getValueInOnChange: (text) => text,
         debounce: 500,
-      },
-      password: {
+      }, {
+        name: 'password',
         component: TextInput,
         validators: ['required'],
         errorPropName: 'error',
@@ -30,11 +32,11 @@ class Form extends Gandalf {
         getValueInOnChange: (text) => text,
         debounce: 500,
       },
-
-    };
+    ];
 
     super(fields);
   }
+
   handleSubmit() {
     const data = this.getCleanFormData();
 
@@ -42,6 +44,7 @@ class Form extends Gandalf {
     // Submit to REDUX
     console.log('goin\' to REDUX', data);
   }
+
   render() {
     const fields = this.state.fields;
     return (
@@ -66,11 +69,7 @@ class Form extends Gandalf {
             </Text>
           </View>
         </View>
-
-
-        <TouchableHighlight style={styles.button} onPress={() => this.handleSubmit()}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableHighlight>
+        <RoundedButton text="SIGN IN" style={{ marginBottom: 20 }} onPress={this.props.onPress} />
       </View>
     );
   }

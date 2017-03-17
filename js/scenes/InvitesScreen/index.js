@@ -1,5 +1,5 @@
-import InvitesScreenContainer from './InvitesScreenContainer'
-import InvitesScreen from './InvitesScreen'
+import InvitesScreenContainer from './InvitesScreenContainer';
+import InvitesScreen from './InvitesScreen';
 
-export default InvitesScreenContainer
-export { InvitesScreen }
+export default InvitesScreenContainer;
+export { InvitesScreen };

@@ -3,7 +3,7 @@ import { colors, typography, windowWidth as width } from '../../styles/baseStyle
 
 export default StyleSheet.create({
   buttonShape: {
-    width: width * .8,
+    width: 220,
     borderRadius: 50,
     height: 50,
   },

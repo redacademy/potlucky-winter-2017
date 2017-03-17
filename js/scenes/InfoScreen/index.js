@@ -1,5 +1,5 @@
-import InfoScreenContainer from './InfoScreenContainer'
-import InfoScreen from './InfoScreen'
+import InfoScreen from './InfoScreen';
+import InfoScreenContainer from './InfoScreenContainer';
 
-export default InfoScreenContainer
-export { InfoScreen }
+export default InfoScreenContainer;
+export { InfoScreen };
