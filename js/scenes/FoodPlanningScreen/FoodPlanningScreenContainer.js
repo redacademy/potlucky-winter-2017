@@ -8,17 +8,6 @@ import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar'
 import { NavigationActions } from 'react-navigation'
 import NavigationArrow from '../../components/NavigationArrow'
 
-const navigationAction = NavigationActions.navigate({
-  routeName: 'CreatePotluckNavigator',
-  params: {},
-
-  // navigate can have a nested navigate action that will be run inside the child router
-  action: NavigationActions.navigate({ routeName: 'PotLuckInfoScreen' })
-});
-
-import { NavigationActions } from 'react-navigation'
-import NavigationArrow from '../../components/NavigationArrow'
-
 import { progressBar } from '../../constants'
 class FoodPlanningScreenContainer extends Component {
   static navigationOptions = {
