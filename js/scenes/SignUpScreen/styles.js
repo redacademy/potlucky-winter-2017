@@ -1,31 +1,11 @@
 import { StyleSheet } from 'react-native';
-// import { windowHeight, windowWidth } from '../../styles/baseStyles';
-
-/* export const styles = StyleSheet.create({
-  container: {
-    height: windowHeight,
-    width: windowWidth,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#FFF'
-  }
-});*/
-
-// import { StyleSheet } from 'react-native';
-import Main, { windowHeight, windowWidth, typography, colors } from '../../styles/baseStyles';
+import Main, { typography, colors } from '../../styles/baseStyles';
 
 export const styles = StyleSheet.create({
   mainContainer: {
-    // height: windowHeight,
-    // width: windowWidth,
-    // alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: '#FFF',
     height: 220,
   },
-  /* mainContainer: {
-    height: 220,
-  },*/
   container: {
     flex: 0.75,
     alignItems: 'center'
@@ -64,4 +44,3 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
   }
 });
-

@@ -20,35 +20,13 @@ const signUpUser = (signUpDetails) => {
       })
       .catch((error) => {
         const signUpResult = {
-          uId: undefined,
+          uId: null,
           message: (`Sorry, sign-up was unsuccessful. The following error has occured: ${error.code}, ${error.message}`),
         };
 
         return signUpResult;
       });
 };
-
-/* export const signInUser = (signInDetails) => {
-  // console.log(signUpDetails);
-
-  firebase.auth().signInWithEmailAndPassword(signInDetails.email, signInDetails.password).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-
-    console.log(errorCode, errorMessage);
-    // ...
-  });
-};*/
-
-/*
-firebase.auth().signOut()
-  .then(function() {
-    // Sign-out successful.
-  }).catch(function(error) {
-    // An error happened.
-});
-*/
 
 export default {
   signUpUser,
