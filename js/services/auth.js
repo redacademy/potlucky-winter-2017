@@ -8,11 +8,13 @@ const signUpUser = (signUpDetails) => {
         const uId = firebase.auth().currentUser.uid;
         const userName = { firstName: signUpDetails.firstName, lastName: signUpDetails.lastName };
 
-        // add insert to firebase userDetails
+        // userDetails insert to firebase 
         userDetails.create(uId, userName);
 
         const signUpResult = {
           uId,
+          signedIn: { signUp: true, signIn: false },
+          userName,
           message: (`Sign-up successful, welcome to Pot Lucky ${signUpDetails.firstName}`),
         };
 
@@ -21,6 +23,8 @@ const signUpUser = (signUpDetails) => {
       .catch((error) => {
         const signUpResult = {
           uId: null,
+          signedIn: { signUp: false, signIn: false },
+          userName: {},
           message: (`Sorry, sign-up was unsuccessful. The following error has occured: ${error.code}, ${error.message}`),
         };
 
@@ -28,6 +32,49 @@ const signUpUser = (signUpDetails) => {
       });
 };
 
+const signInUser = (signInDetails) => {
+  return firebase.auth()
+    .signInWithEmailAndPassword(signInDetails.email, signInDetails.password)
+    .then(() => {
+      const uId = firebase.auth().currentUser.uid;
+
+      // get userDetails from firebase and return signInResult to thunk
+      return userDetails.get(uId)
+        .then((result) => {
+          const signInResult = {
+            uId,
+            signedIn: { signUp: false, signIn: true },
+            userName: result,
+            message: (`Sign-in successful, welcome back to Pot Lucky ${result.firstName}`),
+          };
+
+          return signInResult;
+        });
+    })
+    .catch((error) => {
+      const signInResult = {
+        uId: null,
+        signedIn: { signUp: false, signIn: false },
+        userName: {},
+        message: (`Sorry, sign-in was unsuccessful. The following error has occured: ${error.code}, ${error.message}`),
+      };
+
+      return signInResult;
+    });
+};
+
+const signOutUser = () => {
+  return firebase.auth()
+    .signOut()
+      .then(() => {
+        console.log('Sign-out successful.');
+      }).catch((error) => {
+        console.log(error);
+      });
+};
+
 export default {
   signUpUser,
+  signInUser,
+  signOutUser,
 };

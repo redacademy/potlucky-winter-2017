@@ -7,7 +7,8 @@ import {
   TabNavigator
 } from 'react-navigation';
 import PotLuckInfoScreen from '../scenes/PotLuckInfoScreen';
-import SignInSignUpScreen from '../scenes/SignInSignUpScreen';
+import SignInScreen from '../scenes/SignInScreen';
+import SignUpScreen from '../scenes/SignUpScreen';
 import AccountScreen from '../scenes/AccountScreen';
 import MyPotLucksScreen from '../scenes/MyPotlucksScreen';
 import CreateNewPotLuck from './../scenes/CreatePotluckScreen';
@@ -17,6 +18,7 @@ import InvitesScreen from '../scenes/InvitesScreen';
 import AppOnboardingScreen from '../scenes/AppOnboardingScreen';
 import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from './TabNavConfig';
 import { bottomNavigatorScreens, bottomNavigatorStyles } from './BottomNavConfig';
+import { colors, windowWidth } from '../styles/baseStyles'
 
 const HostTabNavigator = TabNavigator(hostTabScreens, hostTabStyles);
 
@@ -60,19 +62,14 @@ const CreatePotluckNavigator = TabNavigator(
 
 export default StackNavigator(
   {
-
-    PotLuckInfoScreen: { screen: PotLuckInfoScreen },
-    Login: { screen: SignInSignUpScreen },
+    SignIn: { screen: SignInScreen },
+    SignUp: { screen: SignUpScreen },
     CreatePotluckNavigator: { screen: CreatePotluckNavigator },
-    // SignUp: { screen: SignUp },
-    HomeScreenNavigator: { screen: BottomNavigator },
-    NumberOfGuestScreen: { screen: NumberOfGuestScreen },
-    FoodPlanningScreen: { screen: FoodPlanningScreen },
+    HomeScreenNavigator: { screen: HomeScreenNavigator },
     AppOnboardingScreen: { screen: AppOnboardingScreen },
-
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'SignIn',
     headerMode: 'screen',
   }
 );

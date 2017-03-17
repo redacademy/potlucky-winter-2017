@@ -4,19 +4,26 @@ import auth from '../../services/auth';
 const USER_SIGN_IN = 'USER_SIGN_IN';
 
 // action creators
-const setUserSignUp = signUpData => ({
+const setUserSignIn = signInData => ({
   type: USER_SIGN_IN,
-  payload: signUpData
+  payload: signInData
 });
 
 // thunks
 export const userSignUp = (signUpDetails) => {
   return (dispatch) => {
-    auth
-      .signUpUser(signUpDetails)
+    auth.signUpUser(signUpDetails)
       .then((signUpResult) => {
-        dispatch(setUserSignUp(signUpResult));
+        dispatch(setUserSignIn(signUpResult));
       });
   };
 };
 
+export const userSignIn = (signInDetails) => {
+  return (dispatch) => {
+    auth.signInUser(signInDetails)
+      .then((signInResult) => {
+        dispatch(setUserSignIn(signInResult));
+      });
+  };
+};
