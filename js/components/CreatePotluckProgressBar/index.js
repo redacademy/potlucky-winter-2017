@@ -20,7 +20,10 @@ const generateProgressBar = (progressNumber) => {
 
 const CreatePotluckProgressBar = ({ title, progressNumber }) => (
   <View style={styles.container}>
-    <Text style={styles.title}>{title}</Text>
+    <View style={styles.header}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+
     {generateProgressBar(progressNumber)}
 
   </View>
