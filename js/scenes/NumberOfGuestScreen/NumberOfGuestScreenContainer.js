@@ -8,6 +8,10 @@ import {
 } from 'react-native';
 import { changeNumberofGuests } from '../../redux/modules/newPotluckActions';
 
+import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar';
+
+import NavigationArrow from '../../components/NavigationArrow';
+
 class NumberOfGuestScreenContainer extends React.Component {
   constructor() {
     super();
@@ -16,27 +20,44 @@ class NumberOfGuestScreenContainer extends React.Component {
     };
   }
   static navigationOptions = {
-    title: 'Guest number',
-    header: ({ navigate }) => ({
-      // Render a button on the right side of the header
-      // When pressed switches the screen to edit mode.
+    header: ({ navigate, dispatch, goBack }) => ({
+      style: { height: 0 ,margin: 0, padding: 0, },
+      title: <CreatePotluckProgressBar title='Number of Guests' progressNumber={1} />,
       right: (
-        <Button
-          title={'Done'}
+        <NavigationArrow
           onPress={() => navigate('FoodPlanningScreen')}
         />
       ),
-      backTitle: null,
+      left: (
+        <NavigationArrow
+          backArrow
+          onPress={() => goBack(null)}
+        />
+      ),
     }),
   };
+
   onTextChange = (text) => {
-    this.setState({ count: text });
+    if (text === '') {
+      this.setState({ count: 0 });
+      return;
+    }
+    const reg = /(^\d+$)/;
+    if (reg.test(text)) {
+      if (text.indexOf(0) !== 0) {
+        this.setState({ count: text });
+      } else {
+        this.setState({ count: text.substring(1) });
+      }
+    }
   }
-  increase = () => {
-    this.setState({ count: this.state.count + 1 });
-  }
+
+  increase = () => this.setState({ count: this.state.count + 1 });
+
   decrease = () => {
-    this.setState({ count: this.state.count - 1 });
+    if (this.state.count > 0) {
+      this.setState({ count: this.state.count - 1 });
+    }
   }
   componentDidUpdate() {
     this.props.dispatch(changeNumberofGuests(this.state.count));
@@ -57,7 +78,7 @@ class NumberOfGuestScreenContainer extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    guests: state.newPotluck.guestNumber
-  });
+  guests: state.newPotluck.guestNumber
+});
 
 export default connect(mapStateToProps)(NumberOfGuestScreenContainer);
