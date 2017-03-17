@@ -6,7 +6,7 @@ import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar'
 
 import NavigationArrow from '../../components/NavigationArrow';
 
-import { progressBar } from '../../constants'
+import { progressBar } from '../../constants';
 
 class PotluckInfoScreenContainer extends Component {
   static navigationOptions = {

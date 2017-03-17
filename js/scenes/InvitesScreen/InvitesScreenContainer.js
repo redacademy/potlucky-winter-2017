@@ -15,6 +15,7 @@ class InvitesScreenContainer extends Component {
     header: ({ navigate }) => ({
       style: { height: 0, margin: 0, padding: 0, },
       title: <CreatePotluckProgressBar title='Invites' progressNumber={progressBar.FOURTH_SCREEN} />,
+
       // Render a button on the right side of the header
       // When pressed switches the screen to edit mode.
       left: (

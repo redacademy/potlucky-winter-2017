@@ -14,6 +14,7 @@ import NavigationArrow from '../../components/NavigationArrow';
 
 import { progressBar } from '../../constants'
 
+
 class NumberOfGuestScreenContainer extends React.Component {
   constructor() {
     super();
@@ -25,6 +26,7 @@ class NumberOfGuestScreenContainer extends React.Component {
     header: ({ navigate, dispatch, goBack }) => ({
       style: { height: 0, margin: 0, padding: 0, },
       title: <CreatePotluckProgressBar title='Number of Guests' progressNumber={progressBar.FIRST_SCREEN} />,
+
       right: (
         <NavigationArrow
           onPress={() => navigate('FoodPlanningScreen')}
