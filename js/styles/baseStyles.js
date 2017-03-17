@@ -15,7 +15,8 @@ export const colors = {
   mainCourseColor: '#37B1B0',
   saladsColor: '#D8D8D8',
   foodIndicatorBG: '#E1E1E1',
-  borderColorGray: '#979797'
+  borderColorGray: '#979797',
+  mainBrandYellow: '#ffe100',
 };
 
 export const typography = {
