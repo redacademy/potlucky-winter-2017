@@ -8,7 +8,7 @@ import styles from './styles';
 const AccountScreen = () => {
   return (
     <View>
-      <Text>Welcome to the Account</Text>
+      <Text>Hello world</Text>
     </View>
   );
 };

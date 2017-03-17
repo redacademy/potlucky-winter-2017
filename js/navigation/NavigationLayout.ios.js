@@ -52,6 +52,6 @@ export default StackNavigator(
   },
   {
     initialRouteName: 'Login',
-    headerMode: 'screen'
+    headerMode: 'screen',
   }
 );
