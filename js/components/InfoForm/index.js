@@ -30,7 +30,8 @@ class Form extends Gandalf {
         },
         getValueInOnChange: text => text,
         debounce: 500,
-      }, {
+      },
+      {
         name: 'guestNumber',
         component: TextInput,
         validators: ['numeric'],
@@ -88,7 +89,6 @@ class Form extends Gandalf {
     const fields = this.state.fields;
     return (
       <View style={styles.mainContainer}>
-
         <View style={styles.container}>
           <View style={styles.container}>
             {fields.potluckName.element}

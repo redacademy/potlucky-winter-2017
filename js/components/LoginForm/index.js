@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import Gandalf from 'gandalf-validator';
 import { TextInput, View, Text, TouchableHighlight } from 'react-native';
 import { styles } from './../../styles/formStyles';

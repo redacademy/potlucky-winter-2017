@@ -1,9 +1,12 @@
 import React from 'react';
-import { Text } from 'react-native';
+import InviteForm from './../../components/InviteForm';
+import { Text, View } from 'react-native';
 
 
 const InvitesScreen = () => (
-  <Text> This is an invite screen</Text>
+  <View style={{ flex: 1 }}>
+    <InviteForm />
+  </View>
 );
 
 export default InvitesScreen;
