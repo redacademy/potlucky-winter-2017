@@ -15,6 +15,7 @@ export default StyleSheet.create({
   },
   container: {
     flex: 0,
+    marginTop: 50,
     width: windowWidth,
     height: windowHeight
   },

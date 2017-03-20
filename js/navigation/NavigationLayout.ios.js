@@ -18,7 +18,6 @@ import AppOnboardingScreen from '../scenes/AppOnboardingScreen';
 import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from './TabNavConfig';
 import { bottomNavigatorScreens, bottomNavigatorStyles } from './BottomNavConfig';
 
-
 const HostTabNavigator = TabNavigator(hostTabScreens, hostTabStyles);
 
 const GuestTabNavigator = TabNavigator(guestTabScreens, guestTabStyles);
@@ -41,12 +40,31 @@ BottomNavigator.navigationOptions = {
 
 };
 
+
+const CreatePotluckNavigator = TabNavigator(
+  {
+    NumberOfGuestScreen: { screen: NumberOfGuestScreen },
+    FoodPlanningScreen: { screen: FoodPlanningScreen },
+    PotLuckInfoScreen: { screen: PotLuckInfoScreen },
+    InvitesScreen: { screen: InvitesScreen },
+  },
+  {
+    initialRouteName: 'NumberOfGuestScreen',
+    animationEnabled: true,
+    swipeEnabled: true,
+    tabBarOptions: {
+      style: { height: 0 }
+    }
+  }
+);
+
 export default StackNavigator(
   {
-    InvitesScreen: { screen: InvitesScreen },
+
     PotLuckInfoScreen: { screen: PotLuckInfoScreen },
     Login: { screen: SignInSignUpScreen },
-    SignUp: { screen: SignUp },
+    CreatePotluckNavigator: { screen: CreatePotluckNavigator },
+    // SignUp: { screen: SignUp },
     HomeScreenNavigator: { screen: HomeScreenNavigator },
     NumberOfGuestScreen: { screen: NumberOfGuestScreen },
     FoodPlanningScreen: { screen: FoodPlanningScreen },

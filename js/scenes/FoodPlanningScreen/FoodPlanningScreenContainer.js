@@ -3,22 +3,31 @@ import { connect } from 'react-redux';
 import { Button } from 'react-native';
 import FoodPlanningScreen from './FoodPlanningScreen';
 
+import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar';
 
+import { NavigationActions } from 'react-navigation'
+import NavigationArrow from '../../components/NavigationArrow'
+
+import { progressBar } from '../../constants'
 class FoodPlanningScreenContainer extends Component {
   static navigationOptions = {
-    title: 'Food Planning',
-    header: ({ navigate }) => ({
-      // Render a button on the right side of the header
-      // When pressed switches the screen to edit mode.
+    header: ({ navigate, dispatch, goBack }) => ({
+      style: { height: 0, margin: 0, padding: 0, },
+      title: <CreatePotluckProgressBar title='Food Planning' progressNumber={progressBar.SECOND_SCREEN} />,
       right: (
-        <Button
-          title={'Done'}
+        <NavigationArrow
           onPress={() => navigate('PotLuckInfoScreen')}
         />
       ),
-      backTitle: null,
+      left: (
+        <NavigationArrow
+          backArrow
+          onPress={() => navigate('NumberOfGuestScreen')}
+        />
+      ),
     }),
   };
+
   render() {
     return (
       <FoodPlanningScreen guests={this.props.guests} dispatch={this.props.dispatch} />
