@@ -13,7 +13,6 @@ export const colors = {
   secondaryNavColor: '#FFBC8C',
   appetizerColor: '#93B259',
   mainCourseColor: '#37B1B0',
-  saladsColor: '#D8D8D8',
   borderColorGray: '#979797',
   saladsColor: '#E8CD38',
   dessertsColor: '#542722',
