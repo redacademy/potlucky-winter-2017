@@ -65,6 +65,7 @@ export default StackNavigator(
     Login: { screen: SignInSignUpScreen },
     SignUp: { screen: SignUp },
     HomeScreenNavigator: { screen: HomeScreenNavigator },
+    CreatePotluckNavigator: { screen: CreatePotluckNavigator }
 
   },
   {
