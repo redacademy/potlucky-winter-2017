@@ -14,6 +14,7 @@ import CreateNewPotLuck from './../scenes/CreatePotluckScreen';
 import NumberOfGuestScreen from './../scenes/NumberOfGuestScreen';
 import FoodPlanningScreen from './../scenes/FoodPlanningScreen';
 import InvitesScreen from '../scenes/InvitesScreen';
+import AppOnboardingScreen from '../scenes/AppOnboardingScreen';
 import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from './TabNavConfig';
 import { bottomNavigatorScreens, bottomNavigatorStyles } from './BottomNavConfig';
 
@@ -64,9 +65,11 @@ export default StackNavigator(
     Login: { screen: SignInSignUpScreen },
     CreatePotluckNavigator: { screen: CreatePotluckNavigator },
     // SignUp: { screen: SignUp },
-    HomeScreenNavigator: { screen: HomeScreenNavigator },
+    HomeScreenNavigator: { screen: BottomNavigator },
     NumberOfGuestScreen: { screen: NumberOfGuestScreen },
     FoodPlanningScreen: { screen: FoodPlanningScreen },
+    AppOnboardingScreen: { screen: AppOnboardingScreen },
+
   },
   {
     initialRouteName: 'Login',

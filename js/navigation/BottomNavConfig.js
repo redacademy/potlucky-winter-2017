@@ -7,7 +7,7 @@ export const bottomNavigatorScreens = {
   Info: { screen: AccountScreen },
   Food: { screen: MyPotLucksScreen },
   CreatePotLuck: { screen: CreatePotLuckScreen }
-}
+};
 
 export const bottomNavigatorStyles = {
   initialRouteName: 'Info',

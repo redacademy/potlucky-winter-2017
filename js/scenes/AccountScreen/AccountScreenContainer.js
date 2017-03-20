@@ -20,7 +20,9 @@ class AccountScreenContainer extends React.Component {
     const { navigate } = this.props.navigation;
     // The screen's current route is passed in to `props.navigation.state`:
     return (
-      <AccountScreen navigate={navigate} />
+      <AccountScreen 
+        navigate={navigate}
+        />
     );
   }
 }
