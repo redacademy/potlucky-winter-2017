@@ -1,14 +1,12 @@
 import React, { PropTypes } from 'react';
 import {
-  TextInput,
   Text,
   View,
-  Image,
-  TouchableOpacity,
+  Image
 } from 'react-native';
 import styles from './styles';
 
-const AccountScreen = ({ firstName, lastName, email, password }) => {
+const AccountScreen = ({ firstName, lastName, email }) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.imageContainer}>
@@ -17,22 +15,13 @@ const AccountScreen = ({ firstName, lastName, email, password }) => {
       <View style={styles.formContainer}>
         <View style={styles.formsBox}>
           <View style={styles.formElementContainer}>
-            <TextInput placeholder={firstName} style={styles.formElement} />
-            <TouchableOpacity style={styles.buttonContainer}>
-              <Text style={styles.button}>Edit</Text>
-            </TouchableOpacity>
+            <Text style={styles.formElement}>{firstName}</Text>
           </View>
           <View style={styles.formElementContainer}>
-            <TextInput placeholder={lastName} style={styles.formElement} />
-            <TouchableOpacity style={styles.buttonContainer}>
-              <Text style={styles.button}>Edit</Text>
-            </TouchableOpacity>
+            <Text style={styles.formElement}>{lastName}</Text>
           </View>
           <View style={styles.formElementContainer}>
-            <TextInput placeholder={email} style={styles.formElement} />
-          </View>
-          <View style={styles.formElementContainer}>
-            <TextInput placeholder={password} style={styles.formElement} />
+            <Text style={styles.formElement}>{email}</Text>
           </View>
         </View>
       </View>
@@ -44,7 +33,6 @@ AccountScreen.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
 };
 
 export default AccountScreen;
