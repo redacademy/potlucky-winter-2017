@@ -1,40 +1,22 @@
 import React from 'react';
+import { 
+  Text, 
+  View, 
+  Image,
+} from 'react-native';
+import { styles } from './styles';
+import fontStyles from './../../styles/baseStyles'
+import PlanningScrollbar from './../../components/planningScrollbar';
+import PlanningList from './../../components/PlanningList';
 
-import { Text, View, Button, ScrollView } from 'react-native';
-import { addFoodGroup } from './../../redux/modules/newPotluckActions';
+const FoodPlanningScreen = ({ guests, courses, addPotluckItem }) => (
 
-
-const FoodPlanningScreen = ({ guests, dispatch }) => (
-  <View>
-    <Text>Food Screen</Text>
-      <Text> Guest Left {guests}</Text>
-    <ScrollView>
-        <Button
-          onPress={() => { dispatch(addFoodGroup({ Appetizers: {} })); }}
-          title={'Appetizers'}
-        >
-        </Button>
-        <Button
-          onPress={() => { dispatch(addFoodGroup({ Mains: {} })); }}
-          title={'Mains'}
-        >
-        </Button>
-        <Button
-          onPress={() => { dispatch(addFoodGroup({ Salads: {} })); }}
-          title={'Salads'}
-        >
-        </Button>
-        <Button
-          onPress={() => { dispatch(addFoodGroup({ Deserts: {} })); }}
-          title={'Deserts'}
-        >
-        </Button>
-        <Button
-          onPress={() => { dispatch(addFoodGroup({ Drinks: {} })); }}
-          title={'Drinks'}
-        >
-        </Button>
-      </ScrollView>
+  <View style={styles.container}>
+    <View style={styles.foodPlanningWrap}>
+      <PlanningList courseData={courses} />
+      <Text style={fontStyles.guestNumber}>{guests}</Text>
+    </View>
+    <PlanningScrollbar addPotluckItem={addPotluckItem} />
   </View>
   );
 

@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {Component, PropTypes } from 'react';
 import { Image } from 'react-native';
 import CreatePotluckScreen from './CreatePotluckScreen';
 
-class CreatePotluckScreenContainer extends React.Component {
+class CreatePotluckScreenContainer extends Component {
+
+  static propTypes = {
+    navigation: PropTypes.object,
+  };
+
   static navigationOptions = {
     title: 'Create Potlucks',
     tabBar: () => ({
@@ -13,10 +18,10 @@ class CreatePotluckScreenContainer extends React.Component {
   };
 
   render() {
-    const { navigate } = this.props.navigation;
+    const { navigation } = this.props;
     // The screen's current route is passed in to `props.navigation.state`:
     return (
-      <CreatePotluckScreen navigate={navigate} navigation={this.props.navigation} />
+      <CreatePotluckScreen navigation={navigation} />
     );
   }
 }

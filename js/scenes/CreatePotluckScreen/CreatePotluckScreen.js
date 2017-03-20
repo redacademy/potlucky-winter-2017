@@ -3,7 +3,6 @@ import {
   Text,
   View,
   Image,
-  TouchableHighlight,
 } from 'react-native';
 
 import RoundedButton from '../../components/RoundedButton';

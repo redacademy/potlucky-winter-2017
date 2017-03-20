@@ -69,6 +69,7 @@ export default StackNavigator(
     NumberOfGuestScreen: { screen: NumberOfGuestScreen },
     FoodPlanningScreen: { screen: FoodPlanningScreen },
     AppOnboardingScreen: { screen: AppOnboardingScreen },
+
   },
   {
     initialRouteName: 'Login',

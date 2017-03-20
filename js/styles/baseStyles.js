@@ -13,10 +13,15 @@ export const colors = {
   secondaryNavColor: '#FFBC8C',
   appetizerColor: '#93B259',
   mainCourseColor: '#37B1B0',
-  saladsColor: '#D8D8D8',
-  foodIndicatorBG: '#E1E1E1',
   borderColorGray: '#979797',
-  mainBrandYellow: '#ffe100',
+  saladsColor: '#E8CD38',
+  dessertsColor: '#542722',
+  drinksColor: '#F7931E',
+  chipInColor: '#93B259',
+  talentColor: '#37B1B0',
+  customColor: '#E8CD38',
+  courseIndicatorBG: '#E1E1E1',
+  courseIndicatorColor: '#747474',
 };
 
 export const typography = {
@@ -24,51 +29,46 @@ export const typography = {
   baseFontSize: 14,
   headerFontSize: 24,
   fontMain: 'Ubuntu',
-  fontMainLight: 'Ubuntu-Light',
-  fontMainMedium: 'Ubuntu-Medium',
-  fontMainBold: 'Ubuntu-Bold',
+  fontMainLight: 'Ubuntu Light',
+  fontMainMedium: 'Ubuntu Medium',
+  fontMainBold: 'Ubuntu Bold',
 };
 
 export default StyleSheet.create({
   headerPrimary: {
     fontSize: colors.headerSize,
-    fontFamily: colors.fontMainMedium,
+    //fontFamily: colors.fontMainMedium,
     color: colors.mainBrandColor,
   },
   headerSecondary: {
     fontSize: typography.headerFontSize,
-    fontFamily: typography.fontMainMedium,
+    //fontFamily: typography.fontMainMedium,
     color: 'white',
   },
   loginInput: {
     fontSize: typography.baseFontSize,
-    fontFamily: typography.fontMainLight,
+    //fontFamily: typography.fontMainLight,
     color: colors.mainBrandColor,
   },
   tutorialMain: {
     fontSize: 20,
-    fontFamily: typography.fontMain,
+    //fontFamily: typography.fontMain,
     color: typography.mainBrandColor,
     lineHeight: 24,
   },
   progressNumber: {
     fontSize: typography.baseSize,
-    fontFamily: typography.fontMainMedium,
+    //fontFamily: typography.fontMainMedium,
     color: 'white',
   },
   guestNumber: {
     fontSize: 50,
-    fontFamily: typography.fontMainMedium,
-    color: 'black',
+    //fontFamily: typography.fontMainMedium,
+    color: colors.courseIndicatorColor,
+    textAlign: 'center'
   },
-  appetizerTitle: {
-    fontSize: typography.baseFontSize,
-    fontFamily: typography.fontMainBold,
-    color: colors.mainBrandColor,
-  },
-  mainCourseTitle: {
-    fontSize: typography.baseFontSize,
-    fontFamily: typography.fontMainBold,
-    color: colors.mainBrand,
+  foodIndicatorText: {
+    fontSize: typography.smallestFontSize,
+    color: typography.foodIndicatorText
   }
 });

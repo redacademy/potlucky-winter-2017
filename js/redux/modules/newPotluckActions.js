@@ -3,7 +3,7 @@ export const changeNumberofGuests = number => ({
   payload: number
 });
 
-export const addFoodGroup = course => ({
-  type: 'AddFoodGroup',
-  payload: course
+export const addPotluckItem = name => ({
+  type: 'ADD_POTLUCK_ITEM',
+  payload: name
 });
