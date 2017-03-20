@@ -5,6 +5,7 @@
 import {
   StackNavigator,
   TabNavigator
+<<<<<<< HEAD
 } from 'react-navigation';
 import PotLuckInfoScreen from '../scenes/PotLuckInfoScreen';
 import SignInSignUpScreen from '../scenes/SignInSignUpScreen';
@@ -19,6 +20,20 @@ import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from '
 import { bottomNavigatorScreens, bottomNavigatorStyles } from './BottomNavConfig';
 
 import { colors, windowWidth } from '../styles/baseStyles'
+=======
+} from 'react-navigation'
+import PotLuckInfoScreen from '../scenes/PotLuckInfoScreen'
+import CreateNewPotLuck from './../scenes/CreatePotluckScreen'
+import NumberOfGuestScreen from './../scenes/NumberOfGuestScreen'
+import FoodPlanningScreen from './../scenes/FoodPlanningScreen'
+import InvitesScreen from '../scenes/InvitesScreen'
+import SignInSignUpScreen from '../scenes/SignInSignUpScreen';
+import SignUp from '../scenes/SignUpScreen';
+import AccountScreen from '../scenes/AccountScreen';
+import MyPotLucksScreen from '../scenes/MyPotlucksScreen';
+import { bottomNavigatorScreens, bottomNavigatorStyles } from './BottomNavConfig'
+import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from './TabNavConfig';
+>>>>>>> origin/develop
 
 const HostTabNavigator = TabNavigator(hostTabScreens, hostTabStyles);
 
@@ -65,12 +80,20 @@ export default StackNavigator(
 
     PotLuckInfoScreen: { screen: PotLuckInfoScreen },
     Login: { screen: SignInSignUpScreen },
+<<<<<<< HEAD
     CreatePotluckNavigator: { screen: CreatePotluckNavigator },
+=======
+    SignUp: { screen: SignUp },
+>>>>>>> origin/develop
     HomeScreenNavigator: { screen: HomeScreenNavigator },
 
   },
   {
     initialRouteName: 'Login',
+<<<<<<< HEAD
 
+=======
+    headerMode: 'screen',
+>>>>>>> origin/develop
   }
 );
