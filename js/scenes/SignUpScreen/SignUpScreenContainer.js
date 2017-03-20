@@ -7,7 +7,7 @@ class SignUpScreenContainer extends Component {
   static propTypes = {
     navigation: PropTypes.object,
     signUpUser: PropTypes.func.isRequired,
-    userSignedIn: PropTypes.bool.isRequired,
+    userSignedUp: PropTypes.bool.isRequired,
   };
 
   static navigationOptions = {
@@ -21,20 +21,20 @@ class SignUpScreenContainer extends Component {
       <SignUpScreen
         navigation={navigation}
         onSignUpClick={this.props.signUpUser}
-        userSignedIn={this.props.userSignedIn}
+        userSignedUp={this.props.userSignedUp}
       />
     );
   }
 }
 
+const mapStateToProps = state => ({
+  userSignedUp: state.userSignIn.signedIn.signUp,
+});
+
 const mapDispatchToProps = dispatch => ({
   signUpUser: (data) => {
     dispatch(userSignUp(data));
   },
-});
-
-const mapStateToProps = state => ({
-  userSignedIn: state.userSignIn.signedIn,
 });
 
 export default connect(

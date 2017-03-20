@@ -64,6 +64,12 @@ class SignupForm extends Gandalf {
     super(fields);
   }
 
+  componentWillUpdate(nextState) {
+    if (nextState.userSignedUp) {
+      this.props.navigation.navigate('HomeScreenNavigator');
+    }
+  }
+
   handleSubmit = () => {
     const data = this.getCleanFormData();
 
@@ -77,11 +83,6 @@ class SignupForm extends Gandalf {
     };
 
     this.props.onSignUpClick(signUpAuth);
-
-    // TODO set correct navigation on successful sign-up
-    // if (this.props.userSignedIn) {
-    this.props.navigation.navigate('HomeScreenNavigator');
-    // }
   }
 
   render() {
@@ -130,7 +131,7 @@ class SignupForm extends Gandalf {
           </View>
         </View>
 
-        <TouchableHighlight style={styles.button} onPress={() => this.handleSubmit()}>
+        <TouchableHighlight style={styles.button} onPress={this.handleSubmit}>
           <Text style={styles.buttonText}>Register</Text>
         </TouchableHighlight>
       </View>
