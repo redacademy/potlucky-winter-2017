@@ -3,6 +3,7 @@ import { colors, typography } from './../../styles/baseStyles';
 
 export const styles = StyleSheet.create({
   planningListWrap: {
+    paddingTop: 63,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'center',
