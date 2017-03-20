@@ -23,30 +23,25 @@ const getPotLuck = (potLuckId) => {
 const create = (data) => {
   // create potLuck and potLuckIndex objects
   // TODO other potLuck components
-  const potLuck = {};
-  potLuck[data.userId] = true;
-  potLuck.title = data.title;
-  potLuck.theme = data.theme;
-  potLuck.eventDate = data.eventDate;
-  potLuck.arriveTime = data.arriveTime;
-  potLuck.serveTime = data.serveTime;
-  potLuck.location = data.location;
-  potLuck.description = data.description;
+  const userId = data.userId;
+  const potLuck = { ...data, [userId]: true };
 
-  const potLuckIndex = {};
-  potLuckIndex.isHost = true;
-  potLuckIndex.eventDate = data.eventDate;
-  potLuckIndex.title = data.title;
-  potLuckIndex.description = data.description;
-  potLuckIndex.isNew = true;
+  const potLuckIndex = {
+    isHost: true,
+    isNew: true,
+    eventDate: data.eventDate,
+    title: data.title,
+    description: data.description,
+  };
 
   // get new potluck id
-  const newPotLuckId = api.pushKey('potLucks');
+  const newPotLuckId = api.createEmptyChild('potLucks');
 
   // Write the new post's data simultaneously in the pot lucks list and the user's pot luck list.
-  const updates = {};
-  updates[`/potLucks/${newPotLuckId}`] = potLuck;
-  updates[`/userPotLucks/${data.userId}/${newPotLuckId}`] = potLuckIndex;
+  const updates = {
+    [`/potLucks/${newPotLuckId}`]: potLuck,
+    [`/userPotLucks/${data.userId}/${newPotLuckId}`]: potLuckIndex
+  };
 
   return api.change(updates)
     .then(() => {

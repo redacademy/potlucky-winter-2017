@@ -20,7 +20,7 @@ const push = (path, data) => {
     // return new Id?
 };
 
-const pushKey = (path) => {
+const createEmptyChild = (path) => {
   return firebase.database()
     .ref()
     .child(path)
@@ -58,7 +58,7 @@ const remove = (path) => {
 export default {
   get,
   push,
-  pushKey,
+  createEmptyChild,
   set,
   // changeOne,
   change,
