@@ -64,9 +64,9 @@ class SignupForm extends Gandalf {
     super(fields);
   }
 
-  componentWillUpdate(nextState) {
-    if (nextState.userSignedUp) {
-      this.props.navigation.navigate('HomeScreenNavigator');
+  componentWillUpdate(nextProps) {
+    if (nextProps.userSignedUp) {
+      this.props.navigation.navigate('AppOnboardingScreen');
     }
   }
 

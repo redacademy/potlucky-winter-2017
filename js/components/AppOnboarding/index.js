@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Text, View, Image } from 'react-native';
 import styles from './style';
 
@@ -11,10 +11,6 @@ const AppOnboarding = ({ image, text }) => {
         source={image}
         style={styles.background}
       />
-      <View
-        style={styles.yellowseperator}
-      >
-      </View>
       <View style={styles.textContainer}>
         <Text style={styles.text}>
           {text}
@@ -22,6 +18,11 @@ const AppOnboarding = ({ image, text }) => {
       </View>
     </View>
   );
+};
+
+AppOnboarding.propTypes = {
+  image: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default AppOnboarding;

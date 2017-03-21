@@ -2,6 +2,10 @@ import { StyleSheet } from 'react-native';
 import { colors, typography, windowWidth } from './../../styles/baseStyles';
 
 export default StyleSheet.create({
+  mainContainer: {
+    backgroundColor: 'white',
+    flex: 1
+  },
   background: {
     flex: 2,
     width: windowWidth,
@@ -9,19 +13,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  yellowseperator: {
-    flex: 0.25,
-    height: 165,
-    backgroundColor: colors.mainBrandYellow
-  },
   textContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
   text: {
-    // fontSize: typography.baseFontSize,
-    // fontFamily: typography.fontMain,
     marginTop: 50,
     width: windowWidth * 0.75,
     textAlign: 'center',
@@ -31,9 +28,5 @@ export default StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-end',
     marginBottom: 20,
-  },
-  mainContainer: {
-    backgroundColor: 'white',
-    flex: 1
   }
 });
