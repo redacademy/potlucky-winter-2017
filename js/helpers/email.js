@@ -1,11 +1,12 @@
 import { htmlTemplate } from './emailtemplate';
 
-export const contentValueString = (data, fname, lname) => {
-  return `Hello ${fname}${lname} how are you? i hope you are doing well. I am doing fine thank you from ${data.sender}`
-};
-
-export function sendEmail(data) {
-  fetch('https://api.sendgrid.com/v3/mail/send', {
+export function constructEmailData(receiver, sender, subject, receiverFName, senderFName, description) {
+  return ({
+    receiver, sender, subject, receiverFName, senderFName, description
+  });
+}
+export function sendEmail(data, url) {
+  fetch(url, {
     method: 'POST',
     headers: {
       Authorization: 'Bearer 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',
