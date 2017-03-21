@@ -3,6 +3,7 @@ import Main, { typography, colors } from './../../styles/baseStyles';
 
 export const styles = StyleSheet.create({
   container: {
+    marginTop: 63,
     flex: 0.75,
     alignItems: 'center'
   },

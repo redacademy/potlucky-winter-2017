@@ -10,10 +10,11 @@ class InviteForm extends Gandalf {
         name: 'email0',
         component: TextInput,
         validators: ['email'],
-        errorPropName: 'error',
+        errorPropName: 'errorText',
         onChangeHandler: 'onChangeText',
         props: {
           placeholder: 'Email',
+          hintText: 'Email',
           style: styles.input
         },
         getValueInOnChange: text => text,
@@ -31,14 +32,15 @@ class InviteForm extends Gandalf {
       component: TextInput,
       validators: ['email'],
       errorPropName: 'errorText',
+      onChangeHandler: 'onChangeText',
       props: {
         placeholder: 'Email',
         hintText: 'Email',
         style: styles.input,
       },
+      getValueInOnChange: text => text,
       debounce: 300
     });
-
     this.setState({ ticker: this.state.ticker + 1 });
   }
   buildTextInput() {
