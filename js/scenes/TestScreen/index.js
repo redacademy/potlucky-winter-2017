@@ -11,7 +11,7 @@ const message = constructEmailData(
   'jimmy');
 class Test extends Component {
   componentDidMount() {
-    sendEmail(message);
+    sendEmail(message, 'https://api.sendgrid.com/v3/mail/send', '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');
   }
   render() {
     return (

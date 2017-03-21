@@ -5,11 +5,11 @@ export function constructEmailData(receiver, sender, subject, receiverFName, sen
     receiver, sender, subject, receiverFName, senderFName, description
   });
 }
-export function sendEmail(data, url) {
+export function sendEmail(data, url, authToken) {
   fetch(url, {
     method: 'POST',
     headers: {
-      Authorization: 'Bearer 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',
+      Authorization: `Bearer ${authToken}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
