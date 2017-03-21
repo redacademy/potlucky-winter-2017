@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Gandalf from 'gandalf-validator';
 import { TextInput, View, Text, Button, DatePickerIOS, TouchableHighlight } from 'react-native';
-import { styles } from './../../styles/formStyles';
+import styles from './styles';
 
 class Form extends Gandalf {
   constructor() {
@@ -13,7 +13,6 @@ class Form extends Gandalf {
         errorPropName: 'error',
         onChangeHandler: 'onChangeText',
         props: {
-          placeholder: 'Potluck Name',
           style: styles.login
         },
         getValueInOnChange: text => text,
@@ -25,7 +24,6 @@ class Form extends Gandalf {
         errorPropName: 'error',
         onChangeHandler: 'onChangeText',
         props: {
-          placeholder: 'theme',
           style: styles.login
         },
         getValueInOnChange: text => text,
@@ -38,12 +36,37 @@ class Form extends Gandalf {
         errorPropName: 'error',
         onChangeHandler: 'onChangeText',
         props: {
-          placeholder: 'Number of Guests',
           style: styles.login
         },
         getValueInOnChange: text => text,
         debounce: 500,
       },
+      {
+        name: 'location',
+        component: TextInput,
+        validators: ['required'],
+        errorPropName: 'error',
+        onChangeHandler: 'onChangeText',
+        props: {
+          style: styles.login,
+        },
+        getValueInOnChange: text => text,
+        debounce: 500,
+      }, 
+      {
+        name: 'description',
+        component: TextInput,
+        validators: ['required'],
+        errorPropName: 'error',
+        onChangeHandler: 'onChangeText',
+        props: {
+          style: styles.description,
+          multiline: true,
+          numberOfLines: 4,
+        },
+        getValueInOnChange: text => text,
+        debounce: 500,
+      },            
     ];
     super(fields);
 
@@ -91,11 +114,23 @@ class Form extends Gandalf {
       <View style={styles.mainContainer}>
         <View style={styles.container}>
           <View style={styles.container}>
+            <Text style={styles.title}>Potluck Name</Text>
             {fields.potluckName.element}
           </View>
           <View style={styles.errorContainer}>
             <Text style={styles.errorMessage}>
               {fields.potluckName.errorMessage && fields.potluckName.errorMessage}
+            </Text>
+          </View>
+        </View>
+        <View style={styles.container} >
+          <View style={styles.container} >
+            <Text style={styles.title}>Theme</Text>
+            {fields.theme.element}
+          </View>
+          <View style={styles.errorContainer} >
+            <Text style={styles.errorMessage}>
+              {fields.theme.errorMessage && fields.theme.errorMessage}
             </Text>
           </View>
         </View>
@@ -149,16 +184,7 @@ class Form extends Gandalf {
         </View>
         <View style={styles.container} >
           <View style={styles.container} >
-            {fields.theme.element}
-          </View>
-          <View style={styles.errorContainer} >
-            <Text style={styles.errorMessage}>
-              {fields.theme.errorMessage && fields.theme.errorMessage}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.container} >
-          <View style={styles.container} >
+            <Text style={styles.title}>Guest Number</Text>
             {fields.guestNumber.element}
           </View>
           <View style={styles.errorContainer} >
@@ -167,6 +193,28 @@ class Form extends Gandalf {
             </Text>
           </View>
         </View>
+        <View style={styles.container} >
+          <View style={styles.container} >
+            <Text style={styles.title}>Location</Text>
+            {fields.location.element}
+          </View>
+          <View style={styles.errorContainer} >
+            <Text style={styles.errorMessage}>
+              {fields.location.errorMessage && fields.location.errorMessage}
+            </Text>
+          </View>
+        </View>
+        <View style={styles.descriptionContainer} >
+          <View style={styles.descriptionContainer} >
+            <Text style={styles.title}>Description</Text>
+            {fields.description.element}
+          </View>
+          <View style={styles.errorContainer} >
+            <Text style={styles.errorMessage}>
+              {fields.description.errorMessage && fields.description.errorMessage}
+            </Text>
+          </View>
+        </View>                 
         <TouchableHighlight style={styles.button} onPress={() => this.handleSubmit()}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableHighlight>
