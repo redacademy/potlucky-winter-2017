@@ -15,15 +15,15 @@ class AppOnboardingScreen extends Component {
   }
 
   onScroll = (event) => {
-    const offsetX = event.nativeEvent.contentOffset.x;
-
     this.setState({
-      currentPage: Math.floor((offsetX - (windowWidth / 2)) / windowWidth) + 1,
+      currentPage: this.calculatePageOffset(event),
     });
   }
 
-  onItemTap = (index) => {
-    console.log(index);
+  calculatePageOffset = (event) => {
+    const offsetX = event.nativeEvent.contentOffset.x;
+
+    return Math.floor((offsetX - (windowWidth / 2)) / windowWidth) + 1;
   }
 
   render() {

@@ -13,19 +13,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  yellowSeperator: {
-    // flex: 0.25,
-    // height: 165,
-    // backgroundColor: colors.mainBrandYellow,
-  },
   textContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
   text: {
-    // fontSize: typography.baseFontSize,
-    // fontFamily: typography.fontMain,
     marginTop: 50,
     width: windowWidth * 0.75,
     textAlign: 'center',

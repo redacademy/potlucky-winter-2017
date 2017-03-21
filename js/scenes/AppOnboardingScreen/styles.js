@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-// import { windowHeight } from '../../styles/baseStyles';
 import { colors } from '../../styles/baseStyles';
 
 export const styles = StyleSheet.create({
@@ -7,9 +6,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  scrollView: {
-    // backgroundColor: 'yellow',
   },
   pageControl: {
     height: 60,
