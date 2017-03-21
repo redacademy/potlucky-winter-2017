@@ -18,12 +18,10 @@ import InvitesScreen from '../scenes/InvitesScreen';
 import AppOnboardingScreen from '../scenes/AppOnboardingScreen';
 import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from './TabNavConfig';
 import { bottomNavigatorScreens, bottomNavigatorStyles } from './BottomNavConfig';
-import { colors, windowWidth } from '../styles/baseStyles'
+import { colors, windowWidth } from '../styles/baseStyles';
 
 const HostTabNavigator = TabNavigator(hostTabScreens, hostTabStyles);
-
 const GuestTabNavigator = TabNavigator(guestTabScreens, guestTabStyles);
-
 const BottomNavigator = TabNavigator(bottomNavigatorScreens, bottomNavigatorStyles);
 
 const HomeScreenNavigator = TabNavigator(
@@ -33,15 +31,12 @@ const HomeScreenNavigator = TabNavigator(
     CreatePotluck: { screen: CreateNewPotLuck },
   },
   {
-    initialRouteName: 'Account',
+    initialRouteName: 'MyPotlucks',
   }
 );
 
-
 BottomNavigator.navigationOptions = {
-
 };
-
 
 const CreatePotluckNavigator = TabNavigator(
   {

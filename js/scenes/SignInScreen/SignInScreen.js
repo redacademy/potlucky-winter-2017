@@ -22,7 +22,7 @@ const SignInScreen = ({ navigation, onSignUpClick, userSignedIn }) => (
 SignInScreen.propTypes = {
   navigation: PropTypes.object,
   onSignUpClick: PropTypes.func.isRequired,
-  userSignedIn: PropTypes.bool.isRequired
+  userSignedIn: PropTypes.bool.isRequired,
 };
 
 export default SignInScreen;

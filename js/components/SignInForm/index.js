@@ -36,9 +36,10 @@ class SignInForm extends Gandalf {
     super(fields);
   }
 
-  componentWillUpdate(nextState) {
-    if (nextState.userSignedIn) {
-      this.props.navigation.navigate('HomeScreenNavigator');
+  componentWillUpdate(nextProps) {
+    if (nextProps.userSignedIn) {
+      // this.props.navigation.navigate('AppOnboardingScreen'); // for testing
+      this.props.navigation.navigate('HomeScreenNavigator'); // For production
     }
   }
 

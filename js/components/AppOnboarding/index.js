@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Text, View, Image } from 'react-native';
 import styles from './style';
 
-const AppOnboarding = ({ image, text }) => {
+const AppOnboarding = ({ image, text, cancelOnBoard }) => {
   return (
     <View
       style={styles.mainContainer}
@@ -12,9 +12,8 @@ const AppOnboarding = ({ image, text }) => {
         style={styles.background}
       />
       <View
-        style={styles.yellowseperator}
-      >
-      </View>
+        // style={styles.yellowseperator}
+      />
       <View style={styles.textContainer}>
         <Text style={styles.text}>
           {text}
@@ -22,6 +21,12 @@ const AppOnboarding = ({ image, text }) => {
       </View>
     </View>
   );
+};
+
+AppOnboarding.propTypes = {
+  image: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  cancelOnBoard: PropTypes.bool.isRequired,
 };
 
 export default AppOnboarding;

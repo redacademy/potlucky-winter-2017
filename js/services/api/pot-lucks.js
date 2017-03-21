@@ -1,7 +1,7 @@
 import api from './base';
 
 const getUserPotLucks = (userId) => {
-  return api.get(`potLuckDetails/${userId}`)
+  return api.get(`userPotLucks/${userId}`)
     .then((result) => {
       return result;
     })

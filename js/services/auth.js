@@ -6,9 +6,12 @@ const signUpUser = (signUpDetails) => {
     .createUserWithEmailAndPassword(signUpDetails.email, signUpDetails.password)
       .then(() => {
         const uId = firebase.auth().currentUser.uid;
-        const userName = { firstName: signUpDetails.firstName, lastName: signUpDetails.lastName };
+        const userName = {
+          firstName: signUpDetails.firstName,
+          lastName: signUpDetails.lastName,
+        };
 
-        // userDetails insert to firebase 
+        // userDetails insert to firebase
         userDetails.create(uId, userName);
 
         const signUpResult = {
@@ -44,7 +47,7 @@ const signInUser = (signInDetails) => {
           const signInResult = {
             uId,
             signedIn: { signUp: false, signIn: true },
-            userName: result,
+            userName: { firstName: result.firstName, lastName: result.lastName },
             message: (`Sign-in successful, welcome back to Pot Lucky ${result.firstName}`),
           };
 
