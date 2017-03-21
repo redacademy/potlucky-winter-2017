@@ -1,31 +1,45 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import NumberOfGuestScreen from './NumberOfGuestScreen';
-import {
-  Text,
-  View,
-  Button
-} from 'react-native';
+import { View, Image } from 'react-native';
 import { changeNumberofGuests } from '../../redux/modules/newPotluckActions';
 
 import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar';
 
 import NavigationArrow from '../../components/NavigationArrow';
 
-import { progressBar } from '../../constants'
+import { progressBar } from '../../constants';
 
+
+const guestImageWidth = 153;
+const guestImageHeight = 195;
+const guestImageHeightWidthRatio = guestImageHeight / guestImageWidth;
 
 class NumberOfGuestScreenContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      count: 0
+      count: 0,
     };
+
+    this.guestImages = [
+      require('../../../assets/images/guests/1.png'),
+      require('../../../assets/images/guests/2.png'),
+      require('../../../assets/images/guests/3.png'),
+      require('../../../assets/images/guests/4.png'),
+      require('../../../assets/images/guests/5.png'),
+      require('../../../assets/images/guests/6.png'),
+      require('../../../assets/images/guests/7.png'),
+      require('../../../assets/images/guests/8.png'),
+      require('../../../assets/images/guests/9.png'),
+      require('../../../assets/images/guests/10.png'),
+    ];
   }
+
   static navigationOptions = {
     header: ({ navigate, dispatch, goBack }) => ({
       style: { height: 0, margin: 0, padding: 0, },
-      title: <CreatePotluckProgressBar title='Number of Guests' progressNumber={progressBar.FIRST_SCREEN} />,
+      title: <CreatePotluckProgressBar title="Number of Guests" progressNumber={progressBar.FIRST_SCREEN} />,
 
       right: (
         <NavigationArrow
@@ -56,22 +70,66 @@ class NumberOfGuestScreenContainer extends React.Component {
     }
   }
 
-  increase = () => this.setState({ count: this.state.count + 1 });
+  increase = () => this.setState({ count: (this.state.count * 1) + 1 });
 
   decrease = () => {
     if (this.state.count > 0) {
-      this.setState({ count: this.state.count - 1 });
+      this.setState({ count: (this.state.count * 1) - 1 });
     }
   }
+
   componentDidUpdate() {
-    this.props.dispatch(changeNumberofGuests(this.state.count));
+    const { count, guestImageArr } = this.state;
+    this.props.dispatch(changeNumberofGuests(count));
   }
+
   render() {
     const { navigate } = this.props.navigation;
+    this.guestImageArr = [];
+
+    let guestStartSize = 60;
+    if (this.state.count > 4) {
+      guestStartSize = 55;
+    }
+    if (this.state.count > 8) {
+      guestStartSize = 50;
+    }
+    if (this.state.count > 12) {
+      guestStartSize = 47;
+    }
+    if (this.state.count > 16) {
+      guestStartSize = 40;
+    }
+    if (this.state.count > 20) {
+      guestStartSize = 37;
+    }
+    if (this.state.count > 25) {
+      guestStartSize = 34;
+    }
+    if (this.state.count > 30) {
+      guestStartSize = 32;
+    }
+    if (this.state.count > 36) {
+      guestStartSize = 30;
+    }
+    for (let i = 0; i < this.state.count; i++) {
+      if (i >= 42) {
+        break;
+      }
+      this.guestImageArr.push(
+        <View key={i}>
+          <Image
+            style={{ height: guestStartSize * guestImageHeightWidthRatio, width: guestStartSize, marginLeft: 5, marginRight: 5 }}
+            source={this.guestImages[i % this.guestImages.length]}
+          />
+        </View>
+      );
+    }
     // The screen's current route is passed in to `props.navigation.state`:
     return (
       <NumberOfGuestScreen
         navigate={navigate}
+        guestImageArr={this.guestImageArr}
         count={this.state.count}
         onTextChange={this.onTextChange}
         increase={this.increase}
@@ -81,8 +139,4 @@ class NumberOfGuestScreenContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  guests: state.newPotluck.guestNumber
-});
-
-export default connect(mapStateToProps)(NumberOfGuestScreenContainer);
+export default connect()(NumberOfGuestScreenContainer);
