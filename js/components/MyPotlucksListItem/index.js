@@ -8,9 +8,7 @@ const statusText = (isHost, isNew) => {
   if (isHost) {
     return <Text style={[styles.statusText, styles.statusHost]}>Host</Text>;
   }
-  return isNew ?
-    <Text style={[styles.statusText, styles.statusInvited]}>New</Text> :
-    <Text style={[styles.statusText, styles.statusInvited]}>Going</Text>;
+  return <Text style={[styles.statusText, styles.statusInvited]}>{ isNew ? 'New' : 'Going' }</Text>;
 };
 
 const MyPotlucksListItem = ({ navigate, title, description, eventDate, isHost, isNew, potluckId }) => (
