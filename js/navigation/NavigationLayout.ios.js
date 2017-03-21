@@ -61,6 +61,8 @@ export default StackNavigator(
     SignUp: { screen: SignUpScreen },
     CreatePotluckNavigator: { screen: CreatePotluckNavigator },
     HomeScreenNavigator: { screen: HomeScreenNavigator },
+    GuestTabNavigator: { screen: GuestTabNavigator },
+    HostTabNavigator: { screen: HostTabNavigator },
     AppOnboardingScreen: { screen: AppOnboardingScreen },
   },
   {

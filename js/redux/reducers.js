@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux';
 
-import myInvitedPotlucksReducer from './modules/myInvitedPotlucksReducer';
-import myHostPotlucksReducer from './modules/myHostedPotlucksReducer';
+import myPotlucksReducer from './modules/myPotlucksReducer';
 import isLoadingReducer from './modules/isLoadingReducer';
 import userSignInReducer from './modules/userSignInReducer';
-import newPotluckReducer from './modules/newPotluckReducer'
+import newPotluckReducer from './modules/newPotluckReducer';
+import currentPotluckReducer from './modules/currentPotluckReducer';
 
 export default combineReducers({
-  myInvitedPotlucks: myInvitedPotlucksReducer,
-  myHostPotlucks: myHostPotlucksReducer,
+  myPotlucks: myPotlucksReducer,
   isLoading: isLoadingReducer,
   userSignIn: userSignInReducer,
   newPotluck: newPotluckReducer,
+  currentPotluck: currentPotluckReducer,
 });

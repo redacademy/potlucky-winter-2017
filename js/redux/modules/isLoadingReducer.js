@@ -1,12 +1,12 @@
 const isLoadingReducer = (state = false, action) => {
   switch (action.type) {
     case 'LOADING_RESOURCE':
-      return true
+      return true;
     case 'DONE_LOADING':
-      return false
+      return false;
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default isLoadingReducer
+export default isLoadingReducer;
