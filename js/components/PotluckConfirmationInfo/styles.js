@@ -2,6 +2,15 @@ import { StyleSheet } from 'react-native';
 import { windowHeight as height, windowWidth as width, colors, typography } from '../../styles/baseStyles';
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    height: height * 0.1,
+    flexDirection: 'row',
+    flex: 0.15,
+  },
+  rsvpButton: {
+    width: width / 2,
+    height: height * 0.1,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',

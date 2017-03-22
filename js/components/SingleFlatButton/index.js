@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import { View, Button } from 'react-native';
 import styles from './styles';
 
-const SingleFlatButton = ({ title, color }) => {
+const SingleFlatButton = ({ title, color, width = 'full' }) => {
   return (
-    <View style={styles.buttonContainer}>
+    <View style={[width === 'full' ? styles.full : styles.half, styles.buttonContainer]}>
       <Button title={title} color={color} />
     </View>
   );
