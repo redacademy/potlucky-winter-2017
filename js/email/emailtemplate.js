@@ -1,6 +1,6 @@
 import { colors } from './../styles/baseStyles';
 
-export const htmlTemplate = (receiverFName, senderFName, description) => (`
+export const htmlTemplate = (receiverFName, senderFName, description, imageLink) => (`
 <html>
   <body>
     <table>
@@ -21,7 +21,7 @@ export const htmlTemplate = (receiverFName, senderFName, description) => (`
       </tr>
       <table style="width:600px; border:1px dashed orange; border-bottom: 0px; margin: 50px; margin-bottom: 0px;">      
         <tr>      
-            <img src="http://i.imgur.com/ViE7nOs.png"> 
+            <img src="${imageLink}"> 
           </td>
         </tr>
         <tr>

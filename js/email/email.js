@@ -1,8 +1,8 @@
 import { htmlTemplate } from './emailtemplate';
 
-export function sendEmail(data) {
-  const { receiver, sender, subject, receiverFName, senderFName, description, authToken, url } = data;
-  fetch(url, {
+export default function sendEmail(data) {
+  const { receiver, sender, subject, receiverFName, senderFName, description, authToken, emailAPiService, imageLink } = data;
+  fetch(emailAPiService, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${authToken}`,
@@ -15,7 +15,7 @@ export function sendEmail(data) {
       subject,
       content: [{
         type: 'text/html',
-        value: htmlTemplate(receiverFName, senderFName, description),
+        value: htmlTemplate(receiverFName, senderFName, description, imageLink),
       }],
     }),
   }).then(response => console.log(response))
