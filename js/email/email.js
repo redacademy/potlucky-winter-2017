@@ -1,7 +1,6 @@
 import { htmlTemplate } from './emailtemplate';
 
-export default function sendEmail(data) {
-  const { receiver, sender, subject, receiverFName, senderFName, description, authToken, emailAPiService, imageLink } = data;
+export default function sendEmail({ receiver, sender, subject, receiverFName, senderFName, description, authToken, emailAPiService, imageLink }) {
   fetch(emailAPiService, {
     method: 'POST',
     headers: {
