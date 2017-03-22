@@ -4,7 +4,7 @@ import SingleFlatButton from '../SingleFlatButton';
 import styles from './styles';
 
 
-const PotluckConfirmationInfo = () => {
+const PotluckConfirmationInfo = ({ title, color, buttonNeeded = true }) => {
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
@@ -45,7 +45,10 @@ const PotluckConfirmationInfo = () => {
           </View>
         </ScrollView>
       </View>
-      <SingleFlatButton />
+      {
+        buttonNeeded &&
+        <SingleFlatButton title={title} color={color} />
+      }
     </View>
 
   );
