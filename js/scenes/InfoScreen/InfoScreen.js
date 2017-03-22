@@ -3,12 +3,11 @@ import {
   Text,
   View,
 } from 'react-native';
+import PotluckConfirmationInfo from './../../components/PotluckConfirmationInfo';
 import styles from './styles';
 
 const InfoScreen = () => (
-    <View>
-      <Text>Welcome to the Account</Text>
-    </View>
-  );
+  <PotluckConfirmationInfo title={'what what now'} color={'red'} buttonNeeded={false} />
+);
 
 export default InfoScreen;
