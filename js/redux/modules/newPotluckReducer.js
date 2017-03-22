@@ -1,31 +1,32 @@
 // initial state
 
 const initialState = {
-  potLucks: {
-    userId: null,
-    title: null,
-    theme: null,
-    eventDate: null,
-    arriveTime: null,
-    serveTime: null,
-    location: null,
-    description: null
+  potlucks: {},
+  potluckFood: {
+    guestCount: 0,
+    courses: {},
   },
-  potLuckFood: {
-    dishCount: 0
-  },
-  potLuckInvites: {
+  potluckInvites: {
     emails: []
   },
 };
+
+/*
+// In create potluck flow
+potuckFood.courses[courseType].desiredDishCount = 10;
+
+// In Guest flow
+potuckFood.courses[courseType].assignments[userId] = 'Spring Rolls';
+
+*/
 
 // reducer
 
 const newPotluckReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_GUESTS':
-      return { ...state, dishCount: action.payload.potLuckFood.dishCount };
-    case 'ADD_FOOD':
+      return { ...state, guestCount: action.payload };
+    case 'ADD_FOOD_ITEM':
       return { ...state, potLuckFood: action.payload.potLuckFood };
     case 'ADD_INFO':
       return { ...state, potLuckInfo: action.payload.potLucks };

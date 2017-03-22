@@ -35,17 +35,20 @@ class FoodPlanningScreenContainer extends Component {
 
     return (
       <FoodPlanningScreen
-        guests={this.props.guests} 
-        courses={this.props.courses} 
+        guests={this.props.guests}
+        courses={this.props.courses}
         addPotluckItem={this.props.addPotluckItem}
       />
     );
   }
 }
-const mapStateToProps = (state) => ({
-  guests: state.newPotluck.guestNumber,
-  courses: state.newPotluck.potluckFood,
-});
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    guests: state.newPotluck.guestCount,
+    courses: state.newPotluck.potluckFood.courses,
+  };
+}
 
 const mapDispatchToProps = dispatch => ({
   addPotluckItem: (name) => {
