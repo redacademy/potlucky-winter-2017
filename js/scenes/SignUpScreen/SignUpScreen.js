@@ -1,6 +1,7 @@
 import React from 'react';
 import Gandalf from 'gandalf-validator';
 import { TextInput, View, Text, TouchableHighlight } from 'react-native';
+import ValidatedText from './../../components/ValidatedText';
 import { styles } from './styles';
 
 class SignupForm extends Gandalf {
@@ -95,41 +96,25 @@ class SignupForm extends Gandalf {
             <View style={styles.container}>
               {fields.fName.element}
             </View>
-            <View style={styles.errorContainer}>
-              <Text style={styles.errorMessage}>
-                {fields.fName.errorMessage && fields.fName.errorMessage}
-              </Text>
-            </View>
+            <ValidatedText errorMessage={fields.fName.errorMessage} />
           </View>
           <View style={styles.container}>
             <View style={styles.container}>
               {fields.lName.element}
             </View>
-            <View style={styles.errorContainer}>
-              <Text style={styles.errorMessage}>
-                {fields.lName.errorMessage && fields.lName.errorMessage}
-              </Text>
-            </View>
+            <ValidatedText errorMessage={fields.lName.errorMessage} />
           </View>
           <View style={styles.container}>
             <View style={styles.container}>
               {fields.email.element}
             </View>
-            <View style={styles.errorContainer}>
-              <Text style={styles.errorMessage}>
-                {fields.email.errorMessage && fields.email.errorMessage}
-              </Text>
-            </View>
+            <ValidatedText errorMessage={fields.email.errorMessage} />
           </View>
           <View style={styles.container}>
             <View style={styles.container}>
               {fields.password.element}
             </View>
-            <View style={styles.errorContainer}>
-              <Text style={styles.errorMessage}>
-                {fields.password.errorMessage && fields.password.errorMessage}
-              </Text>
-            </View>
+            <ValidatedText errorMessage={fields.password.errorMessage} />
           </View>
         </View>
 
