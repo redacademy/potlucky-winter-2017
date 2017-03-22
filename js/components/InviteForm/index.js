@@ -1,13 +1,15 @@
 import React from 'react';
-import Gandalf from 'gandalf-validator';
 import { TextInput, View, ScrollView, Text, TouchableHighlight } from 'react-native';
+import Gandalf from 'gandalf-validator';
+import EmailInviteIndicator from './../../components/EmailInviteIndicator';
+import InviteEmail from './../../components/InviteEmail';
 import { styles } from './styles';
 
 class InviteForm extends Gandalf {
   constructor() {
     const fields = [
       {
-        name: 'email0',
+        name: 'guestInvite0',
         component: TextInput,
         validators: ['email'],
         errorPropName: 'errorText',
@@ -18,69 +20,93 @@ class InviteForm extends Gandalf {
           style: styles.input
         },
         getValueInOnChange: text => text,
-        debounce: 500,
+        debounce: 300,
       }
     ];
     super(fields);
 
     this.state.ticker = 1;
+    this.state.emailCount = 0;
   }
 
-  addEmailField() {
-    this.addField({
-      name: `email${this.state.ticker}`,
-      component: TextInput,
-      validators: ['email'],
-      errorPropName: 'errorText',
-      onChangeHandler: 'onChangeText',
-      props: {
-        placeholder: 'Email',
-        hintText: 'Email',
-        style: styles.input,
-      },
-      getValueInOnChange: text => text,
-      debounce: 300
-    });
-    this.setState({ ticker: this.state.ticker + 1 });
-  }
-  buildTextInput() {
+  buildTextInput = () => {
     const fields = this.state.fields;
+
     return Object.keys(fields).map(key => (
-      <View key={key} style={styles.container} >
-        <View style={styles.inputcontainer} >
-          {fields[key].element}
-        </View>
-        <View style={styles.errorContainer} >
-          <Text style={styles.errorMessage}>
-            {fields[key].errorMessage && fields[key].errorMessage}
-          </Text>
-        </View>
-      </View>
+      <InviteEmail
+        key={key}
+        field={fields[key]}
+      />
     ));
   }
-  handleSubmit() {
-    const data = this.getFormData();
-    if (!data) return;
-    // Submit to REDUX
-    console.log('goin\' to REDUX', data);
-    // TODO Add redux support for this data
+
+  numberOfValidEmails = () => {
+    const emailCount = this.state.emailCount;
+    const validEmails = this.getCleanFormData();
+
+    if (validEmails) {
+      const validEmailCount = Object.keys(validEmails).length;
+      return validEmailCount;
+    } else {
+      return emailCount;
+    }
   }
+
+  addEmailField = () => {
+    const fields = this.state.fields;
+    const lastEmail = (fields[Object.keys(fields)[Object.keys(fields).length - 1]]);
+
+    this.setState({ emailCount: this.numberOfValidEmails() });
+
+    if (lastEmail.value !== '' && /.+@.+\..+/.test(lastEmail.value)) {
+      this.addField({
+        name: `guestInvite${this.state.ticker}`,
+        component: TextInput,
+        validators: ['email'],
+        errorPropName: 'errorText',
+        onChangeHandler: 'onChangeText',
+        props: {
+          placeholder: 'Email',
+          hintText: 'Email',
+          style: styles.input,
+        },
+        getValueInOnChange: text => text,
+        debounce: 300
+      });
+
+      this.setState({ ticker: this.state.ticker + 1 });
+    }
+  }
+
+  handleSubmit = () => {
+    const data = this.getCleanFormData();
+
+    if (!data) return;
+
+    this.setState({ emailCount: this.numberOfValidEmails() });
+
+    // Submit to REDUX
+    console.log(data);
+  }
+
   render() {
     return (
       <View style={styles.mainContainer}>
+        <EmailInviteIndicator number={this.state.emailCount} />
         <ScrollView style={styles.mainContainer} >
           {this.buildTextInput()}
-        </ScrollView >
-        <View style={styles.buttoncontainer} >
-          <TouchableHighlight style={styles.button} onPress={() => this.addEmailField()}>
-            <Text style={styles.buttonText}>Add More Fields</Text>
+        </ScrollView>
+        <View style={styles.buttonContainer} >
+          <TouchableHighlight style={styles.button} onPress={this.addEmailField}>
+            <Text style={styles.buttonText}>New Invite</Text>
           </TouchableHighlight>
-          <TouchableHighlight style={styles.button} onPress={() => this.handleSubmit()}>
-            <Text style={styles.buttonText}>Invite</Text>
+          <TouchableHighlight style={styles.button} onPress={this.handleSubmit}>
+            <Text style={styles.buttonText}>Send Invites</Text>
           </TouchableHighlight>
         </View>
-      </View >
+      </View>
     );
   }
 }
+
 export default InviteForm;

@@ -13,8 +13,12 @@ class SignInScreenContainer extends Component {
   static propTypes = {
     navigation: PropTypes.object,
     signInUser: PropTypes.func.isRequired,
-    userSignedIn: PropTypes.bool.isRequired,
+    userSignedIn: PropTypes.bool,
   };
+
+  static defaultProps = {
+    userSignedIn: false,
+  }
 
   render() {
     const { navigation } = this.props;

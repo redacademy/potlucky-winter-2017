@@ -1,5 +1,5 @@
 const initialState = {
-  signedIn: { signIn: false, signUp: false },
+  signedIn: {},
   uId: null,
   userName: {},
   message: null,
