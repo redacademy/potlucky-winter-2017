@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Gandalf from 'gandalf-validator';
-import { TextInput, View, Text, Button, DatePickerIOS, TouchableHighlight } from 'react-native';
+import { TextInput, View, Text, Button, TouchableOpacity, DatePickerIOS, TouchableHighlight } from 'react-native';
 import styles from './styles';
 
 class Form extends Gandalf {
@@ -100,9 +100,9 @@ class Form extends Gandalf {
     if (!data) return;
     data = {
       ...data,
-      date: this.state.date,
-      arriveTime: this.state.arriveTime,
-      servingTime: this.state.servingTime
+      date: this.state.date.toLocaleDateString([], {year: 'numeric', month: 'short', day: 'numeric'}),
+      arriveTime: this.state.arriveTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+      servingTime: this.state.servingTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
     };
     // Submit to REDUX
     console.log('goin\' to REDUX', data);
@@ -110,6 +110,7 @@ class Form extends Gandalf {
 
   render() {
     const fields = this.state.fields;
+
     return (
       <View style={styles.mainContainer}>
         <View style={styles.container}>
@@ -135,30 +136,38 @@ class Form extends Gandalf {
           </View>
         </View>
         <View style={this.state.showDate ? styles.expanded : styles.container}>
-          <Button
-            style={styles.container}
-            title={'Date'}
-            onPress={() => { this.setState({ showDate: !this.state.showDate }); }}
-          />
-          {this.state.showDate &&
-            <DatePickerIOS
-              style={{ height: 250, width: 250, }}
-              date={this.state.date}
-              mode="date"
-              timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-              onDateChange={this.onDateChange}
-            />
-          }
+          <View style={styles.dateContainer}>
+            <Text style={styles.title}>Date</Text>
+              <TouchableOpacity
+                style={styles.datePickerButton}
+                onPress={() => { this.setState({ showDate: !this.state.showDate }); }}
+              >
+                <Text>{this.state.date.toLocaleDateString([], {year: 'numeric', month: 'short', day: 'numeric'})}</Text>
+              </TouchableOpacity>
+            </View>
+            {this.state.showDate &&
+              <DatePickerIOS
+                style={styles.datePicker}
+                date={this.state.date}
+                mode="date"
+                timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
+                onDateChange={this.onDateChange}
+              />
+            }
         </View>
         <View style={this.state.showArriveTime ? styles.expanded : styles.container} >
-          <Button
-            style={styles.container}
-            title={'Arriving Time'}
-            onPress={() => { this.setState({ showArriveTime: !this.state.showArriveTime }); }}
-          />
+          <View style={styles.dateContainer}>
+            <Text style={styles.title}>Serving Time</Text>
+              <TouchableOpacity
+                style={styles.datePickerButton}
+                onPress={() => { this.setState({ showArriveTime: !this.state.showArriveTime }); }}
+              >
+                <Text>{this.state.arriveTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</Text>
+              </TouchableOpacity>
+            </View>
           {this.state.showArriveTime &&
             <DatePickerIOS
-              style={{ height: 250, width: 250, }}
+              style={styles.datePicker}
               date={this.state.arriveTime}
               mode="time"
               timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
@@ -167,14 +176,18 @@ class Form extends Gandalf {
           }
         </View>
         <View style={this.state.showServingTime ? styles.expanded : styles.container} >
-          <Button
-            style={styles.container}
-            title={'Serving Time'}
-            onPress={() => { this.setState({ showServingTime: !this.state.showServingTime }); }}
-          />
+          <View style={styles.dateContainer}>
+            <Text style={styles.title}>Arriving Time</Text>
+              <TouchableOpacity
+                style={styles.datePickerButton}
+                onPress={() => { this.setState({ showServingTime: !this.state.showServingTime }); }}
+              >
+                <Text>{this.state.servingTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</Text>
+              </TouchableOpacity>
+            </View>
           {this.state.showServingTime &&
             <DatePickerIOS
-              style={{ height: 250, width: 250, }}
+              style={styles.datePicker}
               date={this.state.servingTime}
               mode="time"
               timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
