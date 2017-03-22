@@ -6,10 +6,7 @@ import {
   TextInput,
 } from 'react-native';
 
-
 import styles from './styles';
-
-
 
 const NumberOfGuestScreen = ({ guestImageArr, count, onTextChange, increase, decrease }) => (
   <View>
