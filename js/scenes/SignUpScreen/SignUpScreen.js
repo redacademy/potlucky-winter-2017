@@ -90,44 +90,46 @@ class SignupForm extends Gandalf {
 
     return (
       <View style={styles.mainContainer}>
-        <View style={styles.container}>
+        <View>
           <View style={styles.container}>
-            {fields.fName.element}
+            <View style={styles.container}>
+              {fields.fName.element}
+            </View>
+            <View style={styles.errorContainer}>
+              <Text style={styles.errorMessage}>
+                {fields.fName.errorMessage && fields.fName.errorMessage}
+              </Text>
+            </View>
           </View>
-          <View style={styles.errorContainer}>
-            <Text style={styles.errorMessage}>
-              {fields.fName.errorMessage && fields.fName.errorMessage}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.container}>
           <View style={styles.container}>
-            {fields.lName.element}
+            <View style={styles.container}>
+              {fields.lName.element}
+            </View>
+            <View style={styles.errorContainer}>
+              <Text style={styles.errorMessage}>
+                {fields.lName.errorMessage && fields.lName.errorMessage}
+              </Text>
+            </View>
           </View>
-          <View style={styles.errorContainer}>
-            <Text style={styles.errorMessage}>
-              {fields.lName.errorMessage && fields.lName.errorMessage}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.container}>
           <View style={styles.container}>
-            {fields.email.element}
+            <View style={styles.container}>
+              {fields.email.element}
+            </View>
+            <View style={styles.errorContainer}>
+              <Text style={styles.errorMessage}>
+                {fields.email.errorMessage && fields.email.errorMessage}
+              </Text>
+            </View>
           </View>
-          <View style={styles.errorContainer}>
-            <Text style={styles.errorMessage}>
-              {fields.email.errorMessage && fields.email.errorMessage}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.container}>
           <View style={styles.container}>
-            {fields.password.element}
-          </View>
-          <View style={styles.errorContainer}>
-            <Text style={styles.errorMessage}>
-              {fields.password.errorMessage && fields.password.errorMessage}
-            </Text>
+            <View style={styles.container}>
+              {fields.password.element}
+            </View>
+            <View style={styles.errorContainer}>
+              <Text style={styles.errorMessage}>
+                {fields.password.errorMessage && fields.password.errorMessage}
+              </Text>
+            </View>
           </View>
         </View>
 
