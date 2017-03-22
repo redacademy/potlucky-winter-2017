@@ -22,6 +22,7 @@ class NumberOfGuestScreenContainer extends React.Component {
       count: 0,
     };
 
+    this.guestStartSize = 60;
     this.guestImages = [
       require('../../../assets/images/guests/1.png'),
       require('../../../assets/images/guests/2.png'),
@@ -70,11 +71,11 @@ class NumberOfGuestScreenContainer extends React.Component {
     }
   }
 
-  increase = () => this.setState({ count: (this.state.count * 1) + 1 });
+  increase = () => this.setState({ count: parseInt(this.state.count, 10) + 1 });
 
   decrease = () => {
     if (this.state.count > 0) {
-      this.setState({ count: (this.state.count * 1) - 1 });
+      this.setState({ count: parseInt(this.state.count, 10) - 1 });
     }
   }
 
@@ -83,48 +84,48 @@ class NumberOfGuestScreenContainer extends React.Component {
     this.props.dispatch(changeNumberofGuests(count));
   }
 
-  render() {
-    const { navigate } = this.props.navigation;
-    this.guestImageArr = [];
-
-    let guestStartSize = 60;
-    if (this.state.count > 4) {
-      guestStartSize = 55;
-    }
-    if (this.state.count > 8) {
-      guestStartSize = 50;
-    }
-    if (this.state.count > 12) {
-      guestStartSize = 47;
-    }
-    if (this.state.count > 16) {
-      guestStartSize = 40;
-    }
-    if (this.state.count > 20) {
-      guestStartSize = 37;
-    }
-    if (this.state.count > 25) {
-      guestStartSize = 34;
-    }
-    if (this.state.count > 30) {
-      guestStartSize = 32;
-    }
+  calculateGuestImageSize = () => {
     if (this.state.count > 36) {
-      guestStartSize = 30;
+      this.guestStartSize = 30;
+    } else if (this.state.count > 30) {
+      this.guestStartSize = 32;
+    } else if (this.state.count > 25) {
+      this.guestStartSize = 34;
+    } else if (this.state.count > 20) {
+      this.guestStartSize = 37;
+    } else if (this.state.count > 16) {
+      this.guestStartSize = 40;
+    } else if (this.state.count > 12) {
+      this.guestStartSize = 47;
+    } else if (this.state.count > 8) {
+      this.guestStartSize = 50;
+    } else if (this.state.count > 4) {
+      this.guestStartSize = 55;
     }
+  }
+
+  generateGuestImageArray = () => {
+    this.guestImageArr = [];
     for (let i = 0; i < this.state.count; i++) {
-      if (i >= 42) {
-        break;
-      }
+      if (i >= 42) break;
+
       this.guestImageArr.push(
         <View key={i}>
           <Image
-            style={{ height: guestStartSize * guestImageHeightWidthRatio, width: guestStartSize, marginLeft: 5, marginRight: 5 }}
+            style={{ height: this.guestStartSize * guestImageHeightWidthRatio, width: this.guestStartSize, marginLeft: 5, marginRight: 5 }}
             source={this.guestImages[i % this.guestImages.length]}
           />
         </View>
       );
     }
+  }
+
+  render() {
+    const { navigate } = this.props.navigation;
+
+    this.calculateGuestImageSize();
+    this.generateGuestImageArray();
+
     // The screen's current route is passed in to `props.navigation.state`:
     return (
       <NumberOfGuestScreen
