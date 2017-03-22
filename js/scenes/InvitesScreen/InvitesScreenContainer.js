@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
-
-import { Button } from 'react-native';
+import { connect } from 'react-redux';
 import InvitesScreen from './InvitesScreen';
-
 import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar';
-
-import NavigationArrow from '../../components/NavigationArrow'
-
-import { progressBar } from '../../constants'
+import NavigationArrow from '../../components/NavigationArrow';
+import { progressBar } from '../../constants';
 
 class InvitesScreenContainer extends Component {
   static navigationOptions = {
     title: 'Invites',
     header: ({ navigate }) => ({
       style: { height: 0, margin: 0, padding: 0, },
-      title: <CreatePotluckProgressBar title='Invites' progressNumber={progressBar.FOURTH_SCREEN} />,
+      title: <CreatePotluckProgressBar
+        title="Invites"
+        progressNumber={progressBar.FOURTH_SCREEN}
+      />,
 
-      // Render a button on the right side of the header
-      // When pressed switches the screen to edit mode.
       left: (
         <NavigationArrow
           backArrow
@@ -26,6 +23,7 @@ class InvitesScreenContainer extends Component {
       ),
     })
   }
+
   render() {
     return (
       <InvitesScreen />
@@ -33,4 +31,14 @@ class InvitesScreenContainer extends Component {
   }
 }
 
-export default InvitesScreenContainer;
+const mapStateToProps = state => ({
+});
+
+const mapDispatchToProps = dispatch => ({
+  // TODO add dispatchToProps functions when reducer completed
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(InvitesScreenContainer);

@@ -1,10 +1,11 @@
 import React from 'react';
-import InviteForm from './../../components/InviteForm';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 
+import InviteForm from './../../components/InviteForm';
+import { styles } from './styles';
 
 const InvitesScreen = () => (
-  <View style={{ flex: 1 }}>
+  <View style={styles.mainContainer}>
     <InviteForm />
   </View>
 );

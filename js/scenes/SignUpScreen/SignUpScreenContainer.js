@@ -7,8 +7,12 @@ class SignUpScreenContainer extends Component {
   static propTypes = {
     navigation: PropTypes.object,
     signUpUser: PropTypes.func.isRequired,
-    userSignedUp: PropTypes.bool.isRequired,
+    userSignedUp: PropTypes.bool,
   };
+
+  static defaultProps = {
+    userSignedUp: false,
+  }
 
   static navigationOptions = {
     title: 'Sign Up'
