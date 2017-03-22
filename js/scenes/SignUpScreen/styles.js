@@ -5,13 +5,15 @@ export const styles = StyleSheet.create({
   mainContainer: {
     paddingTop: 29,
     flex: 1,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
   container: {
     alignItems: 'center',
   },
   button: {
     height: 60,
+    width: '100%',
     backgroundColor: colors.secondaryBtnColor,
     justifyContent: 'center'
   },

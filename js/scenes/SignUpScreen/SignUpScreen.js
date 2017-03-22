@@ -9,10 +9,9 @@ class SignupForm extends Gandalf {
     const fields = [
       {
         name: 'fName',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['required'],
         errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
         props: {
           placeholder: 'First Name',
           style: styles.login
@@ -22,10 +21,9 @@ class SignupForm extends Gandalf {
       },
       {
         name: 'lName',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['required'],
         errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
         props: {
           placeholder: 'Last Name',
           style: styles.login
@@ -36,10 +34,9 @@ class SignupForm extends Gandalf {
       },
       {
         name: 'email',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['email'],
         errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
         props: {
           placeholder: 'Email',
           style: styles.login
@@ -49,10 +46,9 @@ class SignupForm extends Gandalf {
       },
       {
         name: 'password',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['required'],
         errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
         props: {
           placeholder: 'Password',
           style: styles.login
@@ -92,32 +88,11 @@ class SignupForm extends Gandalf {
     return (
       <View style={styles.mainContainer}>
         <View>
-          <View style={styles.container}>
-            <View style={styles.container}>
-              {fields.fName.element}
-            </View>
-            <ValidatedText errorMessage={fields.fName.errorMessage} />
-          </View>
-          <View style={styles.container}>
-            <View style={styles.container}>
-              {fields.lName.element}
-            </View>
-            <ValidatedText errorMessage={fields.lName.errorMessage} />
-          </View>
-          <View style={styles.container}>
-            <View style={styles.container}>
-              {fields.email.element}
-            </View>
-            <ValidatedText errorMessage={fields.email.errorMessage} />
-          </View>
-          <View style={styles.container}>
-            <View style={styles.container}>
-              {fields.password.element}
-            </View>
-            <ValidatedText errorMessage={fields.password.errorMessage} />
-          </View>
+          {fields.fName.element}
+          {fields.lName.element}
+          {fields.email.element}
+          {fields.password.element}
         </View>
-
         <TouchableHighlight style={styles.button} onPress={this.handleSubmit}>
           <Text style={styles.buttonText}>Register</Text>
         </TouchableHighlight>
