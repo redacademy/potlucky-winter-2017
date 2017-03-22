@@ -54,11 +54,13 @@ class InviteForm extends Gandalf {
 
   addEmailField = () => {
     const fields = this.state.fields;
-    const lastEmail = (fields[Object.keys(fields)[Object.keys(fields).length - 1]]);
+    
+    const lastEmailKey = Object.keys(fields).pop();
+    const lastEmail = fields[lastEmailKey];
 
     this.setState({ emailCount: this.numberOfValidEmails() });
 
-    if (lastEmail.value !== '' && /.+@.+\..+/.test(lastEmail.value)) {
+    if (lastEmail.value && /.+@.+\..+/.test(lastEmail.value)) {
       this.addField({
         name: `guestInvite${this.state.ticker}`,
         component: TextInput,
