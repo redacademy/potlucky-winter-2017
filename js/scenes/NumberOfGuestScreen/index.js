@@ -1,5 +1,5 @@
-import NumberOfGuestScreenContainer from './NumberOfGuestScreenContainer'
-import NumberOfGuestScreen from './NumberOfGuestScreen'
+import NumberOfGuestScreenContainer from './NumberOfGuestScreenContainer';
+import NumberOfGuestScreen from './NumberOfGuestScreen';
 
-export default NumberOfGuestScreenContainer
-export { NumberOfGuestScreen }
+export default NumberOfGuestScreenContainer;
+export { NumberOfGuestScreen };
