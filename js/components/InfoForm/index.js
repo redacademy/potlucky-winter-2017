@@ -16,7 +16,7 @@ class Form extends Gandalf {
         props: {
           title: 'Potluck Name',
           inputStyle: styles.login,
-          inputContainerStyle: styles.inputContainerStyle, 
+          inputContainerStyle: styles.inputContainerStyle,
           containerStyle: styles.container,
           titleStyle: styles.title,
         },
@@ -30,7 +30,7 @@ class Form extends Gandalf {
         props: {
           title: 'Theme',
           inputStyle: styles.login,
-          inputContainerStyle: styles.inputContainerStyle,           
+          inputContainerStyle: styles.inputContainerStyle,
           containerStyle: styles.container,
           titleStyle: styles.title,
         },
@@ -44,7 +44,7 @@ class Form extends Gandalf {
         props: {
           title: 'Guest Number',
           inputStyle: styles.login,
-          inputContainerStyle: styles.inputContainerStyle, 
+          inputContainerStyle: styles.inputContainerStyle,
           containerStyle: styles.container,
           titleStyle: styles.title,
         },
@@ -58,7 +58,7 @@ class Form extends Gandalf {
         props: {
           title: 'Location',
           inputStyle: styles.login,
-          inputContainerStyle: styles.inputContainerStyle, 
+          inputContainerStyle: styles.inputContainerStyle,
           containerStyle: styles.container,
           titleStyle: styles.title,
         },
@@ -73,7 +73,7 @@ class Form extends Gandalf {
         props: {
           title: 'Description',
           inputStyle: styles.description,
-          inputContainerStyle: styles.descriptionContainer, 
+          inputContainerStyle: styles.descriptionContainer,
           containerStyle: styles.descriptionContainer,
           titleStyle: styles.title,
           multiline: true,
@@ -166,7 +166,7 @@ class Form extends Gandalf {
         <TouchableHighlight style={styles.button} onPress={() => this.handleSubmit()}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableHighlight>
-      </View >
+      </View>
     );
   }
 }
