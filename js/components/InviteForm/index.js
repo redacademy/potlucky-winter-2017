@@ -89,6 +89,7 @@ class InviteForm extends Gandalf {
 
     // Submit to REDUX
     console.log(data);
+    this.props.navigateTo();
   }
 
   render() {

@@ -20,6 +20,7 @@ import MyPotLuckInvitesScreen from '../scenes/MyPotluckInviteScreen';
 import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from './TabNavConfig';
 import { bottomNavigatorScreens, bottomNavigatorStyles } from './BottomNavConfig';
 import { colors, windowWidth } from '../styles/baseStyles';
+import PotluckConfirmationScreen from '../scenes/PotluckConfirmationScreen';
 
 const HostTabNavigator = TabNavigator(hostTabScreens, hostTabStyles);
 const GuestTabNavigator = TabNavigator(guestTabScreens, guestTabStyles);
@@ -45,6 +46,7 @@ const CreatePotluckNavigator = TabNavigator(
     FoodPlanningScreen: { screen: FoodPlanningScreen },
     PotLuckInfoScreen: { screen: PotLuckInfoScreen },
     InvitesScreen: { screen: InvitesScreen },
+    ConfirmationScreen: { screen: PotluckConfirmationScreen }
   },
   {
     initialRouteName: 'NumberOfGuestScreen',

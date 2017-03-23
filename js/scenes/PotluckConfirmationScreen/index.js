@@ -22,7 +22,18 @@ class PotluckConfirmationScreenContainer extends Component {
   render() {
 
     return (
-      <PotluckConfirmation />
+      <PotluckConfirmation
+        buttonType={'confirmation'}
+        mainButtonTitle={'Looks good to me!'}
+        title={'The Greatest potluck Ever!!!!!!!!'}
+        image={require('../../../assets/images/southparklastsupper.jpg')}
+        date={'February 14, 2020'}
+        arrivingTime={'12:30PM'}
+        servingTime={'1:30PM'}
+        location={'Belgrade, Serbia'}
+        description={` Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.`}
+      />
     );
   }
 }
