@@ -1,23 +1,29 @@
-import React from 'react';
-import { 
-  Text, 
-  View, 
-  Image,
+import React, { PropTypes } from 'react';
+import {
+  Text,
+  View,
 } from 'react-native';
 import { styles } from './styles';
-import fontStyles from './../../styles/baseStyles'
+import fontStyles from './../../styles/baseStyles';
 import PlanningScrollbar from './../../components/planningScrollbar';
 import PlanningList from './../../components/PlanningList';
 
-const FoodPlanningScreen = ({ guests, courses, addPotluckItem }) => (
+const FoodPlanningScreen = ({ potluckFood, guests, addPotluckItem, dishesUsed }) => (
 
   <View style={styles.container}>
     <View style={styles.foodPlanningWrap}>
-      <PlanningList courseData={courses} />
-      <Text style={fontStyles.guestNumber}>{guests}</Text>
+      <PlanningList potluckFood={potluckFood} />
+      <Text style={fontStyles.guestNumber}>{(guests - dishesUsed)}</Text>
     </View>
-    <PlanningScrollbar addPotluckItem={addPotluckItem} />
+    <PlanningScrollbar potluckFood={potluckFood} addPotluckItem={addPotluckItem} />
   </View>
-  );
+);
+
+FoodPlanningScreen.propTypes = {
+  guests: PropTypes.number.isRequired,
+  potluckFood: PropTypes.objectOf(React.PropTypes.string).isRequired,
+  addPotluckItem: PropTypes.func.isRequired,
+  dishesUsed: PropTypes.number.isRequired
+};
 
 export default FoodPlanningScreen;

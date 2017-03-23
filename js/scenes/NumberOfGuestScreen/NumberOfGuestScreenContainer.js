@@ -1,8 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import NumberOfGuestScreen from './NumberOfGuestScreen';
-import { View, Image } from 'react-native';
 import { changeNumberofGuests } from '../../redux/modules/newPotluckActions';
+import {
+  Text,
+  View,
+  Button,
+  Image
+} from 'react-native';
 
 import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar';
 
@@ -80,6 +85,7 @@ class NumberOfGuestScreenContainer extends React.Component {
   }
 
   componentDidUpdate() {
+
     const { count, guestImages } = this.state;
     this.props.dispatch(changeNumberofGuests(count));
   }
@@ -118,6 +124,7 @@ class NumberOfGuestScreenContainer extends React.Component {
         </View>
       );
     }
+    this.props.dispatch(changeNumberofGuests(this.state.count));
   }
 
   render() {
@@ -139,5 +146,8 @@ class NumberOfGuestScreenContainer extends React.Component {
     );
   }
 }
+const mapStateToProps = (state, ownProps) => ({
+  guests: state.newPotluck.potluckFood.guestCount
+});
 
-export default connect()(NumberOfGuestScreenContainer);
+export default connect(mapStateToProps)(NumberOfGuestScreenContainer);

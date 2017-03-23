@@ -1,32 +1,40 @@
-const newPotluckInitialState = {
-  guestNumber: 15,
+// initial state
+
+const initialState = {
+  potlucks: {},
   potluckFood: {
-    Appetizers: 0,
-    Mains: 0,
-    Salads: 0,
-    Desserts: 0,
-    Drinks: 0,
-    ChipIn: 0,
-    Talent: 0,
-    Custom: 0,
-  }
-}
-export default (state = newPotluckInitialState, action) => {
+    guestCount: 0,
+    courses: {},
+  },
+  potluckInvites: {
+    emails: []
+  },
+};
+
+/*
+// In create potluck flow
+potuckFood.courses[courseType].desiredDishCount = 10;
+
+// In Guest flow
+potuckFood.courses[courseType].assignments[userId] = 'Spring Rolls';
+
+*/
+
+// reducer
+
+const newPotluckReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'changeNumberofGuests':
-      return { ...state,
-        guestNumber: action.payload
-      }
+    case 'CHANGE_NUMBER_OF_GUESTS':
+      return { ...state, guestCount: action.payload };
     case 'ADD_POTLUCK_ITEM':
-      if (state.guestNumber) {
-        return { ...state,
-          guestNumber: state.guestNumber - 1,
-          potluckFood: { ...state.potluckFood,
-            [action.payload]: state.potluckFood[action.payload] + 1
-          }
-        }
-      }
+      return { ...state, guestCount: action.payload, potLuckFood: action.payload.potLuckFood };
+    case 'ADD_INFO':
+      return { ...state, potLuckInfo: action.payload.potLucks };
+    case 'ADD_INVITES':
+      return { ...state, potLuckInvites: action.payload.potLuckInvites };
     default:
       return state;
   }
-}
+};
+
+export default newPotluckReducer;
