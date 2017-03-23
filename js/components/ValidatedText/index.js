@@ -1,27 +1,35 @@
 import React from 'react';
 import { View, Text, TextInput } from 'react-native';
-import { styles as appStyles } from './styles';
+import appStyles from './styles';
 
 const ValidatedText = ({
   title,
   onChange,
   error,
   placeholder,
-  style,
+  inputStyle,
+  titleStyle,
+  containerStyle,
   autoCapitalize,
   keyboardType,
-  secureTextEntry
+  secureTextEntry,
+  multiline,
+  numberOfLines,
 }) => (
-  <View style={appStyles.container}>
-    <View style={appStyles.container}>
-      <Text style={appStyles.title}>{ title }</Text>
+  <View style={containerStyle}>
+    <View style={containerStyle}>
+      {
+        !!title && <Text style={titleStyle}>{ title }</Text>
+      }
       <TextInput
         onChangeText={onChange}
         placeholder={placeholder}
-        style={style}
+        style={inputStyle}
         autoCapitalize={autoCapitalize}
         keyboardType={keyboardType}
         secureTextEntry={secureTextEntry}
+        multiline={multiline}
+        numberOfLines={numberOfLines}
       />
     </View>
     { !!error && <View style={appStyles.errorContainer}>
@@ -31,6 +39,5 @@ const ValidatedText = ({
     </View>}
   </View>
   );
-
 
 export default ValidatedText;

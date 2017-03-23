@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import Main, { typography, colors } from '../../styles/baseStyles';
 
-export const styles = StyleSheet.create({
+export default StyleSheet.create({
   errorMessage: {
     color: Main.loginInput.color,
     fontFamily: Main.loginInput.fontFamily,
