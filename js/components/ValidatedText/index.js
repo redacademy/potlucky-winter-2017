@@ -28,7 +28,7 @@ const ValidatedText = ({
         autoCapitalize={autoCapitalize}
         keyboardType={keyboardType}
         secureTextEntry={secureTextEntry}
-        muiltiline={multiline}
+        multiline={multiline}
         numberOfLines={numberOfLines}
       />
     </View>
