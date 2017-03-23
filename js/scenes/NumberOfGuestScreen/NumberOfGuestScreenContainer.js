@@ -80,7 +80,7 @@ class NumberOfGuestScreenContainer extends React.Component {
   }
 
   componentDidUpdate() {
-    const { count, guestImageArr } = this.state;
+    const { count, guestImages } = this.state;
     this.props.dispatch(changeNumberofGuests(count));
   }
 
@@ -105,11 +105,11 @@ class NumberOfGuestScreenContainer extends React.Component {
   }
 
   generateGuestImageArray = () => {
-    this.guestImageArr = [];
+    this.guestImages = [];
     for (let i = 0; i < this.state.count; i++) {
       if (i >= 42) break;
 
-      this.guestImageArr.push(
+      this.guestImages.push(
         <View key={i}>
           <Image
             style={{ height: this.guestStartSize * guestImageHeightWidthRatio, width: this.guestStartSize, marginLeft: 5, marginRight: 5 }}
@@ -130,7 +130,7 @@ class NumberOfGuestScreenContainer extends React.Component {
     return (
       <NumberOfGuestScreen
         navigate={navigate}
-        guestImageArr={this.guestImageArr}
+        guestImages={this.guestImages}
         count={this.state.count}
         onTextChange={this.onTextChange}
         increase={this.increase}
