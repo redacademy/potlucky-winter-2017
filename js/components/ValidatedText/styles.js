@@ -10,5 +10,6 @@ export default StyleSheet.create({
   },
   errorContainer: {
     height: 15,
+    marginBottom: 5
   }
 });
