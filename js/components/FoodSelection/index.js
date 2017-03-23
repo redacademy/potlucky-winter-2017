@@ -15,15 +15,15 @@ import FoodSelectionInput from '../FoodSelectionInput';
           </View>
         </View>*/
 
-const FoodSelection = ({ count, foodItemName, color, username }) => (
+const FoodSelection = ({ count, foodItem, username }) => (
   <View style={styles.container}>
-    <Image style={styles.image} source={POTLUCK_FOOD[foodItemName.toUpperCase()].imageSource} />
+    <Image style={styles.image} source={foodItem.imageSource} />
 
-    <View style={[styles.allTextInputContainer, { borderLeftColor: color }]}>
+    <View style={[styles.allTextInputContainer, { borderLeftColor: foodItem.color }]}>
       {[...Array(count)].map((x, i) => (
         <FoodSelectionInput key={i}
           lastItem={(i >= count - 1)}
-          color={color}
+          color={foodItem.color}
           username={username}
         />
       )

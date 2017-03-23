@@ -21,15 +21,15 @@ const FoodScreen = () => (
     </View>
 
     <View style={styles.numberOfFoodItemContainer}>
-      <NumberOfFoodItem count={3} foodItemName={POTLUCK_FOOD.APPETIZERS.name} color={colors.appetizerColor} />
-      <NumberOfFoodItem count={8} foodItemName={POTLUCK_FOOD.MAINS.name} color={colors.mainCourseColor} />
-      <NumberOfFoodItem count={20} foodItemName={POTLUCK_FOOD.SALADS.name} color={colors.saladsColor} />
+      <NumberOfFoodItem count={4} foodItem={POTLUCK_FOOD.APPETIZERS} />
+      <NumberOfFoodItem count={2} foodItem={POTLUCK_FOOD.MAINS} />
+      <NumberOfFoodItem count={6} foodItem={POTLUCK_FOOD.SALADS} />
     </View>
 
     <ScrollView>
-      <FoodSelection username="Ringo"count={4} foodItemName="Appetizers" color={colors.appetizerColor} />
-      <FoodSelection username="Ringo" count={2} foodItemName="Mains" color={colors.mainCourseColor} />
-      <FoodSelection username="Ringo" count={6} foodItemName="Salads" color={colors.saladsColor} />
+      <FoodSelection username="Ringo"count={4} foodItem={POTLUCK_FOOD.APPETIZERS} />
+      <FoodSelection username="Ringo" count={2} foodItem={POTLUCK_FOOD.MAINS} />
+      <FoodSelection username="Ringo" count={6} foodItem={POTLUCK_FOOD.SALADS} />
     </ScrollView>
 
   </View>
