@@ -9,6 +9,7 @@ const signUpUser = (signUpDetails) => {
       const userName = {
         firstName: signUpDetails.firstName,
         lastName: signUpDetails.lastName,
+        emailAddress: signUpDetails.email,
       };
 
       // userDetails insert to firebase

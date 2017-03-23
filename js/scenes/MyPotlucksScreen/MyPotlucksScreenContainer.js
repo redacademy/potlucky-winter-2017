@@ -1,9 +1,7 @@
 import React from 'react';
 import MyPotlucksScreen from './MyPotlucksScreen';
 import { connect } from 'react-redux';
-
 import { ListView, Image } from 'react-native';
-
 import { fetchMyPotlucks } from '../../redux/modules/myPotlucksActions';
 
 class MyPotlucksScreenContainer extends React.Component {

@@ -1,4 +1,5 @@
 import api from './base';
+import guestInvites from './guest-invites';
 
 export const getUserPotLucks = (userId) => {
   return api.get(`userPotLucks/${userId}`)
@@ -21,12 +22,16 @@ export const getPotLuck = (potLuckId) => {
 };
 
 const create = (data) => {
-  // create potLuck and potLuckIndex objects
-  // TODO other potLuck components
   const userId = data.userId;
-  const potLuck = { ...data, [userId]: true };
+  const potluck = { ...data, [userId]: true };
+  const potluckFood = {};
 
-  const potLuckIndex = {
+  const potluckGuests = {
+    eventDate: data.eventDate,
+    guests: data,
+  };
+
+  const potluckIndex = {
     isHost: true,
     isNew: true,
     eventDate: data.eventDate,
@@ -35,31 +40,30 @@ const create = (data) => {
   };
 
   // get new potluck id
-  const newPotLuckId = api.createEmptyChild('potLucks');
+  const newPotluckId = api.createEmptyChild('potLucks');
 
-  // Write the new post's data simultaneously in the pot lucks list and the user's pot luck list.
   const updates = {
-    [`/potLucks/${newPotLuckId}`]: potLuck,
-    [`/userPotLucks/${data.userId}/${newPotLuckId}`]: potLuckIndex
+    [`/potLucks/${newPotluckId}`]: potluck,
+    [`/potLuckFood/${newPotluckId}`]: potluckFood,
+    [`/potLuckInvites/${newPotluckId}`]: potluckGuests,
+    [`/userPotLucks/${data.userId}/${newPotluckId}`]: potluckIndex,
   };
 
   return api.change(updates)
     .then(() => {
-      console.log('Pot luck added');
+      // get uIds from emails of existing users
+      return guestInvites.processEmailInvites(newPotluckId, potluckGuests);
+    })
+    .then((result) => {
+      // create user pot luck invites
+      guestInvites.createPotluckGuest(newPotluckId, result);
+
+      // create sign-in user potluck invites
+      guestInvites.createUserPotluck(newPotluckId, potluck, result);
     })
     .catch((error) => {
       console.log(error);
     });
-};
-
-export const getPotluck = potluckId => {
-   return api.get(`/potLucks/${potluckId}`);
-   // TODO add other inserts for child objects
-};
-
-export const getPotlucks = potluckId => {
-   return api.get(`/potLucks/`);
-   // TODO add other inserts for child objects
 };
 
 export default {
