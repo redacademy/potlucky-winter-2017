@@ -3,44 +3,43 @@ import Main, { typography, colors } from '../../styles/baseStyles';
 
 export const styles = StyleSheet.create({
   mainContainer: {
-    justifyContent: 'center',
-    height: 220,
-  },
-  container: {
-    flex: 0.75,
+    paddingTop: 29,
+    flex: 1,
+    justifyContent: 'space-between',
     alignItems: 'center'
   },
+  container: {
+    alignItems: 'center',
+  },
   button: {
-    height: 100,
-    flex: 1,
+    height: 60,
+    width: '100%',
     backgroundColor: colors.secondaryBtnColor,
     justifyContent: 'center'
   },
   buttonText: {
     textAlign: 'center',
+    color: 'white',
   },
   login: {
     height: 55,
     width: 320,
-    padding: 5,
-    flex: 1,
+    paddingLeft: 17,
+    paddingRight: 17,
     borderColor: colors.mainBrandColor,
     borderWidth: 1,
-    color: Main.loginInput.color,
+    color: colors.mainBrandColor,
     fontFamily: Main.loginInput.fontFamily,
-    fontSize: Main.loginInput.fontSize,
+    fontSize: 14,
     borderRadius: 5,
   },
   errorMessage: {
-    flex: 1,
     color: Main.loginInput.color,
     fontFamily: Main.loginInput.fontFamily,
     fontSize: typography.smallestFontSize,
     backgroundColor: 'transparent'
   },
   errorContainer: {
-    height: 50,
-    flex: 0.30,
-    flexDirection: 'row',
+    height: 15,
   }
 });

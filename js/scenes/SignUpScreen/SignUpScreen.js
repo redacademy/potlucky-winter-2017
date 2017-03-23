@@ -1,6 +1,7 @@
 import React from 'react';
 import Gandalf from 'gandalf-validator';
-import { TextInput, View, Text, TouchableHighlight } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
+import ValidatedText from './../../components/ValidatedText';
 import { styles } from './styles';
 
 class SignupForm extends Gandalf {
@@ -8,10 +9,9 @@ class SignupForm extends Gandalf {
     const fields = [
       {
         name: 'fName',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['required'],
         errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
         props: {
           placeholder: 'First Name',
           style: styles.login
@@ -21,10 +21,9 @@ class SignupForm extends Gandalf {
       },
       {
         name: 'lName',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['required'],
         errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
         props: {
           placeholder: 'Last Name',
           style: styles.login
@@ -35,26 +34,27 @@ class SignupForm extends Gandalf {
       },
       {
         name: 'email',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['email'],
         errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
         props: {
+          keyboardType: 'email-address',
           placeholder: 'Email',
-          style: styles.login
+          style: styles.login,
+          autoCapitalize: false,
         },
         getValueInOnChange: text => text,
         debounce: 500,
       },
       {
         name: 'password',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['required'],
         errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
         props: {
           placeholder: 'Password',
-          style: styles.login
+          style: styles.login,
+          secureTextEntry: true,
         },
         getValueInOnChange: text => text,
         debounce: 500,
@@ -90,47 +90,12 @@ class SignupForm extends Gandalf {
 
     return (
       <View style={styles.mainContainer}>
-        <View style={styles.container}>
-          <View style={styles.container}>
-            {fields.fName.element}
-          </View>
-          <View style={styles.errorContainer}>
-            <Text style={styles.errorMessage}>
-              {fields.fName.errorMessage && fields.fName.errorMessage}
-            </Text>
-          </View>
+        <View>
+          {fields.fName.element}
+          {fields.lName.element}
+          {fields.email.element}
+          {fields.password.element}
         </View>
-        <View style={styles.container}>
-          <View style={styles.container}>
-            {fields.lName.element}
-          </View>
-          <View style={styles.errorContainer}>
-            <Text style={styles.errorMessage}>
-              {fields.lName.errorMessage && fields.lName.errorMessage}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.container}>
-          <View style={styles.container}>
-            {fields.email.element}
-          </View>
-          <View style={styles.errorContainer}>
-            <Text style={styles.errorMessage}>
-              {fields.email.errorMessage && fields.email.errorMessage}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.container}>
-          <View style={styles.container}>
-            {fields.password.element}
-          </View>
-          <View style={styles.errorContainer}>
-            <Text style={styles.errorMessage}>
-              {fields.password.errorMessage && fields.password.errorMessage}
-            </Text>
-          </View>
-        </View>
-
         <TouchableHighlight style={styles.button} onPress={this.handleSubmit}>
           <Text style={styles.buttonText}>Register</Text>
         </TouchableHighlight>
