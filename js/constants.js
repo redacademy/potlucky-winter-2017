@@ -1,3 +1,5 @@
+import { colors } from './styles/baseStyles';
+
 export const progressBar = {
   FIRST_SCREEN: 1,
   SECOND_SCREEN: 2,
@@ -10,34 +12,42 @@ export const POTLUCK_FOOD = {
   APPETIZERS: {
     name: 'Appetizers',
     imageSource: require('../assets/images/app.png'),
+    color: colors.appetizerColor,
   },
   MAINS: {
     name: 'Mains',
     imageSource: require('../assets/images/Group 4.png'),
+    color: colors.mainCourseColor,
   },
   SALADS: {
     name: 'Salads',
     imageSource: require('../assets/images/salad.png'),
+    color: colors.saladsColor,
   },
   DESSERTS: {
     name: 'Desserts',
     imageSource: require('../assets/images/dess.png'),
+    color: colors.dessertsColor,
   },
   DRINKS: {
     name: 'Drinks',
     imageSource: require('../assets/images/dr.png'),
+    color: colors.drinksColor,
   },
   CHIPIN: {
     name: 'Chip In',
-    imageSource: require('../assets/images/chip-in.png')
+    imageSource: require('../assets/images/chip-in.png'),
+    color: colors.chipInColor,
   },
   TALENT: {
     name: 'Talent',
     imageSource: require('../assets/images/talent.png'),
+    color: colors.saladsColor,
   },
   CUSTOM: {
     name: 'Custom',
-    imageSource: require('../assets/images/custom.png')
+    imageSource: require('../assets/images/custom.png'),
+    color: colors.customColor,
   },
 };
 

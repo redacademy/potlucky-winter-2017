@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TextInput, Text, Image } from 'react-native';
 
 import styles from './styles';
-import { potluckFood } from '../../constants';
+import { POTLUCK_FOOD } from '../../constants';
 
 import FoodSelectionInput from '../FoodSelectionInput';
 /*
@@ -17,7 +17,7 @@ import FoodSelectionInput from '../FoodSelectionInput';
 
 const FoodSelection = ({ count, foodItemName, color, username }) => (
   <View style={styles.container}>
-    <Image style={styles.image} source={potluckFood.properties[foodItemName].imageSource} />
+    <Image style={styles.image} source={POTLUCK_FOOD[foodItemName.toUpperCase()].imageSource} />
 
     <View style={[styles.allTextInputContainer, { borderLeftColor: color }]}>
       {[...Array(count)].map((x, i) => (
