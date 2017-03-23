@@ -16,6 +16,7 @@ import NumberOfGuestScreen from './../scenes/NumberOfGuestScreen';
 import FoodPlanningScreen from './../scenes/FoodPlanningScreen';
 import InvitesScreen from '../scenes/InvitesScreen';
 import AppOnboardingScreen from '../scenes/AppOnboardingScreen';
+import MyPotLuckInvitesScreen from '../scenes/MyPotluckInviteScreen';
 import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from './TabNavConfig';
 import { bottomNavigatorScreens, bottomNavigatorStyles } from './BottomNavConfig';
 import { colors, windowWidth } from '../styles/baseStyles';
@@ -60,7 +61,7 @@ export default StackNavigator(
     SignIn: { screen: SignInScreen },
     SignUp: { screen: SignUpScreen },
     CreatePotluckNavigator: { screen: CreatePotluckNavigator },
-    HomeScreenNavigator: { screen: HomeScreenNavigator },
+    HomeScreenNavigator: { screen: BottomNavigator },
     GuestTabNavigator: { screen: GuestTabNavigator },
     HostTabNavigator: { screen: HostTabNavigator },
     AppOnboardingScreen: { screen: AppOnboardingScreen },
