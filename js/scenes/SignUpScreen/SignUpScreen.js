@@ -1,6 +1,6 @@
 import React from 'react';
 import Gandalf from 'gandalf-validator';
-import { TextInput, View, Text, TouchableHighlight } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 import ValidatedText from './../../components/ValidatedText';
 import { styles } from './styles';
 
@@ -38,8 +38,10 @@ class SignupForm extends Gandalf {
         validators: ['email'],
         errorPropName: 'error',
         props: {
+          keyboardType: 'email-address',
           placeholder: 'Email',
-          style: styles.login
+          style: styles.login,
+          autoCapitalize: false,
         },
         getValueInOnChange: text => text,
         debounce: 500,
@@ -51,7 +53,8 @@ class SignupForm extends Gandalf {
         errorPropName: 'error',
         props: {
           placeholder: 'Password',
-          style: styles.login
+          style: styles.login,
+          secureTextEntry: true,
         },
         getValueInOnChange: text => text,
         debounce: 500,
