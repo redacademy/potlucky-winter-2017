@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
   Text,
   View,
@@ -9,27 +9,29 @@ import { styles } from './styles';
 import fontStyles from './../../styles/baseStyles';
 import { POTLUCK_FOOD } from '../../constants';
 
-const PlanningList = ({potluckFood}) => {
+const PlanningList = ({ potluckFood }) => {
   console.log(potluckFood);
   return (
     <View style={styles.planningListWrap}>
       {
-        Object.keys(potluckFood).map((courseName) => {
-          return (<View>
-            <TouchableOpacity style={styles.courseButton}>
-              <View style={styles.iconWrap} >
-                <Image source={POTLUCK_FOOD[courseName.toUpperCase()].imageSource} style={styles.courseIcon} />
-                <View style={styles.courseQuantityBG}>
-                  <Text style={fontStyles.foodIndicatorText}>{potluckFood[courseName]}</Text>
-                </View>
+        Object.keys(potluckFood).map((courseName) => (<View>
+          <TouchableOpacity style={styles.courseButton}>
+            <View style={styles.iconWrap} >
+              <Image source={POTLUCK_FOOD[courseName.toUpperCase()].imageSource} style={styles.courseIcon} />
+              <View style={styles.courseQuantityBG}>
+                <Text style={fontStyles.foodIndicatorText}>{potluckFood[courseName]}</Text>
               </View>
-              <Text style={styles.appetizerCourseTitle}>{ courseName }</Text>
-            </TouchableOpacity>
-          </View>);
-        })
+            </View>
+            <Text style={styles.appetizerCourseTitle}>{courseName}</Text>
+          </TouchableOpacity>
+        </View>))
       }
     </View>
   );
+};
+
+PlanningList.propTypes = {
+  potluckFood: PropTypes.objectOf(React.PropTypes.string).isRequired,
 };
 
 export default PlanningList;

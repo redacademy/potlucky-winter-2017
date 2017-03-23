@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
   Text,
   View,
-  Image,
 } from 'react-native';
 import { styles } from './styles';
 import fontStyles from './../../styles/baseStyles';
@@ -18,6 +17,12 @@ const FoodPlanningScreen = ({ potluckFood, guests, addPotluckItem }) => (
     </View>
     <PlanningScrollbar potluckFood={potluckFood} addPotluckItem={addPotluckItem} />
   </View>
-  );
+);
+
+FoodPlanningScreen.propTypes = {
+  guests: PropTypes.number.isRequired,
+  potluckFood: PropTypes.objectOf(React.PropTypes.string).isRequired,
+  addPotluckItem: PropTypes.func.isRequired
+};
 
 export default FoodPlanningScreen;

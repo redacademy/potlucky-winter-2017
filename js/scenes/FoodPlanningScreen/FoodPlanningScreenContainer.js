@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import FoodPlanningScreen from './FoodPlanningScreen';
 import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar';
@@ -42,13 +42,14 @@ class FoodPlanningScreenContainer extends Component {
       <FoodPlanningScreen
         potluckFood={this.state.potluckFood}
         guests={this.props.guests}
-        courses={this.props.courses}
         addPotluckItem={this.addPotluckItem}
       />
     );
   }
 }
-
+FoodPlanningScreenContainer.propTypes = {
+  guests: PropTypes.number.isRequired,
+};
 
 const mapStateToProps = (state) => {
   console.log(state);
