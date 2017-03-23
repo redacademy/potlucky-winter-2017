@@ -5,10 +5,9 @@ import { changeNumberofGuests } from '../../redux/modules/newPotluckActions';
 import {
   Text,
   View,
-  Button
+  Button,
+  Image
 } from 'react-native';
-import { addGuests } from '../../redux/modules/newPotluckActions';
-
 
 import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar';
 
@@ -125,7 +124,7 @@ class NumberOfGuestScreenContainer extends React.Component {
         </View>
       );
     }
-    this.props.dispatch(addGuests(this.state.count));
+    this.props.dispatch(changeNumberofGuests(this.state.count));
   }
 
   render() {

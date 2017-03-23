@@ -24,7 +24,7 @@ potuckFood.courses[courseType].assignments[userId] = 'Spring Rolls';
 
 const newPotluckReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_GUESTS':
+    case 'CHANGE_NUMBER_OF_GUESTS':
       return { ...state, guestCount: action.payload };
     case 'ADD_POTLUCK_ITEM':
       return { ...state, potLuckFood: action.payload.potLuckFood };

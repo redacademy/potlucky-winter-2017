@@ -56,7 +56,8 @@ class Form extends Gandalf {
         },
         getValueInOnChange: text => text,
         debounce: 500,
-      }, {
+      },
+      {
         name: 'description',
         component: ValidatedText,
         validators: ['required'],     
@@ -110,7 +111,6 @@ class Form extends Gandalf {
     };
     // Submit to REDUX
     console.log('goin\' to REDUX', data);
-    console.log('this.props.navigateTo');
   }
 
   render() {
@@ -153,11 +153,12 @@ class Form extends Gandalf {
         {fields.guestNumber.element}
         {fields.location.element}
         {fields.description.element}
-        <TouchableHighlight style={styles.button} onPress={this.handleSubmit}>
+        <TouchableHighlight style={styles.button} onPress={() => this.handleSubmit()}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableHighlight>
       </View >
     );
   }
 }
+
 export default Form;
