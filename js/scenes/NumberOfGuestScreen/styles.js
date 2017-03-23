@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native'
-import { colors, typography, windowWidth, windowHeight } from './../../styles/baseStyles'
+import { StyleSheet } from 'react-native';
+import { colors, typography, windowWidth, windowHeight } from './../../styles/baseStyles';
 
 
 export default StyleSheet.create({
@@ -15,14 +15,37 @@ export default StyleSheet.create({
   },
   container: {
     flex: 0,
-    marginTop: 50,
+    paddingTop: 100,
     width: windowWidth,
-    height: windowHeight
+    height: windowHeight - 20,
+    justifyContent: 'space-between',
+    backgroundColor: 'white',
+  },
+
+  inputAndImagesContainer: {
+    alignItems: 'center',
+    width: '100%',
+    height: 320,
+    justifyContent: 'space-between',
+  },
+  imageContainer: {
+    width: 280,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
   },
   textInput: {
-    width: 100,
-    height: 100,
-    fontSize: typography.headerFontSize,
+    fontSize: typography.headerFontSize * 2,
+    borderWidth: 1,
+    borderColor: 'black',
+    width: 90,
+    height: 70,
+    shadowOffset: { width: 1, height: 3 },
+    shadowColor: 'black',
+    shadowOpacity: 0.17,
+    borderRadius: 5,
+    textAlign: 'center'
   },
   buttonContainer: {
     flex: 0,
@@ -40,5 +63,9 @@ export default StyleSheet.create({
   },
   inactive: {
     backgroundColor: colors.secondaryBtnColor
+  },
+  buttonText: {
+    fontSize: 30,
+    color: '#FFF',
   }
 });
