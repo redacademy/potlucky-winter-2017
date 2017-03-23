@@ -8,10 +8,10 @@ import styles from './styles';
 
 const InfoScreen = () => (
   <PotluckConfirmationInfo
-    title={'Submit'}
     color={'red'}
     buttonNeeded={true}
     buttonType={'rsvp'}
+    title={'The Greatest potluck Ever!!!!!!!!'}
     image={require('../../../assets/images/southparklastsupper.jpg')}
     date={'February 14, 2020'}
     arrivingTime={'12:30PM'}

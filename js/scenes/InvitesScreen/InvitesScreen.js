@@ -4,9 +4,9 @@ import { View } from 'react-native';
 import InviteForm from './../../components/InviteForm';
 import { styles } from './styles';
 
-const InvitesScreen = () => (
+const InvitesScreen = ({ navigateTo }) => (
   <View style={styles.mainContainer}>
-    <InviteForm />
+    <InviteForm navigateTo={navigateTo} />
   </View>
 );
 
