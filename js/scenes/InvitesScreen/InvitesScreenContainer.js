@@ -26,7 +26,7 @@ class InvitesScreenContainer extends Component {
 
   render() {
     return (
-      <InvitesScreen />
+      <InvitesScreen navigateTo={() => (this.props.navigation.navigate('ConfirmationScreen'))} />
     );
   }
 }
