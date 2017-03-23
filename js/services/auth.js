@@ -4,35 +4,35 @@ import userDetails from './api/user-details';
 const signUpUser = (signUpDetails) => {
   return firebase.auth()
     .createUserWithEmailAndPassword(signUpDetails.email, signUpDetails.password)
-      .then(() => {
-        const uId = firebase.auth().currentUser.uid;
-        const userName = {
-          firstName: signUpDetails.firstName,
-          lastName: signUpDetails.lastName,
-        };
+    .then(() => {
+      const uId = firebase.auth().currentUser.uid;
+      const userName = {
+        firstName: signUpDetails.firstName,
+        lastName: signUpDetails.lastName,
+      };
 
-        // userDetails insert to firebase
-        userDetails.create(uId, userName);
+      // userDetails insert to firebase
+      userDetails.create(uId, userName);
 
-        const signUpResult = {
-          uId,
-          signedIn: { signUp: true, signIn: false },
-          userName,
-          message: (`Sign-up successful, welcome to Pot Lucky ${signUpDetails.firstName}`),
-        };
+      const signUpResult = {
+        uId,
+        signedIn: { signUp: true, signIn: false },
+        userName,
+        message: (`Sign-up successful, welcome to Pot Lucky ${signUpDetails.firstName}`),
+      };
 
-        return signUpResult;
-      })
-      .catch((error) => {
-        const signUpResult = {
-          uId: null,
-          signedIn: { signUp: false, signIn: false },
-          userName: {},
-          message: (`Sorry, sign-up was unsuccessful. The following error has occured: ${error.code}, ${error.message}`),
-        };
+      return signUpResult;
+    })
+    .catch((error) => {
+      const signUpResult = {
+        uId: null,
+        signedIn: { signUp: false, signIn: false },
+        userName: {},
+        message: (`Sorry, sign-up was unsuccessful. The following error has occured: ${error.code}, ${error.message}`),
+      };
 
-        return signUpResult;
-      });
+      return signUpResult;
+    });
 };
 
 const signInUser = (signInDetails) => {
@@ -47,7 +47,7 @@ const signInUser = (signInDetails) => {
           const signInResult = {
             uId,
             signedIn: { signUp: false, signIn: true },
-            userName: { firstName: result.firstName, lastName: result.lastName },
+            userName: { firstName: result.firstName, lastName: result.lastName, email: signInDetails.email },
             message: (`Sign-in successful, welcome back to Pot Lucky ${result.firstName}`),
           };
 
@@ -69,11 +69,11 @@ const signInUser = (signInDetails) => {
 const signOutUser = () => {
   return firebase.auth()
     .signOut()
-      .then(() => {
-        console.log('Sign-out successful.');
-      }).catch((error) => {
-        console.log(error);
-      });
+    .then(() => {
+      console.log('Sign-out successful.');
+    }).catch((error) => {
+      console.log(error);
+    });
 };
 
 export default {

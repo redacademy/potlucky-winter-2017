@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { connect } from 'react-redux';
 import { Image } from 'react-native';
 import AccountScreen from './AccountScreen';
 
@@ -14,18 +14,26 @@ class AccountScreenContainer extends React.Component {
   };
 
   constructor() {
-    super()
+    super();
   }
 
   render() {
     const { navigate } = this.props.navigation;
     // The screen's current route is passed in to `props.navigation.state`:
     return (
-      <AccountScreen 
+      <AccountScreen
         navigate={navigate}
-        />
+        firstName={this.props.userName.firstName}
+        lastName={this.props.userName.lastName}
+        email={this.props.userName.email}
+      />
     );
   }
 }
 
-export default AccountScreenContainer;
+const mapStateToProps = state => ({
+  userName: state.userSignIn.userName,
+});
+
+
+export default connect(mapStateToProps)(AccountScreenContainer);
