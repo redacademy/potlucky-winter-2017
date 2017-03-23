@@ -2,65 +2,78 @@ import React, { Component, PropTypes } from 'react';
 import Gandalf from 'gandalf-validator';
 import { TextInput, View, Text, Button, TouchableOpacity, DatePickerIOS, TouchableHighlight } from 'react-native';
 import styles from './styles';
+import ValidatedText from './../ValidatedText';
 
 class Form extends Gandalf {
   constructor() {
     const fields = [
       {
         name: 'potluckName',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['required'],
         errorPropName: 'error',
         onChangeHandler: 'onChangeText',
         props: {
-          style: styles.login
+          title: 'Potluck Name',
+          inputStyle: styles.login,
+          containerStyle: styles.container,
+          titleStyle: styles.title,
         },
         getValueInOnChange: text => text,
         debounce: 500,
       }, {
         name: 'theme',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['required'],
         errorPropName: 'error',
         onChangeHandler: 'onChangeText',
         props: {
-          style: styles.login
+          title: 'Theme',
+          inputStyle: styles.login,
+          containerStyle: styles.container,
+          titleStyle: styles.title,
         },
         getValueInOnChange: text => text,
         debounce: 500,
-      },
-      {
+      }, {
         name: 'guestNumber',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['numeric'],
         errorPropName: 'error',
         onChangeHandler: 'onChangeText',
         props: {
-          style: styles.login
+          title: 'Guest Number',
+          inputStyle: styles.login,
+          containerStyle: styles.container,
+          titleStyle: styles.title,
         },
         getValueInOnChange: text => text,
         debounce: 500,
-      },
-      {
+      }, {
         name: 'location',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['required'],
         errorPropName: 'error',
         onChangeHandler: 'onChangeText',
         props: {
-          style: styles.login,
+          title: 'Location',
+          inputStyle: styles.login,
+          containerStyle: styles.container,
+          titleStyle: styles.title,
         },
         getValueInOnChange: text => text,
         debounce: 500,
-      },
-      {
+      }, {
         name: 'description',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['required'],
         errorPropName: 'error',
         onChangeHandler: 'onChangeText',
         props: {
-          style: styles.description,
+          title: 'Description',
+          inputStyle: styles.description,
+          containerStyle: styles.descriptionContainer,
+          titleStyle: styles.title,
           multiline: true,
           numberOfLines: 4,
         },
@@ -114,28 +127,8 @@ class Form extends Gandalf {
 
     return (
       <View style={styles.mainContainer}>
-        <View style={styles.container}>
-          <View style={styles.container}>
-            <Text style={styles.title}>Potluck Name</Text>
-            {fields.potluckName.element}
-          </View>
-          <View style={styles.errorContainer}>
-            <Text style={styles.errorMessage}>
-              {fields.potluckName.errorMessage && fields.potluckName.errorMessage}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.container} >
-          <View style={styles.container} >
-            <Text style={styles.title}>Theme</Text>
-            {fields.theme.element}
-          </View>
-          <View style={styles.errorContainer} >
-            <Text style={styles.errorMessage}>
-              {fields.theme.errorMessage && fields.theme.errorMessage}
-            </Text>
-          </View>
-        </View>
+        {fields.potluckName.element}
+        {fields.theme.element}
         <View style={this.state.showDate ? styles.expanded : styles.container}>
           <View style={styles.dateContainer}>
             <Text style={styles.title}>Date</Text>
@@ -196,39 +189,9 @@ class Form extends Gandalf {
             />
           }
         </View>
-        <View style={styles.container} >
-          <View style={styles.container} >
-            <Text style={styles.title}>Guest Number</Text>
-            {fields.guestNumber.element}
-          </View>
-          <View style={styles.errorContainer} >
-            <Text style={styles.errorMessage}>
-              {fields.guestNumber.errorMessage && fields.guestNumber.errorMessage}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.container} >
-          <View style={styles.container} >
-            <Text style={styles.title}>Location</Text>
-            {fields.location.element}
-          </View>
-          <View style={styles.errorContainer} >
-            <Text style={styles.errorMessage}>
-              {fields.location.errorMessage && fields.location.errorMessage}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.descriptionContainer} >
-          <View style={styles.descriptionContainer} >
-            <Text style={styles.title}>Description</Text>
-            {fields.description.element}
-          </View>
-          <View style={styles.errorContainer} >
-            <Text style={styles.errorMessage}>
-              {fields.description.errorMessage && fields.description.errorMessage}
-            </Text>
-          </View>
-        </View>
+        {fields.guestNumber.element}
+        {fields.location.element}
+        {fields.description.element}            
         <TouchableHighlight style={styles.button} onPress={() => this.handleSubmit()}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableHighlight>

@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
   },
   container: {
     alignItems: 'center',
+    marginBottom: 5
   },
   button: {
     height: 60,

@@ -14,7 +14,8 @@ class SignupForm extends Gandalf {
         errorPropName: 'error',
         props: {
           placeholder: 'First Name',
-          style: styles.login
+          inputStyle: styles.login,
+          containerStyle: styles.container
         },
         getValueInOnChange: text => text,
         debounce: 500,
@@ -26,8 +27,8 @@ class SignupForm extends Gandalf {
         errorPropName: 'error',
         props: {
           placeholder: 'Last Name',
-          style: styles.login
-
+          inputStyle: styles.login,
+          containerStyle: styles.container
         },
         getValueInOnChange: text => text,
         debounce: 500,
@@ -40,7 +41,8 @@ class SignupForm extends Gandalf {
         props: {
           keyboardType: 'email-address',
           placeholder: 'Email',
-          style: styles.login,
+          inputStyle: styles.login,
+          containerStyle: styles.container,
           autoCapitalize: false,
         },
         getValueInOnChange: text => text,
@@ -53,7 +55,8 @@ class SignupForm extends Gandalf {
         errorPropName: 'error',
         props: {
           placeholder: 'Password',
-          style: styles.login,
+          inputStyle: styles.login,
+          containerStyle: styles.container,
           secureTextEntry: true,
         },
         getValueInOnChange: text => text,

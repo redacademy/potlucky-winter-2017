@@ -19,6 +19,10 @@ export default StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
   },
+  title: {
+    fontSize: 16,
+    color: colors.mainBrandColor
+  },
   description: {
     height: 100,
     width: '100%',
