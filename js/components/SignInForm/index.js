@@ -1,33 +1,38 @@
 import React from 'react';
 import Gandalf from 'gandalf-validator';
-import { TextInput, View, Text } from 'react-native';
+import { View } from 'react-native';
 import { styles } from './../../styles/formStyles';
 import RoundedButton from './../RoundedButton';
+import ValidatedText from './../ValidatedText'
 
 class SignInForm extends Gandalf {
   constructor() {
     const fields = [
       {
         name: 'email',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['email'],
         errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
         props: {
+          keyboardType: 'email-address',
           placeholder: 'Email',
-          style: styles.login
+          inputStyle: styles.login,
+          containerStyle: styles.container,
+          autoCapitalize: 'none',
         },
         getValueInOnChange: text => text,
         debounce: 500,
-      }, {
+      },
+      {
         name: 'password',
-        component: TextInput,
+        component: ValidatedText,
         validators: ['required'],
         errorPropName: 'error',
-        onChangeHandler: 'onChangeText',
         props: {
           placeholder: 'Password',
-          style: styles.login
+          inputStyle: styles.login,
+          containerStyle: styles.container,
+          secureTextEntry: true,
         },
         getValueInOnChange: text => text,
         debounce: 500,
@@ -55,26 +60,8 @@ class SignInForm extends Gandalf {
 
     return (
       <View style={styles.mainContainer}>
-        <View style={styles.container}>
-          <View style={styles.container}>
-            {fields.email.element}
-          </View>
-          <View style={styles.errorContainer}>
-            <Text style={styles.errorMessage}>
-              {fields.email.errorMessage && fields.email.errorMessage}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.container}>
-          <View style={styles.container}>
-            {fields.password.element}
-          </View>
-          <View style={styles.errorContainer}>
-            <Text style={styles.errorMessage}>
-              {fields.password.errorMessage && fields.password.errorMessage}
-            </Text>
-          </View>
-        </View>
+        {fields.email.element}
+        {fields.password.element}
         <RoundedButton text="SIGN IN" style={{ marginBottom: 20 }} onPress={this.handleSubmit} />
       </View>
     );

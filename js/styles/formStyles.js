@@ -22,7 +22,6 @@ export const styles = StyleSheet.create({
     height: 50,
     width: 320,
     padding: 5,
-    flex: 1,
     borderColor: colors.mainBrandColor,
     borderWidth: 1,
     color: Main.loginInput.color,
