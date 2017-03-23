@@ -16,27 +16,6 @@ const guestImageHeight = 195;
 const guestImageHeightWidthRatio = guestImageHeight / guestImageWidth;
 
 class NumberOfGuestScreenContainer extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      count: 0,
-    };
-
-    this.guestStartSize = 60;
-    this.guestImages = [
-      require('../../../assets/images/guests/1.png'),
-      require('../../../assets/images/guests/2.png'),
-      require('../../../assets/images/guests/3.png'),
-      require('../../../assets/images/guests/4.png'),
-      require('../../../assets/images/guests/5.png'),
-      require('../../../assets/images/guests/6.png'),
-      require('../../../assets/images/guests/7.png'),
-      require('../../../assets/images/guests/8.png'),
-      require('../../../assets/images/guests/9.png'),
-      require('../../../assets/images/guests/10.png'),
-    ];
-  }
-
   static navigationOptions = {
     header: ({ navigate, dispatch, goBack }) => ({
       style: { height: 0, margin: 0, padding: 0, },
@@ -55,6 +34,27 @@ class NumberOfGuestScreenContainer extends React.Component {
       ),
     }),
   };
+
+  constructor() {
+    super();
+    this.state = {
+      count: 0,
+    };
+
+    this.guestStartSize = 60;
+    this.guestImageSources = [
+      require('../../../assets/images/guests/1.png'),
+      require('../../../assets/images/guests/2.png'),
+      require('../../../assets/images/guests/3.png'),
+      require('../../../assets/images/guests/4.png'),
+      require('../../../assets/images/guests/5.png'),
+      require('../../../assets/images/guests/6.png'),
+      require('../../../assets/images/guests/7.png'),
+      require('../../../assets/images/guests/8.png'),
+      require('../../../assets/images/guests/9.png'),
+      require('../../../assets/images/guests/10.png'),
+    ];
+  }
 
   onTextChange = (text) => {
     if (text === '') {
@@ -113,7 +113,7 @@ class NumberOfGuestScreenContainer extends React.Component {
         <View key={i}>
           <Image
             style={{ height: this.guestStartSize * guestImageHeightWidthRatio, width: this.guestStartSize, marginLeft: 5, marginRight: 5 }}
-            source={this.guestImages[i % this.guestImages.length]}
+            source={this.guestImageSources[i % this.guestImageSources.length]}
           />
         </View>
       );

@@ -8,14 +8,14 @@ import {
 
 import styles from './styles';
 
-const NumberOfGuestScreen = ({ guestImageArr, count, onTextChange, increase, decrease }) => (
+const NumberOfGuestScreen = ({ guestImages, count, onTextChange, increase, decrease }) => (
   <View>
     <View style={styles.container}>
 
       <View style={styles.inputAndImagesContainer}>
 
         <View style={[styles.imageContainer]}>
-          {guestImageArr.map(guestImage => guestImage)}
+          {guestImages.map(guestImage => guestImage)}
         </View>
 
         <View>
