@@ -26,8 +26,11 @@ const newPotluckReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_GUESTS':
       return { ...state, guestCount: action.payload };
-    case 'ADD_FOOD_ITEM':
-      return { ...state, potLuckFood: action.payload.potLuckFood };
+    case 'ADD_POTLUCK_ITEM':
+      return {
+        ...state,
+        potLuckFood: action.payload.potLuckFood
+      };
     case 'ADD_INFO':
       return { ...state, potLuckInfo: action.payload.potLucks };
     case 'ADD_INVITES':
