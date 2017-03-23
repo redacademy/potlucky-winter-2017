@@ -23,39 +23,45 @@ class FoodPlanningScreenContainer extends Component {
       ),
     }),
   };
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      potluckFood: {}
+      potluckFood: {},
+      dishesUsed: 0,
     };
   }
+
 
   addPotluckItem = (potluckItem) => {
     const { potluckFood } = this.state;
     const exists = Object.prototype.hasOwnProperty.call(potluckFood, potluckItem);
-
-    this.setState({ potluckFood: { ...potluckFood, [potluckItem]: exists ? potluckFood[potluckItem] + 1 : 1 } });
+    if (this.props.guests > 0) {
+      this.changePotluckState(potluckItem, potluckFood, exists);
+    }
   }
-
+  changePotluckState = (potluckItem, potluckFood, exists) => {
+    this.setState({ potluckFood: { ...potluckFood, [potluckItem]: exists ? potluckFood[potluckItem] + 1 : 1 } });
+    this.setState({ dishesUsed: (this.state.dishesUsed + 1) });
+  }
   render() {
     return (
       <FoodPlanningScreen
         potluckFood={this.state.potluckFood}
         guests={this.props.guests}
         addPotluckItem={this.addPotluckItem}
+        dishesUsed={this.state.dishesUsed}
       />
     );
   }
 }
+
 FoodPlanningScreenContainer.propTypes = {
   guests: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     guests: state.newPotluck.guestCount,
-    courses: state.newPotluck.potluckFood.courses,
   };
 };
 

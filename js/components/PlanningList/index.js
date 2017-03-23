@@ -10,7 +10,6 @@ import fontStyles from './../../styles/baseStyles';
 import { POTLUCK_FOOD } from '../../constants';
 
 const PlanningList = ({ potluckFood }) => {
-  console.log(potluckFood);
   return (
     <View style={styles.planningListWrap}>
       {
