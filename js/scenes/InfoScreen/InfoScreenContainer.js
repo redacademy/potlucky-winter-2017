@@ -12,7 +12,7 @@ class InfoScreenContainer extends Component {
 
   render() {
     return (
-      <InfoScreen />
+      <InfoScreen currentPotluck={this.props.currentPotluck} />
     );
   }
 }

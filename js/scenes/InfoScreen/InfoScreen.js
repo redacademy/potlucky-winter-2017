@@ -6,21 +6,20 @@ import {
 import PotluckConfirmationInfo from './../../components/PotluckConfirmationInfo';
 import styles from './styles';
 
-const InfoScreen = () => (
+const InfoScreen = ({ currentPotluck }) => (
   <PotluckConfirmationInfo
     color={'red'}
     buttonNeeded={true}
     buttonType={'rsvp'}
-    title={'The Greatest potluck Ever!!!!!!!!'}
+    title={currentPotluck.title}
     image={require('../../../assets/images/southparklastsupper.jpg')}
-    date={'February 14, 2020'}
-    arrivingTime={'12:30PM'}
-    servingTime={'1:30PM'}
-    location={'Belgrade, Serbia'}
+    date={currentPotluck.eventDate}
+    arrivingTime={currentPotluck.arriveTime}
+    servingTime={currentPotluck.arriveTime}
+    location={currentPotluck.location}
     mainButtonTitle={'Sounds good!'}
     secButtonTitle={'Maybe next time!'}
-    description={` Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.`}
+    description={currentPotluck.description}
   />
 );
 
