@@ -1,18 +1,18 @@
-import InfoScreen from '../scenes/InfoScreen'
-import FoodScreen from '../scenes/FoodScreen'
-import InvitesScreen from '../scenes/InvitesScreen'
-import { colors, typography, windowWidth, windowHeight } from '../styles/baseStyles'
+import InfoScreen from '../scenes/InfoScreen';
+import FoodScreen from '../scenes/FoodScreen';
+import MyPotLuckInvitesScreen from '../scenes/MyPotluckInviteScreen';
+import { colors, typography, windowWidth, windowHeight } from '../styles/baseStyles';
 
 export const hostTabScreens = {
   Info: { screen: InfoScreen },
   Food: { screen: FoodScreen },
-  Invites: { screen: InvitesScreen }
+  Invites: { screen: MyPotLuckInvitesScreen }
 };
 
 export const hostTabStyles = {
   initialRouteName: 'Info',
   tabBarPosition: 'top',
-  tabBarOptions: { 
+  tabBarOptions: {
     activeTintColor: 'white',
     inactiveTintColor: colors.mainBrandColor,
     activeBackgroundColor: colors.mainBrandColor,
@@ -22,8 +22,8 @@ export const hostTabStyles = {
       paddingBottom: 3,
     },
     style: {
-      width: windowWidth * .9,
-      height: windowHeight * .04,
+      width: windowWidth * 0.9,
+      height: windowHeight * 0.04,
       marginTop: 10,
       borderRadius: 5,
       alignSelf: 'center',
@@ -34,7 +34,7 @@ export const hostTabStyles = {
       borderTopColor: colors.mainBrandColor,
     }
   }
-}
+};
 
 export const guestTabScreens = {
   Info: { screen: InfoScreen },
@@ -54,8 +54,8 @@ export const guestTabStyles = {
       paddingBottom: 3,
     },
     style: {
-      width: windowWidth * .9,
-      height: windowHeight * .04,
+      width: windowWidth * 0.9,
+      height: windowHeight * 0.04,
       marginTop: 10,
       borderRadius: 5,
       alignSelf: 'center',
@@ -66,4 +66,4 @@ export const guestTabStyles = {
       borderTopColor: colors.mainBrandColor,
     }
   }
-}
+};
