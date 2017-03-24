@@ -1,16 +1,16 @@
 import {
   StyleSheet
 } from 'react-native';
-import {
+import Main, {
   colors,
   typography,
   windowWidth as width
-} from '../../styles/baseStyles'
+} from '../../styles/baseStyles';
 
 export default StyleSheet.create({
   login: {
     height: 24,
-    width: 158,
+    width: '50%',
     padding: 5,
     borderColor: colors.mainBrandColor,
     fontSize: typography.baseFontSize,
@@ -18,8 +18,10 @@ export default StyleSheet.create({
     borderWidth: 1,
     paddingLeft: 10,
     paddingRight: 10,
+    flex: 0,
   },
   title: {
+    width: '50%',
     fontSize: 16,
     color: colors.mainBrandColor
   },
@@ -35,28 +37,24 @@ export default StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
   },
-  datePickerButton: {
-    height: 24,
-    width: 158,
-    padding: 5,
-    borderColor: colors.mainBrandColor,
-    fontSize: typography.baseFontSize,
-    borderRadius: 3,
-    borderWidth: 1,
-    paddingLeft: 10,
-    paddingRight: 10,
-    justifyContent: 'center',
-  },
   mainContainer: {
     paddingTop: 100,
     width: 300,
   },
-  container: {
+  inputContainerStyle: {
     height: 24,
     width: '100%',
-    marginBottom: 8,
+    paddingBottom: 8,
     flexDirection: 'row',
-    alignItems: 'center',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between'
+  },
+  container: {
+    height: 40,
+    width: '100%',
+    paddingBottom: 8,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-between'
   },
   dateContainer: {
@@ -72,16 +70,4 @@ export default StyleSheet.create({
     height: 250,
     alignSelf: 'flex-end',
   },
-  errorMessage: {
-    fontSize: typography.smallestFontSize,
-    backgroundColor: 'transparent'
-  },
-  errorContainer: {
-    height: 50,
-    flexDirection: 'row',
-  },
-  title: {
-    fontSize: 16,
-    color: colors.mainBrandColor
-  }
-})
+});

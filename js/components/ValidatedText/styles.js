@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import Main, { typography, colors } from '../../styles/baseStyles';
+import Main, { typography } from '../../styles/baseStyles';
 
 export default StyleSheet.create({
   errorMessage: {
@@ -9,6 +9,7 @@ export default StyleSheet.create({
     backgroundColor: 'transparent'
   },
   errorContainer: {
+    width: '100%',
     height: 15,
     marginBottom: 5
   }
