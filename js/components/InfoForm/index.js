@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Gandalf from 'gandalf-validator';
 import { View, Text, TouchableHighlight } from 'react-native';
 import styles from './styles';
 import ValidatedText from './../ValidatedText';
 import DatePicker from './../../components/DatePicker';
 import SingleFlatButton from './../../components/SingleFlatButton';
+import { addInfo } from '../../redux/modules/newPotluckActions';
 
 class Form extends Gandalf {
   constructor() {
@@ -118,8 +120,10 @@ class Form extends Gandalf {
       ...data,
       date: this.state.date.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' }),
       arriveTime: this.state.arriveTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      servingTime: this.state.servingTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      servingTime: this.state.servingTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     };
+    console.log(data)
+    this.props.dispatch(addInfo(data));
   }
 
   render() {
@@ -162,10 +166,10 @@ class Form extends Gandalf {
         {fields.guestNumber.element}
         {fields.location.element}
         {fields.description.element}
-        <SingleFlatButton title="Submit" />
+        <SingleFlatButton title="Submit" onPress={this.handleSubmit} />
       </View>
     );
   }
 }
 
-export default Form;
+export default connect()(Form);

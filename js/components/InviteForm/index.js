@@ -55,7 +55,7 @@ class InviteForm extends Gandalf {
 
   addEmailField = () => {
     const fields = this.state.fields;
-    
+
     const lastEmailKey = Object.keys(fields).pop();
     const lastEmail = fields[lastEmailKey];
 
@@ -87,9 +87,6 @@ class InviteForm extends Gandalf {
     if (!data) return;
 
     this.setState({ emailCount: this.numberOfValidEmails() });
-
-    // Submit to REDUX
-    console.log(data);
     this.props.navigateTo();
   }
 
