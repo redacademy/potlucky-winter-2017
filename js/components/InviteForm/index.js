@@ -17,7 +17,8 @@ class InviteForm extends Gandalf {
         props: {
           placeholder: 'Email',
           hintText: 'Email',
-          style: styles.input
+          style: styles.input,
+          autoCapitalize: false,
         },
         getValueInOnChange: text => text,
         debounce: 300,
@@ -100,10 +101,10 @@ class InviteForm extends Gandalf {
           {this.buildTextInput()}
         </ScrollView>
         <View style={styles.buttonContainer} >
-          <TouchableHighlight style={styles.button} onPress={this.addEmailField}>
+          <TouchableHighlight style={styles.primaryBtn} onPress={this.addEmailField}>
             <Text style={styles.buttonText}>New Invite</Text>
           </TouchableHighlight>
-          <TouchableHighlight style={styles.button} onPress={this.handleSubmit}>
+          <TouchableHighlight style={styles.secondaryBtn} onPress={this.handleSubmit}>
             <Text style={styles.buttonText}>Send Invites</Text>
           </TouchableHighlight>
         </View>
