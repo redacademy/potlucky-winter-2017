@@ -1,13 +1,8 @@
 // initial state
 
 const initialState = {
-  potlucks: {},
   potluckFood: {
     guestCount: 0,
-    courses: {},
-  },
-  potluckInvites: {
-    emails: []
   },
 };
 

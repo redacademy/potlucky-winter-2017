@@ -10,7 +10,7 @@ const ADD_INVITES = 'ADD_INVITES';
 export const changeNumberofGuests = data => ({ type: CHANGE_NUMBER_OF_GUESTS, payload: data });
 export const addPotluckItem = data => ({ type: ADD_POTLUCK_ITEM, payload: data });
 export const addInfo = data => ({ type: ADD_INFO, payload: data });
-export const addInvited = data => ({ type: ADD_INVITES, payload: data });
+export const addInvites = data => ({ type: ADD_INVITES, payload: data });
 
 
 
