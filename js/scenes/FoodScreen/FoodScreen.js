@@ -7,7 +7,7 @@ import {
 import styles from './styles';
 import { colors } from '../../styles/baseStyles';
 
-import { potluckFood } from '../../constants';
+import { POTLUCK_FOOD } from '../../constants';
 
 import GuestsConfirmed from '../../components/GuestsConfirmed';
 import NumberOfFoodItem from '../../components/NumberOfFoodItem';
@@ -21,9 +21,9 @@ const FoodScreen = () => (
     </View>
 
     <View style={styles.numberOfFoodItemContainer}>
-      <NumberOfFoodItem count={3} foodItemName={potluckFood.APPETIZERS} color={colors.appetizerColor} />
-      <NumberOfFoodItem count={8} foodItemName={potluckFood.MAINS} color={colors.mainCourseColor} />
-      <NumberOfFoodItem count={20} foodItemName={potluckFood.SALADS} color={colors.saladsColor} />
+      <NumberOfFoodItem count={3} foodItemName={POTLUCK_FOOD.APPETIZERS.name} color={colors.appetizerColor} />
+      <NumberOfFoodItem count={8} foodItemName={POTLUCK_FOOD.MAINS.name} color={colors.mainCourseColor} />
+      <NumberOfFoodItem count={20} foodItemName={POTLUCK_FOOD.SALADS.name} color={colors.saladsColor} />
     </View>
 
     <ScrollView>
