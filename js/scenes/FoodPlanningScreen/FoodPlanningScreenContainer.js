@@ -31,7 +31,6 @@ class FoodPlanningScreenContainer extends Component {
     };
   }
 
-
   addPotluckItem = (potluckItem) => {
     const { potluckFood } = this.state;
     const exists = Object.prototype.hasOwnProperty.call(potluckFood, potluckItem);
@@ -41,7 +40,9 @@ class FoodPlanningScreenContainer extends Component {
   }
   changePotluckState = (potluckItem, potluckFood, exists) => {
     this.setState({ potluckFood: { ...potluckFood, [potluckItem]: exists ? potluckFood[potluckItem] + 1 : 1 } });
-    this.setState({ dishesUsed: (this.state.dishesUsed + 1) });
+    if (this.props.guests >= 0) {
+      this.setState({ dishesUsed: (this.state.dishesUsed + 1) });
+    }
   }
   render() {
     return (
