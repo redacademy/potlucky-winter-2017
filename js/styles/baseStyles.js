@@ -22,6 +22,8 @@ export const colors = {
   customColor: '#E8CD38',
   courseIndicatorBG: '#E1E1E1',
   courseIndicatorColor: '#747474',
+  invitePrimaryBtn: '#82B426',
+  inviteSecondaryBtn: '#9DDA2C',
 };
 
 export const typography = {

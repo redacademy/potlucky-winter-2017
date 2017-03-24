@@ -23,13 +23,20 @@ export const styles = StyleSheet.create({
     flex: 0,
     flexDirection: 'row',
   },
-  button: {
+  primaryBtn: {
     height: 50,
     flex: 1,
-    backgroundColor: colors.secondaryBtnColor,
+    backgroundColor: colors.invitePrimaryBtn,
+    justifyContent: 'center'
+  },
+  secondaryBtn: {
+    height: 50,
+    flex: 1,
+    backgroundColor: colors.inviteSecondaryBtn,
     justifyContent: 'center'
   },
   buttonText: {
     textAlign: 'center',
+    color: 'white'
   }
 });
