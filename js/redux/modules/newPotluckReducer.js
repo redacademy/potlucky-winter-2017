@@ -6,15 +6,6 @@ const initialState = {
   },
 };
 
-/*
-// In create potluck flow
-potuckFood.courses[courseType].desiredDishCount = 10;
-
-// In Guest flow
-potuckFood.courses[courseType].assignments[userId] = 'Spring Rolls';
-
-*/
-
 // reducer
 
 const newPotluckReducer = (state = initialState, action) => {
