@@ -1,15 +1,14 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes } from 'react';
 import {
   TouchableHighlight,
   Text,
   View
-} from 'react-native'
+} from 'react-native';
 
-import { colors } from '../../styles/baseStyles'
-import styles from './styles'
+import { colors } from '../../styles/baseStyles';
+import styles from './styles';
 
-const RoundedButton = ({ text, onPress, style, color = colors.mainBrandColor }) => {
-  return (
+const RoundedButton = ({ text, onPress, style, color = colors.mainBrandColor }) => (
     <View style={[styles.buttonShape, styles.buttonView, { backgroundColor: color, shadowColor: color, marginBottom: 8}, style]}>
       <TouchableHighlight
         style={[styles.buttonShape]}
@@ -25,7 +24,6 @@ const RoundedButton = ({ text, onPress, style, color = colors.mainBrandColor }) 
     </View>
 
   );
-};
 
 RoundedButton.propTypes = {
   text: PropTypes.string.isRequired,
@@ -33,5 +31,5 @@ RoundedButton.propTypes = {
   dropShadow: PropTypes.bool,
   color: PropTypes.string,
   style: PropTypes.object,
-}
-export default RoundedButton
+};
+export default RoundedButton;
