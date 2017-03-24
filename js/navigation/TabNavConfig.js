@@ -1,10 +1,12 @@
 import InfoScreen from '../scenes/InfoScreen';
 import FoodScreen from '../scenes/FoodScreen';
 import MyPotLuckInvitesScreen from '../scenes/MyPotluckInviteScreen';
+import GuestPotluckInfoScreen from '../scenes/GuestPotluckInfoScreen';
+import HostPotluckInfoScreen from '../scenes/HostPotluckInfoScreen';
 import { colors, typography, windowWidth, windowHeight } from '../styles/baseStyles';
 
 export const hostTabScreens = {
-  Info: { screen: InfoScreen },
+  Info: { screen: HostPotluckInfoScreen },
   Food: { screen: FoodScreen },
   Invites: { screen: MyPotLuckInvitesScreen }
 };
@@ -37,7 +39,7 @@ export const hostTabStyles = {
 };
 
 export const guestTabScreens = {
-  Info: { screen: InfoScreen },
+  Info: { screen: GuestPotluckInfoScreen },
   Food: { screen: FoodScreen },
 };
 

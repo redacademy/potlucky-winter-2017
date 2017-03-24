@@ -2,13 +2,12 @@ import React, { PropTypes } from 'react';
 import { View, Button } from 'react-native';
 import styles from './styles';
 
-const SingleFlatButton = ({ title, color, width = 'full' }) => {
-  return (
-    <View style={[width === 'full' ? styles.full : styles.half, styles.buttonContainer]}>
-      <Button title={title} color={color} />
-    </View>
-  );
-};
+const SingleFlatButton = ({ title, color }) => (
+  <View style={styles.buttonContainer}>
+    <Button title={title} color={color} />
+  </View>
+);
+
 SingleFlatButton.propTypes = {
   title: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired
