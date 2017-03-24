@@ -37,7 +37,7 @@ export default StyleSheet.create({
   },
   datePickerButton: {
     height: 24,
-    width: 158,
+    width: '50%',
     padding: 5,
     borderColor: colors.mainBrandColor,
     fontSize: typography.baseFontSize,

@@ -2069,9 +2069,9 @@ function-bind@^1.0.2, function-bind@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.0.tgz#16176714c801798e4e8f2cf7f7529467bb4a5771"
 
-gandalf-validator@^0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/gandalf-validator/-/gandalf-validator-0.8.2.tgz#5247909dca5992fbd69717eeb01451651c6fcc54"
+gandalf-validator:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/gandalf-validator/-/gandalf-validator-0.8.3.tgz#5f084362b817e4c2831f3c72b0c0ee924dfdfb31"
   dependencies:
     react "^15.4.2"
 
