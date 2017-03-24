@@ -18,8 +18,8 @@ const PlanningScrollbar = ({ addPotluckItem, potluckFood }) => {
     >
       <View style={styles.scrollBarCenter}>
         {
-          Object.keys(POTLUCK_FOOD).map((foodItem) => (
-            <View>
+          Object.keys(POTLUCK_FOOD).map((foodItem, i) => (
+            <View key={i}>
               <TouchableOpacity style={styles.courseButton} onPress={() => { addPotluckItem(foodItem)}}>
                 <View style={styles.iconWrap} >
                   <Image source={POTLUCK_FOOD[foodItem].imageSource} style={styles.courseIcon}>

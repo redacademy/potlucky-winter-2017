@@ -19,5 +19,12 @@ const FoodPlanningScreen = ({ potluckFood, guests, addPotluckItem, dishesUsed })
   </View>
 );
 
+FoodPlanningScreen.propTypes = {
+  potluckFood: PropTypes.object.isRequired,
+  guests: PropTypes.number.isRequired,
+  addPotluckItem: PropTypes.func.isRequired,
+  dishesUsed: PropTypes.number.isRequired,
+};
+
 
 export default FoodPlanningScreen;
