@@ -60,7 +60,7 @@ const CreatePotluckNavigator = TabNavigator(
 
 export default StackNavigator(
   {
-    SignIn: { screen: SignInScreen },
+    SignIn: { screen: CreatePotluckNavigator },
     SignUp: { screen: SignUpScreen },
     CreatePotluckNavigator: { screen: CreatePotluckNavigator },
     HomeScreenNavigator: { screen: BottomNavigator },
