@@ -13,15 +13,16 @@ const PlanningList = ({ potluckFood }) => {
   return (
     <View style={styles.planningListWrap}>
       {
-        Object.keys(potluckFood).map((courseName) => (<View>
+        Object.keys(potluckFood).map((foodItem) => (
+        <View>
           <TouchableOpacity style={styles.courseButton}>
             <View style={styles.iconWrap} >
-              <Image source={POTLUCK_FOOD[courseName.toUpperCase()].imageSource} style={styles.courseIcon} />
+              <Image source={POTLUCK_FOOD[foodItem].imageSource} style={styles.courseIcon} />
               <View style={styles.courseQuantityBG}>
-                <Text style={fontStyles.foodIndicatorText}>{potluckFood[courseName]}</Text>
+                <Text style={fontStyles.foodIndicatorText}>{potluckFood[foodItem]}</Text>
               </View>
             </View>
-            <Text style={styles.appetizerCourseTitle}>{courseName}</Text>
+            <Text style={[styles.courseTitle, { color: POTLUCK_FOOD[foodItem].color }]}>{POTLUCK_FOOD[foodItem].name}</Text>
           </TouchableOpacity>
         </View>))
       }

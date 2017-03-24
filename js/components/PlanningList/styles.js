@@ -40,10 +40,9 @@ export const styles = StyleSheet.create({
     width: 48,
     resizeMode: 'contain',
   },
-  appetizerCourseTitle: {
+  courseTitle: {
     fontSize: typography.baseFontSize,
     //fontFamily: typography.fontMainBold,
-    color: colors.mainBrandColor,
   },
   mainCourseTitle: {
     fontSize: typography.baseFontSize,
