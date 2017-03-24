@@ -23,6 +23,7 @@ export default StyleSheet.create({
   buttonText: {
     color: '#FFF',
     fontSize: 18,
+    fontFamily: typography.fontMain,
   }
 
 })

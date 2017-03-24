@@ -5,12 +5,12 @@ export const styles = StyleSheet.create({
   mainContainer: {
     paddingTop: 29,
     flex: 1,
-    justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'white'
   },
   container: {
     alignItems: 'center',
-    marginBottom: 5
+    height: 62
   },
   button: {
     height: 60,
@@ -23,16 +23,17 @@ export const styles = StyleSheet.create({
     color: 'white',
   },
   login: {
-    height: 55,
+    height: 50,
     width: 320,
-    paddingLeft: 17,
-    paddingRight: 17,
+    padding: 5,
     borderColor: colors.mainBrandColor,
     borderWidth: 1,
-    color: colors.mainBrandColor,
+    color: Main.loginInput.color,
     fontFamily: Main.loginInput.fontFamily,
-    fontSize: 14,
-    borderRadius: 5,
+    fontSize: typography.baseFontSize,
+    borderRadius: 25,
+    paddingLeft: 22,
+    paddingRight: 22,
   },
   errorMessage: {
     color: Main.loginInput.color,

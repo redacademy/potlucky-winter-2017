@@ -1,6 +1,7 @@
 import React from 'react';
 import Gandalf from 'gandalf-validator';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View } from 'react-native';
+import RoundedButton from './../../components/RoundedButton';
 import ValidatedText from './../../components/ValidatedText';
 import { styles } from './styles';
 
@@ -43,7 +44,7 @@ class SignupForm extends Gandalf {
           placeholder: 'Email',
           inputStyle: styles.login,
           containerStyle: styles.container,
-          autoCapitalize: false,
+          autoCapitalize: 'none',
         },
         getValueInOnChange: text => text,
         debounce: 500,
@@ -99,9 +100,11 @@ class SignupForm extends Gandalf {
           {fields.email.element}
           {fields.password.element}
         </View>
-        <TouchableHighlight style={styles.button} onPress={this.handleSubmit}>
-          <Text style={styles.buttonText}>Register</Text>
-        </TouchableHighlight>
+        <RoundedButton
+          text="REGISTER"
+          style={{ marginBottom: 20 }} 
+          onPress={this.handleSubmit} 
+        />
       </View>
     );
   }
