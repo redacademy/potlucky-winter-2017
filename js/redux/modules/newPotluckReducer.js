@@ -27,11 +27,11 @@ const newPotluckReducer = (state = initialState, action) => {
     case 'CHANGE_NUMBER_OF_GUESTS':
       return { ...state, guestCount: action.payload };
     case 'ADD_POTLUCK_ITEM':
-      return { ...state, potLuckFood: action.payload.potLuckFood };
+      return { ...state, potluckFood: action.payload };
     case 'ADD_INFO':
-      return { ...state, potLuckInfo: action.payload.potLucks };
+      return { ...state, potluckInfo: action.payload };
     case 'ADD_INVITES':
-      return { ...state, potLuckInvites: action.payload.potLuckInvites };
+      return { ...state, potluckInvites: action.payload };
     default:
       return state;
   }

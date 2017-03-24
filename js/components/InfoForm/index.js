@@ -4,6 +4,7 @@ import { View, Text, TouchableHighlight } from 'react-native';
 import styles from './styles';
 import ValidatedText from './../ValidatedText';
 import DatePicker from './../../components/DatePicker';
+import SingleFlatButton from './../../components/SingleFlatButton';
 
 class Form extends Gandalf {
   constructor() {
@@ -119,8 +120,6 @@ class Form extends Gandalf {
       arriveTime: this.state.arriveTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       servingTime: this.state.servingTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     };
-    // Submit to REDUX
-    console.log('goin\' to REDUX', data);
   }
 
   render() {
@@ -163,9 +162,7 @@ class Form extends Gandalf {
         {fields.guestNumber.element}
         {fields.location.element}
         {fields.description.element}
-        <TouchableHighlight style={styles.button} onPress={() => this.handleSubmit()}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableHighlight>
+        <SingleFlatButton title="Submit" />
       </View>
     );
   }

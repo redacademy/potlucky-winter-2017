@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import FoodPlanningScreen from './FoodPlanningScreen';
 import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar';
 import NavigationArrow from '../../components/NavigationArrow';
+import { addPotluckItem } from '../../redux/modules/newPotluckActions';
 import { progressBar } from '../../constants';
 
 class FoodPlanningScreenContainer extends Component {
@@ -29,6 +30,10 @@ class FoodPlanningScreenContainer extends Component {
       potluckFood: {},
       dishesUsed: 0,
     };
+  }
+  componentDidUpdate() {
+    const { potluckFood } = this.state;
+    this.props.dispatch(addPotluckItem(potluckFood));
   }
 
   addPotluckItem = (potluckItem) => {
