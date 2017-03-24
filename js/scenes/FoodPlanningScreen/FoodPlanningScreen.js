@@ -19,11 +19,5 @@ const FoodPlanningScreen = ({ potluckFood, guests, addPotluckItem, dishesUsed })
   </View>
 );
 
-FoodPlanningScreen.propTypes = {
-  guests: PropTypes.number.isRequired,
-  potluckFood: PropTypes.objectOf(React.PropTypes.string).isRequired,
-  addPotluckItem: PropTypes.func.isRequired,
-  dishesUsed: PropTypes.number.isRequired
-};
 
 export default FoodPlanningScreen;

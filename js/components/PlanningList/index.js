@@ -13,25 +13,21 @@ const PlanningList = ({ potluckFood }) => {
   return (
     <View style={styles.planningListWrap}>
       {
-        Object.keys(potluckFood).map((foodItem) => (
-        <View>
-          <TouchableOpacity style={styles.courseButton}>
-            <View style={styles.iconWrap} >
-              <Image source={POTLUCK_FOOD[foodItem].imageSource} style={styles.courseIcon} />
-              <View style={styles.courseQuantityBG}>
-                <Text style={fontStyles.foodIndicatorText}>{potluckFood[foodItem]}</Text>
+        Object.keys(potluckFood).map(courseName => (
+          <View key={courseName}>
+            <TouchableOpacity style={styles.courseButton}>
+              <View style={styles.iconWrap} >
+                <Image source={POTLUCK_FOOD[courseName.toUpperCase()].imageSource} style={styles.courseIcon} />
+                <View style={styles.courseQuantityBG}>
+                  <Text style={fontStyles.foodIndicatorText}>{potluckFood[courseName]}</Text>
+                </View>
               </View>
-            </View>
-            <Text style={[styles.courseTitle, { color: POTLUCK_FOOD[foodItem].color }]}>{POTLUCK_FOOD[foodItem].name}</Text>
-          </TouchableOpacity>
-        </View>))
+              <Text style={styles.appetizerCourseTitle}>{courseName}</Text>
+            </TouchableOpacity>
+          </View>))
       }
     </View>
   );
-};
-
-PlanningList.propTypes = {
-  potluckFood: PropTypes.objectOf(React.PropTypes.string).isRequired,
 };
 
 export default PlanningList;
