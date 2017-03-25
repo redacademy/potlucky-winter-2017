@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { TextInput, View, ScrollView, Text, TouchableHighlight } from 'react-native';
 import Gandalf from 'gandalf-validator';
 import EmailInviteIndicator from './../../components/EmailInviteIndicator';
 import InviteEmail from './../../components/InviteEmail';
+import { addInvites } from '../../redux/modules/newPotluckActions';
 import { styles } from './styles';
 
 class InviteForm extends Gandalf {
@@ -55,7 +57,7 @@ class InviteForm extends Gandalf {
 
   addEmailField = () => {
     const fields = this.state.fields;
-    
+
     const lastEmailKey = Object.keys(fields).pop();
     const lastEmail = fields[lastEmailKey];
 
@@ -87,10 +89,8 @@ class InviteForm extends Gandalf {
     if (!data) return;
 
     this.setState({ emailCount: this.numberOfValidEmails() });
-
-    // Submit to REDUX
-    console.log(data);
     this.props.navigateTo();
+    this.props.dispatch(addInvites(data));
   }
 
   render() {
@@ -113,4 +113,4 @@ class InviteForm extends Gandalf {
   }
 }
 
-export default InviteForm;
+export default connect()(InviteForm);
