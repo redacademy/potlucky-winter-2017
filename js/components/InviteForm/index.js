@@ -99,11 +99,8 @@ class InviteForm extends Gandalf {
 <<<<<<< HEAD
 =======
 
-    // Submit to REDUX
     const encodedGuestEmails = encodeObjectValues(data);
-    // console.log(decodeObjectValues(encodeObjectValues(data)));
-
-    console.log(encodedGuestEmails);
+    // Submit to REDUX
 
 >>>>>>> Feature process existing user emails invites complete
     this.props.navigateTo();
