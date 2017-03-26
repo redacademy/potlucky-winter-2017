@@ -5,7 +5,6 @@ import Gandalf from 'gandalf-validator';
 import EmailInviteIndicator from './../../components/EmailInviteIndicator';
 import InviteEmail from './../../components/InviteEmail';
 import { addInvites } from '../../redux/modules/newPotluckActions';
-import { encodeObjectValues } from '../../helpers';
 import { styles } from './styles';
 
 class InviteForm extends Gandalf {
@@ -74,6 +73,7 @@ class InviteForm extends Gandalf {
           placeholder: 'Email',
           hintText: 'Email',
           style: styles.input,
+          autoCapitalize: false,
         },
         getValueInOnChange: text => text,
         debounce: 300
@@ -90,11 +90,13 @@ class InviteForm extends Gandalf {
 
     this.setState({ emailCount: this.numberOfValidEmails() });
 
-    // Submit to REDUX
-    const encodedGuestEmails = encodeObjectValues(data);
+    const formattedData = Object.keys(data)
+      .map((key) => {
+        return data[key].toLowerCase();
+      });
 
     this.props.navigateTo();
-    this.props.dispatch(addInvites(data));
+    this.props.dispatch(addInvites(formattedData));
   }
 
   render() {

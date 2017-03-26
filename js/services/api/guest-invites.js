@@ -14,7 +14,10 @@ const getDetailsForEmail = (email) => {
 };
 
 const deleteExistingUserGuestInvite = (potluckId, email) => {
-  firebase.database().ref().child(`potLuckInvites/${potluckId}/guests/${btoa(email)}`).remove();
+  firebase.database()
+    .ref()
+    .child(`potLuckInvites/${potluckId}/guests/${btoa(email)}`)
+    .remove();
 };
 
 const processEmailInvites = (potluckId, guestEmails) => {
@@ -80,4 +83,5 @@ export default {
   processEmailInvites,
   createPotluckGuest,
   createUserPotluck,
+  deleteExistingUserGuestInvite,
 };

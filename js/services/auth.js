@@ -13,7 +13,10 @@ const signUpUser = (signUpDetails) => {
       };
 
       // userDetails insert to firebase
-      userDetails.create(uId, userName);
+      userDetails.createUserDetails(uId, userName);
+
+      // check for existing guest email invites and process if true
+      userDetails.createPotluckInvites(uId, userName);
 
       const signUpResult = {
         uId,
