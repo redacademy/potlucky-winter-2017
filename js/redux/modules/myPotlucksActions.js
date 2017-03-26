@@ -1,6 +1,5 @@
 import { loadingResource, doneLoading } from './isLoadingActions';
-
-import { getUserPotLucks } from '../../services/api/pot-lucks';
+import potlucks from '../../services/api/pot-lucks';
 import { addIdToObject } from '../../helpers';
 
 export const loadMyPotlucks = myPotlucks => ({
@@ -10,7 +9,7 @@ export const loadMyPotlucks = myPotlucks => ({
 
 export const fetchMyPotlucks = userId => (dispatch) => {
   dispatch(loadingResource());
-  getUserPotLucks(userId)
+  potlucks.getUserPotlucks(userId)
     .then((myPotlucks) => {
       addIdToObject(myPotlucks);
       dispatch(loadMyPotlucks(myPotlucks));

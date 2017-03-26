@@ -1,7 +1,9 @@
+import moment from 'moment';
 import api from './base';
 import guestInvites from './guest-invites';
+import { encodeObjectValues } from '../../helpers';
 
-export const getUserPotLucks = (userId) => {
+const getUserPotlucks = (userId) => {
   return api.get(`userPotLucks/${userId}`)
     .then((result) => {
       return result;
@@ -11,7 +13,7 @@ export const getUserPotLucks = (userId) => {
     });
 };
 
-export const getPotLuck = (potLuckId) => {
+const getPotluck = (potLuckId) => {
   return api.get(`/potLucks/${potLuckId}`)
     .then((result) => {
       return result;
@@ -21,22 +23,38 @@ export const getPotLuck = (potLuckId) => {
     });
 };
 
-const create = (data) => {
-  const userId = data.userId;
-  const potluck = { ...data, [userId]: true };
-  const potluckFood = {};
+const createPotluck = (data, userId) => {
+  const potluck = {
+    [userId]: true,
+    title: data.potluckInfo.title,
+    theme: data.potluckInfo.theme,
+    eventDate: moment(data.potluckInfo.eventDate, ['MMM DD, YYYY']).format('YYYY-MM-DD'),
+    arriveTime: moment(data.potluckInfo.arriveTime, ['h:mm A']).format('HH:mm'),
+    serveTime: moment(data.potluckInfo.serveTime, ['h:mm A']).format('HH:mm'),
+    location: data.potluckInfo.location,
+    description: data.potluckInfo.description,
+  };
+
+  let potluckFood = {
+    totalDishCount: data.guestCount,
+  };
+
+  Object.keys(data.potluckFood)
+    .forEach((key) => {
+      potluckFood = { ...potluckFood, [key]: { desiredDishCount: data.potluckFood[key] } };
+    });
 
   const potluckGuests = {
-    eventDate: data.eventDate,
-    guests: data,
+    eventDate: moment(data.potluckInfo.eventDate, ['MMM DD, YYYY']).format('YYYY-MM-DD'),
+    guests: encodeObjectValues(data.potluckInvites),
   };
 
   const potluckIndex = {
     isHost: true,
     isNew: true,
-    eventDate: data.eventDate,
-    title: data.title,
-    description: data.description,
+    eventDate: data.potluckInfo.eventDate,
+    title: data.potluckInfo.title,
+    description: data.potluckInfo.description,
   };
 
   // get new potluck id
@@ -46,7 +64,7 @@ const create = (data) => {
     [`/potLucks/${newPotluckId}`]: potluck,
     [`/potLuckFood/${newPotluckId}`]: potluckFood,
     [`/potLuckInvites/${newPotluckId}`]: potluckGuests,
-    [`/userPotLucks/${data.userId}/${newPotluckId}`]: potluckIndex,
+    [`/userPotLucks/${userId}/${newPotluckId}`]: potluckIndex,
   };
 
   return api.change(updates)
@@ -61,13 +79,16 @@ const create = (data) => {
       // create sign-in user potluck invites
       guestInvites.createUserPotluck(newPotluckId, potluck, result);
     })
+    .then(() => {
+      return 'Potluck saved and guests invited!';
+    })
     .catch((error) => {
       console.log(error);
     });
 };
 
 export default {
-  getUserPotLucks,
-  getPotLuck,
-  create,
+  getUserPotlucks,
+  getPotluck,
+  createPotluck,
 };

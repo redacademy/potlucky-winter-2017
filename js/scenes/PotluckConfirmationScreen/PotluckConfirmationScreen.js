@@ -38,7 +38,10 @@ class PotluckConfirmationScreenContainer extends Component {
         />
 
         <View style={styles.buttonContainer}>
-          <SingleFlatButton title={'Confirm'} />
+          <SingleFlatButton
+            title={'Confirm'}
+            onPress={this.onConfirmHandler}
+          />
         </View>
       </View>
     );
