@@ -1,5 +1,4 @@
 // initial state
-
 const initialState = {
   potluckFood: {
     guestCount: 0,
@@ -7,7 +6,6 @@ const initialState = {
 };
 
 // reducer
-
 const newPotluckReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'CHANGE_NUMBER_OF_GUESTS':
@@ -18,6 +16,10 @@ const newPotluckReducer = (state = initialState, action) => {
       return { ...state, potluckInfo: action.payload };
     case 'ADD_INVITES':
       return { ...state, potluckInvites: action.payload };
+    case 'SET_CREATE_MESSAGE':
+      return { ...state, message: action.payload };
+    case 'SET_INITIAL_STATE':
+      return { ...state, guestCount: 0, potluckFood: {}, potluckInfo: {}, potluckInvites: {} };
     default:
       return state;
   }

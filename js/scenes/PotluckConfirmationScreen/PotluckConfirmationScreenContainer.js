@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { View } from 'react-native';
 import { colors, typography, windowHeight as height } from '../../styles/baseStyles';
 import PotluckInfo from '../../components/PotluckInfo';
-
 import SingleFlatButton from '../../components/SingleFlatButton';
-
+import { createNewPotluck } from '../../redux/modules/newPotluckActions';
 import styles from './styles';
 
 class PotluckConfirmationScreenContainer extends Component {
@@ -24,6 +24,13 @@ class PotluckConfirmationScreenContainer extends Component {
       visible: false
     })
   }
+
+  onConfirmHandler = () => {
+    this.props.createNewPotluck(this.props.newPotluck, this.props.userId);
+    
+    // TODO go somewhere
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -38,11 +45,34 @@ class PotluckConfirmationScreenContainer extends Component {
         />
 
         <View style={styles.buttonContainer}>
-          <SingleFlatButton title={'Confirm'} />
+          <SingleFlatButton
+            title={'Confirm'}
+            onPress={this.onConfirmHandler}
+          />
         </View>
       </View>
     );
   }
 }
 
-export default PotluckConfirmationScreenContainer;
+const mapStateToProps = state => ({
+  newPotluck: state.newPotluck,
+  userId: state.userSignIn.uId,
+});
+
+const mapDispatchToProps = dispatch => ({
+  createNewPotluck: (data, userId) => {
+    dispatch(createNewPotluck(data, userId));
+  },
+});
+
+PotluckConfirmationScreenContainer.propTypes = {
+  newPotluck: PropTypes.object.isRequired,
+  userId: PropTypes.string.isRequired,
+  createNewPotluck: PropTypes.func.isRequired,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PotluckConfirmationScreenContainer);
