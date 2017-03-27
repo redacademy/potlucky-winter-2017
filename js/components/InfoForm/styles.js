@@ -12,6 +12,7 @@ export default StyleSheet.create({
     height: 24,
     width: '50%',
     paddingLeft: 5,
+    fontFamily: typography.fontMain,
     borderColor: colors.mainBrandColor,
     fontSize: typography.baseFontSize,
     fontFamily: typography.fontMain,
@@ -21,6 +22,7 @@ export default StyleSheet.create({
   },
   title: {
     width: '50%',
+    fontFamily: typography.fontMain,
     fontSize: 16,
     color: colors.mainBrandColor,
     fontFamily: typography.fontMain,
@@ -32,6 +34,7 @@ export default StyleSheet.create({
     padding: 5,
     marginTop: 13,
     borderColor: colors.mainBrandColor,
+    fontFamily: typography.fontMain,
     fontSize: typography.baseFontSize,
     fontFamily: typography.fontMain,
     borderRadius: 3,

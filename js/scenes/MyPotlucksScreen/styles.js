@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { colors, windowHeight as height } from '../../styles/baseStyles'
+import { colors, windowHeight as height, typography } from '../../styles/baseStyles';
 
 
 export default StyleSheet.create({
@@ -29,10 +29,13 @@ export default StyleSheet.create({
     color: colors.mainBrandColor,
     fontWeight: 'bold',
     fontSize: 20,
+    fontFamily: typography.fontMain,
+
   },
   rightText: {
     color: colors.secondaryBtnColor,
     fontWeight: 'bold',
-    fontSize: 20
+    fontSize: 20,
+    fontFamily: typography.fontMain,
   }
 });

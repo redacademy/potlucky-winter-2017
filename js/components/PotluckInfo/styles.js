@@ -50,11 +50,13 @@ const styles = StyleSheet.create({
     lineHeight: 15
   },
   descriptionText: {
+    fontFamily: typography.fontMain,
     textAlign: 'center',
     paddingTop: 5,
     lineHeight: 15
   },
   colorText: {
+    fontFamily: typography.fontMain,
     color: colors.mainBrandColor
   },
   image: {

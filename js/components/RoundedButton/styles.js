@@ -8,12 +8,12 @@ export default StyleSheet.create({
     height: 50,
   },
   buttonView: {
-        shadowOffset:{
-            width: 0,
-            height: 8,
-        },
-        shadowOpacity: .5,
-        shadowRadius: 0
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 0
   },
   textContainer: {
     alignItems: 'center',
@@ -25,5 +25,4 @@ export default StyleSheet.create({
     fontSize: 18,
     fontFamily: typography.fontMain,
   }
-
-})
+});

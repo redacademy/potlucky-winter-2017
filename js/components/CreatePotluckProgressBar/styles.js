@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { colors, windowWidth as width, windowHeight as height } from '../../styles/baseStyles';
+import { colors, windowWidth as width, windowHeight as height, typography } from '../../styles/baseStyles';
 
 const progressBarImageHeight = 59;
 const progressBarImageWidth = 702;
@@ -22,6 +22,7 @@ export default StyleSheet.create({
   },
 
   title: {
+    fontFamily: typography.fontMain,
     fontSize: 20,
     color: '#FFF',
     alignItems: 'center'

@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   buttonText: {
+    fontFamily: typography.fontMain,
     textAlign: 'center',
     color: 'white',
   },

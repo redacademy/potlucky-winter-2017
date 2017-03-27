@@ -21,6 +21,7 @@ export default StyleSheet.create({
     height: '100%',
     width: '100%',
     textAlign: 'center',
+    fontFamily: typography.fontMain,
     fontSize: typography.baseFontSize,
     fontWeight: 'bold',
     color: '#fff',
@@ -33,6 +34,7 @@ export default StyleSheet.create({
 
   },
   usernameText: {
+    fontFamily: typography.fontMain,
     fontSize: typography.baseFontSize,
   }
 

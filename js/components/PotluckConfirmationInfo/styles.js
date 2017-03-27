@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     opacity: 0.80
   },
   bannerText: {
+    fontFamily: typography.fontMain,
     textAlign: 'center',
     paddingTop: 5,
     paddingBottom: 5,
@@ -68,17 +69,20 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   descriptionHeader: {
+    fontFamily: typography.fontMain,
     color: colors.mainBrandColor,
     textAlign: 'center',
     paddingTop: 10,
     lineHeight: 15
   },
   descriptionText: {
+    fontFamily: typography.fontMain,
     textAlign: 'center',
     paddingTop: 5,
     lineHeight: 15
   },
   colorText: {
+    fontFamily: typography.fontMain,
     color: colors.mainBrandColor
   },
   image: {

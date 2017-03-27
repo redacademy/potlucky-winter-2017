@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native'
-import {colors, typography, windowWidth} from './../../styles/baseStyles'
+import { StyleSheet } from 'react-native';
+import { colors, typography, windowWidth } from './../../styles/baseStyles';
 
 export default StyleSheet.create({
   container: {
@@ -7,25 +7,27 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white'
   },
-  image:{
+  image: {
     flex: 0,
     height: 100,
     width: windowWidth,
     resizeMode: 'contain',
   },
-  header:{
-    textAlign: 'center', 
+  header: {
+    textAlign: 'center',
     fontSize: typography.headerFontSize,
-    // fontFamily: typography.fontMainBold,       
+    fontFamily: typography.fontMain,
+    fontWeight: 'bold',
   },
-  button:{
+  button: {
     flex: 1,
     justifyContent: 'center',
     height: 50,
     width: 250,
     backgroundColor: colors.primaryBtnColor
   },
-  buttonText:{
-    textAlign: 'center',    
+  buttonText: {
+    fontFamily: typography.fontMain,
+    textAlign: 'center',
   }
 });
