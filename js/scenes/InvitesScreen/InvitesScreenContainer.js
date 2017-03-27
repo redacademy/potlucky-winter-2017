@@ -9,7 +9,13 @@ class InvitesScreenContainer extends Component {
   static navigationOptions = {
     title: 'Invites',
     header: ({ navigate }) => ({
-      style: { height: 0, margin: 0, padding: 0, },
+      style: {
+        height: 0,
+        margin: 0,
+        padding: 0,
+        paddingLeft: 20,
+        paddingRight: 20
+      },
       title: <CreatePotluckProgressBar
         title="Invites"
         progressNumber={progressBar.FOURTH_SCREEN}

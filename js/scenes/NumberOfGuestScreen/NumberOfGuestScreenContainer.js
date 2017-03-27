@@ -23,7 +23,13 @@ const guestImageHeightWidthRatio = guestImageHeight / guestImageWidth;
 class NumberOfGuestScreenContainer extends React.Component {
   static navigationOptions = {
     header: ({ navigate, dispatch, goBack }) => ({
-      style: { height: 0, margin: 0, padding: 0, },
+      style: {
+        height: 0,
+        margin: 0,
+        padding: 0,
+        paddingLeft: 20,
+        paddingRight: 20
+      },
       title: <CreatePotluckProgressBar title="Number of Guests" progressNumber={progressBar.FIRST_SCREEN} />,
 
       right: (
@@ -85,7 +91,6 @@ class NumberOfGuestScreenContainer extends React.Component {
   }
 
   componentDidUpdate() {
-
     const { count, guestImages } = this.state;
     this.props.dispatch(changeNumberofGuests(count));
   }

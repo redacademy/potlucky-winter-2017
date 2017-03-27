@@ -9,7 +9,13 @@ import { progressBar } from '../../constants';
 class FoodPlanningScreenContainer extends Component {
   static navigationOptions = {
     header: ({ navigate, dispatch, goBack }) => ({
-      style: { height: 0, margin: 0, padding: 0, },
+      style: {
+        height: 0,
+        margin: 0,
+        padding: 0,
+        paddingLeft: 20,
+        paddingRight: 20
+      },
       title: <CreatePotluckProgressBar title="Food Planning" progressNumber={progressBar.SECOND_SCREEN} />,
       right: (
         <NavigationArrow
