@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import userDetails from './api/user-details';
+import guestInvites from './api/guest-invites';
 
 const signUpUser = (signUpDetails) => {
   return firebase.auth()
@@ -16,7 +17,7 @@ const signUpUser = (signUpDetails) => {
       userDetails.createUserDetails(uId, userName);
 
       // check for existing guest email invites and process if true
-      userDetails.createPotluckInvites(uId, userName);
+      guestInvites.processSignUpEmailInvites(uId, userName.emailAddress);
 
       const signUpResult = {
         uId,

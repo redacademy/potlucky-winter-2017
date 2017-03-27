@@ -70,7 +70,7 @@ const createPotluck = (data, userId) => {
   return api.change(updates)
     .then(() => {
       // get uIds from emails of existing users
-      return guestInvites.processEmailInvites(newPotluckId, potluckGuests);
+      return guestInvites.processSignInEmailInvites(newPotluckId, potluckGuests);
     })
     .then((result) => {
       // create user pot luck invites
