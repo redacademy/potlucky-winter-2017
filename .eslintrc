@@ -1,3 +1,6 @@
 {
-  "extends": "redacademy"
+  "extends": "redacademy",
+  "rules": {
+    "react/jsx-filename-extension": 0
+  }
 }
