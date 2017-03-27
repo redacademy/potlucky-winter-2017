@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
     borderColor: colors.mainBrandColor,
     borderWidth: 1,
     color: Main.loginInput.color,
-    fontFamily: Main.loginInput.fontFamily,
+    fontFamily: typography.fontMain,
     fontSize: typography.baseFontSize,
     borderRadius: 25,
     paddingLeft: 22,
