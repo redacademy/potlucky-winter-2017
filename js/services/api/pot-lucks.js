@@ -4,7 +4,7 @@ import guestInvites from './guest-invites';
 import { encodeObjectValues } from '../../helpers';
 
 const getUserPotlucks = (userId) => {
-  return api.get(`userPotLucks/${userId}`)
+  return api.get(`/userPotLucks/${userId}`)
     .then((result) => {
       return result;
     })
@@ -70,7 +70,7 @@ const createPotluck = (data, userId) => {
   return api.change(updates)
     .then(() => {
       // get uIds from emails of existing users
-      return guestInvites.processEmailInvites(newPotluckId, potluckGuests);
+      return guestInvites.processSignInEmailInvites(newPotluckId, potluckGuests);
     })
     .then((result) => {
       // create user pot luck invites
@@ -80,7 +80,7 @@ const createPotluck = (data, userId) => {
       guestInvites.createUserPotluck(newPotluckId, potluck, result);
     })
     .then(() => {
-      return 'Potluck saved and guests invited!';
+      return `${potluck.title} saved and guests invited!`;
     })
     .catch((error) => {
       console.log(error);

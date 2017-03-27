@@ -10,14 +10,8 @@ const getUserDetails = (userId) => {
     });
 };
 
-const create = (userId, data) => {
-  return api.set(`/userDetails/${userId}`, data)
-    .then(() => {
-      console.log('User details added');
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+const createUserDetails = (userId, data) => {
+  return api.set(`/userDetails/${userId}`, data);
 };
 
 const update = (userId, data) => {
@@ -32,6 +26,6 @@ const update = (userId, data) => {
 
 export default {
   get: getUserDetails,
-  create,
+  createUserDetails,
   update,
 };
