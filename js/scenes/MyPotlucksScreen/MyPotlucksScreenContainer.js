@@ -3,14 +3,19 @@ import MyPotlucksScreen from './MyPotlucksScreen';
 import { connect } from 'react-redux';
 import { ListView, Image } from 'react-native';
 import { fetchMyPotlucks } from '../../redux/modules/myPotlucksActions';
+import { colors } from '../../styles/baseStyles';
 
 class MyPotlucksScreenContainer extends React.Component {
   static navigationOptions = {
     title: 'My Potlucks',
+    header: () => ({
+      style: { backgroundColor: colors.mainBrandColor }
+    }),
     tabBar: () => ({
       icon: (
         <Image style={{ height: 30, width: 30 }} source={require('../../../assets/images/potbottom.png')} />
       ),
+
     })
   };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Image } from 'react-native';
+import { colors } from '../../styles/baseStyles';
 import AccountScreen from './AccountScreen';
 
 class AccountScreenContainer extends React.Component {
@@ -10,6 +11,9 @@ class AccountScreenContainer extends React.Component {
       icon: (
         <Image style={{ height: 30, width: 25 }} source={require('../../../assets/images/accounticon.png')} />
       ),
+    }),
+    header: () => ({
+      style: { backgroundColor: colors.mainBrandColor }
     })
   };
 
