@@ -112,19 +112,21 @@ const processSignUpEmailInvites = (userId, email) => {
 
       return Promise.all(promises);
     })
-    .then((potluckId) => {
-      // if any invites create potluck guest records with potluckid
-      createPotluckGuest(potluckId, [userId]);
+    .then((potluckIds) => {
+      potluckIds.forEach((potluckId) => {
+        // if any invites create potluck guest records with potluckid
+        createPotluckGuest(potluckId, [userId]);
 
-      // get potluck info details
-      potlucks.getPotluck(potluckId)
-        .then((potluckInfo) => {
-          // create user invite records
-          createUserPotluck(potluckId, potluckInfo, [userId]);
-        });
+        // get potluck info details
+        potlucks.getPotluck(potluckId)
+          .then((potluckInfo) => {
+            // create user invite records
+            createUserPotluck(potluckId, potluckInfo, [userId]);
+          });
 
-      // delete email from potluck guest email list
-      deleteExistingUserGuestInvite(potluckId, email);
+        // delete email from potluck guest email list
+        deleteExistingUserGuestInvite(potluckId, email);
+      });
     })
     .then(() => {
       return 'Sign-up invites matched.';
