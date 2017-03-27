@@ -33,22 +33,29 @@ class FoodPlanningScreenContainer extends Component {
   }
   componentDidUpdate() {
     const { potluckFood } = this.state;
-    this.props.dispatch(addPotluckItem(potluckFood));
+
+    this.props.dispatch(addPotluckItem(potluckFood)); // eslint-
   }
 
   addPotluckItem = (potluckItem) => {
     const { potluckFood } = this.state;
     const exists = Object.prototype.hasOwnProperty.call(potluckFood, potluckItem);
+
     if (this.props.guests > 0) {
       this.changePotluckState(potluckItem, potluckFood, exists);
     }
   }
+
   changePotluckState = (potluckItem, potluckFood, exists) => {
-    this.setState({ potluckFood: { ...potluckFood, [potluckItem]: exists ? potluckFood[potluckItem] + 1 : 1 } });
-    if (this.props.guests >= 0) {
+    const dishesAvailable = this.props.guests !== this.state.dishesUsed;
+    const incrementDishType = potluckFood[potluckItem] + 1;
+
+    if (dishesAvailable) {
+      this.setState({ potluckFood: { ...potluckFood, [potluckItem]: exists ? incrementDishType : 1 } });
       this.setState({ dishesUsed: (this.state.dishesUsed + 1) });
     }
   }
+
   render() {
     return (
       <FoodPlanningScreen
@@ -65,11 +72,9 @@ FoodPlanningScreenContainer.propTypes = {
   guests: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  return {
-    guests: state.newPotluck.guestCount,
-  };
-};
+const mapStateToProps = state => ({
+  guests: state.newPotluck.guestCount,
+});
 
 
 export default connect(mapStateToProps)(FoodPlanningScreenContainer);
