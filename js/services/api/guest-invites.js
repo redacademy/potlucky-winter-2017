@@ -110,9 +110,7 @@ const processSignUpEmailInvites = (userId, email) => {
           return getPotluckInviteEmail(potluckId, encodedEmail);
         });
 
-      return Promise.all(promises).then((emailMatch) => { 
-        return emailMatch;
-      });
+      return Promise.all(promises);
     })
     .then((potluckId) => {
       // if any invites create potluck guest records with potluckid
