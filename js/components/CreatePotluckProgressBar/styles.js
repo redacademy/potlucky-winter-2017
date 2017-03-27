@@ -18,6 +18,7 @@ export default StyleSheet.create({
     width,
     justifyContent: 'flex-end',
     alignItems: 'center',
+    paddingBottom: 5,
     backgroundColor: colors.mainBrandColor,
   },
 
