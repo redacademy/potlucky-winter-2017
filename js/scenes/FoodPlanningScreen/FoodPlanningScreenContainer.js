@@ -44,8 +44,10 @@ class FoodPlanningScreenContainer extends Component {
     }
   }
   changePotluckState = (potluckItem, potluckFood, exists) => {
-    this.setState({ potluckFood: { ...potluckFood, [potluckItem]: exists ? potluckFood[potluckItem] + 1 : 1 } });
-    if (this.props.guests >= 0) {
+    if (this.props.guests !== this.state.dishesUsed) {
+      this.setState({ potluckFood: { ...potluckFood, [potluckItem]: exists ? potluckFood[potluckItem] + 1 : 1 } });
+    }
+    if ((this.props.guests > 0) && (this.state.dishesUsed < this.props.guests)) {
       this.setState({ dishesUsed: (this.state.dishesUsed + 1) });
     }
   }
