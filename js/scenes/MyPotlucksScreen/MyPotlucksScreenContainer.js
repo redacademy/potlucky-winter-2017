@@ -19,10 +19,6 @@ class MyPotlucksScreenContainer extends React.Component {
     })
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
     this.props.dispatch(fetchMyPotlucks(this.props.userId));
   }
