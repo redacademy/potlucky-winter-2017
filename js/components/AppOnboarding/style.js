@@ -22,6 +22,7 @@ export default StyleSheet.create({
     marginTop: 50,
     width: windowWidth * 0.75,
     textAlign: 'center',
+    fontFamily: typography.fontMain,
     fontSize: typography.headerFontSize,
     color: colors.mainBrandColor,
     flex: 1,

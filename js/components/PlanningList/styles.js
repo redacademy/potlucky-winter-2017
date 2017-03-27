@@ -42,36 +42,43 @@ export const styles = StyleSheet.create({
   },
   courseTitle: {
     fontSize: typography.baseFontSize,
-    //fontFamily: typography.fontMainBold,
+    fontFamily: typography.fontMain,
+    fontWeight: 'bold',
   },
   mainCourseTitle: {
     fontSize: typography.baseFontSize,
-    //fontFamily: typography.fontMainBold,
+    fontFamily: typography.fontMain,
+    fontWeight: 'bold',
     color: colors.mainCourseColor,
   },
   saladsCourseTitle: {
+    fontWeight: 'bold',
     fontSize: typography.baseFontSize,
-    //fontFamily: typography.fontMainBold,
+    fontFamily: typography.fontMain,
     color: colors.saladsColor,
   },
   dessertsCourseTitle: {
     fontSize: typography.baseFontSize,
-    //fontFamily: typography.fontMainBold,
+    fontWeight: 'bold',
+    fontFamily: typography.fontMain,
     color: colors.dessertsColor,
   },
   chipInTitle: {
     fontSize: typography.baseFontSize,
-    //fontFamily: typography.fontMainBold,
+    fontWeight: 'bold',
+    fontFamily: typography.fontMain,
     color: colors.chipInColor,
   },
   talentTitle: {
     fontSize: typography.baseFontSize,
-    //fontFamily: typography.fontMainBold,
+    fontWeight: 'bold',
+    fontFamily: typography.fontMain,
     color: colors.talentColor,
   },
   customTitle: {
     fontSize: typography.baseFontSize,
-    //fontFamily: typography.fontMainBold,
+    fontWeight: 'bold',
+    fontFamily: typography.fontMain,
     color: colors.customColor,
   }
 });

@@ -10,7 +10,6 @@ export default StyleSheet.create({
   container: {
     position: 'relative',
     alignItems: 'flex-end',
-
     width: '100%',
   },
   image: {
@@ -45,6 +44,7 @@ export default StyleSheet.create({
     width: '100%',
     textAlign: 'center',
     fontSize: typography.baseFontSize,
+    fontFamily: typography.fontMain,
     fontWeight: 'bold',
     color: '#fff',
   },
@@ -56,6 +56,7 @@ export default StyleSheet.create({
 
   },
   usernameText: {
+    fontFamily: typography.fontMain,
     fontSize: typography.baseFontSize,
   }
 

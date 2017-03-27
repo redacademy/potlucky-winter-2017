@@ -5,6 +5,7 @@ import { colors, typography, windowWidth, windowHeight } from './../../styles/ba
 export default StyleSheet.create({
   placeholderText: {
     flex: 1,
+    fontFamily: typography.fontMain,
     marginTop: 100,
   },
   input: {
@@ -21,7 +22,6 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: 'white',
   },
-
   inputAndImagesContainer: {
     alignItems: 'center',
     width: '100%',
@@ -37,6 +37,7 @@ export default StyleSheet.create({
   },
   textInput: {
     fontSize: typography.headerFontSize * 2,
+    fontFamily: typography.fontMain,
     borderWidth: 1,
     borderColor: 'black',
     width: 90,
@@ -65,6 +66,7 @@ export default StyleSheet.create({
     backgroundColor: colors.secondaryBtnColor
   },
   buttonText: {
+    fontFamily: typography.fontMain,
     fontSize: 30,
     color: '#FFF',
   }

@@ -1,12 +1,12 @@
-import { StyleSheet } from 'react-native'
-import { typography, windowHeight as height, windowWidth as width } from '../../styles/baseStyles'
+import { StyleSheet } from 'react-native';
+import { typography, windowHeight as height, windowWidth as width } from '../../styles/baseStyles';
 
-const highlightedTextColor ='#FF8E3E'
+const highlightedTextColor = '#FF8E3E';
 
 export default StyleSheet.create({
   contentContainer: {
     height,
-    width: width -100,
+    width: width - 100,
     alignItems: 'center',
     paddingTop: 150,
   },
@@ -28,6 +28,7 @@ export default StyleSheet.create({
     marginRight: 15
   },
   highlightedText: {
+    fontFamily: typography.fontMain,
     color: highlightedTextColor,
   },
   baseTextStyling: {
@@ -38,3 +39,4 @@ export default StyleSheet.create({
     marginBottom: 20,
   }
 })
+;

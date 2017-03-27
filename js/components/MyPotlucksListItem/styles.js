@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native'
-import { colors, typography } from '../../styles/baseStyles'
+import { StyleSheet } from 'react-native';
+import { colors, typography } from '../../styles/baseStyles';
 
 const arrowHeight = 24;
 const arrowWidth = 16;
@@ -30,26 +30,31 @@ export default StyleSheet.create({
     width: 100 * potHeightWidthRatio
   },
   title: {
+    fontFamily: typography.fontMain,
     fontSize: 18,
     lineHeight: 20,
   },
   description: {
+    fontFamily: typography.fontMain,    
     fontSize: typography.baseFontSize,
     color: '#696969',
     lineHeight: 20,
     height: 40
   },
   statusText: {
+    fontFamily: typography.fontMain,
     fontSize: typography.headerFontSize * 0.75,
     fontWeight: 'bold',
   },
   statusHost: {
+    fontFamily: typography.fontMain,
     color: colors.mainBrandColor,
   },
   statusInvited: {
     color: colors.mainCourseColor,
   },
   recieved: {
+    fontFamily: typography.fontMain,
     fontSize: typography.baseFontSize,
     color: '#696969',
     lineHeight: 20
@@ -75,4 +80,4 @@ export default StyleSheet.create({
     height: 12 * arrowHeightWidthRatio,
     width: 12
   }
-})
+});

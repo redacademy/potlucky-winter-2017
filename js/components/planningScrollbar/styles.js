@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
   courseTitle: {
     fontSize: typography.smallestFontSize,
     color: 'white',
+    fontFamily: typography.fontMain,
   },
   iconWrap: {
     alignItems: 'center',
