@@ -11,11 +11,11 @@ import styles from './styles';
 
 const MyPotlucksScreen = ({ dataSource, isLoading, navigate }) => (
   <View>
-    { !isLoading &&
+    {!isLoading &&
       <ListView
         style={styles.listView}
         dataSource={dataSource}
-
+        enableEmptySections
         renderHeader={() => (
           <View style={styles.header}>
             <Text style={styles.leftText}>Upcoming</Text>
