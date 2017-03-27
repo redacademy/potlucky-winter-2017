@@ -11,31 +11,31 @@ export default StyleSheet.create({
   login: {
     height: 24,
     width: '50%',
-    padding: 5,
+    paddingLeft: 5,
     borderColor: colors.mainBrandColor,
     fontSize: typography.baseFontSize,
+    fontFamily: typography.fontMain,
     borderRadius: 3,
     borderWidth: 1,
-    paddingLeft: 10,
-    paddingRight: 10,
     flex: 0,
   },
   title: {
     width: '50%',
     fontSize: 16,
-    color: colors.mainBrandColor
+    color: colors.mainBrandColor,
+    fontFamily: typography.fontMain,
   },
   description: {
     height: 100,
     width: '100%',
+    marginBottom: 8,
     padding: 5,
     marginTop: 13,
     borderColor: colors.mainBrandColor,
     fontSize: typography.baseFontSize,
+    fontFamily: typography.fontMain,
     borderRadius: 3,
     borderWidth: 1,
-    paddingLeft: 10,
-    paddingRight: 10,
   },
   mainContainer: {
     paddingTop: 100,
@@ -52,7 +52,7 @@ export default StyleSheet.create({
   container: {
     height: 40,
     width: '100%',
-    paddingBottom: 8,
+    marginBottom: 8,
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between'
@@ -69,5 +69,6 @@ export default StyleSheet.create({
     width: '100%',
     height: 250,
     alignSelf: 'flex-end',
+    fontFamily: typography.fontMain,
   },
 });

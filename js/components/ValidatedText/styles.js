@@ -4,7 +4,7 @@ import Main, { typography } from '../../styles/baseStyles';
 export default StyleSheet.create({
   errorMessage: {
     color: Main.loginInput.color,
-    fontFamily: Main.loginInput.fontFamily,
+    fontFamily: typography.fontMain,
     fontSize: typography.smallestFontSize,
     backgroundColor: 'transparent'
   },

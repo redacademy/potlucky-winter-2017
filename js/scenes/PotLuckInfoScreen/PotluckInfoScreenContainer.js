@@ -13,7 +13,7 @@ class PotluckInfoScreenContainer extends Component {
     title: 'Info',
     header: ({ navigate, goBack }) => ({
       style: { height: 0, margin: 0, padding: 0, },
-      title: <CreatePotluckProgressBar title='Info' progressNumber={progressBar.THIRD_SCREEN} />,
+      title: <CreatePotluckProgressBar title="Event Info" progressNumber={progressBar.THIRD_SCREEN} />,
       // Render a button on the right side of the header
       // When pressed switches the screen to edit mode.
       right: (
