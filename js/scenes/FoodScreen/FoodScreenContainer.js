@@ -18,7 +18,7 @@ class FoodScreenContainer extends Component {
         )}
         backArrow
       />,
-      style: { backgroundColor: colors.mainBrandColor }
+      style: { backgroundColor: colors.mainBrandColor, paddingLeft: 20, paddingRight: 20 }
     })
   };
 
