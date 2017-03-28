@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import FoodPlanningScreen from './FoodPlanningScreen';
 import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar';
 import NavigationArrow from '../../components/NavigationArrow';
-import { addPotluckItem } from '../../redux/modules/newPotluckActions';
+import { addPotluckItem, removePotluckItem } from '../../redux/modules/newPotluckActions';
 import { progressBar } from '../../constants';
 
 class FoodPlanningScreenContainer extends Component {
@@ -40,7 +40,8 @@ class FoodPlanningScreenContainer extends Component {
   componentDidUpdate() {
     const { potluckFood } = this.state;
 
-    this.props.dispatch(addPotluckItem(potluckFood)); // eslint-
+    this.props.dispatch(addPotluckItem(potluckFood)); // eslint-disable-line
+    this.props.dispatch(removePotluckItem(potluckFood)); // eslint-disable-line
   }
 
   addPotluckItem = (potluckItem) => {
@@ -48,11 +49,19 @@ class FoodPlanningScreenContainer extends Component {
     const exists = Object.prototype.hasOwnProperty.call(potluckFood, potluckItem);
 
     if (this.props.guests > 0) {
-      this.changePotluckState(potluckItem, potluckFood, exists);
+      this.incrementPotluckItem(potluckItem, potluckFood, exists);
     }
   }
 
-  changePotluckState = (potluckItem, potluckFood, exists) => {
+  removePotluckItem = (potluckItem) => {
+    const { potluckFood } = this.state;
+    const dishTypeExists = potluckFood[potluckItem] > 0;
+    if (dishTypeExists) {
+      this.decrementPotluckItem(potluckItem, potluckFood);
+    }
+  };
+
+  incrementPotluckItem = (potluckItem, potluckFood, exists) => {
     const dishesAvailable = this.props.guests !== this.state.dishesUsed;
     const incrementDishType = potluckFood[potluckItem] + 1;
 
@@ -61,6 +70,13 @@ class FoodPlanningScreenContainer extends Component {
       this.setState({ dishesUsed: (this.state.dishesUsed + 1) });
     }
   }
+  decrementPotluckItem = (potluckItem, potluckFood) => {
+    const decrementDishType = potluckFood[potluckItem] - 1;
+    const dishTypeExists = potluckFood[potluckItem] > 0;
+
+    this.setState({ potluckFood: { ...potluckFood, [potluckItem]: dishTypeExists ? decrementDishType : null } });
+    this.setState({ dishesUsed: (this.state.dishesUsed - 1) });
+  }
 
   render() {
     return (
@@ -68,6 +84,7 @@ class FoodPlanningScreenContainer extends Component {
         potluckFood={this.state.potluckFood}
         guests={this.props.guests}
         addPotluckItem={this.addPotluckItem}
+        removePotluckItem={this.removePotluckItem}
         dishesUsed={this.state.dishesUsed}
       />
     );

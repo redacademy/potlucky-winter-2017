@@ -9,13 +9,13 @@ import { styles } from './styles';
 import fontStyles from './../../styles/baseStyles';
 import { POTLUCK_FOOD } from '../../constants';
 
-const PlanningList = ({ potluckFood }) => {
-  return (
-    <View style={styles.planningListWrap}>
-      {
-        Object.keys(potluckFood).map(courseName => (
-          <View key={courseName}>
-            <TouchableOpacity style={styles.courseButton}>
+const PlanningList = ({ potluckFood, removePotluckItem }) => (
+  <View style={styles.planningListWrap}>
+    {
+      Object.keys(potluckFood).map(courseName => (
+        <View key={courseName}>
+          {potluckFood[courseName] > 0 ?
+            <TouchableOpacity style={styles.courseButton} onPress={() => { removePotluckItem(courseName); }}>
               <View style={styles.iconWrap} >
                 <Image source={POTLUCK_FOOD[courseName.toUpperCase()].imageSource} style={styles.courseIcon} />
                 <View style={styles.courseQuantityBG}>
@@ -24,10 +24,15 @@ const PlanningList = ({ potluckFood }) => {
               </View>
               <Text style={styles.appetizerCourseTitle}>{courseName}</Text>
             </TouchableOpacity>
-          </View>))
-      }
-    </View>
-  );
+            : null}
+        </View>))
+    }
+  </View>
+);
+
+PlanningList.propTypes = {
+  potluckFood: PropTypes.object.isRequired, //eslint-disable-line
+  removePotluckItem: PropTypes.func.isRequired
 };
 
 export default PlanningList;
