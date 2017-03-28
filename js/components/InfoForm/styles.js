@@ -15,7 +15,6 @@ export default StyleSheet.create({
     fontFamily: typography.fontMain,
     borderColor: colors.mainBrandColor,
     fontSize: typography.baseFontSize,
-    fontFamily: typography.fontMain,
     borderRadius: 3,
     borderWidth: 1,
     flex: 0,
@@ -25,7 +24,6 @@ export default StyleSheet.create({
     fontFamily: typography.fontMain,
     fontSize: 16,
     color: colors.mainBrandColor,
-    fontFamily: typography.fontMain,
   },
   description: {
     height: 100,
@@ -36,7 +34,6 @@ export default StyleSheet.create({
     borderColor: colors.mainBrandColor,
     fontFamily: typography.fontMain,
     fontSize: typography.baseFontSize,
-    fontFamily: typography.fontMain,
     borderRadius: 3,
     borderWidth: 1,
   },

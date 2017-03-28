@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Gandalf from 'gandalf-validator';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import styles from './styles';
 import ValidatedText from './../ValidatedText';
 import DatePicker from './../../components/DatePicker';
+import GooglePlaces from './../../components/GooglePlaces';
+import Map from './../../components/Map';
 import SingleFlatButton from './../../components/SingleFlatButton';
 import { addInfo } from '../../redux/modules/newPotluckActions';
 
@@ -40,21 +42,6 @@ class Form extends Gandalf {
         getValueInOnChange: text => text,
         debounce: 500,
       }, {
-        name: 'location',
-        component: ValidatedText,
-        validators: ['required'],
-        errorPropName: 'error',
-        props: {
-          title: 'Location',
-          inputStyle: styles.login,
-          inputContainerStyle: styles.inputContainerStyle,
-          containerStyle: styles.container,
-          titleStyle: styles.title,
-        },
-        getValueInOnChange: text => text,
-        debounce: 500,
-      },
-      {
         name: 'description',
         component: ValidatedText,
         validators: ['required'],
@@ -72,6 +59,10 @@ class Form extends Gandalf {
         debounce: 500,
       },
     ];
+
+    const initialLatitude = 49.2634011;
+    const initialLongitude = -123.1382246;
+
     super(fields);
 
     this.state.eventDate = new Date();
@@ -81,7 +72,19 @@ class Form extends Gandalf {
     this.state.showServeTime = false;
     this.state.arriveTime = new Date();
     this.state.serveTime = new Date();
+    this.state.latitude = initialLatitude;
+    this.state.longitude = initialLongitude;
   }
+
+  onLocationChange = (location) => {
+    this.setState({ location });
+    this.setState({
+      latitude: location.geometry.location.lat
+    });
+    this.setState({
+      longitude: location.geometry.location.lng
+    })
+  };
 
   onEventDateChange = (eventDate) => {
     this.setState({ eventDate });
@@ -108,6 +111,8 @@ class Form extends Gandalf {
       eventDate: this.state.eventDate.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' }),
       arriveTime: this.state.arriveTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       serveTime: this.state.serveTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      location: this.state.location.formatted_address,
+      coordinates: this.state.location.geometry.location
     };
 
     this.props.dispatch(addInfo(data));
@@ -115,6 +120,10 @@ class Form extends Gandalf {
 
   render() {
     const fields = this.state.fields;
+    const coordinates = {
+      latitude: this.state.latitude,
+      longitude: this.state.longitude
+    }
 
     return (
       <View style={styles.mainContainer}>
@@ -149,8 +158,9 @@ class Form extends Gandalf {
           timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
           onDateChange={this.onServeTimeChange}
           mode="time"
-        />
-        {fields.location.element}
+        /> 
+        <GooglePlaces onLocationChange={this.onLocationChange} />
+        <Map coordinates={coordinates}/>
         {fields.description.element}
         <SingleFlatButton title="Submit" onPress={this.handleSubmit} />
       </View>
