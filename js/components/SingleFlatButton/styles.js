@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { windowHeight as height, colors } from '../../styles/baseStyles';
+import { windowHeight as height, colors, typography } from '../../styles/baseStyles';
 
 const styles = StyleSheet.create({
   buttonContainer: {
