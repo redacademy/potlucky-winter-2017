@@ -2,9 +2,15 @@ import { loadingResource, doneLoading } from './isLoadingActions';
 
 import potluckApi from '../../services/api/pot-lucks';
 
-export const loadPotluckFood = potluck => ({
+
+export const updatePotluckFoodMessage = message => ({
+  type: 'UPDATE_POTLUCK_FOOD_MESSAGE',
+  payload: message,
+});
+
+export const loadPotluckFood = potluckFood => ({
   type: 'LOAD_POTLUCK_FOOD',
-  payload: potluck || {}
+  payload: potluckFood || {}
 });
 
 export const fetchPotluckFood = potluckId => (dispatch) => {
@@ -12,7 +18,8 @@ export const fetchPotluckFood = potluckId => (dispatch) => {
   potluckApi.getPotluckFood(potluckId)
     .then((potluck) => {
       const potluckFood = {
-        food: {}
+        food: {},
+        message: '',
       };
       for (const prop in potluck) {
         if (prop === 'totalDishCount') {

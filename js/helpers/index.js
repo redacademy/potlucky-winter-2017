@@ -20,3 +20,12 @@ export const decodeObjectKeys = (data) => {
   return decode;
 };
 
+<<<<<<< HEAD
+=======
+
+export const doesObjectPropertyExist = (obj, prop) => (
+  Object.prototype.hasOwnProperty.call(obj, prop)
+);
+
+
+>>>>>>> Ability to type and save food selection

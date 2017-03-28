@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 
@@ -27,12 +27,22 @@ class FoodScreenContainer extends Component {
   }
 
   render() {
-    const { userId, userName, potluckFood, isLoading } = this.props;
+    const { potluckFood, isLoading } = this.props;
     return (
-      <FoodScreen potluckFood={potluckFood} userId={userId} userName={userName} isLoading={isLoading} />
+      !isLoading &&
+      <FoodScreen
+        potluckFood={potluckFood}
+      />
     );
   }
 }
+
+FoodScreenContainer.propTypes = {
+  navigation: PropTypes.func.isRequired,
+  potluckFood: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   userId: state.userSignIn.uId,
