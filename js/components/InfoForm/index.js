@@ -59,6 +59,10 @@ class Form extends Gandalf {
         debounce: 500,
       },
     ];
+
+    const initialLatitude = 49.2634011;
+    const initialLongitude = -123.1382246;
+
     super(fields);
 
     this.state.eventDate = new Date();
@@ -68,8 +72,8 @@ class Form extends Gandalf {
     this.state.showServeTime = false;
     this.state.arriveTime = new Date();
     this.state.serveTime = new Date();
-    this.state.latitude = 49.2634011;
-    this.state.longitude = -123.1382246;
+    this.state.latitude = initialLatitude;
+    this.state.longitude = initialLongitude;
   }
 
   onLocationChange = (location) => {

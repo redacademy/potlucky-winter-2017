@@ -7,6 +7,7 @@ import Main, {
   windowWidth as width
 } from '../../styles/baseStyles';
 import styles from './styles';
+import { API_KEY } from './../../../config/googlePlaces';
 
 const GooglePlaces = ({ onLocationChange }) => (
     <View style={styles.container}>
@@ -17,7 +18,7 @@ const GooglePlaces = ({ onLocationChange }) => (
         autoFocus={false}
         fetchDetails={true}
         query={{
-          key: 'AIzaSyCRXGEvFAILVIPZdTLB3gvBHIjl9-EgL7c',
+          key: API_KEY,
         }}
         onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
           onLocationChange(details);
