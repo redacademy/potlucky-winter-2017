@@ -24,8 +24,11 @@ class HostPotluckInfoScreenContainer extends Component {
   }
 
   render() {
+    const { isLoading, currentPotluck } = this.props;
     return (
-      <HostPotluckInfoScreen currentPotluck={this.props.currentPotluck} />
+      isLoading ?
+      null :
+      <HostPotluckInfoScreen currentPotluck={currentPotluck} />
     );
   }
 }
@@ -38,7 +41,8 @@ const mapStateToProps = state => ({
 
 HostPotluckInfoScreenContainer.propTypes = {
   navigation: PropTypes.object.isRequired,
-  currentPotluck: PropTypes.object.isRequired
+  currentPotluck: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps)(HostPotluckInfoScreenContainer);

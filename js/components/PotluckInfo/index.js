@@ -2,9 +2,12 @@ import React, { PropTypes } from 'react';
 import { Text, View, Image, ScrollView } from 'react-native';
 import SingleFlatButton from '../SingleFlatButton';
 import styles from './styles';
+import Map from './../../components/Map';
 
-const PotluckInfo = ({ location, date, servingTime, arrivingTime, title, image, description }) => (
-  <View style={styles.container}>
+const PotluckInfo = ({ location, date, servingTime, arrivingTime, title, image, description, coordinates }) => {
+
+  return (
+    <View style={styles.container}>
       <ScrollView style={styles.scrollViewContainer}>
         <View style={styles.imageContainer}>
           <Image style={styles.image} source={image} />
@@ -30,9 +33,10 @@ const PotluckInfo = ({ location, date, servingTime, arrivingTime, title, image, 
             <Text> {location}</Text>
           </View>
         </View>
-        <View>
-          <Image style={styles.mapImage} source={require('../../../assets/images/mockMap.png')} />
-        </View>
+        { coordinates &&
+          <Map lat={coordinates.lat} lng={coordinates.lng} />
+        }
+        <View />
         <View style={styles.descriptionBox}>
           <Text style={styles.descriptionHeader}>Description</Text>
           <Text style={styles.descriptionText}>
@@ -40,9 +44,9 @@ const PotluckInfo = ({ location, date, servingTime, arrivingTime, title, image, 
           </Text>
         </View>
       </ScrollView>
-  </View>
-
-);
+    </View>
+  );
+};
 
 PotluckInfo.propTypes = {
   image: PropTypes.number.isRequired,

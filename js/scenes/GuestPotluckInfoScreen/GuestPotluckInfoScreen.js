@@ -17,6 +17,7 @@ const GuestPotluckInfoScreen = ({ currentPotluck }) => (
       servingTime={currentPotluck.arriveTime}
       location={currentPotluck.location}
       description={currentPotluck.description}
+      coordinates={currentPotluck.coordinates}
     />
 
     <View style={styles.buttonContainer}>

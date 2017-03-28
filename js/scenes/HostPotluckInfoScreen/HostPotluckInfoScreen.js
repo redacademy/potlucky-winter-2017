@@ -15,6 +15,7 @@ const HostPotluckInfoScreen = ({ currentPotluck }) => (
     servingTime={currentPotluck.arriveTime}
     location={currentPotluck.location}
     description={currentPotluck.description}
+    coordinates={currentPotluck.coordinates}
   />
 );
 
