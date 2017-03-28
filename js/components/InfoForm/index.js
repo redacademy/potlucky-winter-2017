@@ -120,10 +120,6 @@ class Form extends Gandalf {
 
   render() {
     const fields = this.state.fields;
-    const coordinates = {
-      latitude: this.state.latitude,
-      longitude: this.state.longitude
-    }
 
     return (
       <View style={styles.mainContainer}>
@@ -160,7 +156,7 @@ class Form extends Gandalf {
           mode="time"
         /> 
         <GooglePlaces onLocationChange={this.onLocationChange} />
-        <Map coordinates={coordinates}/>
+        <Map lat={this.state.latitude} lng={this.state.longitude} />
         {fields.description.element}
         <SingleFlatButton title="Submit" onPress={this.handleSubmit} />
       </View>

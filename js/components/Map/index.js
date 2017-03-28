@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import MapView from 'react-native-maps';
 
-const Map = ({ coordinates }) => (
+const Map = ({ lat, lng }) => (
   <MapView
     style={{
       height: 150,
@@ -9,14 +9,19 @@ const Map = ({ coordinates }) => (
       marginBottom: 13
     }}
     region={{
-      latitude: coordinates.latitude,
-      longitude: coordinates.longitude,
+      latitude: lat,
+      longitude: lng,
       latitudeDelta: 0.01,
       longitudeDelta: 0.01,
     }}
   >
     <MapView.Marker
-      coordinate={coordinates}
+      coordinate={
+      {
+        latitude: lat,
+        longitude: lng
+      }
+      }
     />
   </MapView>
 );
