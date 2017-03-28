@@ -35,9 +35,12 @@ class PotluckInfoScreenContainer extends Component {
       ),
     })
   }
+  goToImage = () => {
+    this.props.navigation.navigate('CameraRollScreen');
+  }
   render() {
     return (
-      <PotluckInfoScreen />
+      <PotluckInfoScreen goToImage={this.goToImage} />
     );
   }
 }

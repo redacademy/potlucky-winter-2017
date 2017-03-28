@@ -1,5 +1,10 @@
 rootProject.name = 'potlucky'
+<<<<<<< HEAD
 include ':react-native-maps'
 project(':react-native-maps').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-maps/android')
+=======
+include ':react-native-image-to-base64'
+project(':react-native-image-to-base64').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-to-base64/android')
+>>>>>>> Linked Camera roll through xCode.
 
 include ':app'
