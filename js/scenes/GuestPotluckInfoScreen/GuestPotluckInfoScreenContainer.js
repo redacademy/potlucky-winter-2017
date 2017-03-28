@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { NavigationActions } from 'react-navigation';
 import GuestPotluckInfoScreen from './GuestPotluckInfoScreen';
 import { fetchCurrentPotluck } from '../../redux/modules/currentPotluckActions';
 import { colors } from '../../styles/baseStyles';
+import NavigationArrow from './../../components/NavigationArrow';
 
 class GuestPotluckInfoScreenContainer extends Component {
   static navigationOptions = {
-    header: () => ({
+    header: ({ dispatch }) => ({
+      left: <NavigationArrow
+        onPress={() => (
+          dispatch(NavigationActions.back())
+        )}
+        backArrow
+      />,
       style: { backgroundColor: colors.mainBrandColor }
     })
   };
