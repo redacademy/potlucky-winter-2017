@@ -15,8 +15,9 @@ export const bottomNavigatorStyles = {
     activeBackgroundColor: colors.secondaryNavColor,
     labelStyle: {
       fontSize: typography.smallestFontSize,
+      fontFamily: typography.fontMain,
       color: 'white',
-      paddingBottom: 8
+      paddingBottom: 7
     },
     style: {
       backgroundColor: colors.primaryNavColor,

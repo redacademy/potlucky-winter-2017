@@ -14,7 +14,7 @@ class CreatePotluckScreenContainer extends Component {
     title: 'Create Potlucks',
     tabBar: () => ({
       icon: (
-        <Image style={{ height: 30, width: 30 }} source={require('../../../assets/images/potbottomplus.png')} />
+       <Image style={{ height: 30, width: 25, marginTop: 10 }} source={require('../../../assets/images/potbottomplus.png')} />
       ),
     }),
     header: ({ goBack }) => ({
