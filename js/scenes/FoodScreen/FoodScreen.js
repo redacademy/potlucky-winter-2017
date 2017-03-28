@@ -13,23 +13,32 @@ import GuestsConfirmed from '../../components/GuestsConfirmed';
 import NumberOfFoodItem from '../../components/NumberOfFoodItem';
 import FoodSelection from '../../components/FoodSelection';
 
-const FoodScreen = () => (
+const FoodScreen = ({ userId, userName, potluckFood, isLoading }) => (
   <View style={styles.container}>
 
     <View style={styles.guestsConfirmedContainer}>
-      <GuestsConfirmed confirmedGuests={5} expectedGuests={14} />
+      <GuestsConfirmed confirmedGuests={5} expectedGuests={potluckFood.totalDishCount} />
     </View>
 
     <View style={styles.numberOfFoodItemContainer}>
-      <NumberOfFoodItem count={4} foodItem={POTLUCK_FOOD.APPETIZERS} />
-      <NumberOfFoodItem count={2} foodItem={POTLUCK_FOOD.MAINS} />
-      <NumberOfFoodItem count={6} foodItem={POTLUCK_FOOD.SALADS} />
+      {potluckFood.food && Object.keys(potluckFood.food).map(key => (
+        <NumberOfFoodItem
+          key={key}
+          count={potluckFood.food[key].desiredDishCount}
+          foodItem={POTLUCK_FOOD[key]}
+        />
+      ))}
     </View>
 
     <ScrollView>
-      <FoodSelection username="Ringo"count={4} foodItem={POTLUCK_FOOD.APPETIZERS} />
-      <FoodSelection username="Ringo" count={2} foodItem={POTLUCK_FOOD.MAINS} />
-      <FoodSelection username="Ringo" count={6} foodItem={POTLUCK_FOOD.SALADS} />
+      {potluckFood.food && Object.keys(potluckFood.food).map(key => (
+        <FoodSelection
+          key={key}
+          username={potluckFood.food[key].username || ''}
+          count={potluckFood.food[key].desiredDishCount}
+          foodItem={POTLUCK_FOOD[key]}
+        />
+      ))}
     </ScrollView>
 
   </View>

@@ -26,19 +26,6 @@ const HostTabNavigator = TabNavigator(hostTabScreens, hostTabStyles);
 const GuestTabNavigator = TabNavigator(guestTabScreens, guestTabStyles);
 const BottomNavigator = TabNavigator(bottomNavigatorScreens, bottomNavigatorStyles);
 
-const HomeScreenNavigator = TabNavigator(
-  {
-    Account: { screen: AccountScreen },
-    MyPotlucks: { screen: MyPotLucksScreen },
-    CreatePotluck: { screen: CreateNewPotLuck },
-  },
-  {
-    initialRouteName: 'MyPotlucks',
-  }
-);
-
-BottomNavigator.navigationOptions = {
-};
 
 const CreatePotluckNavigator = TabNavigator(
   {

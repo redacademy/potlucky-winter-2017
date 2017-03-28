@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { NavigationActions } from 'react-navigation';
+import { connect } from 'react-redux';
+
+import { fetchPotluckFood } from '../../redux/modules/potluckFoodActions';
+
 import FoodScreen from './FoodScreen';
 import NavigationArrow from './../../components/NavigationArrow';
 import { colors } from '../../styles/baseStyles';
@@ -17,11 +21,24 @@ class FoodScreenContainer extends Component {
       style: { backgroundColor: colors.mainBrandColor }
     })
   };
+
+  componentWillMount() {
+    this.props.dispatch(fetchPotluckFood(this.props.navigation.state.params.potluckId));
+  }
+
   render() {
+    const { userId, userName, potluckFood, isLoading } = this.props;
     return (
-      <FoodScreen />
+      <FoodScreen potluckFood={potluckFood} userId={userId} userName={userName} isLoading={isLoading} />
     );
   }
 }
 
-export default FoodScreenContainer;
+const mapStateToProps = state => ({
+  userId: state.userSignIn.uId,
+  userName: state.userSignIn.userName,
+  potluckFood: state.potluckFood,
+  isLoading: state.isLoading,
+});
+
+export default connect(mapStateToProps)(FoodScreenContainer);

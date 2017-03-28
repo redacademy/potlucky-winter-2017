@@ -1,6 +1,6 @@
 import { loadingResource, doneLoading } from './isLoadingActions';
 
-import potluckActions from '../../services/api/pot-lucks';
+import potluckApi from '../../services/api/pot-lucks';
 
 export const loadCurrentPotluck = potluck => ({
   type: 'LOAD_CURRENT_POTLUCK',
@@ -9,7 +9,7 @@ export const loadCurrentPotluck = potluck => ({
 
 export const fetchCurrentPotluck = potluckId => (dispatch) => {
   dispatch(loadingResource());
-  potluckActions.getPotluck(potluckId)
+  potluckApi.getPotluck(potluckId)
     .then((potluck) => {
       potluck.id = potluckId;
       dispatch(loadCurrentPotluck(potluck));

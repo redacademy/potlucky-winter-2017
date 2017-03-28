@@ -4,7 +4,7 @@ import { addIdToObject } from '../../helpers';
 
 export const loadMyPotlucks = myPotlucks => ({
   type: 'LOAD_MY_POTLUCKS',
-  payload: myPotlucks
+  payload: myPotlucks || {}
 });
 
 export const fetchMyPotlucks = userId => (dispatch) => {
