@@ -33,6 +33,7 @@ const createPotluck = (data, userId) => {
     serveTime: moment(data.potluckInfo.serveTime, ['h:mm A']).format('HH:mm'),
     location: data.potluckInfo.location,
     description: data.potluckInfo.description,
+    coordinates: { lat: data.potluckInfo.coordinates.lat, lng: data.potluckInfo.coordinates.lng }
   };
 
   let potluckFood = {
