@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import NumberOfGuestScreen from './NumberOfGuestScreen';
 import { changeNumberofGuests } from '../../redux/modules/newPotluckActions';
@@ -149,5 +149,9 @@ class NumberOfGuestScreenContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
   guests: state.newPotluck.potluckFood.guestCount
 });
+
+NumberOfGuestScreenContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
+};
 
 export default connect(mapStateToProps)(NumberOfGuestScreenContainer);

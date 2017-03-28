@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
   Text,
   View,
@@ -37,5 +37,11 @@ const MyPotlucksScreen = ({ dataSource, isLoading, navigate }) => (
     }
   </View>
 );
+
+MyPotlucksScreen.propTypes = {
+  dataSource: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  navigate: PropTypes.func.isRequired
+};
 
 export default MyPotlucksScreen;

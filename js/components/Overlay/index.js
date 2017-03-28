@@ -63,9 +63,9 @@ HighlightedOverlayText.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.array.isRequired,
-  ]),
-  style: PropTypes.object,
-}
+  ]).isRequired,
+  style: PropTypes.objectOf(PropTypes.string).isRequired,
+};
 
 export const OverlayText = ({ children, style }) => (
   <Text style={[styles.baseTextStyling, style]}>
@@ -77,6 +77,9 @@ OverlayText.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.array.isRequired,
-  ]),
-  style: PropTypes.object
-}
+  ]).isRequired,
+  style: PropTypes.objectOf([
+    PropTypes.string.isRequired,
+    PropTypes.array.isRequired,
+  ]).isRequired,
+};

@@ -27,9 +27,7 @@ const RoundedButton = ({ text, onPress, style, color = colors.mainBrandColor }) 
 
 RoundedButton.propTypes = {
   text: PropTypes.string.isRequired,
-  onPress: PropTypes.func,
-  dropShadow: PropTypes.bool,
-  color: PropTypes.string,
-  style: PropTypes.object,
+  onPress: PropTypes.func.isRequired,
 };
+
 export default RoundedButton;

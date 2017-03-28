@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
   Text,
   View,
@@ -47,7 +47,15 @@ const NumberOfGuestScreen = ({ guestImages, count, onTextChange, increase, decre
       </View>
 
     </View>
-  </View >
+  </View>
 );
+
+NumberOfGuestScreen.propTypes = {
+  guestImages: PropTypes.array.isRequired,
+  count: PropTypes.number.isRequired,
+  onTextChange: PropTypes.func.isRequired,
+  increase: PropTypes.func.isRequired,
+  decrease: PropTypes.func.isRequired
+};
 
 export default NumberOfGuestScreen;

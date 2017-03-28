@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
   Text,
   View,
@@ -27,5 +27,9 @@ const GuestPotluckInfoScreen = ({ currentPotluck }) => (
   </View>
 
 );
+
+GuestPotluckInfoScreen.propTypes = {
+  currentPotluck: PropTypes.object.isRequired,
+};
 
 export default GuestPotluckInfoScreen;

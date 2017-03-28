@@ -39,7 +39,7 @@ const PlanningScrollbar = ({ addPotluckItem, potluckFood }) => {
 
 PlanningScrollbar.propTypes = {
   addPotluckItem: PropTypes.func.isRequired,
-  potluckFood: PropTypes.objectOf(React.PropTypes.string).isRequired,
+  potluckFood: PropTypes.object.isRequired,
 };
 
 export default PlanningScrollbar;

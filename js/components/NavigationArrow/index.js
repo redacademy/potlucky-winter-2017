@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { TouchableOpacity, Image } from 'react-native';
 
 import styles from './styles'
 
 const NavigationArrow = ({ onPress, backArrow }) => (
-  <TouchableOpacity style={styles.buttonStyle }onPress={() => onPress()}>
+  <TouchableOpacity style={styles.buttonStyle} onPress={() => onPress()}>
     <Image
       source={backArrow ?
         require('../../../assets/images/back-arrow.png') :
@@ -12,5 +12,9 @@ const NavigationArrow = ({ onPress, backArrow }) => (
     />
   </TouchableOpacity>
 );
+
+NavigationArrow.propTypes = {
+  onPress: PropTypes.func.isRequired,
+};
 
 export default NavigationArrow;

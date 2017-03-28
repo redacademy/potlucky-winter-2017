@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { View, TextInput, Text } from 'react-native';
 
 import styles from './styles';
@@ -14,5 +14,11 @@ const FoodSelectionInput = ({ count, color, username, lastItem }) => (
       </View>
     </View>
 );
+
+FoodSelectionInput.propTypes = {
+  color: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  lastItem: PropTypes.bool.isRequired
+};
 
 export default FoodSelectionInput;

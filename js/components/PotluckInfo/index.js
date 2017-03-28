@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Text, View, Image, ScrollView } from 'react-native';
 import SingleFlatButton from '../SingleFlatButton';
 import styles from './styles';
@@ -43,5 +43,9 @@ const PotluckInfo = ({ location, date, servingTime, arrivingTime, title, image, 
   </View>
 
 );
+
+PotluckInfo.propTypes = {
+  image: PropTypes.number.isRequired,
+};
 
 export default PotluckInfo;

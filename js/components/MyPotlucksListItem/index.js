@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 
@@ -36,5 +36,15 @@ const MyPotlucksListItem = ({ navigate, title, description, eventDate, isHost, i
     </View>
   </TouchableOpacity>
 );
+
+MyPotlucksListItem.propTypes = {
+  navigate: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  eventDate: PropTypes.string.isRequired,
+  isHost: PropTypes.bool.isRequired,
+  potluckId: PropTypes.string.isRequired,
+  isNew: PropTypes.bool.isRequired,
+};
 
 export default MyPotlucksListItem;

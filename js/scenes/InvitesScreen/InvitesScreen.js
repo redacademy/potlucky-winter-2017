@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { View } from 'react-native';
 
 import InviteForm from './../../components/InviteForm';
@@ -9,5 +9,9 @@ const InvitesScreen = ({ navigateTo }) => (
     <InviteForm navigateTo={navigateTo} />
   </View>
 );
+
+InvitesScreen.propTypes = {
+  navigateTo: PropTypes.func.isRequired
+};
 
 export default InvitesScreen;
