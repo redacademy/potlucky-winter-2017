@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Image } from 'react-native';
-import { colors } from '../../styles/baseStyles';
+import { colors, typography } from '../../styles/baseStyles';
 import CreatePotluckScreen from './CreatePotluckScreen';
+import NavigationArrow from '../../components/NavigationArrow';
 
 class CreatePotluckScreenContainer extends Component {
 
@@ -16,9 +17,16 @@ class CreatePotluckScreenContainer extends Component {
         <Image style={{ height: 30, width: 30 }} source={require('../../../assets/images/potbottomplus.png')} />
       ),
     }),
-    header: () => ({
-      style: { backgroundColor: colors.mainBrandColor }
-    })
+    header: ({ goBack }) => ({
+      style: { backgroundColor: colors.mainBrandColor, paddingLeft: 20, paddingRight: 20 },
+      titleStyle: { color: 'white', fontFamily: typography.fontMain },
+      left: (
+        <NavigationArrow
+          backArrow
+          onPress={() => goBack(null)}
+        />
+      )
+    }),
   };
 
   render() {
