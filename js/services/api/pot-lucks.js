@@ -5,9 +5,6 @@ import { encodeObjectValues } from '../../helpers';
 
 const getUserPotlucks = (userId) => {
   return api.get(`/userPotLucks/${userId}`)
-    .then((result) => {
-      return result;
-    })
     .catch((error) => {
       console.log(error);
     });
@@ -15,9 +12,6 @@ const getUserPotlucks = (userId) => {
 
 const getPotluckFood = (potLuckId) => {
   return api.get(`/potLuckFood/${potLuckId}`)
-    .then((result) => {
-      return result;
-    })
     .catch((error) => {
       console.log(error);
     });
@@ -25,9 +19,6 @@ const getPotluckFood = (potLuckId) => {
 
 const getPotluck = (potLuckId) => {
   return api.get(`/potLucks/${potLuckId}`)
-    .then((result) => {
-      return result;
-    })
     .catch((error) => {
       console.log(error);
     });
