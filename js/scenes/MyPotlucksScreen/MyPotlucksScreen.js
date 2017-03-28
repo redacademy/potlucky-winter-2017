@@ -15,6 +15,7 @@ const MyPotlucksScreen = ({ dataSource, isLoading, navigate }) => (
       <ListView
         style={styles.listView}
         dataSource={dataSource}
+        enableEmptySections
 
         renderHeader={() => (
           <View style={styles.header}>
