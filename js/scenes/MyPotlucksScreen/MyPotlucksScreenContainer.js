@@ -3,13 +3,21 @@ import MyPotlucksScreen from './MyPotlucksScreen';
 import { connect } from 'react-redux';
 import { ListView, Image } from 'react-native';
 import { fetchMyPotlucks } from '../../redux/modules/myPotlucksActions';
-import { colors } from '../../styles/baseStyles';
+import { colors, typography } from '../../styles/baseStyles';
+import NavigationArrow from '../../components/NavigationArrow';
 
 class MyPotlucksScreenContainer extends React.Component {
   static navigationOptions = {
     title: 'My Potlucks',
-    header: () => ({
-      style: { backgroundColor: colors.mainBrandColor }
+    header: ({ goBack }) => ({
+      style: { backgroundColor: colors.mainBrandColor, paddingLeft: 20, paddingRight: 20 },
+      titleStyle: { color: 'white', fontFamily: typography.fontMain },
+      left: (
+        <NavigationArrow
+          backArrow
+          onPress={() => goBack(null)}
+        />
+      )
     }),
     tabBar: () => ({
       icon: (

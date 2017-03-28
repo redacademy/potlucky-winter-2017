@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Image } from 'react-native';
-import { colors } from '../../styles/baseStyles';
+import { colors, typography } from '../../styles/baseStyles';
 import AccountScreen from './AccountScreen';
+import NavigationArrow from '../../components/NavigationArrow';
 
 class AccountScreenContainer extends React.Component {
   static navigationOptions = {
@@ -12,9 +13,16 @@ class AccountScreenContainer extends React.Component {
         <Image style={{ height: 30, width: 25 }} source={require('../../../assets/images/accounticon.png')} />
       ),
     }),
-    header: () => ({
-      style: { backgroundColor: colors.mainBrandColor }
-    })
+    header: ({ goBack }) => ({
+      style: { backgroundColor: colors.mainBrandColor, paddingLeft: 20, paddingRight: 20 },
+      titleStyle: { color: 'white', fontFamily: typography.fontMain },
+      left: (
+        <NavigationArrow
+          backArrow
+          onPress={() => goBack(null)}
+        />
+      )
+    }),
   };
 
   constructor() {
