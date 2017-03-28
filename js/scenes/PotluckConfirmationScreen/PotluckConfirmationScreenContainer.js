@@ -27,7 +27,7 @@ class PotluckConfirmationScreenContainer extends Component {
 
   onConfirmHandler = () => {
     this.props.createNewPotluck(this.props.newPotluck, this.props.userId);
-    
+
     // TODO go somewhere
   }
 

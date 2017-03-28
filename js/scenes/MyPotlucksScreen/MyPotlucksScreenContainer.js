@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import MyPotlucksScreen from './MyPotlucksScreen';
 import { connect } from 'react-redux';
 import { ListView, Image } from 'react-native';
@@ -39,6 +39,13 @@ class MyPotlucksScreenContainer extends React.Component {
 MyPotlucksScreenContainer.defaultProps = ({
   myPotlucks: {}
 });
+
+MyPotlucksScreenContainer.propTypes = {
+  userId: PropTypes.string.isRequired,
+  navigation: PropTypes.object.isRequired,
+  myPotlucks: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired
+};
 
 const mapStateToProps = state => ({
   userId: state.userSignIn.uId,

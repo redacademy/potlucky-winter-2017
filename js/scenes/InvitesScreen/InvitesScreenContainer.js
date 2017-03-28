@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import InvitesScreen from './InvitesScreen';
 import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar';
@@ -43,6 +43,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   // TODO add dispatchToProps functions when reducer completed
 });
+
+InvitesScreenContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
+};
 
 export default connect(
   mapStateToProps,

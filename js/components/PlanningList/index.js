@@ -30,4 +30,8 @@ const PlanningList = ({ potluckFood }) => {
   );
 };
 
+PlanningList.propTypes = {
+  potluckFood: PropTypes.object.isRequired
+};
+
 export default PlanningList;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Image } from 'react-native';
 import { colors } from '../../styles/baseStyles';
@@ -34,6 +34,11 @@ class AccountScreenContainer extends React.Component {
     );
   }
 }
+
+AccountScreenContainer.propTypes = {
+  userName: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
   userName: state.userSignIn.userName,

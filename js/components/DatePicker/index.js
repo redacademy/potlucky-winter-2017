@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
   View,
   Text,
@@ -8,10 +8,10 @@ import {
 import styles from './styles';
 
 const DatePicker = ({
-  showDate, 
+  showDate,
   localDate,
-  date, 
-  title, 
+  date,
+  title,
   onPress,
   timeZoneOffsetInMinutes,
   onDateChange,
@@ -39,6 +39,17 @@ const DatePicker = ({
       }
     </View>
   );
+};
+
+DatePicker.propTypes = {
+  showDate: PropTypes.bool.isRequired,
+  localDate: PropTypes.string.isRequired,
+  date: PropTypes.instanceOf(Date).isRequired,
+  title: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+  timeZoneOffsetInMinutes: PropTypes.number.isRequired,
+  onDateChange: PropTypes.func.isRequired,
+  mode: PropTypes.string.isRequired
 };
 
 export default DatePicker;

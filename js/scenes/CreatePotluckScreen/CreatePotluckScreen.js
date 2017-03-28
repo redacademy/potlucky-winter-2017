@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
   Text,
   View,
@@ -20,5 +20,9 @@ const CreatePotluckScreen = ({ navigation }) => (
     <RoundedButton style={{ marginTop: 100 }} text="Regular Potluck" onPress={() => navigation.navigate('CreatePotluckNavigator')} />
   </View>
 );
+
+CreatePotluckScreen.propTypes = {
+  navigation: PropTypes.object.isRequired
+};
 
 export default CreatePotluckScreen;

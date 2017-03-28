@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { View, Text } from 'react-native';
 
 import styles from './styles';
@@ -18,5 +18,10 @@ const GuestsConfirmed = ({ confirmedGuests, expectedGuests }) => (
     </View>
   </View>
 );
+
+GuestsConfirmed.propTypes = {
+  confirmedGuests: PropTypes.number.isRequired,
+  expectedGuests: PropTypes.number.isRequired,
+};
 
 export default GuestsConfirmed;

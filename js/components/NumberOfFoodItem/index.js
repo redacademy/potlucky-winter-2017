@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { View, Text } from 'react-native';
 
 import styles from './styles';
@@ -12,8 +12,12 @@ const NumberOfFoodItem = ({ count, foodItem }) => (
     <Text style={[styles.foodItemNameText, { color: foodItem.color }]}>
       {foodItem.name}
     </Text>
-
-  </View >
+  </View>
 );
+
+NumberOfFoodItem.propTypes = {
+  count: PropTypes.number.isRequired,
+  foodItem: PropTypes.object.isRequired
+};
 
 export default NumberOfFoodItem;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { View, Text, Image } from 'react-native';
 
 import styles from './styles';
@@ -28,5 +28,10 @@ const CreatePotluckProgressBar = ({ title, progressNumber }) => (
 
   </View>
 );
+
+CreatePotluckProgressBar.propTypes = {
+  title: PropTypes.string.isRequired,
+  progressNumber: PropTypes.number.isRequired
+};
 
 export default CreatePotluckProgressBar;

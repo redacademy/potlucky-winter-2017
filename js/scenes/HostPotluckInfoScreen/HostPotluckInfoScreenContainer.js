@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 import HostPotluckInfoScreen from './HostPotluckInfoScreen';
@@ -35,5 +35,10 @@ const mapStateToProps = state => ({
   currentPotluck: state.currentPotluck,
   isLoading: state.isLoading,
 });
+
+HostPotluckInfoScreenContainer.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  currentPotluck: PropTypes.object.isRequired
+};
 
 export default connect(mapStateToProps)(HostPotluckInfoScreenContainer);

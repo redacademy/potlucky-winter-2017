@@ -10,7 +10,6 @@ const SingleFlatButton = ({ title, color, onPress }) => (
 
 SingleFlatButton.propTypes = {
   title: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
 };
 
