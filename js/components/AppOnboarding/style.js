@@ -8,8 +8,9 @@ export default StyleSheet.create({
   },
   background: {
     flex: 2,
+    height: '80%',
     width: windowWidth,
-    resizeMode: 'contain',
+    resizeMode: 'center',
     justifyContent: 'center',
     alignItems: 'center',
   },

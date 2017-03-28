@@ -46,25 +46,25 @@ class AppOnboardingScreen extends Component {
             </View>
             <View>
               <AppOnboarding
-                image={require('./../../../assets/images/foodtable.png')}
+                image={require('./../../../assets/images/numberOfGuest.png')}
                 text={'Pick the number of guests...'}
               />
             </View>
             <View>
               <AppOnboarding
-                image={require('./../../../assets/images/foodtable.png')}
+                image={require('./../../../assets/images/checklist.png')}
                 text={'Organize your menu...'}
               />
             </View>
             <View>
               <AppOnboarding
-                image={require('./../../../assets/images/foodtable.png')}
+                image={require('./../../../assets/images/email.png')}
                 text={'E-mail your friends...'}
               />
             </View>
             <View>
               <AppOnboarding
-                image={require('./../../../assets/images/foodtable.png')}
+                image={require('./../../../assets/images/lookforward.png')}
                 text={'Look forward to your potluck!'}
               />
             </View>
