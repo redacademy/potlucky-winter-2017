@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 import {
   Text,
   View,
+  TouchableHighlight
 } from 'react-native';
 import PotluckInfo from './../../components/PotluckInfo';
 import styles from './styles';
-import SingleFlatButton from '../../components/SingleFlatButton';
 
 const GuestPotluckInfoScreen = ({ currentPotluck }) => (
   <View style={styles.container}>
@@ -19,10 +19,13 @@ const GuestPotluckInfoScreen = ({ currentPotluck }) => (
       description={currentPotluck.description}
       coordinates={currentPotluck.coordinates}
     />
-
     <View style={styles.buttonContainer}>
-      <SingleFlatButton title={'Sorry, can\'t make it'} />
-      <SingleFlatButton title={'See you there!!!!'} />
+      <TouchableHighlight style={styles.primaryBtn}>
+        <Text style={styles.buttonText}>Sorry, can't make it</Text>
+      </TouchableHighlight>
+      <TouchableHighlight style={styles.secondaryBtn}>
+        <Text style={styles.buttonText}>See you there!</Text>
+      </TouchableHighlight>
     </View>
 
   </View>
