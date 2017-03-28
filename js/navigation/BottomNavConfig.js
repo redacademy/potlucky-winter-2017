@@ -4,13 +4,13 @@ import CreatePotLuckScreen from '../scenes/CreatePotluckScreen';
 import { colors, typography, windowHeight } from '../styles/baseStyles';
 
 export const bottomNavigatorScreens = {
-  Info: { screen: AccountScreen },
-  Food: { screen: MyPotLucksScreen },
+  Account: { screen: AccountScreen },
+  MyPotlucks: { screen: MyPotLucksScreen },
   CreatePotLuck: { screen: CreatePotLuckScreen }
 };
 
 export const bottomNavigatorStyles = {
-  initialRouteName: 'Info',
+  initialRouteName: 'MyPotlucks',
   tabBarOptions: {
     activeBackgroundColor: colors.secondaryNavColor,
     labelStyle: {

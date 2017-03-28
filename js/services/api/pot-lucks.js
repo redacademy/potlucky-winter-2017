@@ -13,6 +13,16 @@ const getUserPotlucks = (userId) => {
     });
 };
 
+const getPotluckFood = (potLuckId) => {
+  return api.get(`/potLuckFood/${potLuckId}`)
+    .then((result) => {
+      return result;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 const getPotluck = (potLuckId) => {
   return api.get(`/potLucks/${potLuckId}`)
     .then((result) => {
@@ -91,4 +101,5 @@ export default {
   getUserPotlucks,
   getPotluck,
   createPotluck,
+  getPotluckFood,
 };

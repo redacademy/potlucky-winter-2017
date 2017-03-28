@@ -18,6 +18,7 @@ class HostPotluckInfoScreenContainer extends Component {
       style: { backgroundColor: colors.mainBrandColor }
     }),
   };
+
   componentWillMount() {
     this.props.dispatch(fetchCurrentPotluck(this.props.navigation.state.params.potluckId));
   }

@@ -5,6 +5,7 @@ import isLoadingReducer from './modules/isLoadingReducer';
 import userSignInReducer from './modules/userSignInReducer';
 import newPotluckReducer from './modules/newPotluckReducer';
 import currentPotluckReducer from './modules/currentPotluckReducer';
+import potluckFoodReducer from './modules/potluckFoodReducer';
 
 export default combineReducers({
   myPotlucks: myPotlucksReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   userSignIn: userSignInReducer,
   newPotluck: newPotluckReducer,
   currentPotluck: currentPotluckReducer,
+  potluckFood: potluckFoodReducer,
 });

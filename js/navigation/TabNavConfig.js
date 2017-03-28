@@ -12,6 +12,7 @@ export const hostTabScreens = {
 };
 
 export const hostTabStyles = {
+  lazyLoad: true,
   initialRouteName: 'Info',
   tabBarPosition: 'top',
   tabBarOptions: {
