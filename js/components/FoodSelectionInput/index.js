@@ -8,7 +8,7 @@ const FoodSelectionInput = ({ count, color, username, lastItem }) => (
   <View style={[styles.textInputContainer, lastItem && { marginBottom: 0 }]}>
     <View style={styles.inputTextContainer}>
       <TextInput
-        editable={username ? false : true}
+        editable={!!username}
         placeholder="?"
         placeholderTextColor="#FFF"
         returnKeyType="done"
