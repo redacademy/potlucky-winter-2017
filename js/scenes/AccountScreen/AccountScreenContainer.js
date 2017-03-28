@@ -10,7 +10,7 @@ class AccountScreenContainer extends React.Component {
     title: 'Account',
     tabBar: () => ({
       icon: (
-        <Image style={{ height: 30, width: 25 }} source={require('../../../assets/images/accounticon.png')} />
+        <Image style={{ height: 30, width: 25, marginTop: 10 }} source={require('../../../assets/images/accounticon.png')} />
       ),
     }),
     header: ({ goBack }) => ({

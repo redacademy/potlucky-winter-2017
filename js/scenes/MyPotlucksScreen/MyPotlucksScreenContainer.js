@@ -21,7 +21,7 @@ class MyPotlucksScreenContainer extends React.Component {
     }),
     tabBar: () => ({
       icon: (
-        <Image style={{ height: 30, width: 30 }} source={require('../../../assets/images/potbottom.png')} />
+        <Image style={{ height: 30, width: 25, marginTop: 10 }} source={require('../../../assets/images/potbottom.png')} />
       ),
 
     })
