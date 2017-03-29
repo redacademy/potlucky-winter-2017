@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 
@@ -8,6 +8,7 @@ import FoodScreen from './FoodScreen';
 import NavigationArrow from './../../components/NavigationArrow';
 import { colors } from '../../styles/baseStyles';
 
+import { doesObjectPropertyExist } from '../../helpers';
 
 class FoodScreenContainer extends Component {
   static navigationOptions = {
@@ -26,13 +27,43 @@ class FoodScreenContainer extends Component {
     this.props.dispatch(fetchPotluckFood(this.props.navigation.state.params.potluckId));
   }
 
+  confirmedGuests = potluckFood => (
+    (potluckFood.food && Object.keys(potluckFood.food).reduce((acc, key) => (
+      (doesObjectPropertyExist(potluckFood.food[key], 'assignments') ?
+        acc + Object.keys(potluckFood.food[key].assignments).length :
+        acc
+      )
+    ), 0)
+    )
+  )
+
+  availableFoodItemCount = (potluckFood, key) => (
+    potluckFood.food[key].desiredDishCount -
+    (doesObjectPropertyExist(potluckFood.food[key], 'assignments') ?
+      Object.keys(potluckFood.food[key].assignments).length :
+      0
+    )
+  )
+
   render() {
-    const { userId, userName, potluckFood, isLoading } = this.props;
+    const { potluckFood, isLoading } = this.props;
     return (
-      <FoodScreen potluckFood={potluckFood} userId={userId} userName={userName} isLoading={isLoading} />
+      !isLoading &&
+      <FoodScreen
+        potluckFood={potluckFood}
+        confirmedGuests={this.confirmedGuests(potluckFood)}
+        availableFoodItemCount={this.availableFoodItemCount}
+      />
     );
   }
 }
+
+FoodScreenContainer.propTypes = {
+  navigation: PropTypes.func.isRequired,
+  potluckFood: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   userId: state.userSignIn.uId,

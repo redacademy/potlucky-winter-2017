@@ -24,6 +24,14 @@ const getPotluck = (potLuckId) => {
     });
 };
 
+const submitFoodItem = (data, potLuckId, foodItem, userId) => {
+  const updates = {
+    [`/potLuckFood/${potLuckId}/${foodItem}/assignments/${userId}`]: data
+  };
+  return api.change(updates);
+};
+
+
 const createPotluck = (data, userId) => {
   const potluck = {
     [userId]: true,
@@ -95,4 +103,5 @@ export default {
   getPotluck,
   createPotluck,
   getPotluckFood,
+  submitFoodItem,
 };

@@ -1,30 +1,35 @@
-import React from 'react';
-import { View, TextInput, Text, Image } from 'react-native';
+import React, { PropTypes } from 'react';
+import { View, Image } from 'react-native';
 
 import styles from './styles';
-import { POTLUCK_FOOD } from '../../constants';
 
 import FoodSelectionInput from '../FoodSelectionInput';
-/*
-        <View key={i} style={[styles.textInputContainer, (i < count - 1) && { marginBottom: 10 }]}>
-          <View style={styles.inputTextContainer}>
-            <TextInput style={[styles.inputText, { backgroundColor: color }]} />
-          </View>
-          <View style={styles.usernameTextContainer}>
-            <Text style={[styles.usernameText, { color }]}>{username}</Text>
-          </View>
-        </View>*/
 
-const FoodSelection = ({ count, foodItem, username }) => (
+const FoodSelection = ({ foodItem, potluckFood, availableFoodItemCount, assignmentsExists }) => (
   <View style={styles.container}>
     <Image style={styles.image} source={foodItem.imageSource} />
 
     <View style={[styles.allTextInputContainer, { borderLeftColor: foodItem.color }]}>
-      {[...Array(count)].map((x, i) => (
-        <FoodSelectionInput key={i}
-          lastItem={(i >= count - 1)}
+      {assignmentsExists &&
+        Object.values(potluckFood.assignments).map((foodItemData, i) => (
+          <FoodSelectionInput
+            key={`user${i}`}
+            color={foodItem.color}
+            displayUsername={foodItemData.displayName}
+            displayDishName={foodItemData.dish}
+            foodItem={foodItem}
+          />
+        )
+        )
+      }
+
+      {[...Array(availableFoodItemCount)].map((x, i) => (
+        <FoodSelectionInput
+          key={`empty${i}`}
           color={foodItem.color}
-          username={username}
+          displayUsername=""
+          displayDishName=""
+          foodItem={foodItem}
         />
       )
       )}
@@ -33,4 +38,14 @@ const FoodSelection = ({ count, foodItem, username }) => (
   </View >
 );
 
+FoodSelection.propTypes = {
+  foodItem: PropTypes.object.isRequired,
+  potluckFood: PropTypes.object.isRequired,
+  availableFoodItemCount: PropTypes.number.isRequired,
+  assignmentsExists: PropTypes.bool.isRequired,
+};
+
+
 export default FoodSelection;
+
+

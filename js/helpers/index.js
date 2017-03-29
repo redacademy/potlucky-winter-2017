@@ -20,3 +20,7 @@ export const decodeObjectKeys = (data) => {
   return decode;
 };
 
+
+export const doesObjectPropertyExist = (obj, prop) => (
+  Object.prototype.hasOwnProperty.call(obj, prop)
+);
