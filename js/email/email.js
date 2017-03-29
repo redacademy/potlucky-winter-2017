@@ -1,6 +1,7 @@
 import { htmlTemplate } from './emailtemplate';
+import { emailData } from './../constants';
 
-export default function sendEmail({ receiver, sender, subject, receiverFName, senderFName, description, authToken, emailAPiService, imageLink }) {
+function sendEmail({ receiver, sender, subject, receiverFName, senderFName, description, authToken, emailAPiService, imageLink, serveTime, arriveTime, location }) {
   fetch(emailAPiService, {
     method: 'POST',
     headers: {
@@ -14,9 +15,29 @@ export default function sendEmail({ receiver, sender, subject, receiverFName, se
       subject,
       content: [{
         type: 'text/html',
-        value: htmlTemplate(receiverFName, senderFName, description, imageLink),
+        value: htmlTemplate(receiverFName, senderFName, description, imageLink, serveTime, arriveTime, location),
       }],
     }),
   }).then(response => console.log(response))
     .catch(error => console.warn('fetch error:', error));
+}
+
+export default function sendEmails(emails, potluck) {
+  emails.forEach((email) => {
+    const data = {
+      authToken: emailData.authToken,
+      subject: emailData.subject,
+      receiverFName: email,
+      receiver: email,
+      title: potluck.title,
+      theme: potluck.theme,
+      description: potluck.description,
+      eventDate: potluck.eventDate,
+      arriveTime: potluck.arriveTime,
+      serveTime: potluck.serveTime,
+      location: potluck.location,
+      imageLink: potluck.link,
+    };
+    sendEmail(data);
+  }, this);
 }

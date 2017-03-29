@@ -1,6 +1,6 @@
 import { colors } from './../styles/baseStyles';
 
-export const htmlTemplate = (receiverFName, senderFName, description, imageLink) => (`
+export const htmlTemplate = (receiverFName, description, imageLink, eventDate, arriveTime,serveTime) => (`
 <html>
   <body>
     <table>
@@ -13,7 +13,7 @@ export const htmlTemplate = (receiverFName, senderFName, description, imageLink)
       <tr>
         <td align="left">
           <p>Hey <b>${receiverFName},</b></p>
-          <p>Your friend <b>${senderFName}</b> has invited you to a <u style='color: orange'>POTLUCKY</u> event! Let your friend know you are coming</p>
+          <p>Your friend has invited you to a <u style='color: orange'>POTLUCKY</u> event! Let your friend know you are coming</p>
           <p>by <u style='color: orange'>downloading</u> the app for free.</p>
           <br/>
           <p>Here is your invite </p>
@@ -26,10 +26,10 @@ export const htmlTemplate = (receiverFName, senderFName, description, imageLink)
         </tr>
         <tr>
           <td style="padding-right: 50px; padding-left: 50px; background-color: #f5f2f0;">
-            <p>Date: 3 April 2017 </p>
-            <p>Start Time: 4:20pm </p>
+            <p>Date: ${eventDate} </p>
+            <p>Start Time:${arriveTime} </p>
             <p>Serving Time: 4:20pm </p>        
-            <p>Location: Mexico </p>
+            <p>Location: ${location} </p>
             <br/> 
             <p><b> Event info: </b></p>
             <p>${description} </p>     
