@@ -1,4 +1,5 @@
 import potlucks from '../../services/api/pot-lucks';
+import { loadingResource, doneLoading } from './../modules/isLoadingActions';
 
 // actions
 const SET_INITIAL_STATE = 'SET_INITIAL_STATE';
@@ -9,6 +10,7 @@ const ADD_INFO = 'ADD_INFO';
 const ADD_INVITES = 'ADD_INVITES';
 const SET_CREATE_MESSAGE = 'SET_CREATE_MESSAGE';
 const ADD_IMAGE = 'ADD_IMAGE';
+const REMOVE_IMAGE = 'REMOVE_IMAGE';
 
 // action creators
 export const setNewPotluckInitialState = () => ({ type: SET_INITIAL_STATE, payload: null });
@@ -17,6 +19,7 @@ export const addPotluckItem = data => ({ type: ADD_POTLUCK_ITEM, payload: data }
 export const removePotluckItem = data => ({ type: REMOVE_POTLUCK_ITEM, payload: data });
 export const addInfo = data => ({ type: ADD_INFO, payload: data });
 export const addImage = data => ({ type: ADD_IMAGE, payload: data });
+export const removeImage = data => ({ type: REMOVE_IMAGE, payload: data });
 export const addInvites = data => ({ type: ADD_INVITES, payload: data });
 export const setCreateResult = data => ({ type: SET_CREATE_MESSAGE, payload: data });
 
@@ -34,6 +37,7 @@ export const createNewPotluck = (newPotluck, userId) => (dispatch) => {
 
 export const imageUpload = (base64) => (dispatch) => {
   const formdata = new FormData();
+  dispatch(loadingResource())
   formdata.append('image', base64);
   fetch('https://api.imgur.com/3/upload', {
     method: 'POST',
@@ -42,6 +46,9 @@ export const imageUpload = (base64) => (dispatch) => {
     },
     body: formdata
   }).then(response => JSON.parse(response._bodyText))
-    .then((json) => dispatch(addImage(json)))
+    .then((json) => {
+      dispatch(addImage(json))
+      dispatch(doneLoading())
+    })
     .catch(error => console.warn('fetch error:', error));
 };
