@@ -8,6 +8,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+
 import styles from './styles';
 
 const NumberOfGuestScreen = ({ guestImages, count, onTextChange, increase, decrease, goTo }) => (
