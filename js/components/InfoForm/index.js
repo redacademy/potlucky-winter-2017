@@ -163,7 +163,6 @@ class Form extends Gandalf {
         />
         <TouchableHighlight
           style={styles.noImage}
-          title={'pick a god damn image'}
           onPress={() => this.props.goToImage()}
         >
           <Image

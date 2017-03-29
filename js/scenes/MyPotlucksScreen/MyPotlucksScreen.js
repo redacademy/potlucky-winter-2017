@@ -10,7 +10,8 @@ import MyPotlucksListItem from '../../components/MyPotlucksListItem';
 import styles from './styles';
 
 const MyPotlucksScreen = ({ dataSource, isLoading, navigate }) => (
-  <View>
+  <View
+  style={styles.container}>
     { !isLoading &&
       <ListView
         style={styles.listView}

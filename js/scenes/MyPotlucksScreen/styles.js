@@ -4,14 +4,14 @@ import { colors, windowHeight as height, typography } from '../../styles/baseSty
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
+    marginBottom: 100,
   },
   placeholderText: {
     flex: 1,
     marginTop: 100,
   },
   listView: {
-    height
+    height: height-110,
   },
   header: {
     flexDirection: 'row',
