@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { windowHeight as height, colors, typography } from '../../styles/baseStyles';
+import { windowHeight as height } from '../../styles/baseStyles';
 
 const styles = StyleSheet.create({
   buttonContainer: {
@@ -8,8 +8,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     height: height * 0.10,
     width: '100%',
-    backgroundColor: colors.secondaryBtnColor,
-  }
+  },
 });
 
 export default styles;

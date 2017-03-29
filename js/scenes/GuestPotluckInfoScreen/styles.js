@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, typography } from './../../styles/baseStyles';
+import { typography } from './../../styles/baseStyles';
 
 export default StyleSheet.create({
   container: {
@@ -8,18 +8,7 @@ export default StyleSheet.create({
   buttonContainer: {
     flex: 0,
     flexDirection: 'row',
-  },
-  primaryBtn: {
-    height: 50,
-    flex: 1,
-    backgroundColor: colors.invitePrimaryBtn,
-    justifyContent: 'center'
-  },
-  secondaryBtn: {
-    height: 50,
-    flex: 1,
-    backgroundColor: colors.inviteSecondaryBtn,
-    justifyContent: 'center'
+    width: '100%',
   },
   buttonText: {
     textAlign: 'center',
