@@ -7,7 +7,10 @@ import {
 import PotluckInfo from './../../components/PotluckInfo';
 import styles from './styles';
 
-const GuestPotluckInfoScreen = ({ currentPotluck }) => (
+import { colors } from '../../styles/baseStyles';
+import SingleFlatButton from '../../components/SingleFlatButton';
+
+const GuestPotluckInfoScreen = ({ currentPotluck, acceptInvite, declineInvite }) => (
   <View style={styles.container}>
     <PotluckInfo
       title={currentPotluck.title}
@@ -19,21 +22,28 @@ const GuestPotluckInfoScreen = ({ currentPotluck }) => (
       description={currentPotluck.description}
       coordinates={currentPotluck.coordinates}
     />
+
     <View style={styles.buttonContainer}>
-      <TouchableHighlight style={styles.primaryBtn}>
-        <Text style={styles.buttonText}>Sorry, can't make it</Text>
-      </TouchableHighlight>
-      <TouchableHighlight style={styles.secondaryBtn}>
-        <Text style={styles.buttonText}>See you there!</Text>
-      </TouchableHighlight>
+      <SingleFlatButton
+        title={'Sorry, can\'t make it'}
+        onPress={declineInvite}
+        backgroundColor={colors.invitePrimaryBtn}
+      />
+      <SingleFlatButton
+        title={'See you there!'}
+        onPress={acceptInvite}
+        backgroundColor={colors.inviteSecondaryBtn}
+      />
     </View>
 
-  </View>
+  </View >
 
 );
 
 GuestPotluckInfoScreen.propTypes = {
   currentPotluck: PropTypes.object.isRequired,
+  acceptInvite: PropTypes.func.isRequired,
+  declineInvite: PropTypes.func.isRequired,
 };
 
 export default GuestPotluckInfoScreen;

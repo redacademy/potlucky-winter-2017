@@ -3,22 +3,46 @@ import api from './base';
 import guestInvites from './guest-invites';
 import { encodeObjectValues } from '../../helpers';
 
-const getUserPotlucks = (userId) => {
-  return api.get(`/userPotLucks/${userId}`)
+const getUserPotlucks = userId => (
+  api.get(`/userPotLucks/${userId}`)
     .catch((error) => {
       console.log(error);
-    });
-};
+    })
+);
 
-const getPotluckFood = (potLuckId) => {
-  return api.get(`/potLuckFood/${potLuckId}`)
+const getPotluckFood = potLuckId => (
+  api.get(`/potLuckFood/${potLuckId}`)
     .catch((error) => {
       console.log(error);
-    });
-};
+    })
+);
 
-const getPotluck = (potLuckId) => {
-  return api.get(`/potLucks/${potLuckId}`)
+const getPotluck = potLuckId => (
+  api.get(`/potLucks/${potLuckId}`)
+    .catch((error) => {
+      console.log(error);
+    })
+);
+
+const actionInvite = (data, potluckId, userId) => {
+  const potluckInviteResponse = {
+    [data.inviteSelection]: true,
+    dateStamp: moment.format('YYYY-MM-DD'),
+  };
+
+  const changePotluckStatus = {
+    isNew: false,
+  };
+
+  const updates = {
+    [`/potLuckGuests/${potluckId}/${userId}`]: potluckInviteResponse,
+    [`/userPotLucks/${userId}`]: changePotluckStatus,
+  };
+
+  return api.change(updates)
+    .then(() => (
+      `${data.inviteSelection} chosen for potluck: ${potluckId}`
+    ))
     .catch((error) => {
       console.log(error);
     });
@@ -79,10 +103,10 @@ const createPotluck = (data, userId) => {
   };
 
   return api.change(updates)
-    .then(() => {
+    .then(() => (
       // get uIds from emails of existing users
-      return guestInvites.processSignInEmailInvites(newPotluckId, potluckGuests);
-    })
+      guestInvites.processSignInEmailInvites(newPotluckId, potluckGuests)
+    ))
     .then((result) => {
       // create user pot luck invites
       guestInvites.createPotluckGuest(newPotluckId, result);
@@ -90,9 +114,9 @@ const createPotluck = (data, userId) => {
       // create sign-in user potluck invites
       guestInvites.createUserPotluck(newPotluckId, potluck, result);
     })
-    .then(() => {
-      return `${potluck.title} saved and guests invited!`;
-    })
+    .then(() => (
+      `${potluck.title} saved and guests invited!`
+    ))
     .catch((error) => {
       console.log(error);
     });
@@ -104,4 +128,5 @@ export default {
   createPotluck,
   getPotluckFood,
   submitFoodItem,
+  actionInvite,
 };
