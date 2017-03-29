@@ -62,6 +62,8 @@ const styles = StyleSheet.create({
   image: {
     alignSelf: 'center',
     justifyContent: 'center',
+    width: '100%',
+    height: 150
   },
   mapImage: {
     alignSelf: 'center',
