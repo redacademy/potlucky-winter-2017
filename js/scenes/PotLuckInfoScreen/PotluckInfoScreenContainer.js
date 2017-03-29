@@ -40,7 +40,7 @@ class PotluckInfoScreenContainer extends Component {
   }
   render() {
     return (
-      <PotluckInfoScreen goToImage={this.goToImage} />
+      <PotluckInfoScreen goToImage={this.goToImage} navigation={this.props.navigation} />
     );
   }
 }
