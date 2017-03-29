@@ -39,7 +39,6 @@ const CreatePotluckNavigator = TabNavigator(
   {
     initialRouteName: 'NumberOfGuestScreen',
     animationEnabled: true,
-    swipeEnabled: true,
     tabBarOptions: {
       style: { height: 0 }
     }
