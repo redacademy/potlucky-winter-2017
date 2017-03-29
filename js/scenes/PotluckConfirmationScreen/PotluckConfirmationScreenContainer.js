@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { View } from 'react-native';
 import { colors, typography, windowHeight as height } from '../../styles/baseStyles';
-import PotluckInfo from '../../components/PotluckInfo';
 import SingleFlatButton from '../../components/SingleFlatButton';
 import { createNewPotluck } from '../../redux/modules/newPotluckActions';
+import PotluckConfirmationScreen from './PotluckConfirmationScreen'
 import styles from './styles';
 
 class PotluckConfirmationScreenContainer extends Component {
@@ -27,23 +27,19 @@ class PotluckConfirmationScreenContainer extends Component {
 
   onConfirmHandler = () => {
     this.props.createNewPotluck(this.props.newPotluck, this.props.userId);
-
-    // TODO go somewhere
+    this.props.navigation.navigate('HomeScreenNavigator');
   }
 
   render() {
+
+    const newPotluck = this.props.newPotluck.potluckInfo;
+
     return (
       <View style={styles.container}>
-        <PotluckInfo
-          title={'TEST'}
-          image={require('../../../assets/images/southparklastsupper.jpg')}
-          date={'12-12-12'}
-          arrivingTime={'12:00am'}
-          servingTime={'12:01am'}
-          location={'canda'}
-          description={'yum fod for every1,'}
-        />
-
+        {
+        newPotluck &&
+        <PotluckConfirmationScreen currentPotluck={newPotluck} />
+        }
         <View style={styles.buttonContainer}>
           <SingleFlatButton
             title={'Confirm'}
@@ -70,6 +66,7 @@ PotluckConfirmationScreenContainer.propTypes = {
   newPotluck: PropTypes.object.isRequired,
   userId: PropTypes.string.isRequired,
   createNewPotluck: PropTypes.func.isRequired,
+  navigation: PropTypes.object.isRequired
 };
 
 export default connect(
