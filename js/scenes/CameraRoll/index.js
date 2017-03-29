@@ -8,7 +8,7 @@ import {
   View,
   NativeModules
 } from 'react-native';
-import { styles } from './styles';
+import styles from './styles';
 import { imageUpload } from './../../redux/modules/newPotluckActions';
 
 class CameraRollView extends Component {
