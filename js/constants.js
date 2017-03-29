@@ -11,32 +11,32 @@ export const progressBar = {
 export const POTLUCK_FOOD = {
   APPETIZERS: {
     name: 'Appetizers',
-    imageSource: require('../assets/images/app.png'),
+    imageSource: require('../assets/images/appetizers.png'),
     color: colors.appetizerColor,
   },
   MAINS: {
     name: 'Mains',
-    imageSource: require('../assets/images/Group 4.png'),
+    imageSource: require('../assets/images/mains.png'),
     color: colors.mainCourseColor,
   },
   SALADS: {
     name: 'Salads',
-    imageSource: require('../assets/images/salad.png'),
+    imageSource: require('../assets/images/salads.png'),
     color: colors.saladsColor,
   },
   DESSERTS: {
     name: 'Desserts',
-    imageSource: require('../assets/images/dess.png'),
+    imageSource: require('../assets/images/desserts.png'),
     color: colors.dessertsColor,
   },
   DRINKS: {
     name: 'Drinks',
-    imageSource: require('../assets/images/dr.png'),
+    imageSource: require('../assets/images/dranks.png'),
     color: colors.drinksColor,
   },
   CHIPIN: {
     name: 'Chip In',
-    imageSource: require('../assets/images/chip-in.png'),
+    imageSource: require('../assets/images/chipin.png'),
     color: colors.chipInColor,
   },
   TALENT: {
