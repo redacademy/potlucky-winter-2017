@@ -15,5 +15,14 @@ export const styles = StyleSheet.create({
     paddingBottom: 7,
     justifyContent: 'space-between',
     flex: 1,
-  }
+  },
+  primaryBtn: {
+    height: 50,
+    flex: 0,
+    backgroundColor: colors.inviteSecondaryBtn,
+    justifyContent: 'center'
+  },
+  buttonText: {
+    textAlign: 'center',
+  },
 });
