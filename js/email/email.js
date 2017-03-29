@@ -28,6 +28,7 @@ export default function sendEmails(emails, potluck) {
       authToken: emailData.authToken,
       subject: emailData.subject,
       receiverFName: email,
+      sender: 'Potluck@email.email',
       receiver: email,
       title: potluck.title,
       theme: potluck.theme,
@@ -37,7 +38,10 @@ export default function sendEmails(emails, potluck) {
       serveTime: potluck.serveTime,
       location: potluck.location,
       imageLink: potluck.link,
+      emailAPiService: 'https://api.sendgrid.com/v3/mail/send'
     };
+    console.log(email, data);
+
     sendEmail(data);
   }, this);
 }

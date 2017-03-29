@@ -4,12 +4,9 @@ import { View, TouchableHighlight, Text } from 'react-native';
 import InviteForm from './../../components/InviteForm';
 import { styles } from './styles';
 
-const InvitesScreen = ({ navigateTo, goTo }) => (
+const InvitesScreen = ({ navigateTo }) => (
   <View style={styles.mainContainer}>
     <InviteForm navigateTo={navigateTo} />
-    <TouchableHighlight style={styles.primaryBtn} onPress={() => goTo()}>
-      <Text style={styles.buttonText}>Next</Text>
-    </TouchableHighlight>
   </View>
 );
 

@@ -2,6 +2,7 @@ import moment from 'moment';
 import api from './base';
 import guestInvites from './guest-invites';
 import { encodeObjectValues } from '../../helpers';
+import sendingEmails from './../../email/email';
 
 const getUserPotlucks = userId => (
   api.get(`/userPotLucks/${userId}`)
@@ -110,9 +111,13 @@ const createPotluck = (data, userId) => {
       // create sign-in user potluck invites
       guestInvites.createUserPotluck(newPotluckId, potluck, result);
     })
-    .then(() => (
-      `${potluck.title} saved and guests invited!`
-    ))
+    .then(() => {
+      // send emails!
+      sendingEmails(data.potluckInvites, data.potluckInfo);
+    })
+    .then(() => {
+      return `${potluck.title} saved and guests invited!`;
+    })
     .catch((error) => {
       console.log(error);
     });
