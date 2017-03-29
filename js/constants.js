@@ -61,6 +61,10 @@ export const potluckFoodDisplayOrder = [
   POTLUCK_FOOD.TALENT,
   POTLUCK_FOOD.CUSTOM
 ];
+export const emailData = {
+  authToken: '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',
+  subject: 'THIS IS A POTLUCK SUBJECT'
+};
 
 export const inviteConfirmationStatus = {
   YES: {
