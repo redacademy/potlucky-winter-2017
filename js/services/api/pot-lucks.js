@@ -27,16 +27,12 @@ const getPotluck = potLuckId => (
 const actionInvite = (data, potluckId, userId) => {
   const potluckInviteResponse = {
     [data.inviteSelection]: true,
-    dateStamp: moment.format('YYYY-MM-DD'),
-  };
-
-  const changePotluckStatus = {
-    isNew: false,
+    dateStamp: moment().format('YYYY-MM-DD'),
   };
 
   const updates = {
     [`/potLuckGuests/${potluckId}/${userId}`]: potluckInviteResponse,
-    [`/userPotLucks/${userId}`]: changePotluckStatus,
+    [`/userPotLucks/${userId}/${potluckId}/isNew`]: false,
   };
 
   return api.change(updates)

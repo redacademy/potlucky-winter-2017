@@ -1,16 +1,12 @@
 import React, { PropTypes } from 'react';
-import {
-  Text,
-  View,
-  TouchableHighlight
-} from 'react-native';
+import { View } from 'react-native';
 import PotluckInfo from './../../components/PotluckInfo';
 import styles from './styles';
 
 import { colors } from '../../styles/baseStyles';
 import SingleFlatButton from '../../components/SingleFlatButton';
 
-const GuestPotluckInfoScreen = ({ currentPotluck, acceptInvite, declineInvite }) => (
+const GuestPotluckInfoScreen = ({ currentPotluck, actionInvite }) => (
   <View style={styles.container}>
     <PotluckInfo
       title={currentPotluck.title}
@@ -23,18 +19,21 @@ const GuestPotluckInfoScreen = ({ currentPotluck, acceptInvite, declineInvite })
       coordinates={currentPotluck.coordinates}
     />
 
-    <View style={styles.buttonContainer}>
-      <SingleFlatButton
-        title={'Sorry, can\'t make it'}
-        onPress={declineInvite}
-        backgroundColor={colors.invitePrimaryBtn}
-      />
-      <SingleFlatButton
-        title={'See you there!'}
-        onPress={acceptInvite}
-        backgroundColor={colors.inviteSecondaryBtn}
-      />
-    </View>
+    {
+      !currentPotluck.isNew &&
+      <View style={styles.buttonContainer}>
+        <SingleFlatButton
+          title={'Sorry, can\'t make it'}
+          onPress={() => actionInvite({ inviteSelection: 'inviteDeclined' })}
+          backgroundColor={colors.invitePrimaryBtn}
+        />
+        <SingleFlatButton
+          title={'See you there!'}
+          onPress={() => actionInvite({ inviteSelection: 'inviteAccepted' })}
+          backgroundColor={colors.inviteSecondaryBtn}
+        />
+      </View>
+    }
 
   </View >
 
@@ -42,8 +41,7 @@ const GuestPotluckInfoScreen = ({ currentPotluck, acceptInvite, declineInvite })
 
 GuestPotluckInfoScreen.propTypes = {
   currentPotluck: PropTypes.object.isRequired,
-  acceptInvite: PropTypes.func.isRequired,
-  declineInvite: PropTypes.func.isRequired,
+  actionInvite: PropTypes.func.isRequired,
 };
 
 export default GuestPotluckInfoScreen;

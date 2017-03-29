@@ -6,8 +6,7 @@ export default StyleSheet.create({
     height: '100%',
   },
   buttonContainer: {
-    flex: 1,
-    flexBasis: '50%',
+    flex: 0,
     flexDirection: 'row',
     width: '100%',
   },

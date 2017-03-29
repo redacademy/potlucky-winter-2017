@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     height: height * 0.10,
     width: '100%',
-    backgroundColor: 'red',
   },
 });
 

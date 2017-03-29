@@ -5,7 +5,6 @@ import GuestPotluckInfoScreen from './GuestPotluckInfoScreen';
 import { fetchCurrentPotluck } from '../../redux/modules/currentPotluckActions';
 import { colors } from '../../styles/baseStyles';
 import NavigationArrow from './../../components/NavigationArrow';
-
 import api from '../../services/api/pot-lucks';
 
 class GuestPotluckInfoScreenContainer extends Component {
@@ -27,7 +26,7 @@ class GuestPotluckInfoScreenContainer extends Component {
 
   actionInvite = (data) => {
     const { currentPotluck, userId } = this.props;
-    this.props.dispatch(api.actionInvite(data, currentPotluck.id, userId));
+    api.actionInvite(data, currentPotluck.id, userId);
   }
 
   render() {
