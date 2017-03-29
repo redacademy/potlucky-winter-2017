@@ -8,6 +8,10 @@ import Main, {
 } from '../../styles/baseStyles';
 
 export default StyleSheet.create({
+  formContainer: {
+    flex: 1,
+    alignItems: 'center'
+  },
   login: {
     height: 24,
     width: '50%',
