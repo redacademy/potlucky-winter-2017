@@ -11,7 +11,7 @@ const GuestPotluckInfoScreen = ({ currentPotluck }) => (
   <View style={styles.container}>
     <PotluckInfo
       title={currentPotluck.title}
-      image={require('../../../assets/images/southparklastsupper.jpg')}
+      image={{ uri: currentPotluck.link }}
       date={currentPotluck.eventDate}
       arrivingTime={currentPotluck.arriveTime}
       servingTime={currentPotluck.arriveTime}
