@@ -4,11 +4,11 @@ import {
   CameraRoll,
   Image,
   ScrollView,
-  StyleSheet,
   TouchableHighlight,
   View,
   NativeModules
 } from 'react-native';
+import { styles } from './styles';
 import { imageUpload } from './../../redux/modules/newPotluckActions';
 
 class CameraRollView extends Component {
@@ -54,7 +54,7 @@ class CameraRollView extends Component {
         <ScrollView style={styles.container}>
           <View style={styles.imageGrid}>
             {this.state.images.map(image => (
-              <TouchableHighlight key={image.uri} onPress={() => this._selectImage(image.uri)}>
+              <TouchableHighlight style={styles.imageContainer} key={image.uri} onPress={() => this._selectImage(image.uri)}>
                 <Image style={styles.image} source={{ uri: image.uri }} />
               </TouchableHighlight>
             ))}
@@ -65,21 +65,5 @@ class CameraRollView extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-  },
-  imageGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center'
-  },
-  image: {
-    width: 100,
-    height: 100,
-    margin: 10,
-  },
-});
 
 export default connect()(CameraRollView);
