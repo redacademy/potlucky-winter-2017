@@ -19,8 +19,15 @@ export const styles = StyleSheet.create({
   primaryBtn: {
     height: windowHeight * 0.10,
     flex: 0,
+<<<<<<< HEAD
     backgroundColor: colors.invitePrimaryBtn,
     justifyContent: 'center',
+=======
+    backgroundColor: colors.inviteSecondaryBtn,
+    justifyContent: 'center',
+    borderTopColor: 'black',
+    borderTopWidth: 1,
+>>>>>>> Added Button to Guest Number Screen.
   },
   buttonText: {
     textAlign: 'center',
