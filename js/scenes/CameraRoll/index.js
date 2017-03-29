@@ -14,7 +14,6 @@ import { imageUpload } from './../../redux/modules/newPotluckActions';
 class CameraRollView extends Component {
   constructor(props) {
     super(props);
-    const controls = props.controls;
     this.state = {
       images: [],
       selected: '',
@@ -28,8 +27,7 @@ class CameraRollView extends Component {
     // get photos from camera roll
     CameraRoll.getPhotos({ first: 100 }).done(
       (data) => {
-        const assets = data.edges;
-        const images = assets.map(asset => asset.node.image);
+        const images = data.edges.map(asset => asset.node.image);
         this.setState({
           images,
         });
@@ -83,8 +81,5 @@ const styles = StyleSheet.create({
     margin: 10,
   },
 });
-const mapStateToProps = state => ({
 
-});
-
-export default connect(mapStateToProps)(CameraRollView);
+export default connect()(CameraRollView);
