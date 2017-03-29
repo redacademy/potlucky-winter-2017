@@ -33,13 +33,16 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* potluckyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* potluckyTests.m */; };
+		441524503213427891D2662A /* Ubuntu-R.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6D9935D92538413E826CE9F0 /* Ubuntu-R.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		719A05B5111A422A8A2A47E0 /* Ubuntu-L.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 829AB76D07044D1AA6804DE9 /* Ubuntu-L.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		91AB348048A2425C833421DC /* Ubuntu-B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40E9E4C154BC4269B6C9AEFF /* Ubuntu-B.ttf */; };
-		719A05B5111A422A8A2A47E0 /* Ubuntu-L.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 829AB76D07044D1AA6804DE9 /* Ubuntu-L.ttf */; };
 		BACF5E29F1074221AE7B2A91 /* Ubuntu-M.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89C817DF688A4C6EAEB0C19B /* Ubuntu-M.ttf */; };
 		441524503213427891D2662A /* Ubuntu-R.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6D9935D92538413E826CE9F0 /* Ubuntu-R.ttf */; };
 		51A83A31447540FFAA024F9C /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C95D0103A4F045E9BC1DE9A2 /* libAirMaps.a */; };
+		C71CAD121E8A1B8600A7DD4A /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C71CAD111E8A1B2400A7DD4A /* libRCTCameraRoll.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		EABEA69FCDEF49FFB07D76D3 /* libRNImageToBase64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F69E25CD9542F09D27A2AD /* libRNImageToBase64.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +235,20 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		C71CAD101E8A1B2400A7DD4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C71CAD0C1E8A1B2400A7DD4A /* RCTCameraRoll.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 58B5115D1A9E6B3D00147676;
+			remoteInfo = RCTCameraRoll;
+		};
+		C7FD56621E8ACC5E005457D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D8C0518DE474CC083DFE836 /* RNImageToBase64.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E7E77AF21D911ED5004B91C7;
+			remoteInfo = RNImageToBase64;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -256,8 +273,13 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* potlucky-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "potlucky-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* potlucky-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "potlucky-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40E9E4C154BC4269B6C9AEFF /* Ubuntu-B.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Ubuntu-B.ttf"; path = "../assets/fonts/Ubuntu-B.ttf"; sourceTree = "<group>"; };
+		52F69E25CD9542F09D27A2AD /* libRNImageToBase64.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImageToBase64.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		6D8C0518DE474CC083DFE836 /* RNImageToBase64.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImageToBase64.xcodeproj; path = "../node_modules/react-native-image-to-base64/ios/RNImageToBase64.xcodeproj"; sourceTree = "<group>"; };
+		6D9935D92538413E826CE9F0 /* Ubuntu-R.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Ubuntu-R.ttf"; path = "../assets/fonts/Ubuntu-R.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		829AB76D07044D1AA6804DE9 /* Ubuntu-L.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Ubuntu-L.ttf"; path = "../assets/fonts/Ubuntu-L.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		40E9E4C154BC4269B6C9AEFF /* Ubuntu-B.ttf */ = {isa = PBXFileReference; name = "Ubuntu-B.ttf"; path = "../assets/fonts/Ubuntu-B.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		829AB76D07044D1AA6804DE9 /* Ubuntu-L.ttf */ = {isa = PBXFileReference; name = "Ubuntu-L.ttf"; path = "../assets/fonts/Ubuntu-L.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
@@ -265,6 +287,8 @@
 		6D9935D92538413E826CE9F0 /* Ubuntu-R.ttf */ = {isa = PBXFileReference; name = "Ubuntu-R.ttf"; path = "../assets/fonts/Ubuntu-R.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		77B5311AED024CB78FC55592 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; name = "AirMaps.xcodeproj"; path = "../node_modules/react-native-maps/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		C95D0103A4F045E9BC1DE9A2 /* libAirMaps.a */ = {isa = PBXFileReference; name = "libAirMaps.a"; path = "libAirMaps.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		89C817DF688A4C6EAEB0C19B /* Ubuntu-M.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Ubuntu-M.ttf"; path = "../assets/fonts/Ubuntu-M.ttf"; sourceTree = "<group>"; };
+		C71CAD0C1E8A1B2400A7DD4A /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +304,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C71CAD121E8A1B8600A7DD4A /* libRCTCameraRoll.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -292,6 +317,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				51A83A31447540FFAA024F9C /* libAirMaps.a in Frameworks */,
+				EABEA69FCDEF49FFB07D76D3 /* libRNImageToBase64.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +452,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2569F1FACD8F4986B14474FF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				40E9E4C154BC4269B6C9AEFF /* Ubuntu-B.ttf */,
+				829AB76D07044D1AA6804DE9 /* Ubuntu-L.ttf */,
+				89C817DF688A4C6EAEB0C19B /* Ubuntu-M.ttf */,
+				6D9935D92538413E826CE9F0 /* Ubuntu-R.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +484,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C71CAD0C1E8A1B2400A7DD4A /* RCTCameraRoll.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -459,6 +497,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				77B5311AED024CB78FC55592 /* AirMaps.xcodeproj */,
+				6D8C0518DE474CC083DFE836 /* RNImageToBase64.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -496,16 +535,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2569F1FACD8F4986B14474FF /* Resources */ = {
+		C71CAD0D1E8A1B2400A7DD4A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				40E9E4C154BC4269B6C9AEFF /* Ubuntu-B.ttf */,
-				829AB76D07044D1AA6804DE9 /* Ubuntu-L.ttf */,
-				89C817DF688A4C6EAEB0C19B /* Ubuntu-M.ttf */,
-				6D9935D92538413E826CE9F0 /* Ubuntu-R.ttf */,
+				C71CAD111E8A1B2400A7DD4A /* libRCTCameraRoll.a */,
 			);
-			name = Resources;
-			path = "";
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7FD56451E8ACC5E005457D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7FD56631E8ACC5E005457D4 /* libRNImageToBase64.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -628,6 +671,10 @@
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
 				},
 				{
+					ProductGroup = C71CAD0D1E8A1B2400A7DD4A /* Products */;
+					ProjectRef = C71CAD0C1E8A1B2400A7DD4A /* RCTCameraRoll.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
 					ProjectRef = 00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */;
 				},
@@ -662,6 +709,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = C7FD56451E8ACC5E005457D4 /* Products */;
+					ProjectRef = 6D8C0518DE474CC083DFE836 /* RNImageToBase64.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -850,6 +901,20 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C71CAD111E8A1B2400A7DD4A /* libRCTCameraRoll.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTCameraRoll.a;
+			remoteRef = C71CAD101E8A1B2400A7DD4A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7FD56631E8ACC5E005457D4 /* libRNImageToBase64.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNImageToBase64.a;
+			remoteRef = C7FD56621E8ACC5E005457D4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -992,9 +1057,17 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-to-base64/ios",
+				);
 				INFOPLIST_FILE = potluckyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1017,9 +1090,17 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-to-base64/ios",
+				);
 				INFOPLIST_FILE = potluckyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1043,6 +1124,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-to-base64/ios",
+				);
 				INFOPLIST_FILE = potlucky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1064,6 +1149,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-to-base64/ios",
+				);
 				INFOPLIST_FILE = potlucky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1092,8 +1181,16 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-to-base64/ios",
+				);
 				INFOPLIST_FILE = "potlucky-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1126,8 +1223,16 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-image-to-base64/ios",
+				);
 				INFOPLIST_FILE = "potlucky-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1161,6 +1266,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "potlucky-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.potlucky-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1186,6 +1295,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "potlucky-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.potlucky-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;

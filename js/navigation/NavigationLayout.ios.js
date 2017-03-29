@@ -21,6 +21,7 @@ import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from '
 import { bottomNavigatorScreens, bottomNavigatorStyles } from './BottomNavConfig';
 import { colors, windowWidth } from '../styles/baseStyles';
 import PotluckConfirmationScreen from '../scenes/PotluckConfirmationScreen';
+import CameraRoll from './../scenes/CameraRoll';
 
 const HostTabNavigator = TabNavigator(hostTabScreens, hostTabStyles);
 const GuestTabNavigator = TabNavigator(guestTabScreens, guestTabStyles);
@@ -54,6 +55,7 @@ export default StackNavigator(
     GuestTabNavigator: { screen: GuestTabNavigator },
     HostTabNavigator: { screen: HostTabNavigator },
     AppOnboardingScreen: { screen: AppOnboardingScreen },
+    CameraRollScreen: { screen: CameraRoll },
   },
   {
     initialRouteName: 'SignIn',

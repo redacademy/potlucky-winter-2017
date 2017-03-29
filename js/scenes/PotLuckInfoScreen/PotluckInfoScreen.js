@@ -4,10 +4,10 @@ import InfoForm from './../../components/InfoForm';
 
 import styles from './styles'
 
-const InfoScreen = () => (
+const InfoScreen = ({ goToImage }) => (
   <View style={styles.container}>
     <ScrollView>
-      <InfoForm />
+      <InfoForm goToImage={goToImage} />
     </ScrollView>
   </View>
 );

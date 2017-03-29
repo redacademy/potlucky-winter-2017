@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Gandalf from 'gandalf-validator';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, TouchableHighlight, Image } from 'react-native';
 import styles from './styles';
 import ValidatedText from './../ValidatedText';
 import DatePicker from './../../components/DatePicker';
@@ -9,6 +9,7 @@ import GooglePlaces from './../../components/GooglePlaces';
 import Map from './../../components/Map';
 import SingleFlatButton from './../../components/SingleFlatButton';
 import { addInfo } from '../../redux/modules/newPotluckActions';
+
 
 class Form extends Gandalf {
   constructor() {
@@ -83,7 +84,7 @@ class Form extends Gandalf {
     });
     this.setState({
       longitude: location.geometry.location.lng
-    })
+    });
   };
 
   onEventDateChange = (eventDate) => {
@@ -120,7 +121,12 @@ class Form extends Gandalf {
 
   render() {
     const fields = this.state.fields;
-
+    const coordinates = {
+      latitude: this.state.latitude,
+      longitude: this.state.longitude
+    };
+    const imageSource = this.props.imageLink ? { uri: this.props.imageLink } : require('./../../../assets/images/camera-icon.png');
+    const imageStyle = this.props.imageLink ? styles.image : styles.cameraImage;
     return (
       <View style={styles.mainContainer}>
         {fields.title.element}
@@ -154,7 +160,17 @@ class Form extends Gandalf {
           timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
           onDateChange={this.onServeTimeChange}
           mode="time"
-        /> 
+        />
+        <TouchableHighlight
+          style={styles.noImage}
+          title={'pick a god damn image'}
+          onPress={() => this.props.goToImage()}
+        >
+          <Image
+            style={imageStyle}
+            source={imageSource}
+          />
+        </TouchableHighlight >
         <GooglePlaces onLocationChange={this.onLocationChange} />
         <Map lat={this.state.latitude} lng={this.state.longitude} />
         {fields.description.element}
@@ -163,5 +179,14 @@ class Form extends Gandalf {
     );
   }
 }
+const mapStateToProps = (state) => {
+  if (state.newPotluck.potluckInfo) {
+    return {
+      imageLink: state.newPotluck.potluckInfo.link
+    };
+  }
+  return { imageLink: false };
+};
 
-export default connect()(Form);
+
+export default connect(mapStateToProps)(Form);

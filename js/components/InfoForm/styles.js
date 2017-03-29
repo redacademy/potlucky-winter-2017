@@ -25,6 +25,26 @@ export default StyleSheet.create({
     fontSize: 16,
     color: colors.mainBrandColor,
   },
+  cameraImage: {
+    width: 40,
+    height: 40
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+  },
+  noImage: {
+    height: 250,
+    width: '100%',
+    borderColor: colors.mainBrandColor,
+    fontSize: typography.baseFontSize,
+    borderRadius: 3,
+    borderWidth: 1,
+    flex: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   description: {
     height: 100,
     width: '100%',
