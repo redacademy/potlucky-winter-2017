@@ -8,6 +8,7 @@ import FoodScreen from './FoodScreen';
 import NavigationArrow from './../../components/NavigationArrow';
 import { colors } from '../../styles/baseStyles';
 
+import { doesObjectPropertyExist } from '../../helpers';
 
 class FoodScreenContainer extends Component {
   static navigationOptions = {
@@ -26,12 +27,32 @@ class FoodScreenContainer extends Component {
     this.props.dispatch(fetchPotluckFood(this.props.navigation.state.params.potluckId));
   }
 
+  confirmedGuests = potluckFood => (
+    (potluckFood.food && Object.keys(potluckFood.food).reduce((acc, key) => (
+      (doesObjectPropertyExist(potluckFood.food[key], 'assignments') ?
+        acc + Object.keys(potluckFood.food[key].assignments).length :
+        acc
+      )
+    ), 0)
+    )
+  )
+
+  availableFoodItemCount = (potluckFood, key) => (
+    potluckFood.food[key].desiredDishCount -
+    (doesObjectPropertyExist(potluckFood.food[key], 'assignments') ?
+      Object.keys(potluckFood.food[key].assignments).length :
+      0
+    )
+  )
+
   render() {
     const { potluckFood, isLoading } = this.props;
     return (
       !isLoading &&
       <FoodScreen
         potluckFood={potluckFood}
+        confirmedGuests={this.confirmedGuests(potluckFood)}
+        availableFoodItemCount={this.availableFoodItemCount}
       />
     );
   }
