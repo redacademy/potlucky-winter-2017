@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
   primaryBtn: {
     height: 50,
     flex: 1,
-    backgroundColor: colors.invitePrimaryBtn,
+    backgroundColor: colors.mainBrandColor,
     justifyContent: 'center'
   },
   secondaryBtn: {

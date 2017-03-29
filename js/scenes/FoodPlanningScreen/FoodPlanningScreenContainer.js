@@ -17,11 +17,6 @@ class FoodPlanningScreenContainer extends Component {
         paddingRight: 20
       },
       title: <CreatePotluckProgressBar title="Food Planning" progressNumber={progressBar.SECOND_SCREEN} />,
-      right: (
-        <NavigationArrow
-          onPress={() => navigate('PotLuckInfoScreen')}
-        />
-      ),
       left: (
         <NavigationArrow
           backArrow

@@ -17,12 +17,15 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   primaryBtn: {
-    height: 50,
+    height: windowHeight * 0.10,
     flex: 0,
-    backgroundColor: colors.inviteSecondaryBtn,
-    justifyContent: 'center'
+    backgroundColor: colors.invitePrimaryBtn,
+    justifyContent: 'center',
   },
   buttonText: {
     textAlign: 'center',
+    color: '#FFF',
+    fontSize: 18,
+    fontFamily: typography.fontMain,
   },
 });

@@ -22,11 +22,6 @@ class PotluckInfoScreenContainer extends Component {
       title: <CreatePotluckProgressBar title="Event Info" progressNumber={progressBar.THIRD_SCREEN} />,
       // Render a button on the right side of the header
       // When pressed switches the screen to edit mode.
-      right: (
-        <NavigationArrow
-          onPress={() => navigate('InvitesScreen')}
-        />
-      ),
       left: (
         <NavigationArrow
           backArrow
@@ -40,7 +35,7 @@ class PotluckInfoScreenContainer extends Component {
   }
   render() {
     return (
-      <PotluckInfoScreen goToImage={this.goToImage} />
+      <PotluckInfoScreen goToImage={this.goToImage} navigation={this.props.navigation} />
     );
   }
 }

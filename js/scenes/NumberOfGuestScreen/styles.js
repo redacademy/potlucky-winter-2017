@@ -51,6 +51,7 @@ export default StyleSheet.create({
   buttonContainer: {
     flex: 0,
     flexDirection: 'row',
+    flexWrap: 'wrap'
   },
   button: {
     flex: 0,
@@ -69,5 +70,18 @@ export default StyleSheet.create({
     fontFamily: typography.fontMain,
     fontSize: 30,
     color: '#FFF',
-  }
+  },
+  primaryBtn: {
+    height: windowHeight * 0.1,
+    flex: 0,
+    backgroundColor: colors.invitePrimaryBtn,
+    justifyContent: 'center',
+    width: windowWidth,
+  },
+  buttonTextNext: {
+    textAlign: 'center',
+    color: '#FFF',
+    fontSize: 18,
+    fontFamily: typography.fontMain,
+  },
 });

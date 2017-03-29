@@ -117,6 +117,7 @@ class Form extends Gandalf {
     };
 
     this.props.dispatch(addInfo(data));
+    this.props.navigation.navigate('InvitesScreen');
   }
 
   render() {
@@ -128,51 +129,53 @@ class Form extends Gandalf {
     const imageSource = this.props.imageLink ? { uri: this.props.imageLink } : require('./../../../assets/images/camera-icon.png');
     const imageStyle = this.props.imageLink ? styles.image : styles.cameraImage;
     return (
-      <View style={styles.mainContainer}>
-        {fields.title.element}
-        {fields.theme.element}
-        <DatePicker
-          title="Date"
-          showDate={this.state.showEventDate}
-          localDate={this.state.eventDate.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' })}
-          date={this.state.eventDate}
-          onPress={() => { this.setState({ showEventDate: !this.state.showEventDate }); }}
-          timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-          onDateChange={this.onEventDateChange}
-          mode="date"
-        />
-        <DatePicker
-          title="Arriving Time"
-          showDate={this.state.showArriveTime}
-          localDate={this.state.arriveTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-          date={this.state.arriveTime}
-          onPress={() => { this.setState({ showArriveTime: !this.state.showArriveTime }); }}
-          timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-          onDateChange={this.onArriveTimeChange}
-          mode="time"
-        />
-        <DatePicker
-          title="Serving Time"
-          showDate={this.state.showServeTime}
-          localDate={this.state.serveTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-          date={this.state.serveTime}
-          onPress={() => { this.setState({ showServeTime: !this.state.showServeTime }); }}
-          timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-          onDateChange={this.onServeTimeChange}
-          mode="time"
-        />
-        <TouchableHighlight
-          style={styles.noImage}
-          onPress={() => this.props.goToImage()}
-        >
-          <Image
-            style={imageStyle}
-            source={imageSource}
+      <View style={styles.formContainer}>
+        <View style={styles.mainContainer}>
+          {fields.title.element}
+          {fields.theme.element}
+          <DatePicker
+            title="Date"
+            showDate={this.state.showEventDate}
+            localDate={this.state.eventDate.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' })}
+            date={this.state.eventDate}
+            onPress={() => { this.setState({ showEventDate: !this.state.showEventDate }); }}
+            timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
+            onDateChange={this.onEventDateChange}
+            mode="date"
           />
-        </TouchableHighlight >
-        <GooglePlaces onLocationChange={this.onLocationChange} />
-        <Map lat={this.state.latitude} lng={this.state.longitude} />
-        {fields.description.element}
+          <DatePicker
+            title="Arriving Time"
+            showDate={this.state.showArriveTime}
+            localDate={this.state.arriveTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+            date={this.state.arriveTime}
+            onPress={() => { this.setState({ showArriveTime: !this.state.showArriveTime }); }}
+            timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
+            onDateChange={this.onArriveTimeChange}
+            mode="time"
+          />
+          <DatePicker
+            title="Serving Time"
+            showDate={this.state.showServeTime}
+            localDate={this.state.serveTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+            date={this.state.serveTime}
+            onPress={() => { this.setState({ showServeTime: !this.state.showServeTime }); }}
+            timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
+            onDateChange={this.onServeTimeChange}
+            mode="time"
+          />
+          <TouchableHighlight
+            style={styles.noImage}
+            onPress={() => this.props.goToImage()}
+          >
+            <Image
+              style={imageStyle}
+              source={imageSource}
+            />
+          </TouchableHighlight >
+          <GooglePlaces onLocationChange={this.onLocationChange} />
+          <Map lat={this.state.latitude} lng={this.state.longitude} />
+          {fields.description.element}
+        </View>
         <SingleFlatButton title="Submit" onPress={this.handleSubmit} />
       </View>
     );
