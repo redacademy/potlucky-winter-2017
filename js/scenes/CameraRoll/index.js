@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import {
   CameraRoll,
@@ -45,10 +46,13 @@ class CameraRollView extends Component {
     });
     NativeModules.RNImageToBase64.getBase64String(uri, (err, base64) => {
       this.props.dispatch(imageUpload(base64));
+      const backAction = NavigationActions.back()
+      this.props.navigation.dispatch(backAction)
     });
   }
 
   render() {
+
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <ScrollView style={styles.container}>
@@ -64,6 +68,5 @@ class CameraRollView extends Component {
     );
   }
 }
-
 
 export default connect()(CameraRollView);
