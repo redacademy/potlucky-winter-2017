@@ -86,6 +86,7 @@ class FoodPlanningScreenContainer extends Component {
         addPotluckItem={this.addPotluckItem}
         removePotluckItem={this.removePotluckItem}
         dishesUsed={this.state.dishesUsed}
+        goTo={() => this.props.navigation.navigate('PotLuckInfoScreen')}
       />
     );
   }
