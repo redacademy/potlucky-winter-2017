@@ -1,11 +1,15 @@
 import { loadingResource, doneLoading } from './isLoadingActions';
 import potluckApi from '../../services/api/pot-lucks';
-import potluckActions from '../../services/api/pot-lucks';
 import potluckGuests from '../../services/api/guest-invites';
 
 export const loadCurrentPotluck = potluck => ({
   type: 'LOAD_CURRENT_POTLUCK',
   payload: potluck
+});
+
+export const getPotluckGuests = guests => ({
+  type: 'GET_POTLUCK_GUESTS',
+  payload: guests
 });
 
 export const fetchCurrentPotluck = potluckId => (dispatch) => {
@@ -22,10 +26,9 @@ export const fetchCurrentPotluck = potluckId => (dispatch) => {
 export const fetchCurrentPotluckGuestlist = (potluckId) => {
   return (dispatch) => {
     dispatch(loadingResource());
-    potluckGuests.getPotluckInviteResponse(potluckId)
+    potluckGuests.getPotluckInviteResponses(potluckId)
       .then((result) => {
-        // dispatch(loadCurrentPotluckGuests(result));
-        console.log(result);
+        dispatch(getPotluckGuests(result));
         dispatch(doneLoading());
       })
       .catch(error => console.log(error));
