@@ -2,6 +2,7 @@ import firebase from 'firebase';
 import moment from 'moment';
 import api from './base';
 import potlucks from './pot-lucks';
+import userDetails from './user-details';
 import { decodeObjectKeys } from '../../helpers';
 
 const createPotluckGuest = (potluckId, uIds) => {
@@ -88,8 +89,7 @@ const getPotluckInvites = () => {
 };
 
 const getPotluckInviteEmail = (potluckId, encodedEmail) => {
-  const result = firebase
-    .database()
+  const result = firebase.database()
     .ref(`/potLuckInvites/${potluckId}/guests/${encodedEmail}`)
     .once('value');
 
@@ -112,22 +112,159 @@ const processSignUpEmailInvites = (userId, email) => {
 
       return Promise.all(promises);
     })
-    .then((potluckId) => {
-      // if any invites create potluck guest records with potluckid
-      createPotluckGuest(potluckId, [userId]);
+    .then((potluckIds) => {
+      potluckIds.forEach((potluckId) => {
+        // if any invites create potluck guest records with potluckid
+        createPotluckGuest(potluckId, [userId]);
 
-      // get potluck info details
-      potlucks.getPotluck(potluckId)
-        .then((potluckInfo) => {
-          // create user invite records
-          createUserPotluck(potluckId, potluckInfo, [userId]);
-        });
+        // get potluck info details
+        potlucks.getPotluck(potluckId)
+          .then((potluckInfo) => {
+            // create user invite records
+            createUserPotluck(potluckId, potluckInfo, [userId]);
+          });
 
-      // delete email from potluck guest email list
-      deleteExistingUserGuestInvite(potluckId, email);
+        // delete email from potluck guest email list
+        deleteExistingUserGuestInvite(potluckId, email);
+      });
     })
     .then(() => {
       return 'Sign-up invites matched.';
+    });
+};
+
+const checkForUserInvites = (potluckId, userId) => {
+  return firebase.database()
+    .ref()
+    .child(`/potLuckGuests/${potluckId}/${userId}`)
+    .once('value')
+    .then((result) => {
+      return result.val();
+    });
+};
+
+const getGuestInviteUserDetailsAccept = (potluckId, userId) => {
+  return Promise.resolve(checkForUserInvites(potluckId, userId))
+    .then((invite) => {
+      if (invite.inviteAccepted) {
+        return userDetails.get(userId);
+      }
+    });
+};
+
+const getGuestInviteUserDetailsReject = (potluckId, userId) => {
+  return Promise.resolve(checkForUserInvites(potluckId, userId))
+    .then((invite) => {
+      if (invite.inviteDeclined) {
+        return userDetails.get(userId);
+      }
+    });
+};
+
+const getGuestInviteUserDetailsNoResponse = (potluckId, userId) => {
+  return Promise.resolve(checkForUserInvites(potluckId, userId))
+    .then((invite) => {
+      if (!invite.inviteAccepted && !invite.inviteDeclined) {
+        return userDetails.get(userId);
+      }
+    });
+};
+
+const processtPotluckUserInviteResponses = (potluckId, inviteType) => {
+  return api.get(`/potLuckGuests/${potluckId}`)
+    .then((userIds) => {
+      return Object.keys(userIds);
+    })
+    .then((result) => {
+      const promises = result
+        .map((userId) => {
+          return inviteType(potluckId, userId);
+        });
+
+      return Promise.all(promises);
+    })
+    .then((users) => {
+      return users.filter(user => !!user);
+    })
+    .catch(() => {
+      return [];
+    });
+};
+
+const getPotluckGuestInviteEmails = (potluckId) => {
+  return firebase.database()
+    .ref()
+    .child(`potLuckInvites/${potluckId}/guests`)
+    .once('value')
+    .then((result) => {
+      return result.val();
+    });
+};
+
+const processPotluckEmailInviteNoResponses = (potluckId) => {
+  return Promise.resolve(getPotluckGuestInviteEmails(potluckId))
+    .then((result) => {
+      const emails = Object.keys(result).map((email) => {
+        return atob(email);
+      });
+
+      return emails;
+    })
+    .catch(() => {
+      return [];
+    });
+};
+
+const createGuestResponses = (inviteResponses) => {
+  const guestResponses = [];
+
+  Object.keys(inviteResponses).map((key) => {
+    if (key === 'userAccept' && inviteResponses[key].length > 0) {
+      inviteResponses[key].forEach((item) => {
+        guestResponses.push([`${item.firstName} ${item.lastName}`, '+']);
+      });
+    }
+    if (key === 'userReject' && inviteResponses[key].length > 0) {
+      inviteResponses[key].forEach((item) => {
+        guestResponses.push([`${item.firstName} ${item.lastName}`, '-']);
+      });
+    }
+    if (key === 'userNoResponse' && inviteResponses[key].length > 0) {
+      inviteResponses[key].forEach((item) => {
+        guestResponses.push([`${item.firstName} ${item.lastName}`, '?']);
+      });
+    }
+    if (key === 'emailNoResponse' && inviteResponses[key].length > 0) {
+      inviteResponses[key].forEach((item) => {
+        guestResponses.push([item, '?']);
+      });
+    }
+  });
+
+  return guestResponses;
+};
+
+const getPotluckInviteResponses = (potluckId) => {
+  const promises = [
+    processtPotluckUserInviteResponses(potluckId, getGuestInviteUserDetailsAccept) || [],
+    processtPotluckUserInviteResponses(potluckId, getGuestInviteUserDetailsReject) || [],
+    processtPotluckUserInviteResponses(potluckId, getGuestInviteUserDetailsNoResponse) || [],
+    processPotluckEmailInviteNoResponses(potluckId) || [],
+  ];
+
+  return Promise.all(promises)
+    .then((result) => {
+      const inviteResponses = {
+        userAccept: result[0],
+        userReject: result[1],
+        userNoResponse: result[2],
+        emailNoResponse: result[3],
+      };
+
+      return inviteResponses;
+    })
+    .then((result) => {
+      return createGuestResponses(result);
     });
 };
 
@@ -137,4 +274,5 @@ export default {
   deleteExistingUserGuestInvite,
   processSignInEmailInvites,
   processSignUpEmailInvites,
+  getPotluckInviteResponses
 };

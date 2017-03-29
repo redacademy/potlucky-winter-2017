@@ -61,3 +61,21 @@ export const potluckFoodDisplayOrder = [
   POTLUCK_FOOD.TALENT,
   POTLUCK_FOOD.CUSTOM
 ];
+
+export const inviteConfirmationStatus = {
+  YES: {
+    name: 'Yes',
+    imageSource: require('../assets/images/003-checked.png'),
+    color: 'green',
+  },
+  NO: {
+    name: 'No',
+    imageSource: require('../assets/images/002-cancel.png'),
+    color: 'red',
+  },
+  UNKNOWN: {
+    name: 'Unknown',
+    imageSource: require('../assets/images/001-question.png'),
+    color: 'blue',
+  }
+};
