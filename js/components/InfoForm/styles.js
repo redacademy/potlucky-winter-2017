@@ -91,4 +91,8 @@ export default StyleSheet.create({
     alignSelf: 'flex-end',
     fontFamily: typography.fontMain,
   },
+  formContainer: {
+    flex: 1,
+    alignItems: 'center'
+  },
 });

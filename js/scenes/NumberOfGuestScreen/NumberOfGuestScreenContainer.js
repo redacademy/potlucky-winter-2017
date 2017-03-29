@@ -31,12 +31,6 @@ class NumberOfGuestScreenContainer extends React.Component {
         paddingRight: 20
       },
       title: <CreatePotluckProgressBar title="Number of Guests" progressNumber={progressBar.FIRST_SCREEN} />,
-
-      right: (
-        <NavigationArrow
-          onPress={() => navigate('FoodPlanningScreen')}
-        />
-      ),
       left: (
         <NavigationArrow
           backArrow
@@ -147,6 +141,7 @@ class NumberOfGuestScreenContainer extends React.Component {
         onTextChange={this.onTextChange}
         increase={this.increase}
         decrease={this.decrease}
+        goTo={() => this.props.navigation.navigate('FoodPlanningScreen')}
       />
     );
   }

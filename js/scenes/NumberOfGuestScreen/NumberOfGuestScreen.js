@@ -4,11 +4,12 @@ import {
   View,
   TouchableOpacity,
   TextInput,
+  TouchableHighlight
 } from 'react-native';
 
 import styles from './styles';
 
-const NumberOfGuestScreen = ({ guestImages, count, onTextChange, increase, decrease }) => (
+const NumberOfGuestScreen = ({ guestImages, count, onTextChange, increase, decrease, goTo }) => (
   <View>
     <View style={styles.container}>
 
@@ -43,7 +44,9 @@ const NumberOfGuestScreen = ({ guestImages, count, onTextChange, increase, decre
         >
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
-
+        <TouchableHighlight style={styles.primaryBtn} onPress={() => goTo()}>
+          <Text style={styles.buttonTextNext}>Next</Text>
+        </TouchableHighlight>
       </View>
 
     </View>
