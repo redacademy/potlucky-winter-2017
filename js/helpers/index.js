@@ -1,3 +1,5 @@
+import { Base64 } from './base64';
+
 export const addIdToObject = (object) => {
   for (const prop in object) {
     object[prop].id = prop;
@@ -6,7 +8,7 @@ export const addIdToObject = (object) => {
 
 export const encodeObjectValues = (data) => {
   const encode = (Object.values(data))
-    .map(item => btoa(item))
+    .map(item => Base64.encode(item))
     .reduce((obj, cur) => { return { ...obj, [cur]: true }; }, {});
 
   return encode;
