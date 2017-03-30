@@ -2,40 +2,62 @@
  * @providesModule NavigationLayout
  * @flow
  */
-
-import React, { Component, } from 'react';
-import { StyleSheet, Text } from 'react-native';
 import {
-  StackNavigation,
-  TabNavigation,
-  TabNavigationItem,
-} from '@exponent/ex-navigation';
+  StackNavigator,
+  TabNavigator
+} from 'react-navigation';
+import PotLuckInfoScreen from '../scenes/PotLuckInfoScreen';
+import SignInScreen from '../scenes/SignInScreen';
+import SignUpScreen from '../scenes/SignUpScreen';
+import AccountScreen from '../scenes/AccountScreen';
+import MyPotLucksScreen from '../scenes/MyPotlucksScreen';
+import CreateNewPotLuck from './../scenes/CreatePotluckScreen';
+import NumberOfGuestScreen from './../scenes/NumberOfGuestScreen';
+import FoodPlanningScreen from './../scenes/FoodPlanningScreen';
+import InvitesScreen from '../scenes/InvitesScreen';
+import AppOnboardingScreen from '../scenes/AppOnboardingScreen';
+// import MyPotLuckInvitesScreen from '../../../scenes/MyPotluckInviteScreen';
+import { hostTabScreens, hostTabStyles, guestTabScreens, guestTabStyles } from './TabNavConfig';
+import { bottomNavigatorScreens, bottomNavigatorStyles } from './BottomNavConfig';
+import { colors, windowWidth } from '../styles/baseStyles';
+import PotluckConfirmationScreen from '../scenes/PotluckConfirmationScreen';
+import CameraRoll from './../scenes/CameraRoll';
 
-import Router from './router';
+const HostTabNavigator = TabNavigator(hostTabScreens, hostTabStyles);
+const GuestTabNavigator = TabNavigator(guestTabScreens, guestTabStyles);
+const BottomNavigator = TabNavigator(bottomNavigatorScreens, bottomNavigatorStyles);
 
-export default class NavigationLayout extends Component {
-  render() {
-    return (
-		<TabNavigation
-			initialTab="hello"
-		>
-			<TabNavigationItem
-			id="hello"
-			title="NavigationLayout.ios.js Title"
-			renderTitle={this.renderTitle}
-			>
-			<StackNavigation
-			navigatorUID="hello"
-			initialRoute={Router.getRoute('hello')}
-			/>
-        </TabNavigationItem>
-      </TabNavigation>
-    );
+
+const CreatePotluckNavigator = TabNavigator(
+  {
+    NumberOfGuestScreen: { screen: NumberOfGuestScreen },
+    FoodPlanningScreen: { screen: FoodPlanningScreen },
+    PotLuckInfoScreen: { screen: PotLuckInfoScreen },
+    InvitesScreen: { screen: InvitesScreen },
+    ConfirmationScreen: { screen: PotluckConfirmationScreen }
+  },
+  {
+    initialRouteName: 'NumberOfGuestScreen',
+    animationEnabled: true,
+    tabBarOptions: {
+      style: { height: 0 }
+    }
   }
+);
 
-  renderTitle(isSelected, title) {
-    return (
-      <Text>{title}</Text>
-    );
+export default StackNavigator(
+  {
+    SignIn: { screen: SignInScreen },
+    SignUp: { screen: SignUpScreen },
+    CreatePotluckNavigator: { screen: CreatePotluckNavigator },
+    HomeScreenNavigator: { screen: BottomNavigator },
+    GuestTabNavigator: { screen: GuestTabNavigator },
+    HostTabNavigator: { screen: HostTabNavigator },
+    AppOnboardingScreen: { screen: AppOnboardingScreen },
+    CameraRollScreen: { screen: CameraRoll },
+  },
+  {
+    initialRouteName: 'SignIn',
+    headerMode: 'screen',
   }
-}
+);

@@ -1,9 +1,19 @@
 import { combineReducers } from 'redux';
 
-import { NavigationReducer } from '@exponent/ex-navigation';
-import helloReducer from './modules/hello';
+import myPotlucksReducer from './modules/myPotlucksReducer';
+import isLoadingReducer from './modules/isLoadingReducer';
+import userSignInReducer from './modules/userSignInReducer';
+import newPotluckReducer from './modules/newPotluckReducer';
+import currentPotluckReducer from './modules/currentPotluckReducer';
+import potluckFoodReducer from './modules/potluckFoodReducer';
+import messageReducer from './modules/messageReducer';
 
 export default combineReducers({
-  navigation: NavigationReducer,
-  hello: helloReducer
+  myPotlucks: myPotlucksReducer,
+  isLoading: isLoadingReducer,
+  userSignIn: userSignInReducer,
+  newPotluck: newPotluckReducer,
+  currentPotluck: currentPotluckReducer,
+  potluckFood: potluckFoodReducer,
+  message: messageReducer,
 });
