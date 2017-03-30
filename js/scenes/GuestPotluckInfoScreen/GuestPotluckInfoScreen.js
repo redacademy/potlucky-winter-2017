@@ -23,7 +23,7 @@ const GuestPotluckInfoScreen = ({ currentPotluck, actionInvite, message }) => (
       message ?
         <View style={styles.buttonContainer}>
           <SingleFlatButton
-            title={'Thank you, for your response!'}
+            title={'Thank you for your response!'}
             onPress={(console.log('yay'))}
             backgroundColor={colors.invitePrimaryBtn}
           />
