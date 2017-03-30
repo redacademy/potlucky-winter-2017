@@ -31,6 +31,7 @@ const ValidatedText = ({
         secureTextEntry={secureTextEntry}
         multiline={multiline}
         numberOfLines={numberOfLines}
+        autoCorrect={false}
       />
     </View>
     {!!error && <View style={appStyles.errorContainer}>
