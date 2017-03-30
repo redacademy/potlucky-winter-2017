@@ -111,7 +111,7 @@ class InviteForm extends Gandalf {
             <Text style={styles.buttonText}>New Invite</Text>
           </TouchableHighlight>
           <TouchableHighlight style={styles.secondaryBtn} onPress={this.handleSubmit}>
-            <Text style={styles.buttonText}>Send Invites</Text>
+            <Text style={styles.buttonText}>Next</Text>
           </TouchableHighlight>
         </View>
       </View>
