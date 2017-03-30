@@ -170,20 +170,20 @@ class Form extends Gandalf {
             style={styles.noImage}
             onPress={() => this.props.goToImage()}
           >
-          { 
-            this.props.isLoading ?
-            <ActivityIndicator /> :
-            <Image
-              style={imageStyle}
-              source={imageSource}
-            />
-        }
-        </TouchableHighlight >
-        <GooglePlaces onLocationChange={this.onLocationChange} />
-        <Map lat={this.state.latitude} lng={this.state.longitude} />
-        {fields.description.element}
+            {
+              this.props.isLoading ?
+                <ActivityIndicator /> :
+                <Image
+                  style={imageStyle}
+                  source={imageSource}
+                />
+            }
+          </TouchableHighlight >
+          <GooglePlaces onLocationChange={this.onLocationChange} />
+          <Map lat={this.state.latitude} lng={this.state.longitude} />
+          {fields.description.element}
         </View>
-        <SingleFlatButton title="Submit" onPress={this.handleSubmit} />
+        <SingleFlatButton color="white" title="Submit" onPress={this.handleSubmit} />
       </View>
     );
   }
@@ -195,7 +195,7 @@ const mapStateToProps = (state) => {
       isloading: state.isloading
     };
   }
-  return { 
+  return {
     imageLink: false,
     isLoading: state.isLoading,
   };
