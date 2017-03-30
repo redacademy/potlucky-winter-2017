@@ -1,11 +1,5 @@
-import {
-  StyleSheet
-} from 'react-native';
-import Main, {
-  colors,
-  typography,
-  windowWidth as width
-} from '../../styles/baseStyles';
+import { StyleSheet } from 'react-native';
+import { colors, typography } from '../../styles/baseStyles';
 
 export default StyleSheet.create({
   formContainer: {
@@ -43,7 +37,6 @@ export default StyleSheet.create({
     width: '100%',
     marginBottom: 8,
     borderColor: colors.mainBrandColor,
-    fontSize: typography.baseFontSize,
     borderRadius: 3,
     borderWidth: 1,
     flex: 0,

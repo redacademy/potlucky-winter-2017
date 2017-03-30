@@ -29,6 +29,7 @@ FoodPlanningScreen.propTypes = {
   addPotluckItem: PropTypes.func.isRequired,
   removePotluckItem: PropTypes.func.isRequired,
   dishesUsed: PropTypes.number.isRequired,
+  goTo: PropTypes.func.isRequired,
 };
 
 

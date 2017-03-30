@@ -18,7 +18,7 @@ function sendEmail({ receiver, sender, subject, receiverFName, senderFName, desc
         value: htmlTemplate(receiverFName, senderFName, description, imageLink, serveTime, arriveTime, location),
       }],
     }),
-  }).then(response => console.log(response))
+  })
     .catch(error => console.warn('fetch error:', error));
 }
 
@@ -40,8 +40,6 @@ export default function sendEmails(emails, potluck) {
       imageLink: potluck.link,
       emailAPiService: 'https://api.sendgrid.com/v3/mail/send'
     };
-    console.log(email, data);
-
     sendEmail(data);
   }, this);
 }
