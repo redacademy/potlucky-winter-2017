@@ -4,6 +4,7 @@ import api from './base';
 import potlucks from './pot-lucks';
 import userDetails from './user-details';
 import { decodeObjectKeys } from '../../helpers';
+import { Base64 } from '../../helpers/base64';
 
 const createPotluckGuest = (potluckId, uIds) => {
   const potluckUserGuest = {
@@ -55,7 +56,7 @@ const getDetailsForEmail = (email) => {
 const deleteExistingUserGuestInvite = (potluckId, email) => {
   firebase.database()
     .ref()
-    .child(`potLuckInvites/${potluckId}/guests/${btoa(email)}`)
+    .child(`potLuckInvites/${potluckId}/guests/${Base64.encode(email)}`)
     .remove();
 };
 
@@ -76,7 +77,7 @@ const processSignInEmailInvites = (potluckId, guestEmails) => {
         });
     });
 
-  return Promise.all(promises).then((uIds) => { 
+  return Promise.all(promises).then((uIds) => {
     return uIds.filter(uId => !!uId);
   });
 };
@@ -103,7 +104,7 @@ const getPotluckInviteEmail = (potluckId, encodedEmail) => {
 };
 
 const processSignUpEmailInvites = (userId, email) => {
-  const encodedEmail = btoa(email);
+  const encodedEmail = Base64.encode(email);
 
   return getPotluckInvites()
     .then((potluckIdResult) => {
