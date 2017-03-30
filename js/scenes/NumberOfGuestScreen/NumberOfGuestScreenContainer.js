@@ -41,7 +41,7 @@ class NumberOfGuestScreenContainer extends React.Component {
     this.state = {
       count: 0,
     };
-
+    console.disableYellowBox = true;
     this.guestStartSize = 60;
     this.guestImageSources = [
       require('../../../assets/images/guests/1.png'),
