@@ -8,7 +8,7 @@ import { progressBar } from '../../constants';
 
 class FoodPlanningScreenContainer extends Component {
   static navigationOptions = {
-    header: ({ navigate, dispatch, goBack }) => ({
+    header: ({ navigate }) => ({
       style: {
         height: 0,
         margin: 0,
@@ -89,6 +89,7 @@ class FoodPlanningScreenContainer extends Component {
 
 FoodPlanningScreenContainer.propTypes = {
   guests: PropTypes.number.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({

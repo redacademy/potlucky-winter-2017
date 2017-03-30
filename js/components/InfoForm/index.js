@@ -67,7 +67,7 @@ class Form extends Gandalf {
     super(fields);
 
     this.state.eventDate = new Date();
-    this.state.timeZoneOffsetInHours = (-1) * (new Date()).getTimezoneOffset() / 60;
+    this.state.timeZoneOffsetInHours = ((-1) * (new Date()).getTimezoneOffset()) / 60;
     this.state.showEventDate = false;
     this.state.showArriveTime = false;
     this.state.showServeTime = false;
@@ -122,14 +122,8 @@ class Form extends Gandalf {
 
   render() {
     const fields = this.state.fields;
-    const coordinates = {
-      latitude: this.state.latitude,
-      longitude: this.state.longitude
-    };
     const imageSource = this.props.imageLink ? { uri: this.props.imageLink } : require('./../../../assets/images/camera-icon.png');
     const imageStyle = this.props.imageLink ? styles.image : styles.cameraImage;
-
-    console.log('Props for this page is...', this.props)
 
     return (
       <View style={styles.formContainer}>

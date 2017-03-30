@@ -43,7 +43,6 @@ export default StyleSheet.create({
     width: '100%',
     marginBottom: 8,
     borderColor: colors.mainBrandColor,
-    fontSize: typography.baseFontSize,
     borderRadius: 3,
     borderWidth: 1,
     flex: 0,

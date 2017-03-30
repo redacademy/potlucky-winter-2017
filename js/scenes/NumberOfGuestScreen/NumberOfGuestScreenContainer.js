@@ -1,13 +1,9 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { View, Image } from 'react-native';
+
 import NumberOfGuestScreen from './NumberOfGuestScreen';
 import { changeNumberofGuests } from '../../redux/modules/newPotluckActions';
-import {
-  Text,
-  View,
-  Button,
-  Image
-} from 'react-native';
 
 import CreatePotluckProgressBar from '../../components/CreatePotluckProgressBar';
 
@@ -22,7 +18,7 @@ const guestImageHeightWidthRatio = guestImageHeight / guestImageWidth;
 
 class NumberOfGuestScreenContainer extends React.Component {
   static navigationOptions = {
-    header: ({ navigate, dispatch, goBack }) => ({
+    header: ({ goBack }) => ({
       style: {
         height: 0,
         margin: 0,
@@ -61,6 +57,17 @@ class NumberOfGuestScreenContainer extends React.Component {
     ];
   }
 
+  componentWillMount() {
+    this.calculateGuestImageSize();
+    this.generateGuestImageArray();
+  }
+  componentDidUpdate() {
+    const { count } = this.state;
+    this.props.dispatch(changeNumberofGuests(count));
+    this.calculateGuestImageSize();
+    this.generateGuestImageArray();
+  }
+
   onTextChange = (text) => {
     if (text === '') {
       this.setState({ count: 0 });
@@ -82,11 +89,6 @@ class NumberOfGuestScreenContainer extends React.Component {
     if (this.state.count > 0) {
       this.setState({ count: parseInt(this.state.count, 10) - 1 });
     }
-  }
-
-  componentDidUpdate() {
-    const { count, guestImages } = this.state;
-    this.props.dispatch(changeNumberofGuests(count));
   }
 
   calculateGuestImageSize = () => {
@@ -111,7 +113,7 @@ class NumberOfGuestScreenContainer extends React.Component {
 
   generateGuestImageArray = () => {
     this.guestImages = [];
-    for (let i = 0; i < this.state.count; i++) {
+    for (let i = 0; i < this.state.count; i += 1) {
       if (i >= 42) break;
 
       this.guestImages.push(
@@ -129,9 +131,6 @@ class NumberOfGuestScreenContainer extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
 
-    this.calculateGuestImageSize();
-    this.generateGuestImageArray();
-
     // The screen's current route is passed in to `props.navigation.state`:
     return (
       <NumberOfGuestScreen
@@ -146,7 +145,12 @@ class NumberOfGuestScreenContainer extends React.Component {
     );
   }
 }
-const mapStateToProps = (state, ownProps) => ({
+
+NumberOfGuestScreenContainer.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
   guests: state.newPotluck.potluckFood.guestCount
 });
 

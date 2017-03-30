@@ -45,6 +45,7 @@ export const guestTabScreens = {
 };
 
 export const guestTabStyles = {
+  lazyLoad: true,
   initialRouteName: 'Info',
   tabBarPosition: 'top',
   tabBarOptions: {
