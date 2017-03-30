@@ -57,15 +57,9 @@ class NumberOfGuestScreenContainer extends React.Component {
     ];
   }
 
-  componentWillMount() {
-    this.calculateGuestImageSize();
-    this.generateGuestImageArray();
-  }
   componentDidUpdate() {
     const { count } = this.state;
     this.props.dispatch(changeNumberofGuests(count));
-    this.calculateGuestImageSize();
-    this.generateGuestImageArray();
   }
 
   onTextChange = (text) => {
@@ -130,6 +124,9 @@ class NumberOfGuestScreenContainer extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
+
+    this.calculateGuestImageSize();
+    this.generateGuestImageArray();
 
     // The screen's current route is passed in to `props.navigation.state`:
     return (
