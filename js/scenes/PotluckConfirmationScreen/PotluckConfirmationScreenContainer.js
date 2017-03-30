@@ -27,14 +27,12 @@ class PotluckConfirmationScreenContainer extends Component {
 
   onConfirmHandler = () => {
     if (!this.props.newPotluck.potluckInfo.link) {
-      console.log('test1');
       const data = {
         ...this.props.newPotluck,
         potluckInfo: {
           ...this.props.newPotluck.potluckInfo, link: 'http://i.imgur.com/XyPXAaT.png'
         }
       };
-      console.log(data);
       this.props.createNewPotluck(data, this.props.userId);
       this.props.navigation.navigate('HomeScreenNavigator');
     } else {
