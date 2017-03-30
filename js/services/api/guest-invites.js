@@ -5,6 +5,7 @@ import potlucks from './pot-lucks';
 import userDetails from './user-details';
 import { decodeObjectKeys } from '../../helpers';
 
+
 const createPotluckGuest = (potluckId, uIds) => {
   const potluckUserGuest = {
     inviteIssued: true,
