@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { colors, typography, windowHeight as height } from '../../styles/baseStyles';
 import SingleFlatButton from '../../components/SingleFlatButton';
 import { createNewPotluck } from '../../redux/modules/newPotluckActions';
-import PotluckConfirmationScreen from './PotluckConfirmationScreen'
+import PotluckConfirmationScreen from './PotluckConfirmationScreen';
 import styles from './styles';
 
 class PotluckConfirmationScreenContainer extends Component {
@@ -26,19 +26,31 @@ class PotluckConfirmationScreenContainer extends Component {
   }
 
   onConfirmHandler = () => {
-    this.props.createNewPotluck(this.props.newPotluck, this.props.userId);
-    this.props.navigation.navigate('HomeScreenNavigator');
+    if (!this.props.newPotluck.potluckInfo.link) {
+      console.log('test1');
+      const data = {
+        ...this.props.newPotluck,
+        potluckInfo: {
+          ...this.props.newPotluck.potluckInfo, link: 'http://i.imgur.com/XyPXAaT.png'
+        }
+      };
+      console.log(data);
+      this.props.createNewPotluck(data, this.props.userId);
+      this.props.navigation.navigate('HomeScreenNavigator');
+    } else {
+      this.props.createNewPotluck(this.props.newPotluck, this.props.userId);
+      this.props.navigation.navigate('HomeScreenNavigator');
+    }
   }
 
   render() {
-
     const newPotluck = this.props.newPotluck.potluckInfo;
 
     return (
       <View style={styles.container}>
         {
-        newPotluck &&
-        <PotluckConfirmationScreen currentPotluck={newPotluck} />
+          newPotluck &&
+          <PotluckConfirmationScreen currentPotluck={newPotluck} />
         }
         <View style={styles.buttonContainer}>
           <SingleFlatButton
