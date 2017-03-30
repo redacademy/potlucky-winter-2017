@@ -51,11 +51,7 @@ export default StyleSheet.create({
   buttonContainer: {
     flex: 0,
     flexDirection: 'row',
-<<<<<<< HEAD
     flexWrap: 'wrap'
-=======
-    flexWrap: 'wrap',
->>>>>>> Added Button to Guest Number Screen.
   },
   button: {
     flex: 0,
