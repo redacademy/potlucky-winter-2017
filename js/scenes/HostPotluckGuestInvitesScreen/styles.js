@@ -35,7 +35,7 @@ export default StyleSheet.create({
     paddingRight: 10,
   },
   statusImage: {
-    height: 15,
-    width: 15,
+    height: 20,
+    width: 20,
   }
 });
