@@ -171,16 +171,12 @@ class Form extends Gandalf {
               style={imageStyle}
               source={imageSource}
             />
-          </TouchableHighlight >
+          </TouchableHighlight>
           <GooglePlaces onLocationChange={this.onLocationChange} />
           <Map lat={this.state.latitude} lng={this.state.longitude} />
           {fields.description.element}
         </View>
-<<<<<<< HEAD
-        <SingleFlatButton title="Submit" onPress={this.handleSubmit} />
-=======
         <SingleFlatButton color="white" title="Submit" onPress={this.handleSubmit} />
->>>>>>> Added Button to Form Info Screen.
       </View>
     );
   }

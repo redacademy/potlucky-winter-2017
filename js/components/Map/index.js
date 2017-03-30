@@ -26,8 +26,4 @@ const Map = ({ lat, lng }) => (
   </MapView>
 );
 
-Map.propTypes = {
-  coordinates: PropTypes.object.isRequired,
-};
-
 export default Map;

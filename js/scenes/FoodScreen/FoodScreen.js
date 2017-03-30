@@ -47,7 +47,6 @@ const FoodScreen = ({ potluckFood, availableFoodItemCount, confirmedGuests }) =>
 FoodScreen.propTypes = {
   potluckFood: PropTypes.object.isRequired,
   availableFoodItemCount: PropTypes.func.isRequired,
-  confirmedGuests: PropTypes.number.isRequired,
 };
 
 export default FoodScreen;

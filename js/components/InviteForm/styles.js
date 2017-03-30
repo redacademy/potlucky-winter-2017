@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     borderWidth: 0.125,
     color: Main.loginInput.color,
     fontFamily: Main.loginInput.fontFamily,
-    fontSize: Main.loginInput.fontSize,
+    // fontSize: Main.loginInput.fontSize,
     borderRadius: 3,
   },
   buttonContainer: {

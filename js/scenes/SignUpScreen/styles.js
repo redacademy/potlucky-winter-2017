@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     color: Main.loginInput.color,
     fontFamily: Main.loginInput.fontFamily,
-    fontSize: typography.baseFontSize,
+    //fontSize: typography.baseFontSize,
     borderRadius: 25,
     paddingLeft: 22,
     paddingRight: 22,
@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
   errorMessage: {
     color: Main.loginInput.color,
     fontFamily: Main.loginInput.fontFamily,
-    fontSize: typography.smallestFontSize,
+    //fontSize: typography.smallestFontSize,
     backgroundColor: 'transparent'
   },
   errorContainer: {

@@ -59,7 +59,7 @@ class FoodScreenContainer extends Component {
 }
 
 FoodScreenContainer.propTypes = {
-  navigation: PropTypes.func.isRequired,
+  navigation: PropTypes.object.isRequired,
   potluckFood: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
