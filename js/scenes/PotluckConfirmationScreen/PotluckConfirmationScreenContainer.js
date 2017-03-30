@@ -30,7 +30,7 @@ class PotluckConfirmationScreenContainer extends Component {
       const data = {
         ...this.props.newPotluck,
         potluckInfo: {
-          ...this.props.newPotluck.potluckInfo, link: 'http://i.imgur.com/XyPXAaT.png'
+          ...this.props.newPotluck.potluckInfo, link: 'http://i.imgur.com/rDnmQzK.png'
         }
       };
       this.props.createNewPotluck(data, this.props.userId);
