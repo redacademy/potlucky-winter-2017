@@ -49,7 +49,7 @@ const PotluckInfo = ({ location, date, servingTime, arrivingTime, title, image, 
 };
 
 PotluckInfo.propTypes = {
-  image: PropTypes.number.isRequired,
+  image: PropTypes.object.isRequired,
 };
 
 export default PotluckInfo;

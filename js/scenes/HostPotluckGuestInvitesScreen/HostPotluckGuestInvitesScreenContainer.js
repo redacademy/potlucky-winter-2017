@@ -43,7 +43,6 @@ HostPotluckGuestInvitesScreenContainer.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   currentPotluckId: PropTypes.string.isRequired,
   fetchCurrentPotluckGuestlist: PropTypes.func.isRequired,
-  guestList: PropTypes.arrayOf(PropTypes.array),
 };
 
 export default connect(

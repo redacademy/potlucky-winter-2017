@@ -37,12 +37,4 @@ const HostPotluckGuestInvitesScreen = ({ guestList }) => (
   </ScrollView>
 );
 
-HostPotluckGuestInvitesScreen.defaultProps = {
-  guestList: PropTypes.arrayOf(PropTypes.array),
-};
-
-HostPotluckGuestInvitesScreen.propTypes = {
-  guestList: PropTypes.arrayOf(PropTypes.array),
-};
-
 export default HostPotluckGuestInvitesScreen;

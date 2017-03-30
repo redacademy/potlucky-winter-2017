@@ -26,7 +26,6 @@ export default StyleSheet.create({
     width: '50%',
     padding: 5,
     borderColor: colors.mainBrandColor,
-    fontSize: typography.baseFontSize,
     borderRadius: 3,
     borderWidth: 1,
     justifyContent: 'center',

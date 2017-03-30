@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     color: Main.loginInput.color,
     fontFamily: Main.loginInput.fontFamily,
-    fontSize: typography.smallestFontSize,
+    // fontSize: typography.smallestFontSize,
     backgroundColor: 'transparent',
     textAlign: 'center'
   },
