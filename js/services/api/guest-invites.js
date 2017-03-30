@@ -89,11 +89,17 @@ const getPotluckInvites = () => {
 };
 
 const getPotluckInviteEmail = (potluckId, encodedEmail) => {
-  const result = firebase.database()
+  const isInvited = firebase.database()
     .ref(`/potLuckInvites/${potluckId}/guests/${encodedEmail}`)
-    .once('value');
+    .once('value')
+    .then((result) => {
+      return result.val();
+    });
 
-  if (result) return potluckId;
+  return Promise.resolve(isInvited)
+    .then((result) => {
+      if (result !== null) return potluckId;
+    });
 };
 
 const processSignUpEmailInvites = (userId, email) => {
@@ -108,9 +114,12 @@ const processSignUpEmailInvites = (userId, email) => {
         .map((potluckId) => {
           // search potluckIds for contained email and return potluckId if true
           return getPotluckInviteEmail(potluckId, encodedEmail);
+          // console.log(getPotluckInviteEmail(potluckId, encodedEmail));
         });
 
-      return Promise.all(promises);
+      return Promise.all(promises).then((resolvedPromises) => {
+        return resolvedPromises.filter(promise => !!promise);
+      });
     })
     .then((potluckIds) => {
       potluckIds.forEach((potluckId) => {
