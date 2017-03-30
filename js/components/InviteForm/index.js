@@ -20,7 +20,7 @@ class InviteForm extends Gandalf {
           placeholder: 'Email',
           hintText: 'Email',
           style: styles.input,
-          autoCapitalize: false,
+          autoCapitalize: 'none',
         },
         getValueInOnChange: text => text,
         debounce: 300,
@@ -73,7 +73,7 @@ class InviteForm extends Gandalf {
           placeholder: 'Email',
           hintText: 'Email',
           style: styles.input,
-          autoCapitalize: false,
+          autoCapitalize: 'none',
         },
         getValueInOnChange: text => text,
         debounce: 300
