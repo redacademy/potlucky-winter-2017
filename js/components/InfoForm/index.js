@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Gandalf from 'gandalf-validator';
-import { View, ScrollView, TouchableHighlight, Image } from 'react-native';
+import { View, TouchableHighlight, Image, ActivityIndicator } from 'react-native';
 import styles from './styles';
 import ValidatedText from './../ValidatedText';
 import DatePicker from './../../components/DatePicker';
@@ -128,6 +128,9 @@ class Form extends Gandalf {
     };
     const imageSource = this.props.imageLink ? { uri: this.props.imageLink } : require('./../../../assets/images/camera-icon.png');
     const imageStyle = this.props.imageLink ? styles.image : styles.cameraImage;
+
+    console.log('Props for this page is...', this.props)
+
     return (
       <View style={styles.formContainer}>
         <View style={styles.mainContainer}>
@@ -167,11 +170,15 @@ class Form extends Gandalf {
             style={styles.noImage}
             onPress={() => this.props.goToImage()}
           >
-            <Image
-              style={imageStyle}
-              source={imageSource}
-            />
-          </TouchableHighlight>
+            {
+              this.props.isLoading ?
+                <ActivityIndicator /> :
+                <Image
+                  style={imageStyle}
+                  source={imageSource}
+                />
+            }
+          </TouchableHighlight >
           <GooglePlaces onLocationChange={this.onLocationChange} />
           <Map lat={this.state.latitude} lng={this.state.longitude} />
           {fields.description.element}
@@ -184,10 +191,14 @@ class Form extends Gandalf {
 const mapStateToProps = (state) => {
   if (state.newPotluck.potluckInfo) {
     return {
-      imageLink: state.newPotluck.potluckInfo.link
+      imageLink: state.newPotluck.potluckInfo.link,
+      isloading: state.isloading
     };
   }
-  return { imageLink: false };
+  return {
+    imageLink: false,
+    isLoading: state.isLoading,
+  };
 };
 
 

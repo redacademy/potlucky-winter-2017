@@ -5,6 +5,7 @@ import GuestPotluckInfoScreen from './GuestPotluckInfoScreen';
 import { fetchCurrentPotluck } from '../../redux/modules/currentPotluckActions';
 import { colors } from '../../styles/baseStyles';
 import NavigationArrow from './../../components/NavigationArrow';
+import api from '../../services/api/pot-lucks';
 
 class GuestPotluckInfoScreenContainer extends Component {
   static navigationOptions = {
@@ -23,12 +24,20 @@ class GuestPotluckInfoScreenContainer extends Component {
     this.props.dispatch(fetchCurrentPotluck(this.props.navigation.state.params.potluckId));
   }
 
+  actionInvite = (data) => {
+    const { currentPotluck, userId } = this.props;
+    api.actionInvite(data, currentPotluck.id, userId);
+  }
+
   render() {
     const { isLoading, currentPotluck } = this.props;
     return (
       isLoading ?
-      null :
-      <GuestPotluckInfoScreen currentPotluck={currentPotluck} />
+        null :
+        <GuestPotluckInfoScreen
+          currentPotluck={currentPotluck}
+          actionInvite={this.actionInvite}
+        />
     );
   }
 }
@@ -43,6 +52,8 @@ GuestPotluckInfoScreenContainer.propTypes = {
   navigation: PropTypes.func.isRequired,
   currentPotluck: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  userId: PropTypes.string.isRequired,
 };
 
 

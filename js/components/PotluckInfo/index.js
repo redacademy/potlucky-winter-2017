@@ -33,7 +33,7 @@ const PotluckInfo = ({ location, date, servingTime, arrivingTime, title, image, 
             <Text> {location}</Text>
           </View>
         </View>
-        { coordinates &&
+        {coordinates &&
           <Map lat={coordinates.lat} lng={coordinates.lng} />
         }
         <View />

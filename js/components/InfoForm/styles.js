@@ -41,6 +41,7 @@ export default StyleSheet.create({
   noImage: {
     height: 200,
     width: '100%',
+    marginBottom: 8,
     borderColor: colors.mainBrandColor,
     fontSize: typography.baseFontSize,
     borderRadius: 3,
@@ -94,9 +95,5 @@ export default StyleSheet.create({
     height: 250,
     alignSelf: 'flex-end',
     fontFamily: typography.fontMain,
-  },
-  formContainer: {
-    flex: 1,
-    alignItems: 'center'
   },
 });

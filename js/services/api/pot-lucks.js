@@ -2,23 +2,44 @@ import moment from 'moment';
 import api from './base';
 import guestInvites from './guest-invites';
 import { encodeObjectValues } from '../../helpers';
+import sendingEmails from './../../email/email';
 
-const getUserPotlucks = (userId) => {
-  return api.get(`/userPotLucks/${userId}`)
+const getUserPotlucks = userId => (
+  api.get(`/userPotLucks/${userId}`)
     .catch((error) => {
       console.log(error);
-    });
-};
+    })
+);
 
-const getPotluckFood = (potLuckId) => {
-  return api.get(`/potLuckFood/${potLuckId}`)
+const getPotluckFood = potLuckId => (
+  api.get(`/potLuckFood/${potLuckId}`)
     .catch((error) => {
       console.log(error);
-    });
-};
+    })
+);
 
-const getPotluck = (potLuckId) => {
-  return api.get(`/potLucks/${potLuckId}`)
+const getPotluck = potLuckId => (
+  api.get(`/potLucks/${potLuckId}`)
+    .catch((error) => {
+      console.log(error);
+    })
+);
+
+const actionInvite = (data, potluckId, userId) => {
+  const potluckInviteResponse = {
+    [data.inviteSelection]: true,
+    dateStamp: moment().format('YYYY-MM-DD'),
+  };
+
+  const updates = {
+    [`/potLuckGuests/${potluckId}/${userId}`]: potluckInviteResponse,
+    [`/userPotLucks/${userId}/${potluckId}/isNew`]: false,
+  };
+
+  return api.change(updates)
+    .then(() => (
+      `${data.inviteSelection} chosen for potluck: ${potluckId}`
+    ))
     .catch((error) => {
       console.log(error);
     });
@@ -79,16 +100,20 @@ const createPotluck = (data, userId) => {
   };
 
   return api.change(updates)
-    .then(() => {
+    .then(() => (
       // get uIds from emails of existing users
-      return guestInvites.processSignInEmailInvites(newPotluckId, potluckGuests);
-    })
+      guestInvites.processSignInEmailInvites(newPotluckId, potluckGuests)
+    ))
     .then((result) => {
       // create user pot luck invites
       guestInvites.createPotluckGuest(newPotluckId, result);
 
       // create sign-in user potluck invites
       guestInvites.createUserPotluck(newPotluckId, potluck, result);
+    })
+    .then(() => {
+      // send emails!
+      sendingEmails(data.potluckInvites, data.potluckInfo);
     })
     .then(() => {
       return `${potluck.title} saved and guests invited!`;
@@ -104,4 +129,5 @@ export default {
   createPotluck,
   getPotluckFood,
   submitFoodItem,
+  actionInvite,
 };

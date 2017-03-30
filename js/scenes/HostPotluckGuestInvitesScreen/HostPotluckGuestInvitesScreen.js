@@ -3,6 +3,19 @@ import { ScrollView, Text, View, Image } from 'react-native';
 import { inviteConfirmationStatus } from '../../constants';
 import styles from './styles';
 
+const getStatusImage = (inviteIndicator) => {
+  switch (inviteIndicator) {
+    case '+':
+      return <Image style={styles.statusImage} source={inviteConfirmationStatus.YES.imageSource} />;
+    case '-':
+      return <Image style={styles.statusImage} source={inviteConfirmationStatus.NO.imageSource} />;
+    case '?':
+      return <Image style={styles.statusImage} source={inviteConfirmationStatus.UNKNOWN.imageSource} />;
+    default:
+      return null;
+  }
+};
+
 const HostPotluckGuestInvitesScreen = ({ guestList }) => (
   <ScrollView style={styles.container}>
     <View style={styles.rowContainer}>
@@ -12,9 +25,9 @@ const HostPotluckGuestInvitesScreen = ({ guestList }) => (
             <View style={styles.guestNameContainer} key={Math.random() * Date.now()}>
               <Text style={styles.nameText}>{guest[0]}</Text>
               <View style={styles.imageView}>
-                {(guest[1] === '+' && <Image source={inviteConfirmationStatus.YES.imageSource} />)
-                || (guest[1] === '-' && <Image source={inviteConfirmationStatus.NO.imageSource} />)
-                || <Image source={inviteConfirmationStatus.UNKNOWN.imageSource} />}
+                {
+                  getStatusImage(guest[1])
+                }
               </View>
             </View>
           );

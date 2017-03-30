@@ -170,7 +170,7 @@ const getGuestInviteUserDetailsNoResponse = (potluckId, userId) => {
     });
 };
 
-const processtPotluckUserInviteResponses = (potluckId, inviteType) => {
+const processPotluckUserInviteResponses = (potluckId, inviteType) => {
   return api.get(`/potLuckGuests/${potluckId}`)
     .then((userIds) => {
       return Object.keys(userIds);
@@ -215,28 +215,24 @@ const processPotluckEmailInviteNoResponses = (potluckId) => {
     });
 };
 
+const createGuestResponse = (key, item) => {
+  const responseMap = {
+    userAccept: [`${item.firstName} ${item.lastName}`, '+'],
+    userReject: [`${item.firstName} ${item.lastName}`, '-'],
+    userNoResponse: [`${item.firstName} ${item.lastName}`, '?'],
+    emailNoResponse: [`${item}`, '?'],
+  };
+
+  return responseMap[key];
+};
+
 const createGuestResponses = (inviteResponses) => {
   const guestResponses = [];
 
   Object.keys(inviteResponses).map((key) => {
-    if (key === 'userAccept' && inviteResponses[key].length > 0) {
+    if (inviteResponses[key].length > 0) {
       inviteResponses[key].forEach((item) => {
-        guestResponses.push([`${item.firstName} ${item.lastName}`, '+']);
-      });
-    }
-    if (key === 'userReject' && inviteResponses[key].length > 0) {
-      inviteResponses[key].forEach((item) => {
-        guestResponses.push([`${item.firstName} ${item.lastName}`, '-']);
-      });
-    }
-    if (key === 'userNoResponse' && inviteResponses[key].length > 0) {
-      inviteResponses[key].forEach((item) => {
-        guestResponses.push([`${item.firstName} ${item.lastName}`, '?']);
-      });
-    }
-    if (key === 'emailNoResponse' && inviteResponses[key].length > 0) {
-      inviteResponses[key].forEach((item) => {
-        guestResponses.push([item, '?']);
+        guestResponses.push(createGuestResponse(key, item));
       });
     }
   });
@@ -246,9 +242,9 @@ const createGuestResponses = (inviteResponses) => {
 
 const getPotluckInviteResponses = (potluckId) => {
   const promises = [
-    processtPotluckUserInviteResponses(potluckId, getGuestInviteUserDetailsAccept) || [],
-    processtPotluckUserInviteResponses(potluckId, getGuestInviteUserDetailsReject) || [],
-    processtPotluckUserInviteResponses(potluckId, getGuestInviteUserDetailsNoResponse) || [],
+    processPotluckUserInviteResponses(potluckId, getGuestInviteUserDetailsAccept) || [],
+    processPotluckUserInviteResponses(potluckId, getGuestInviteUserDetailsReject) || [],
+    processPotluckUserInviteResponses(potluckId, getGuestInviteUserDetailsNoResponse) || [],
     processPotluckEmailInviteNoResponses(potluckId) || [],
   ];
 
