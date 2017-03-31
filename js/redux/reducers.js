@@ -6,6 +6,7 @@ import userSignInReducer from './modules/userSignInReducer';
 import newPotluckReducer from './modules/newPotluckReducer';
 import currentPotluckReducer from './modules/currentPotluckReducer';
 import potluckFoodReducer from './modules/potluckFoodReducer';
+import messageReducer from './modules/messageReducer';
 
 export default combineReducers({
   myPotlucks: myPotlucksReducer,
@@ -14,4 +15,5 @@ export default combineReducers({
   newPotluck: newPotluckReducer,
   currentPotluck: currentPotluckReducer,
   potluckFood: potluckFoodReducer,
+  message: messageReducer,
 });

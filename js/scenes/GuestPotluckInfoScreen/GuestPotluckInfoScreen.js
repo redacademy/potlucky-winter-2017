@@ -6,33 +6,44 @@ import styles from './styles';
 import { colors } from '../../styles/baseStyles';
 import SingleFlatButton from '../../components/SingleFlatButton';
 
-const GuestPotluckInfoScreen = ({ currentPotluck, actionInvite }) => (
+const GuestPotluckInfoScreen = ({ currentPotluck, actionInvite, message }) => (
   <View style={styles.container}>
     <PotluckInfo
       title={currentPotluck.title}
       image={{ uri: currentPotluck.link }}
       date={currentPotluck.eventDate}
       arrivingTime={currentPotluck.arriveTime}
-      servingTime={currentPotluck.arriveTime}
+      servingTime={currentPotluck.servingTime}
       location={currentPotluck.location}
       description={currentPotluck.description}
       coordinates={currentPotluck.coordinates}
     />
 
     {
-      !currentPotluck.isNew &&
-      <View style={styles.buttonContainer}>
-        <SingleFlatButton
-          title={'Sorry, can\'t make it'}
-          onPress={() => actionInvite({ inviteSelection: 'inviteDeclined' })}
-          backgroundColor={colors.invitePrimaryBtn}
-        />
-        <SingleFlatButton
-          title={'See you there!'}
-          onPress={() => actionInvite({ inviteSelection: 'inviteAccepted' })}
-          backgroundColor={colors.inviteSecondaryBtn}
-        />
-      </View>
+      message ?
+        <View style={styles.buttonContainer}>
+          <SingleFlatButton
+            title={'Thank you for your response!'}
+            onPress={(console.log('yay'))}
+            backgroundColor={colors.invitePrimaryBtn}
+          />
+        </View>
+        :
+        (
+          !currentPotluck.isNew &&
+          <View style={styles.buttonContainer}>
+            <SingleFlatButton
+              title={'Sorry, can\'t make it'}
+              onPress={() => actionInvite({ inviteSelection: 'inviteDeclined' })}
+              backgroundColor={colors.invitePrimaryBtn}
+            />
+            <SingleFlatButton
+              title={'See you there!'}
+              onPress={() => actionInvite({ inviteSelection: 'inviteAccepted' })}
+              backgroundColor={colors.inviteSecondaryBtn}
+            />
+          </View>
+        )
     }
 
   </View >
