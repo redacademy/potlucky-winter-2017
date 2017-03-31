@@ -13,7 +13,7 @@ const GuestPotluckInfoScreen = ({ currentPotluck, actionInvite, message }) => (
       image={{ uri: currentPotluck.link }}
       date={currentPotluck.eventDate}
       arrivingTime={currentPotluck.arriveTime}
-      servingTime={currentPotluck.arriveTime}
+      servingTime={currentPotluck.servingTime}
       location={currentPotluck.location}
       description={currentPotluck.description}
       coordinates={currentPotluck.coordinates}
